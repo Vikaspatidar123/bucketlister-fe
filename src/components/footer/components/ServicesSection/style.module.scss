@@ -1,0 +1,56 @@
+.servicesSection {
+  flex: 1;
+  padding: 2rem;
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+  
+  .servicesGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .serviceItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    
+    .serviceIcon {
+      font-size: 1.5rem;
+      min-width: 2rem;
+      text-align: center;
+    }
+    
+    .serviceContent {
+      flex: 1;
+      
+      .serviceTitle {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+        margin: 0 0 0.5rem 0;
+      }
+      
+      .serviceDescription {
+        font-size: 0.9rem;
+        color: #666;
+        margin: 0;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .servicesSection {
+    .servicesGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

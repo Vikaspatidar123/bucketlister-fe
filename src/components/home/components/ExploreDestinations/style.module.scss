@@ -1,0 +1,109 @@
+.exploreDestinations {
+  background: white;
+  padding: 4rem 0;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+    
+    .sectionTitle {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #333;
+      margin: 0;
+      
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+  }
+  
+  .tabsContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    
+    .tabs {
+      display: flex;
+      gap: 0;
+      background: #f8f9fa;
+      border-radius: 50px;
+      padding: 0.5rem;
+      
+      .tab {
+        padding: 0.75rem 2rem;
+        border: none;
+        background: transparent;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #666;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        
+        &:hover {
+          color: #333;
+        }
+        
+        &.activeTab {
+          background: transparent;
+          color: #333;
+          position: relative;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: #dc3545;
+            border-radius: 2px;
+          }
+        }
+      }
+    }
+  }
+  
+  .destinationsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+    .destinationsRow {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+      
+      /* Hide scrollbar for webkit browsers */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Hide scrollbar for Firefox */
+      scrollbar-width: none;
+      
+      /* Enable smooth scrolling */
+      scroll-behavior: smooth;
+      
+      /* Add some padding to show partial cards */
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      
+      /* Ensure cards don't shrink */
+      & > * {
+        flex-shrink: 0;
+      }
+    }
+  }
+  
+}

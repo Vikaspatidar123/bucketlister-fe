@@ -1,0 +1,152 @@
+.header {
+  background: white;
+  border-bottom: 1px solid #dde1e6;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0px 2px 12px 0px #0000001a;
+}
+
+.headerContent {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+// Logo styles
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  
+}
+
+.logoImage {
+  width: 142;
+  height: 39.5;
+  opacity: 1;
+}
+// Navigation styles
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 0;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #666;
+  }
+}
+
+.highlighted {
+  color: #EF3447 !important;
+  font-weight: 600;
+}
+
+.dropdownToggle {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+// Contact info styles
+.contactInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.phoneSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.phoneNumber {
+  color: #EF3447;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.separator {
+  width: 1px;
+  height: 24px;
+  background-color: #ccc;
+}
+
+.searchIcon {
+  cursor: pointer;
+
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .headerContent {
+    padding: 0 16px;
+    height: 70px;
+  }
+
+  .navigation {
+    gap: 20px;
+  }
+
+  .navLink {
+    font-size: 14px;
+  }
+
+  .brandText {
+    font-size: 16px;
+  }
+
+  .phoneNumber {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerContent {
+    flex-direction: column;
+    height: auto;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .navigation {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .contactInfo {
+    justify-content: center;
+  }
+}

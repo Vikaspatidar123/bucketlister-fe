@@ -1,0 +1,173 @@
+.pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-family: inherit;
+}
+
+.paginationContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: white;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  text-decoration: none;
+
+  &:hover:not(.disabled) {
+    background-color: #f8f9fa;
+    color: #495057;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+
+  &.active {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f8f9fa;
+  }
+}
+
+// Size variants
+.small {
+  min-width: 32px;
+  height: 32px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.medium {
+  min-width: 40px;
+  height: 40px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+.large {
+  min-width: 48px;
+  height: 48px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+// Variant styles
+.default {
+  // Default styling is already applied above
+}
+
+.ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: 500;
+  user-select: none;
+}
+
+.pageInfo {
+  font-size: 14px;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .paginationContainer {
+    gap: 2px;
+    padding: 2px;
+  }
+
+  .button {
+    min-width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .small {
+    min-width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+
+  .large {
+    min-width: 44px;
+    height: 44px;
+    font-size: 15px;
+  }
+
+  .ellipsis {
+    min-width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .paginationContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .button {
+    min-width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .small {
+    min-width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+
+  .large {
+    min-width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .ellipsis {
+    min-width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .pageInfo {
+    font-size: 13px;
+  }
+}

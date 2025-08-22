@@ -1,0 +1,379 @@
+.bannerSection {
+  position: relative;
+  width: 100%;
+}
+
+// Full Width Background Banner
+.backgroundBanner {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  margin-bottom: 0;
+  padding-bottom: 25px; /* Add 25px gap below banner */
+  
+  .carouselContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    
+    .emblaContainer {
+      display: flex;
+      height: 100%;
+    }
+    
+    .carouselSlide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      
+      .slideOverlay {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.3) 0%,
+          rgba(0, 0, 0, 0.1) 50%,
+          rgba(0, 0, 0, 0.4) 100%
+        );
+        display: flex;
+        align-items: center;
+        
+        .bannerContent {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
+          color: white;
+          
+          .bannerTitle {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 0 0 1.5rem 0;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            
+            @media (max-width: 768px) {
+              font-size: 2.5rem;
+            }
+          }
+          
+          .bannerDescription {
+            font-size: 1.2rem;
+            margin: 0 0 2rem 0;
+            max-width: 600px;
+            line-height: 1.6;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            
+            @media (max-width: 768px) {
+              font-size: 1rem;
+            }
+          }
+          
+          .ctaButton {
+            background: #dc3545;
+            color: white;
+            border: 2px solid white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: none;
+            
+            &:hover {
+              background: white;
+              color: #dc3545;
+              transform: translateY(-2px);
+              box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Navigation Arrows
+  .navArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(220, 53, 69, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    
+    &:hover {
+      background: rgba(220, 53, 69, 1);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    &:first-child {
+      left: 2rem;
+    }
+    
+    &:last-of-type {
+      right: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+      
+      &:first-child {
+        left: 1rem;
+      }
+      
+      &:last-of-type {
+        right: 1rem;
+      }
+    }
+  }
+  
+  // Carousel Indicators
+  .carouselIndicators {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.75rem;
+    z-index: 10;
+    
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid white;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+      
+      &.active {
+        background: white;
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+// Bottom Cards Section
+.bottomCards {
+  background: white;
+  padding: 0;
+  margin-top: 0; /* Remove negative margin */
+  position: relative;
+  z-index: 5;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2rem 2rem 2rem;
+    position: relative;
+  }
+  
+  .cardsRow {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    padding-right: 4rem; /* Space for next button */
+    
+    /* Hide scrollbar */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+    
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+    
+    /* Add some padding to show partial cards */
+    padding-left: 0.5rem;
+  }
+  
+  .destinationCard {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cardImage {
+      position: relative;
+      width: 100%;
+      height: 120px;
+      
+      .destinationImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px 16px 0 0;
+      }
+      
+      .badge {
+        position: absolute;
+        bottom: 8px;
+        left: 8px;
+        width: 24px;
+        height: 24px;
+        background: #e91e63;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(233, 30, 99, 0.3);
+      }
+    }
+    
+    .cardContent {
+      padding: 1rem;
+      
+      .destinationName {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+        margin: 0 0 0.5rem 0;
+        text-align: center;
+      }
+      
+      .duration {
+        font-size: 0.9rem;
+        color: #666;
+        text-align: center;
+        display: block;
+        font-weight: 500;
+      }
+    }
+  }
+  
+  // Next Button on Right Side
+  .nextButton {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: #dc3545;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: white;
+    
+    &:hover {
+      background: #c82333;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+      right: 1rem;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .backgroundBanner {
+    height: 400px;
+    padding-bottom: 20px; /* Slightly less gap on mobile */
+    
+    .carouselSlide .slideOverlay .bannerContent {
+      padding: 0 1rem;
+      
+      .bannerTitle {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .bannerDescription {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .ctaButton {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+    
+    .carouselIndicators {
+      bottom: 1.5rem;
+      
+      .indicator {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+  
+  .bottomCards {
+    padding: 0;
+    margin-top: 0; /* Remove negative margin on mobile too */
+    
+    .container {
+      padding: 1.5rem 1rem 1.5rem 1rem;
+    }
+    
+    .cardsRow {
+      gap: 1rem;
+      padding-right: 3rem; /* Space for next button */
+    }
+    
+    .destinationCard {
+      min-width: 160px;
+      
+      .cardImage {
+        height: 100px;
+      }
+      
+      .cardContent {
+        padding: 0.75rem;
+        
+        .destinationName {
+          font-size: 0.9rem;
+        }
+        
+        .duration {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  .backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('/assets/png/banner1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+    z-index: 2;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .headingSection {
+      margin-bottom: 3rem;
+      
+      .mainHeading {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-weight: 700;
+        color: white;
+        margin: 0;
+        line-height: 1.2;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        
+        .line1 {
+          display: block;
+          margin-bottom: 0.5rem;
+        }
+        
+        .line2 {
+          display: block;
+          font-weight: 800;
+        }
+      }
+    }
+    
+    .searchSection {
+      margin-top: 2rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 80vh;
+    
+    .content {
+      padding: 1rem;
+      
+      .headingSection {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    .content {
+      .headingSection .mainHeading {
+        font-size: 2rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+.companyInfo {
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  
+  .logoSection {
+    margin-bottom: 2rem;
+    
+    .companyName {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: 2px;
+      position: relative;
+      
+      .airplaneIcon {
+        font-size: 1.5rem;
+        position: absolute;
+        top: -10px;
+        right: -30px;
+        animation: fly 3s ease-in-out infinite;
+      }
+    }
+  }
+  
+  .contactDetails {
+    margin-bottom: 2rem;
+    
+    .address {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0 0 1rem 0;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .phoneNumbers {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      
+      .phoneNumber {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+    }
+    
+    .email {
+      font-size: 1rem;
+      margin: 0;
+      font-weight: 500;
+    }
+  }
+  
+  .socialMedia {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    
+    .socialIcon {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+@keyframes fly {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(10deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .companyInfo {
+    .logoSection .companyName {
+      font-size: 2rem;
+      
+      .airplaneIcon {
+        font-size: 1.2rem;
+        right: -25px;
+      }
+    }
+    
+    .contactDetails .phoneNumbers {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+}

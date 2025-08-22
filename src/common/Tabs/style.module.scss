@@ -1,0 +1,233 @@
+.tabsContainer {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+// Variants
+.defaultContainer {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+.pillsContainer {
+  background: transparent;
+  gap: 8px;
+}
+
+.underlineContainer {
+  background: transparent;
+  border-bottom: 2px solid #e9ecef;
+  border-radius: 0;
+}
+
+// Sizes
+.smallContainer {
+  .tab {
+    padding: 8px 16px;
+    font-size: 13px;
+    min-height: 36px;
+  }
+}
+
+.mediumContainer {
+  .tab {
+    padding: 12px 20px;
+    font-size: 14px;
+    min-height: 44px;
+  }
+}
+
+.largeContainer {
+  .tab {
+    padding: 16px 24px;
+    font-size: 16px;
+    min-height: 52px;
+  }
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  color: #6c757d;
+  position: relative;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 1;
+
+  &:hover:not(.disabled) {
+    color: #495057;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// Default variant
+.default {
+  border-radius: 0;
+  border-right: 1px solid #e9ecef;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &.active {
+    background: white;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+  }
+}
+
+// Pills variant
+.pills {
+  border-radius: 20px;
+  border: 1px solid #e9ecef;
+  background: white;
+  flex: 0 0 auto;
+
+  &:hover:not(.disabled) {
+    background-color: #f8f9fa;
+  }
+
+  &.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+
+    &:hover {
+      background: #0056b3;
+    }
+  }
+}
+
+// Underline variant
+.underline {
+  border-radius: 0;
+  background: transparent;
+
+  &.active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+  }
+
+  &:hover:not(.disabled) {
+    background-color: rgba(0, 123, 255, 0.05);
+  }
+}
+
+.tabIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.tabLabel {
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+.tabBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 6px;
+  background: #6c757d;
+  color: white;
+  border-radius: 9px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+// Active state badge styling
+.active .tabBadge {
+  background: currentColor;
+  color: inherit;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .tabsContainer {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .pillsContainer {
+    gap: 6px;
+  }
+
+  .mediumContainer .tab {
+    padding: 10px 16px;
+    min-height: 40px;
+    font-size: 13px;
+  }
+
+  .largeContainer .tab {
+    padding: 14px 20px;
+    min-height: 48px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabsContainer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .pillsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tab {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pills {
+    flex: 0 0 auto;
+  }
+
+  .smallContainer .tab {
+    padding: 6px 12px;
+    min-height: 32px;
+    font-size: 12px;
+  }
+
+  .mediumContainer .tab {
+    padding: 8px 14px;
+    min-height: 36px;
+    font-size: 12px;
+  }
+
+  .largeContainer .tab {
+    padding: 12px 18px;
+    min-height: 44px;
+    font-size: 14px;
+  }
+}

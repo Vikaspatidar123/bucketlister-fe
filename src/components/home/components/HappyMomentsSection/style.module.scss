@@ -1,0 +1,102 @@
+.happyMomentsSection {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .sectionTitle {
+    text-align: center;
+    font-family: serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 3rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .momentsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+  
+  .momentCard {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+    
+    .imageContainer {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      
+      .momentImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+    }
+    
+    .momentInfo {
+      padding: 1rem;
+      
+      .momentTitle {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+        margin: 0 0 0.5rem 0;
+      }
+      
+      .momentDescription {
+        font-size: 0.9rem;
+        color: #666;
+        margin: 0;
+        line-height: 1.4;
+      }
+    }
+  }
+  
+  .placeholderCard {
+    background: #e9ecef;
+    border-radius: 12px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    
+    .placeholderContent {
+      text-align: center;
+      
+      .placeholderText {
+        font-size: 1rem;
+        color: #6c757d;
+        font-weight: 500;
+      }
+    }
+  }
+}
