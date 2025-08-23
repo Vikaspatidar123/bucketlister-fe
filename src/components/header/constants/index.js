@@ -1,8 +1,13 @@
 export const NAVIGATION_ITEMS = [
   {
-    label: 'Destinations',
-    hasDropdown: true,
-    href: '/destinations'
+    label: 'International',
+    hasDropdown: false,
+    href: '/explore'
+  },
+  {
+    label: 'Domestic',
+    hasDropdown: false,
+    href: '/domestic'
   },
   {
     label: 'Upcoming Tours',

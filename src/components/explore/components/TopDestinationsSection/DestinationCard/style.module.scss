@@ -1,0 +1,126 @@
+.destinationCard {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  height: 220px;
+  background: white;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.cardImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+}
+
+.destinationCard:hover .cardImage img {
+  transform: scale(1.05);
+}
+
+.cardOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.8) 100%);
+  color: white;
+  padding: 25px 20px 20px 20px;
+  text-align: center;
+}
+
+.destinationName {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.destinationPrice {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  line-height: 1.3;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@media (max-width: 1280px) {
+  .destinationCard {
+    height: 200px;
+  }
+  
+  .destinationName {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .destinationCard {
+    height: 190px;
+  }
+  
+  .cardOverlay {
+    padding: 22px 18px 18px 18px;
+  }
+  
+  .destinationName {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .destinationCard {
+    height: 180px;
+  }
+
+  .cardOverlay {
+    padding: 20px 15px 15px 15px;
+  }
+
+  .destinationName {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+
+  .destinationPrice {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .destinationCard {
+    height: 160px;
+  }
+  
+  .cardOverlay {
+    padding: 18px 12px 12px 12px;
+  }
+  
+  .destinationName {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  
+  .destinationPrice {
+    font-size: 0.8rem;
+  }
+} 

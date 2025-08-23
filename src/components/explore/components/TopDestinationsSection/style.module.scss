@@ -1,0 +1,96 @@
+.topDestinationsSection {
+  padding: 20px 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+//   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+  color: #2c3e50;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.carouselContainer {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carouselWrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carouselViewport {
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  width: 100%;
+}
+
+.carouselSlide {
+  flex: 0 0 300px;
+  min-width: 300px;
+  max-width: 300px;
+}
+
+@media (max-width: 1280px) {
+  .carouselSlide {
+    flex: 0 0 280px;
+    min-width: 280px;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .carouselSlide {
+    flex: 0 0 260px;
+    min-width: 260px;
+    max-width: 260px;
+  }
+  
+  .carouselViewport {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topDestinationsSection {
+    padding: 60px 0;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .carouselSlide {
+    flex: 0 0 250px;
+    min-width: 250px;
+    max-width: 250px;
+  }
+
+  .carouselViewport {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .carouselSlide {
+    flex: 0 0 220px;
+    min-width: 220px;
+    max-width: 220px;
+  }
+  
+  .carouselViewport {
+    gap: 15px;
+  }
+} 

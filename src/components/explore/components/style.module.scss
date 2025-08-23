@@ -1,0 +1,14 @@
+.explorePage {
+  min-height: 100vh;
+  background-color: white;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+/* Ensure proper spacing between sections */
+.explorePage > * {
+  margin-bottom: 0;
+}
+
+.explorePage > *:last-child {
+  margin-bottom: 0;
+} 
