@@ -11,14 +11,14 @@ const DestinationCard = ({ destination, onClick }) => {
   };
 
   return (
-    <div className={styles.destinationCard} onClick={handleClick}>
-      <div className={styles.cardImage}>
-        {/* Placeholder for image - you can add actual images later */}
-        <div className={styles.imagePlaceholder}></div>
+    <div className={styles.cardWrapper}>
+      <div className={styles.destinationCard} onClick={handleClick}>
+        <div className={styles.cardImage}>
+          {/* Placeholder for image - you can add actual images later */}
+          <div className={styles.imagePlaceholder}></div>
+        </div>
       </div>
-      <div className={styles.cardContent}>
-        <h3 className={styles.destinationName}>{destination.name}</h3>
-      </div>
+      <h3 className={styles.destinationName}>{destination.name}</h3>
     </div>
   );
 };

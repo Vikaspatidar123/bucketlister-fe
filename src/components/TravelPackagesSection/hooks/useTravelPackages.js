@@ -1,19 +1,48 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { TRAVEL_PACKAGES_DATA } from '../constants';
+
+// Custom hook for handling click outside
+const useClickOutside = (isOpen, onClose) => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isOpen, onClose]);
+
+  return ref;
+};
 
 export const useTravelPackages = () => {
   const [filters, setFilters] = useState({
     destinations: [],
-    price: null,
+    priceRange: [0, 100000], // Default price range
     dates: null,
     features: []
   });
   const [activeDateTab, setActiveDateTab] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState('default');
+  const [isPriceFilterOpen, setIsPriceFilterOpen] = useState(false);
 
   const itemsPerPage = 8;
+
+  // Use the click outside hook
+  const priceFilterRef = useClickOutside(isPriceFilterOpen, () => setIsPriceFilterOpen(false));
 
   // Filter and sort data
   const filteredAndSortedData = useMemo(() => {
@@ -26,9 +55,9 @@ export const useTravelPackages = () => {
       }
 
       // Filter by price range
-      if (filters.price) {
+      if (filters.priceRange && filters.priceRange.length === 2) {
         const packagePrice = parseInt(packageItem.price.replace(/[^\d]/g, ''));
-        const [minPrice, maxPrice] = filters.price.value.split('-').map(p => parseInt(p));
+        const [minPrice, maxPrice] = filters.priceRange;
         if (packagePrice < minPrice || packagePrice > maxPrice) {
           return false;
         }
@@ -93,38 +122,100 @@ export const useTravelPackages = () => {
   );
 
   const handleFilterChange = (filterType, value) => {
+    // Store current scroll position
+    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
     setFilters(prev => ({
       ...prev,
       [filterType]: value
     }));
     setCurrentPage(1); // Reset to first page when filters change
+    
+    // Maintain scroll position after filter change
+    setTimeout(() => {
+      window.scrollTo(0, currentScrollPosition);
+    }, 0);
+  };
+
+  const handlePriceRangeChange = (priceRange) => {
+    console.log('Price range changed:', priceRange); // Debug log
+    
+    // Store current scroll position
+    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
+    setFilters(prev => ({
+      ...prev,
+      priceRange: priceRange
+    }));
+    setCurrentPage(1); // Reset to first page when price range changes
+    
+    // Maintain scroll position after price range change
+    setTimeout(() => {
+      window.scrollTo(0, currentScrollPosition);
+    }, 0);
   };
 
   const clearFilters = () => {
+    // Store current scroll position
+    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
     setFilters({
       destinations: [],
-      price: null,
+      priceRange: [0, 100000],
       dates: null,
       features: []
     });
+    setCurrentPage(1);
     setActiveDateTab('all');
     setSortBy('default');
-    setCurrentPage(1);
+    
+    // Maintain scroll position after clearing filters
+    setTimeout(() => {
+      window.scrollTo(0, currentScrollPosition);
+    }, 0);
   };
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Prevent scroll to top by maintaining current scroll position
+    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    setTimeout(() => {
+      window.scrollTo(0, currentScrollPosition);
+    }, 0);
   };
 
   const setActiveDateTabHandler = (tabId) => {
+    // Store current scroll position
+    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
     setActiveDateTab(tabId);
-    setCurrentPage(1); // Reset to first page when date tab changes
+    setCurrentPage(1);
+    
+    // Maintain scroll position after date tab change
+    setTimeout(() => {
+      window.scrollTo(0, currentScrollPosition);
+    }, 0);
   };
 
   const setSortByHandler = (sortValue) => {
+    // Store current scroll position
+    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
     setSortBy(sortValue);
-    setCurrentPage(1); // Reset to first page when sort changes
+    setCurrentPage(1);
+    
+    // Maintain scroll position after sort change
+    setTimeout(() => {
+      window.scrollTo(0, currentScrollPosition);
+    }, 0);
+  };
+
+  const togglePriceFilter = () => {
+    setIsPriceFilterOpen(!isPriceFilterOpen);
+  };
+
+  const closePriceFilter = () => {
+    setIsPriceFilterOpen(false);
   };
 
   return {
@@ -133,6 +224,7 @@ export const useTravelPackages = () => {
     activeDateTab,
     currentPage,
     sortBy,
+    isPriceFilterOpen,
     
     // Computed values
     filteredAndSortedData,
@@ -141,9 +233,13 @@ export const useTravelPackages = () => {
     
     // Actions
     handleFilterChange,
+    handlePriceRangeChange,
     clearFilters,
     handlePageChange,
     setActiveDateTab: setActiveDateTabHandler,
-    setSortBy: setSortByHandler
+    setSortBy: setSortByHandler,
+    togglePriceFilter,
+    closePriceFilter,
+    priceFilterRef
   };
 };

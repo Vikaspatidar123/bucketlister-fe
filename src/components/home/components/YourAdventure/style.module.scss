@@ -79,11 +79,6 @@
     // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
 
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    }
-
     @media (max-width: 480px) {
       padding: 1rem;
       gap: 1rem;

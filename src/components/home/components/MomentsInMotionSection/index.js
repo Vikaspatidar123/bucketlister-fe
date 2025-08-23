@@ -6,32 +6,32 @@ const MomentsInMotionSection = () => {
   const moments = [
     {
       id: 1,
-      image: "/api/placeholder/300/400",
+      image: "https://www.w3schools.com/howto/rain.mp4",
       alt: "Boat view on lake with mountains - Moment 1"
     },
     {
       id: 2,
-      image: "/api/placeholder/300/400",
+      image: "https://www.w3schools.com/howto/rain.mp4",
       alt: "Boat view on lake with mountains - Moment 2"
     },
     {
       id: 3,
-      image: "/api/placeholder/300/400",
+      image: "https://www.w3schools.com/howto/rain.mp4",
       alt: "Boat view on lake with mountains - Moment 3"
     },
     {
       id: 4,
-      image: "/api/placeholder/300/400",
+      image: "https://www.w3schools.com/howto/rain.mp4",
       alt: "Boat view on lake with mountains - Moment 4"
     },
     {
       id: 5,
-      image: "/api/placeholder/300/400",
+      image: "https://www.w3schools.com/howto/rain.mp4",
       alt: "Boat view on lake with mountains - Moment 5"
     },
     {
       id: 6,
-      image: "/api/placeholder/300/400",
+      image: "https://www.w3schools.com/howto/rain.mp4",
       alt: "Boat view on lake with mountains - Moment 6"
     }
   ];
@@ -52,11 +52,15 @@ const MomentsInMotionSection = () => {
                 className={styles.momentCard}
               >
                 <div className={styles.imageContainer}>
-                  {/* <img 
-                    src={banner1} 
+                  <video 
+                    src={moment.image} 
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     alt={moment.alt}
                     className={styles.momentImage}
-                  /> */}
+                  />
                   <div className={styles.overlay}>
                     <div className={styles.boatView}>
                       <div className={styles.boatBow}></div>

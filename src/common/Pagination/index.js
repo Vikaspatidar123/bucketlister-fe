@@ -6,11 +6,6 @@ const Pagination = ({
   currentPage = 1,
   totalPages = 1,
   onPageChange,
-  size = 'medium',
-  variant = 'default',
-  showFirstLast = true,
-  showPageNumbers = true,
-  maxVisiblePages = 5,
   className = '',
   disabled = false
 }) => {
@@ -22,45 +17,10 @@ const Pagination = ({
     }
   };
 
-  const getPageNumbers = () => {
-    const pages = [];
-    const halfVisible = Math.floor(maxVisiblePages / 2);
-    
-    let startPage = Math.max(1, currentPage - halfVisible);
-    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-    
-    // Adjust start page if we're near the end
-    if (endPage - startPage + 1 < maxVisiblePages) {
-      startPage = Math.max(1, endPage - maxVisiblePages + 1);
-    }
-    
-    for (let i = startPage; i <= endPage; i++) {
-      pages.push(i);
-    }
-    
-    return pages;
-  };
-
-  const getButtonClass = (type, page = null) => {
-    const baseClass = styles.button;
-    const sizeClass = styles[size];
-    const variantClass = styles[variant];
-    const disabledClass = disabled ? styles.disabled : '';
-    
-    let stateClass = '';
-    if (type === 'page' && page === currentPage) {
-      stateClass = styles.active;
-    } else if (type === 'disabled') {
-      stateClass = styles.disabled;
-    }
-    
-    return `${baseClass} ${sizeClass} ${variantClass} ${stateClass} ${disabledClass}`.trim();
-  };
-
   const renderPageButton = (page) => (
     <button
       key={page}
-      className={getButtonClass('page', page)}
+      className={`${styles.pageButton} ${page === currentPage ? styles.active : ''}`}
       onClick={() => handlePageChange(page)}
       disabled={disabled}
       type="button"
@@ -69,90 +29,43 @@ const Pagination = ({
     </button>
   );
 
-  const renderEllipsis = (key) => (
-    <span key={key} className={styles.ellipsis}>
-      ...
-    </span>
-  );
-
-  const renderNavigationButton = (type, page, icon, label) => {
+  const renderNavigationButton = (type, page, icon) => {
     const isDisabled = disabled || page < 1 || page > totalPages;
     
     return (
       <button
-        className={getButtonClass(isDisabled ? 'disabled' : 'nav')}
+        className={`${styles.navButton} ${isDisabled ? styles.disabled : ''}`}
         onClick={() => handlePageChange(page)}
         disabled={isDisabled}
         type="button"
-        aria-label={label}
+        aria-label={type === 'prev' ? 'Go to previous page' : 'Go to next page'}
       >
         {icon}
       </button>
     );
   };
 
-  const pageNumbers = getPageNumbers();
-  const showStartEllipsis = pageNumbers[0] > 1;
-  const showEndEllipsis = pageNumbers[pageNumbers.length - 1] < totalPages;
+  // Generate all page numbers
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
     <nav className={`${styles.pagination} ${className}`} aria-label="Pagination">
-      <div className={styles.paginationContainer}>
-        {/* First Page Button */}
-        {showFirstLast && (
-          renderNavigationButton(
-            'first',
-            1,
-            '«',
-            'Go to first page'
-          )
-        )}
+      {/* Previous Page Button */}
+      {renderNavigationButton(
+        'prev',
+        currentPage - 1,
+        '<'
+      )}
 
-        {/* Previous Page Button */}
-        {renderNavigationButton(
-          'prev',
-          currentPage - 1,
-          '‹',
-          'Go to previous page'
-        )}
+      {/* Page Numbers */}
+      {pageNumbers.map(renderPageButton)}
 
-        {/* Page Numbers */}
-        {showPageNumbers && (
-          <>
-            {/* Start ellipsis */}
-            {showStartEllipsis && renderEllipsis('start-ellipsis')}
-            
-            {/* Page numbers */}
-            {pageNumbers.map(renderPageButton)}
-            
-            {/* End ellipsis */}
-            {showEndEllipsis && renderEllipsis('end-ellipsis')}
-          </>
-        )}
-
-        {/* Next Page Button */}
-        {renderNavigationButton(
-          'next',
-          currentPage + 1,
-          '›',
-          'Go to next page'
-        )}
-
-        {/* Last Page Button */}
-        {showFirstLast && (
-          renderNavigationButton(
-            'last',
-            totalPages,
-            '»',
-            'Go to last page'
-          )
-        )}
-      </div>
-
-      {/* Page Info */}
-      <div className={styles.pageInfo}>
-        Page {currentPage} of {totalPages}
-      </div>
+      {/* Next Page Button */}
+      {renderNavigationButton(
+        'next',
+        currentPage + 1,
+        '>'
+      )}
     </nav>
   );
 };

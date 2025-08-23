@@ -31,9 +31,9 @@ const YourAdventureSection = () => {
           <div className={styles.travelTypesGrid}>
             {YOUR_ADVENTURE_DATA.travelTypes.map((type) => (
               <div key={type.id} className={styles.travelTypeCard}>
-                <div className={styles.iconWrapper}>
-                  <span className={styles.icon}>{type.icon}</span>
-                </div>
+                {/* <div className={styles.iconWapper}> */}
+                  <img src={type.icon} alt={type.title} className={styles.icon} />
+                {/* </div> */}
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{type.title}</h3>
                   <p className={styles.cardSubtitle}>{type.subtitle}</p>

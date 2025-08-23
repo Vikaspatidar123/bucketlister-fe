@@ -575,21 +575,21 @@ export const YOUR_ADVENTURE_DATA = {
   travelTypes: [
     {
       id: 1,
-      icon: "👤",
+      icon: "/assets/png/single-people.png",
       title: "Solo Traveller",
       subtitle: "Never alone",
       description: "Link up with fellow explorers for safe, unforgettable adventures."
     },
     {
       id: 2,
-      icon: "👥",
+      icon: "/assets/png/group-people.png",
       title: "Small Group (2-3 People)",
       subtitle: "Your crew, our curation",
       description: "Intimate trips without the planning headaches."
     },
     {
       id: 3,
-      icon: "🚌",
+      icon: "/assets/png/busicon.png",
       title: "Big Group (4+ People)",
       subtitle: "Effortless coordination and spacious fun",
       description: "Just show up and enjoy."

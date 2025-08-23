@@ -26,6 +26,7 @@ export const FOOTER_SERVICES = [
 ];
 
 export const COMPANY_INFO = {
+  logo: "/assets/png/footer-logo.png",
   name: "THE BUCKETL.STER",
   address: "Sai leela commercial complex, 502, Swami Vivekananda Rd, opp. Moksh Plaza, Datta Park Borivali, Mumbai, Maharashtra 400092",
   phone: ["702664759", "9137911579"],

@@ -26,13 +26,21 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      rgba(0, 0, 0, 0.6) 100%
-    );
+    background: 
+      linear-gradient(89.63deg, rgba(0, 0, 0, 0) 0.31%, rgba(0, 0, 0, 0.5) 99.69%),
+      linear-gradient(180deg, rgba(2, 101, 143, 0) 50%, rgba(2, 101, 143, 0.3) 75%, #02658F 100%);
     z-index: 2;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(to bottom, transparent, #02658F);
+      z-index: 3;
+    }
   }
   
   .content {

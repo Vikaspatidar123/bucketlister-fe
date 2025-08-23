@@ -6,41 +6,45 @@
     max-width: 1600px;
     margin: 0 auto;
     padding: 0 20px;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid red;
   }
 }
 
-.sectionHeader {
-  text-align: center;
-  margin-bottom: 60px;
+// .sectionHeader {
+//   text-align: center;
+//   margin-bottom: 60px;
 
-  .sectionTitle {
-    font-size: 48px;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 16px;
-    line-height: 1.2;
-  }
+//   .sectionTitle {
+//     font-size: 48px;
+//     font-weight: 700;
+//     color: #1a1a1a;
+//     margin-bottom: 16px;
+//     line-height: 1.2;
+//   }
 
-  .sectionDescription {
-    font-size: 18px;
-    color: #6c757d;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-}
+//   .sectionDescription {
+//     font-size: 18px;
+//     color: #6c757d;
+//     max-width: 600px;
+//     margin: 0 auto;
+//     line-height: 1.6;
+//   }
+// }
 
 .filterBar {
-  background: white;
+  // background: white;
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 32px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   display: flex;
-  align-items: center;
+  align-items: flex-start; // Changed from center to flex-start
   gap: 20px;
   flex-wrap: wrap;
   position: relative;
+  z-index: 1; // Ensure proper stacking context
 
   &::before,
   &::after {
@@ -49,7 +53,6 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: #ff6b6b;
   }
 
   &::before {
@@ -65,6 +68,7 @@
     gap: 16px;
     flex: 1;
     flex-wrap: wrap;
+    align-items: flex-start; // Ensure filters align to top
   }
 
   .filterSelect {
@@ -120,6 +124,176 @@
     }
   }
 
+  .priceFilterContainer {
+    max-width: 200px;
+    flex: 1;
+    background: #F4F4F4;
+    // border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 1; // Ensure proper stacking context
+    margin-bottom: 0; // Prevent margin issues
+
+    &:hover {
+      background: #EF3447;
+    }
+
+    &.open {
+      background: #EF3447;
+      // box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+      z-index: 1001; // Higher z-index when open
+    }
+
+    .priceFilterHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      min-height: 44px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      z-index: 2;
+      border-radius: 8px;
+
+      &:hover {
+        background: #EF3447;
+        color: white;
+      }
+    }
+
+    .priceFilterDisplay {
+      flex: 1;
+      // color: #6c757d;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .priceFilterArrow {
+      // color: #6c757d;
+      font-size: 12px;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+      margin-left: 8px;
+
+      &.rotated {
+        transform: rotate(180deg);
+      }
+    }
+
+    .priceFilterDropdown {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      right: 0;
+      border: 1px solid #ff6b6b;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      margin-top: -2px; // Overlap the border
+      min-height: 120px; // Ensure minimum height for slider
+      pointer-events: auto; // Ensure dropdown is interactive
+      isolation: isolate; // Create new stacking context
+      width: 200%;
+      transform: translateX(-30%);
+    }
+
+    .priceSlider {
+      :global(.priceRangeSlider) {
+        pointer-events: auto; // Ensure slider is interactive
+        user-select: none;
+
+        .labels {
+          margin-bottom: 12px;
+
+          .label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #6c757d;
+          }
+
+          .values {
+            font-size: 12px;
+            background: rgba(255, 107, 107, 0.1);
+            border-color: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b;
+            padding: 4px 10px;
+          }
+        }
+
+        .sliderTrack {
+          height: 6px;
+          background: #e1e5e9;
+          border-radius: 3px;
+          cursor: pointer;
+
+          &:hover {
+            background: #d1d5d9;
+          }
+        }
+
+        .sliderThumb {
+          width: 16px;
+          height: 16px;
+          border: 2px solid #ff6b6b;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+          cursor: grab;
+
+          &:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+          }
+
+          &:active {
+            cursor: grabbing;
+            transform: translate(-50%, -50%) scale(1.15);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+          }
+
+          &.active {
+            transform: translate(-50%, -50%) scale(1.2);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+          }
+        }
+
+        .rangeLabels {
+          margin-top: 8px;
+
+          .rangeLabel {
+            font-size: 11px;
+            color: #6c757d;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      border-color: #ff6b6b;
+      box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+    }
+
+    // Active state styling
+    &.open .priceFilterHeader {
+      background: #ff6b6b;
+      color: white;
+
+      .priceFilterDisplay {
+        color: white;
+      }
+
+      .priceFilterArrow {
+        color: white;
+      }
+    }
+  }
+
   .filterActions {
     display: flex;
     align-items: center;
@@ -153,9 +327,12 @@
     font-size: 14px;
     text-decoration: none;
     transition: color 0.2s ease;
-
+    padding: 10px 20px;
+    border: 1px solid transparent;
     &:hover {
       color: #495057;
+      border: 1px solid #EF3447;
+      border-radius: 8px;
     }
   }
 
@@ -255,6 +432,8 @@
 .resultsInfo {
   margin-bottom: 32px;
   text-align: center;
+  border-top: 1px solid #EF3447;
+  padding-top: 10px;
 
   .resultsCount {
     font-size: 16px;
@@ -265,20 +444,19 @@
 
 .packagesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
   margin-bottom: 48px;
   max-width: 100%;
 }
 
 .packageCard {
-  background: white;
+  // background: white;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   cursor: pointer;
-  max-width: 320px;
   width: 100%;
 
   &:hover {
@@ -288,14 +466,53 @@
 
   .cardImage {
     position: relative;
-    height: 200px;
+    width: 100%; // Full width of card
+    aspect-ratio: 4/3; // 4:3 aspect ratio
     overflow: hidden;
+    border-radius: 16px;
+    &:hover {
+      border-radius: 0px;
+      transition: all 0.3s ease;
+    }
+
 
     .packageImage {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
+    }
+
+    // Package Name and Duration Overlay on Image
+    .imageOverlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 100%
+      );
+      padding: 20px 16px 16px;
+      color: white;
+
+      .packageTitle {
+        font-size: 20px;
+        font-weight: 700;
+        color: white;
+        margin: 0 0 8px 0;
+        line-height: 1.3;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .packageDuration {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+      }
     }
 
     .badge {
@@ -333,50 +550,25 @@
   }
 
   .cardContent {
-    padding: 20px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-    .packageTitle {
-      font-size: 20px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .packageDuration {
-      font-size: 14px;
-      color: #6c757d;
-      margin-bottom: 16px;
-      font-weight: 500;
-    }
-
-    .packageDetails {
-      margin-bottom: 20px;
-
-      .availableDates {
-        font-size: 13px;
-        color: #495057;
-        line-height: 1.5;
-        margin-bottom: 8px;
-      }
-
-      .customizable {
-        display: inline-block;
-        background: #dc3545;
-        color: white;
-        padding: 4px 8px;
-        border-radius: 12px;
-        font-size: 11px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
+    .availableDates {
+      font-size: 13px;
+      color: #495057;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      flex-grow: 1;
     }
 
     .packagePrice {
       font-size: 18px;
       font-weight: 700;
       color: #1a1a1a;
+      text-align: right;
+      margin-top: auto;
     }
   }
 }
@@ -460,6 +652,19 @@
     .filterSelect {
       min-width: 160px;
     }
+
+    .priceFilterContainer {
+      min-width: 180px;
+
+      .priceFilterHeader {
+        padding: 8px 14px;
+        min-height: 40px;
+      }
+
+      .priceFilterDropdown {
+        padding: 14px;
+      }
+    }
   }
 
   .packagesGrid {
@@ -504,6 +709,19 @@
       min-width: auto;
     }
 
+    .priceFilterContainer {
+      min-width: auto;
+
+      .priceFilterHeader {
+        padding: 10px 16px;
+        min-height: 44px;
+      }
+
+      .priceFilterDropdown {
+        padding: 12px;
+      }
+    }
+
     .filterActions {
       justify-content: center;
     }
@@ -530,24 +748,38 @@
   }
 
   .packagesGrid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 16px;
   }
 
   .packageCard {
     .cardImage {
-      height: 180px;
+      width: 100%; // Full width of card
+      aspect-ratio: 4/3; // Maintain 4:3 ratio
+
+      .imageOverlay {
+        padding: 16px 12px 12px;
+
+        .packageTitle {
+          font-size: 18px;
+        }
+
+        .packageDuration {
+          font-size: 14px;
+        }
+      }
     }
 
     .cardContent {
-      padding: 16px;
+      padding: 10px;
 
-      .packageTitle {
-        font-size: 18px;
+      .availableDates {
+        font-size: 11px;
+        margin-bottom: 6px;
       }
 
       .packagePrice {
-        font-size: 16px;
+        font-size: 15px;
       }
     }
   }
@@ -577,6 +809,55 @@
     .filterControls {
       gap: 8px;
     }
+
+    .priceFilterContainer {
+      .priceFilterHeader {
+        padding: 8px 12px;
+        min-height: 36px;
+
+        .priceFilterDisplay {
+          font-size: 13px;
+        }
+
+        .priceFilterArrow {
+          font-size: 11px;
+        }
+      }
+
+      .priceFilterDropdown {
+        padding: 10px;
+
+        .priceSlider {
+          :global(.priceRangeSlider) {
+            .labels {
+              margin-bottom: 8px;
+
+              .label {
+                font-size: 12px;
+              }
+
+              .values {
+                font-size: 11px;
+                padding: 3px 8px;
+              }
+            }
+
+            .sliderThumb {
+              width: 14px;
+              height: 14px;
+            }
+
+            .rangeLabels {
+              margin-top: 6px;
+
+              .rangeLabel {
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   .packagesGrid {
@@ -586,7 +867,8 @@
 
   .packageCard {
     .cardImage {
-      height: 160px;
+      width: 100%; // Full width of card
+      aspect-ratio: 4/3; // Maintain 4:3 ratio
     }
 
     .cardContent {

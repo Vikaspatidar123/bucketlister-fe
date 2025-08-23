@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { COMPANY_INFO } from '../../constants';
 import styles from './style.module.scss';
 
@@ -7,8 +8,7 @@ const CompanyInfo = () => {
     <div className={styles.companyInfo}>
       <div className={styles.logoSection}>
         <h1 className={styles.companyName}>
-          {COMPANY_INFO.name}
-          <span className={styles.airplaneIcon}>✈️</span>
+         <Image src={COMPANY_INFO.logo} alt={COMPANY_INFO.name} width={365} height={100} />
         </h1>
       </div>
       

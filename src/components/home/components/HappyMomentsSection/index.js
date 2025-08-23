@@ -3,34 +3,26 @@ import styles from './style.module.scss';
 import { banner1 } from '@/assets/png';
 
 const HappyMomentsSection = () => {
-  const happyMoments = [
+  const centerMoments = [
     {
       id: 1,
       image: banner1,
-      alt: 'Boat view on lake with mountains',
-      title: 'Lake Adventure',
-      description: 'Peaceful moments on the water'
+      alt: 'Hot air balloons over rocky landscape'
     },
     {
       id: 2,
       image: banner1,
-      alt: 'Hot air balloons over rocky landscape',
-      title: 'Balloon Festival',
-      description: 'Magical sky adventures'
+      alt: 'Turquoise lake with mountains'
     },
     {
       id: 3,
       image: banner1,
-      alt: 'Turquoise lake with mountains',
-      title: 'Mountain Lake',
-      description: 'Crystal clear waters'
+      alt: 'Placeholder for future content'
     },
     {
       id: 4,
       image: banner1,
-      alt: 'Boat view on lake with mountains',
-      title: 'Lake Adventure',
-      description: 'Peaceful moments on the water'
+      alt: 'Placeholder for future content'
     }
   ];
 
@@ -40,30 +32,42 @@ const HappyMomentsSection = () => {
         <h2 className={styles.sectionTitle}>Happy Moments</h2>
         
         <div className={styles.momentsGrid}>
-          {happyMoments.map((moment, index) => (
-            <div key={moment.id} className={styles.momentCard}>
-              <div className={styles.imageContainer}>
-                <img 
-                  src={banner1} 
-                  alt={moment.alt}
-                  className={styles.momentImage}
-                />
-              </div>
-              <div className={styles.momentInfo}>
-                <h3 className={styles.momentTitle}>{moment.title}</h3>
-                <p className={styles.momentDescription}>{moment.description}</p>
-              </div>
+          {/* Left Full Height Card */}
+          <div className={styles.fullHeightCard}>
+            <div className={styles.imageContainer}>
+              <img 
+                src={banner1} 
+                alt="Boat view on lake with mountains"
+                className={styles.momentImage}
+              />
             </div>
-          ))}
-          
-          {/* Placeholder cards for bottom row */}
-          {/* {[5, 6, 7, 8].map((id) => (
-            <div key={id} className={styles.placeholderCard}>
-              <div className={styles.placeholderContent}>
-                <span className={styles.placeholderText}>Coming Soon</span>
+          </div>
+
+          {/* Center 2x2 Grid */}
+          <div className={styles.centerGrid}>
+            {centerMoments.map((moment) => (
+              <div key={moment.id} className={styles.centerCard}>
+                <div className={styles.imageContainer}>
+                  <img 
+                    src={banner1} 
+                    alt={moment.alt}
+                    className={styles.momentImage}
+                  />
+                </div>
               </div>
+            ))}
+          </div>
+
+          {/* Right Full Height Card */}
+          <div className={styles.fullHeightCard}>
+            <div className={styles.imageContainer}>
+              <img 
+                src={banner1} 
+                alt="Boat view on lake with mountains"
+                className={styles.momentImage}
+              />
             </div>
-          ))} */}
+          </div>
         </div>
       </div>
     </section>

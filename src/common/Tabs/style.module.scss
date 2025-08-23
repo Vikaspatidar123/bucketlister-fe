@@ -58,20 +58,21 @@
   cursor: pointer;
   transition: all 0.2s ease;
   font-weight: 500;
-  color: #6c757d;
+  color: black;
   position: relative;
   white-space: nowrap;
   min-width: 0;
   flex: 1;
+  background: #F4F4F4;
 
   &:hover:not(.disabled) {
     color: #495057;
-    background-color: rgba(0, 0, 0, 0.05);
+    // background-color: rgba(0, 0, 0, 0.05);
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    // box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
   }
 
   &.disabled {
@@ -91,29 +92,28 @@
 
   &.active {
     background: white;
-    color: #007bff;
-    border-bottom: 2px solid #007bff;
+    color: #ef3447;
+    border-bottom: 2px solid #ef3447;
   }
 }
 
 // Pills variant
 .pills {
-  border-radius: 20px;
-  border: 1px solid #e9ecef;
-  background: white;
+  border-radius: 8px;
+  // border: 1px solid #e9ecef;
+  background: #F4F4F4;
   flex: 0 0 auto;
 
   &:hover:not(.disabled) {
-    background-color: #f8f9fa;
+    background-color: #ef34471a;
   }
 
   &.active {
-    background: #007bff;
-    color: white;
-    border-color: #007bff;
-
+    background: #ef34471a;
+    color: black;
+    border: 1px solid #ef3447;
     &:hover {
-      background: #0056b3;
+      background: #ef34471a;
     }
   }
 }
@@ -124,8 +124,8 @@
   background: transparent;
 
   &.active {
-    color: #007bff;
-    border-bottom: 2px solid #007bff;
+    color: #ef3447;
+    border-bottom: 2px solid #ef3447;
   }
 
   &:hover:not(.disabled) {
