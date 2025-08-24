@@ -3,11 +3,17 @@
   background-color: #fff;
   
   .container {
-    max-width: 1200px;
+    max-width: 85vw;
     margin: 0 auto;
-    padding: 0 1rem;
+    // padding: 0 1rem;
   }
-  
+  .sectionTitle1 {
+    text-align: start;
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+  }
   .sectionTitle {
     text-align: center;
     font-family: sans-serif;
@@ -26,38 +32,48 @@
   }
   
   .testimonialsGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    // max-width: 1000px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
     margin: 0 auto;
-    
-    @media (max-width: 1024px) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    &::-webkit-scrollbar { /* WebKit */
+      display: none;
+      height: 0;
     }
     
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
   }
   
   .testimonialCard {
     display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    background: transparent;
-    padding: 0;
-    box-shadow: none;
+    gap: 12px;
     align-items: center;
+    background: #ffffff; // subtle card background
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 6px 16px rgba(16, 24, 40, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(16, 24, 40, 0.10);
+    }
+    scroll-snap-align: start;
+    flex: 0 0 360px; // card width for horizontal scroll
     
     .profileImageContainer {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       overflow: hidden;
       flex-shrink: 0;
+      border: 2px solid #f3f4f6;
       
       .profileImage {
         width: 100%;

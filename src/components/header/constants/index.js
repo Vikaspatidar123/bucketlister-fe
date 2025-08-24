@@ -2,7 +2,7 @@ export const NAVIGATION_ITEMS = [
   {
     label: 'International',
     hasDropdown: false,
-    href: '/explore'
+    href: '/international'
   },
   {
     label: 'Domestic',

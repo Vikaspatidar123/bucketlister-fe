@@ -1,3 +1,5 @@
+import { destinationIcon, instagramIcon, reviewIcon } from "@/assets/svg";
+
 export const HERO_DATA = {
   mainHeading: {
     line1: "Stop Dreaming,",
@@ -19,22 +21,22 @@ export const HERO_DATA = {
 export const STATS_DATA = [
   {
     id: 1,
-    icon: "⭐",
+    icon: reviewIcon,
     text: "★4.9 Stars (727 Reviews)"
   },
   {
     id: 2,
-    icon: "✈️",
+    icon: destinationIcon,
     text: "50+ Destinations"
   },
   {
     id: 3,
-    icon: "🛫",
+    icon: destinationIcon,
     text: "50,000+ Satisfied Travellers"
   },
   {
     id: 4,
-    icon: "📱",
+    icon: instagramIcon,
     text: "99K+ Following"
   }
 ];

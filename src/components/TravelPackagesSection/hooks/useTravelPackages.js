@@ -27,12 +27,13 @@ const useClickOutside = (isOpen, onClose) => {
   return ref;
 };
 
-export const useTravelPackages = () => {
+export const useTravelPackages = (selectedTripId = null, destinationName = null) => {
   const [filters, setFilters] = useState({
     destinations: [],
     priceRange: [0, 100000], // Default price range
     dates: null,
-    features: []
+    features: [],
+    destinationType: null
   });
   const [activeDateTab, setActiveDateTab] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
@@ -44,35 +45,104 @@ export const useTravelPackages = () => {
   // Use the click outside hook
   const priceFilterRef = useClickOutside(isPriceFilterOpen, () => setIsPriceFilterOpen(false));
 
+  // Flatten the data to show individual trips
+  const flattenedData = useMemo(() => {
+    const flattened = [];
+    TRAVEL_PACKAGES_DATA.forEach(destination => {
+      if (destination.trips && destination.trips.length > 0) {
+        // If a specific trip is selected, only include that trip
+        if (selectedTripId) {
+          destination.trips.forEach(trip => {
+            if (trip.id === selectedTripId) {
+              flattened.push({
+                ...trip,
+                destination_name: destination.destination_name,
+                thumbnail_image: destination.thumbnail_image,
+                hero_image: destination.hero_image,
+                description: destination.description,
+                reviews: destination.reviews,
+                category: destination.category
+              });
+            }
+          });
+        }
+        // If a destination name is provided, only include trips from that destination
+        else if (destinationName && destination.destination_name === destinationName) {
+          destination.trips.forEach(trip => {
+            flattened.push({
+              ...trip,
+              destination_name: destination.destination_name,
+              thumbnail_image: destination.thumbnail_image,
+              hero_image: destination.hero_image,
+              description: destination.description,
+              reviews: destination.reviews,
+              category: destination.category
+            });
+          });
+        }
+        // If neither is provided, include all trips
+        else if (!selectedTripId && !destinationName) {
+          destination.trips.forEach(trip => {
+            flattened.push({
+              ...trip,
+              destination_name: destination.destination_name,
+              thumbnail_image: destination.thumbnail_image,
+              hero_image: destination.hero_image,
+              description: destination.description,
+              reviews: destination.reviews,
+              category: destination.category
+            });
+          });
+        }
+      }
+    });
+    return flattened;
+  }, [selectedTripId, destinationName]);
+
   // Filter and sort data
   const filteredAndSortedData = useMemo(() => {
-    let filtered = TRAVEL_PACKAGES_DATA.filter(packageItem => {
+    let filtered = flattenedData.filter(trip => {
       // Filter by destinations
       if (filters.destinations.length > 0) {
-        if (!filters.destinations.some(dest => dest.value === packageItem.destination)) {
+        if (!filters.destinations.some(dest => dest.value === trip.destination_name)) {
           return false;
         }
       }
 
       // Filter by price range
       if (filters.priceRange && filters.priceRange.length === 2) {
-        const packagePrice = parseInt(packageItem.price.replace(/[^\d]/g, ''));
+        const tripPrice = parseInt(trip.price);
         const [minPrice, maxPrice] = filters.priceRange;
-        if (packagePrice < minPrice || packagePrice > maxPrice) {
+        if (tripPrice < minPrice || tripPrice > maxPrice) {
           return false;
         }
       }
 
       // Filter by dates
       if (filters.dates && activeDateTab !== 'all') {
-        if (!packageItem.availableDates.includes(activeDateTab)) {
+        if (!trip.availableDates || !trip.availableDates.includes(activeDateTab)) {
           return false;
+        }
+        else{
+          return true;
+        }
+      }
+
+      // Filter by destination type (category)
+      if (filters.destinationType && filters.destinationType.value) {
+        if (trip.category !== filters.destinationType.value) {
+          return false;
+        }
+        else{
+          return true;
         }
       }
 
       // Filter by features
       if (filters.features.length > 0) {
-        if (!filters.features.some(feature => packageItem.features.includes(feature.value))) {
+        if (!trip.features || !filters.features.some(feature => 
+          trip.features.includes(feature.value)
+        )) {
           return false;
         }
       }
@@ -112,7 +182,7 @@ export const useTravelPackages = () => {
     }
 
     return filtered;
-  }, [filters, activeDateTab, sortBy]);
+  }, [flattenedData, filters, activeDateTab, sortBy]);
 
   // Pagination
   const totalPages = Math.ceil(filteredAndSortedData.length / itemsPerPage);
@@ -163,7 +233,8 @@ export const useTravelPackages = () => {
       destinations: [],
       priceRange: [0, 100000],
       dates: null,
-      features: []
+      features: [],
+      destinationType: null
     });
     setCurrentPage(1);
     setActiveDateTab('all');

@@ -51,9 +51,9 @@ const BannerSection = ({
             <div className={styles.bannerContent}>
               <h1 className={styles.bannerTitle}>{title}</h1>
               <p className={styles.bannerDescription}>{description}</p>
-              <button className={styles.ctaButton} onClick={handleExploreClick}>
+              {/* <button className={styles.ctaButton} onClick={handleExploreClick}>
                 {ctaButton}
-              </button>
+              </button> */}
             </div>
           </div>
           

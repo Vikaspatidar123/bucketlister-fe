@@ -14,6 +14,7 @@ import HappyMomentsSection from "./HappyMomentsSection";
 import ReasonsToCountOnUsSection from "./ReasonsToCountOnUsSection";
 import TravellersTestimonialsSection from "./TravellersTestimonialsSection";
 import MomentsInMotionSection from "./MomentsInMotionSection";
+import FeaturesBar from "./FeaturesBar";
 
 const Home = () => {
   return (
@@ -25,6 +26,7 @@ const Home = () => {
       <TravelPackagesSection />
       <YourAdventureSection />
       <HappyMomentsSection />
+      <FeaturesBar />
       <ReasonsToCountOnUsSection />
       <TravellersTestimonialsSection />
       <MomentsInMotionSection />

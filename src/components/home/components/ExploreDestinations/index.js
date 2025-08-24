@@ -9,12 +9,13 @@ const ExploreDestinations = () => {
   const {
     activeTab,
     destinations,
-    handleTabChange
+    handleTabChange,
+    router
   } = useDestinations();
 
   const handleDestinationClick = (destination) => {
-    // TODO: Handle destination click - navigate to detail page or open modal
-    console.log('Destination clicked:', destination);
+    const id = destination.destination_id || destination.id;
+    router.push(`/explore?destinationId=${id}`);
   };
 
   return (
@@ -42,7 +43,7 @@ const ExploreDestinations = () => {
           <div className={styles.destinationsRow}>
             {destinations.slice(0, Math.ceil(destinations.length / 2)).map((destination) => (
               <DestinationCard
-                key={destination.id}
+                key={destination.destination_id || destination.id}
                 destination={destination}
                 onClick={handleDestinationClick}
               />
@@ -51,7 +52,7 @@ const ExploreDestinations = () => {
           <div className={styles.destinationsRow}>
             {destinations.slice(Math.ceil(destinations.length / 2)).map((destination) => (
               <DestinationCard
-                key={destination.id}
+                key={destination.destination_id || destination.id}
                 destination={destination}
                 onClick={handleDestinationClick}
               />

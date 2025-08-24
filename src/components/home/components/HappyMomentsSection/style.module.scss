@@ -3,7 +3,7 @@
   background-color: #f8f9fa;
   
   .container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 1rem;
   }
@@ -18,32 +18,30 @@
     letter-spacing: 0.5px;
   }
   
-  .momentsGrid {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 1.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
-    min-height: 400px;
-    
-    @media (max-width: 1024px) {
-      grid-template-columns: 1fr;
+  .momentsScroller {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    &::-webkit-scrollbar { display: none; height: 0; }
+
+    .momentsRow {
+      display: inline-flex;
       gap: 1rem;
-    }
-    
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      gap: 1rem;
+      align-items: stretch;
+      min-height: 500px;
     }
   }
 
-  .fullHeightCard {
+  .panelFull {
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 400px;
+    height: 500px;
+    flex: 0 0 320px; /* fixed width column */
     
     &:hover {
       transform: translateY(-4px);
@@ -64,12 +62,22 @@
     }
   }
 
+  .panelGrid {
+    // background: #fff;
+    border-radius: 12px;
+    // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    flex: 0 0 550px; /* wider column for grid */
+    // padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+
   .centerGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 1rem;
-    height: 200px;
+    height: 500px;
     
     @media (max-width: 1024px) {
       grid-template-columns: 1fr;
@@ -83,7 +91,7 @@
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 190px;
+    height: 240px;
     
     &:hover {
       transform: translateY(-4px);

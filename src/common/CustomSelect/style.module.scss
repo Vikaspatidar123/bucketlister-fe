@@ -1,21 +1,21 @@
 .customSelect {
   position: relative;
-  width: 100%;
+  width: fit-content; /* shrink to content */
   font-family: inherit;
-  max-width: 200px;
+  max-width: none;
 }
 
 .selectHeader {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
+  // justify-content: space-between;
+  padding: 8px 16px;
   // border: 2px solid #e1e5e9;
   border-radius: 8px;
   background: #F4F4F4;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-height: 48px;
+  min-height: 36px;
   color: #333;
 
   &:hover {
@@ -31,7 +31,7 @@
 }
 
 .displayValue {
-  flex: 1;
+  flex: 0 1 auto; /* allow content width */
   // color: #333;
   font-size: 14px;
   line-height: 1.4;
@@ -63,9 +63,10 @@
   border-top: none;
   border-radius: 0 0 8px 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
+  z-index: 1.5;
   max-height: 300px;
   overflow: hidden;
+  min-width: 200px;
 }
 
 .searchContainer {

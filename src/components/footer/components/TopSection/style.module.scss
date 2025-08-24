@@ -34,9 +34,9 @@
     position: relative;
     z-index: 1;
     display: flex;
-    max-width: 1200px;
+    max-width: 85vw;
     margin: 0 auto;
-    min-height: 500px;
+    min-height: 350px;
     
     @media (max-width: 768px) {
       flex-direction: column;

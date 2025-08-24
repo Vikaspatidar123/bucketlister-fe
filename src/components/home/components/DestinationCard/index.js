@@ -14,8 +14,12 @@ const DestinationCard = ({ destination, onClick }) => {
     <div className={styles.cardWrapper}>
       <div className={styles.destinationCard} onClick={handleClick}>
         <div className={styles.cardImage}>
-          {/* Placeholder for image - you can add actual images later */}
-          <div className={styles.imagePlaceholder}></div>
+          {destination?.image ? (
+            ''
+            // <Image src={destination.image} alt={destination.name} fill sizes="(max-width: 768px) 100vw, 33vw" className={styles.image} />
+          ) : (
+            <div className={styles.imagePlaceholder}></div>
+          )}
         </div>
       </div>
       <h3 className={styles.destinationName}>{destination.name}</h3>

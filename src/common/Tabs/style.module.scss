@@ -3,7 +3,17 @@
   align-items: center;
   gap: 0;
   border-radius: 8px;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%; /* allow horizontal scroll area */
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  &::-webkit-scrollbar { /* WebKit */
+    display: none;
+    height: 0;
+  }
 }
 
 // Variants
@@ -34,9 +44,9 @@
 
 .mediumContainer {
   .tab {
-    padding: 12px 20px;
+    padding: 8px 8px;
     font-size: 14px;
-    min-height: 44px;
+    min-height: 36px;
   }
 }
 
@@ -62,8 +72,9 @@
   position: relative;
   white-space: nowrap;
   min-width: 0;
-  flex: 1;
+  flex: 0 0 auto; /* do not stretch */
   background: #F4F4F4;
+  width: fit-content;
 
   &:hover:not(.disabled) {
     color: #495057;
