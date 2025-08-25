@@ -1,3 +1,5 @@
+import { andamanImage, BaliImage, coorgImage, DubaiImage, GokarnaImage, himachalImage, kashmirImage, keralaImage, lehImage, maldivesImage, sikkimImage, singaporeImage, spitiImage, srilankaImage, thailandImage, uttarakhandImage, vietnamImage } from "@/assets/svg";
+
 // Travel Packages Data for the new section
 export const TRAVEL_PACKAGES_DATA = [
   {
@@ -6,8 +8,8 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     description:
       "Explore vibrant beaches, bustling markets, and rich culture of Thailand.",
-    thumbnail_image: "/assets/png/thailand.jpg",
-    hero_image: "/assets/png/thailand-hero.jpg",
+    thumbnail_image: thailandImage,
+    hero_image: thailandImage,
     reviews: [
       {
         id: 1,
@@ -74,7 +76,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 1,
+        tripId: 1,
         title: "Bangkok & Pattaya Special",
         duration: "6D-5N",
         price: 35000,
@@ -82,18 +84,51 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 5000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/footer-image.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
 
         availableDates: ["jun25", "jul25", "aug25"],
         features: ["city-life", "nightlife", "beach"],
         customizable: true,
         badge: { type: "", text: "" },
+        capacity: 30,
+        meals: "Breakfast and Dinner",
+        accommodations: "5 nights in 3★ Hotels",
+        baseCity: "Mumbai",
+        route: ["Mumbai", "Bangkok", "Pattaya", "Mumbai"],
+        itinerary: [
+          { day: 1, summary: "Arrive Bangkok, transfer to Pattaya.", details: "Evening leisure and local market visit." },
+          { day: 2, summary: "Coral Island tour.", details: "Water activities and beach time." },
+          { day: 3, summary: "Pattaya to Bangkok.", details: "Check-in and evening city walk." },
+          { day: 4, summary: "Bangkok City & Temple tour.", details: "Visit major temples and riverfront." },
+          { day: 5, summary: "Free day for shopping.", details: "Optional Safari World tour." },
+          { day: 6, summary: "Departure.", details: "Airport drop." }
+        ],
+        includes: [
+          "Return airport transfers",
+          "Daily breakfast",
+          "City and Coral Island tours",
+          "All internal transfers"
+        ],
+        excludes: [
+          "Personal expenses",
+          "Visa and insurance",
+          "Meals not mentioned"
+        ]
       },
       {
-        id: 2,
+        tripId: 2,
         title: "Phuket & Krabi Escape",
         duration: "7D-6N",
         price: 42000,
@@ -101,14 +136,47 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["jul25", "aug25", "sep25"],
         features: ["beach", "island", "water-sports"],
         customizable: true,
         badge: { type: "", text: "" },
+        capacity: 28,
+        meals: "Breakfast included",
+        accommodations: "6 nights in 3★/4★ Hotels",
+        baseCity: "Mumbai",
+        route: ["Mumbai", "Phuket", "Krabi", "Mumbai"],
+        itinerary: [
+          { day: 1, summary: "Arrive Phuket.", details: "Check-in and relax." },
+          { day: 2, summary: "Phi Phi Island tour.", details: "Snorkeling and beach time." },
+          { day: 3, summary: "Phuket city tour.", details: "Viewpoints and old town." },
+          { day: 4, summary: "Transfer to Krabi.", details: "Evening at leisure." },
+          { day: 5, summary: "Four Islands tour.", details: "Long-tail boat experience." },
+          { day: 6, summary: "Free day.", details: "Optional activities." },
+          { day: 7, summary: "Departure.", details: "Airport drop." }
+        ],
+        includes: [
+          "Airport transfers",
+          "Breakfast",
+          "Phi Phi and 4 Islands tours"
+        ],
+        excludes: [
+          "Any personal expenses",
+          "Entry fees not mentioned",
+          "GST/TCS as applicable"
+        ]
       },
     ],
   },
@@ -118,8 +186,8 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     description:
       "Experience the charm of European cities, culture, and history.",
-    thumbnail_image: "/assets/png/europe.jpg",
-    hero_image: "/assets/png/europe-hero.jpg",
+    thumbnail_image:coorgImage,
+    hero_image: coorgImage,
     reviews: [
       {
         name: "Neha Patel",
@@ -130,7 +198,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 3,
+        tripId: 3,
         title: "European Grand Tour",
         duration: "12D-11N",
         price: 125000,
@@ -138,14 +206,49 @@ export const TRAVEL_PACKAGES_DATA = [
         // discountAmount: 5000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["sep25", "oct25", "nov25"],
         features: ["culture", "history", "architecture"],
         customizable: true,
         badge: { type: "", text: "" },
+        capacity: 24,
+        meals: "Breakfast and select dinners",
+        accommodations: "11 nights in 3★/4★ Hotels",
+        baseCity: "Mumbai",
+        route: ["Mumbai", "Paris", "Zurich", "Venice", "Rome", "Mumbai"],
+        itinerary: [
+          { day: 1, summary: "Arrive Paris.", details: "Evening Seine cruise." },
+          { day: 2, summary: "Paris city tour.", details: "Eiffel Tower photo-stop." },
+          { day: 3, summary: "Paris to Zurich.", details: "Scenic train ride." },
+          { day: 4, summary: "Mount Titlis excursion.", details: "Snow activities." },
+          { day: 5, summary: "Zurich to Venice.", details: "Gondola optional." },
+          { day: 6, summary: "Venice to Rome.", details: "City orientation." },
+          { day: 7, summary: "Rome & Vatican.", details: "Colosseum exterior and St. Peter's." },
+          { day: 8, summary: "Free day.", details: "Shopping and leisure." },
+          { day: 9, summary: "Departure.", details: "Fly back to Mumbai." }
+        ],
+        includes: [
+          "Airport transfers",
+          "Daily breakfast",
+          "Seine cruise and Titlis"
+        ],
+        excludes: [
+          "Schengen visa",
+          "Insurance",
+          "Lunches and personal expenses"
+        ]
       },
     ],
   },
@@ -155,8 +258,8 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     description:
       "Discover tropical paradise with temples, rice fields, and beaches.",
-    thumbnail_image: "/assets/png/indonesia.jpg",
-    hero_image: "/assets/png/indonesia-hero.jpg",
+    thumbnail_image:maldivesImage,
+    hero_image: maldivesImage,
     reviews: [
       {
         name: "Simran Joshi",
@@ -166,7 +269,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 4,
+        tripId: 4,
         title: "Bali Temple & Beach Tour",
         duration: "7D-6N",
         price: 52000,
@@ -174,14 +277,39 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["jul25", "aug25", "sep25"],
         features: ["temple", "beach", "culture"],
         customizable: true,
         badge: { type: "", text: "" },
+        capacity: 26,
+        meals: "Breakfast",
+        accommodations: "6 nights in Resorts",
+        baseCity: "Mumbai",
+        route: ["Mumbai", "Bali", "Ubud", "Kuta", "Mumbai"],
+        itinerary: [
+          { day: 1, summary: "Arrive Bali.", details: "Relax and sunset at beach." },
+          { day: 2, summary: "Ubud & Rice terraces.", details: "Swing and coffee plantation." },
+          { day: 3, summary: "Temple tour.", details: "Tanah Lot and Ulun Danu." },
+          { day: 4, summary: "Nusa Penida day trip.", details: "Kelingking beach." },
+          { day: 5, summary: "Free day.", details: "Optional water sports." },
+          { day: 6, summary: "Shopping.", details: "Local markets and spa." },
+          { day: 7, summary: "Departure.", details: "Airport drop." }
+        ],
+        includes: ["Breakfast", "Transfers", "Sightseeing as per itinerary"],
+        excludes: ["Personal expenses", "Entry fees not mentioned"]
       },
     ],
   },
@@ -191,8 +319,8 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     description:
       "Explore rich history, delicious cuisine, and stunning landscapes.",
-    thumbnail_image: "/assets/png/vietnam.jpg",
-    hero_image: "/assets/png/vietnam-hero.jpg",
+    thumbnail_image: vietnamImage,
+    hero_image: vietnamImage,
     reviews: [
       {
         name: "Rajesh Kumar",
@@ -203,7 +331,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 5,
+        tripId: 5,
         title: "Vietnam Cultural Journey",
         duration: "8D-7N",
         price: 48000,
@@ -211,14 +339,40 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 2000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+            {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["aug25", "sep25", "oct25"],
         features: ["culture", "food", "history"],
         customizable: true,
         badge: { type: "", text: "" },
+        capacity: 30,
+        meals: "Breakfast",
+        accommodations: "7 nights in Hotels",
+        baseCity: "Mumbai",
+        route: ["Mumbai", "Hanoi", "Halong Bay", "Da Nang", "Ho Chi Minh", "Mumbai"],
+        itinerary: [
+          { day: 1, summary: "Arrive Hanoi.", details: "Old Quarter walk." },
+          { day: 2, summary: "Halong Bay cruise.", details: "Overnight on boat optional." },
+          { day: 3, summary: "Fly to Da Nang.", details: "Marble Mountains." },
+          { day: 4, summary: "Hoi An.", details: "Ancient town tour." },
+          { day: 5, summary: "Fly to HCMC.", details: "City tour." },
+          { day: 6, summary: "Cu Chi tunnels.", details: "Guided excursion." },
+          { day: 7, summary: "Mekong Delta.", details: "Local village visit." },
+          { day: 8, summary: "Departure.", details: "Airport drop." }
+        ],
+        includes: ["Breakfast", "Transfers", "Major sightseeing"],
+        excludes: ["Personal expenses", "Tips", "Meals not mentioned"]
       },
     ],
   },
@@ -227,8 +381,8 @@ export const TRAVEL_PACKAGES_DATA = [
     destination_name: "Egypt",
     category: "international",
     description: "Uncover ancient mysteries, pyramids, and the Nile River.",
-    thumbnail_image: "/assets/png/egypt.jpg",
-    hero_image: "/assets/png/egypt-hero.jpg",
+    thumbnail_image: srilankaImage,
+    hero_image: srilankaImage,
     reviews: [
       {
         name: "Priya Nair",
@@ -238,7 +392,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 6,
+        tripId: 6,
         title: "Egypt Pyramids & Nile",
         duration: "10D-9N",
         price: 75000,
@@ -246,14 +400,38 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["oct25", "nov25", "dec25"],
         features: ["history", "pyramids", "nile-cruise"],
         customizable: true,
         badge: { type: "historical", text: "Historical Tour" },
+        capacity: 22,
+        meals: "Breakfast and select dinners",
+        accommodations: "9 nights including Nile cruise",
+        baseCity: "Mumbai",
+        route: ["Mumbai", "Cairo", "Aswan", "Luxor", "Mumbai"],
+        itinerary: [
+          { day: 1, summary: "Arrive Cairo.", details: "Evening leisure." },
+          { day: 2, summary: "Giza Pyramids & Sphinx.", details: "Museum visit." },
+          { day: 3, summary: "Fly to Aswan, cruise start.", details: "Temple visits." },
+          { day: 4, summary: "Cruise to Luxor.", details: "Valley of the Kings." },
+          { day: 5, summary: "Luxor to Cairo.", details: "Free evening." },
+          { day: 6, summary: "Departure.", details: "Airport drop." }
+        ],
+        includes: ["Transfers", "Breakfast", "Cruise sector sightseeing"],
+        excludes: ["Visa", "Tips", "Personal expenses"]
       },
     ],
   },
@@ -262,8 +440,8 @@ export const TRAVEL_PACKAGES_DATA = [
     destination_name: "USA",
     category: "international",
     description: "Experience the American dream, from coast to coast.",
-    thumbnail_image: "/assets/png/usa.jpg",
-    hero_image: "/assets/png/usa-hero.jpg",
+    thumbnail_image:GokarnaImage,
+    hero_image: GokarnaImage,
     reviews: [
       {
         name: "Arjun Singh",
@@ -273,7 +451,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 7,
+        tripId: 7,
         title: "USA Coast to Coast",
         duration: "15D-14N",
         price: 150000,
@@ -281,9 +459,18 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 5000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["nov25", "dec25", "jan26"],
         features: ["cities", "culture", "adventure"],
@@ -298,8 +485,8 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     description:
       "Discover natural beauty, friendly people, and outdoor adventures.",
-    thumbnail_image: "/assets/png/canada.jpg",
-    hero_image: "/assets/png/canada-hero.jpg",
+    thumbnail_image:andamanImage,
+    hero_image: andamanImage,
     reviews: [
       {
         name: "Meera Iyer",
@@ -310,7 +497,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 8,
+        tripId: 8,
         title: "Canadian Rockies Adventure",
         duration: "14D-13N",
         price: 135000,
@@ -318,9 +505,18 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+            {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["jun25", "jul25", "aug25"],
         features: ["mountains", "nature", "adventure"],
@@ -334,8 +530,8 @@ export const TRAVEL_PACKAGES_DATA = [
     destination_name: "Japan",
     category: "international",
     description: "Experience the perfect blend of tradition and modernity.",
-    thumbnail_image: "/assets/png/japan.jpg",
-    hero_image: "/assets/png/japan-hero.jpg",
+    thumbnail_image: spitiImage,
+    hero_image: spitiImage,
     reviews: [
       {
         name: "Kavya Reddy",
@@ -346,7 +542,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 9,
+        tripId: 9,
         title: "Japan Cherry Blossom",
         duration: "14D-13N",
         price: 180000,
@@ -354,9 +550,18 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 5000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["mar26", "apr26", "may26"],
         features: ["cherry-blossom", "culture", "technology"],
@@ -371,8 +576,8 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     description:
       "Explore the land down under with unique wildlife and landscapes.",
-    thumbnail_image: "/assets/png/australia.jpg",
-    hero_image: "/assets/png/australia-hero.jpg",
+    thumbnail_image: vietnamImage,
+    hero_image: vietnamImage,
     reviews: [
       {
         name: "Vikram Malhotra",
@@ -383,7 +588,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 10,
+        tripId: 10,
         title: "Australia Wildlife & Reef",
         duration: "16D-15N",
         price: 200000,
@@ -391,9 +596,18 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 5000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["sep25", "oct25", "nov25"],
         features: ["wildlife", "reef", "cities"],
@@ -408,8 +622,8 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     description:
       "Modern city-state with diverse culture and amazing attractions.",
-    thumbnail_image: "/assets/png/singapore.jpg",
-    hero_image: "/assets/png/singapore-hero.jpg",
+    thumbnail_image: singaporeImage,
+    hero_image: singaporeImage,
     reviews: [
       {
         name: "Ananya Sharma",
@@ -420,7 +634,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 11,
+        tripId: 11,
         title: "Singapore City Explorer",
         duration: "5D-4N",
         price: 55000,
@@ -428,9 +642,18 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["jun25", "jul25", "aug25"],
         features: ["city", "culture", "shopping"],
@@ -445,8 +668,8 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     description:
       "Luxury resorts, white sandy beaches, and crystal-clear waters.",
-    thumbnail_image: "/assets/png/maldives.jpg",
-    hero_image: "/assets/png/maldives-hero.jpg",
+    thumbnail_image: maldivesImage,
+    hero_image: maldivesImage,
     reviews: [
       {
         name: "Priya Nair",
@@ -456,7 +679,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 12,
+        tripId: 12,
         title: "Maldives Luxury Escape",
         duration: "5D-4N",
         price: 95000,
@@ -464,9 +687,18 @@ export const TRAVEL_PACKAGES_DATA = [
         // discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+            {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["aug25", "sep25", "oct25"],
         features: ["luxury", "beach", "water-villa"],
@@ -480,8 +712,8 @@ export const TRAVEL_PACKAGES_DATA = [
     destination_name: "Dubai",
     category: "international",
     description: "Desert safaris, shopping malls, and futuristic skyscrapers.",
-    thumbnail_image: "/assets/png/dubai.jpg",
-    hero_image: "/assets/png/dubai-hero.jpg",
+    thumbnail_image: DubaiImage,
+    hero_image: DubaiImage,
     reviews: [
       {
         name: "Arjun Singh",
@@ -491,7 +723,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 13,
+        tripId: 13,
         title: "Dubai Shopping Festival",
         duration: "6D-5N",
         price: 60000,
@@ -499,9 +731,18 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["dec25", "jan26", "feb26"],
         features: ["shopping", "luxury", "desert"],
@@ -515,8 +756,8 @@ export const TRAVEL_PACKAGES_DATA = [
     destination_name: "Kerala",
     category: "domestic",
     description: "God's own country with backwaters, beaches, and ayurveda.",
-    thumbnail_image: "/assets/png/kerala.jpg",
-    hero_image: "/assets/png/kerala-hero.jpg",
+    thumbnail_image: keralaImage,
+    hero_image: keralaImage,
     reviews: [
       {
         name: "Ravi Verma",
@@ -526,7 +767,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 14,
+        tripId: 14,
         title: "Kerala Backwaters & Ayurveda",
         duration: "5D-4N",
         price: 25000,
@@ -534,9 +775,18 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["jun25", "jul25", "aug25"],
         features: ["backwaters", "ayurveda", "nature"],
@@ -551,8 +801,8 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "domestic",
     description:
       "Sun, sand, and sea with Portuguese heritage and vibrant nightlife.",
-    thumbnail_image: "/assets/png/goa.jpg",
-    hero_image: "/assets/png/goa-hero.jpg",
+    thumbnail_image: kashmirImage,
+    hero_image: kashmirImage,
     reviews: [
       {
         name: "Sofia Khan",
@@ -562,7 +812,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 15,
+        tripId: 15,
         title: "Goa Beach & Party",
         duration: "4D-3N",
         price: 22000,
@@ -570,9 +820,18 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+              {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["jun25", "jul25", "aug25"],
         features: ["beach", "party", "heritage"],
@@ -586,8 +845,8 @@ export const TRAVEL_PACKAGES_DATA = [
     destination_name: "Rajasthan",
     category: "domestic",
     description: "Land of kings with magnificent palaces, forts, and desert.",
-    thumbnail_image: "/assets/png/rajasthan.jpg",
-    hero_image: "/assets/png/rajasthan-hero.jpg",
+    thumbnail_image: sikkimImage,
+    hero_image: sikkimImage,
     reviews: [
       {
         name: "Neha Patel",
@@ -597,7 +856,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 16,
+        tripId: 16,
         title: "Rajasthan Royal Heritage",
         duration: "6D-5N",
         price: 28000,
@@ -605,9 +864,18 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["oct25", "nov25", "dec25"],
         features: ["heritage", "palace", "culture"],
@@ -622,8 +890,8 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "domestic",
     description:
       "Himalayan paradise with snow-capped peaks and adventure sports.",
-    thumbnail_image: "/assets/png/himachal.jpg",
-    hero_image: "/assets/png/himachal-hero.jpg",
+    thumbnail_image: himachalImage,
+    hero_image: himachalImage,
     reviews: [
       {
         name: "Vikram Malhotra",
@@ -633,7 +901,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 17,
+        tripId: 17,
         title: "Himachal Mountain Adventure",
         duration: "7D-6N",
         price: 30000,
@@ -641,9 +909,18 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["jun25", "jul25", "aug25"],
         features: ["mountains", "adventure", "nature"],
@@ -658,8 +935,8 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "domestic",
     description:
       "High-altitude deserts, monasteries, and breathtaking landscapes.",
-    thumbnail_image: "/assets/png/ladakh.jpg",
-    hero_image: "/assets/png/ladakh-hero.jpg",
+    thumbnail_image: lehImage,
+    hero_image: lehImage,
     reviews: [
       {
         name: "Ravi Verma",
@@ -669,7 +946,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 18,
+        tripId: 18,
         title: "Leh & Nubra Valley Adventure",
         duration: "8D-7N",
         price: 55000,
@@ -677,14 +954,38 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["jun25", "jul25", "aug25", "sep25"],
         features: ["mountain", "adventure", "culture"],
         customizable: false,
         badge: { type: "hot", text: "Trending" },
+        capacity: 20,
+        meals: "Breakfast and Dinner",
+        accommodations: "7 nights in Camps/Hotels",
+        baseCity: "Delhi",
+        route: ["Delhi", "Leh", "Nubra", "Pangong", "Leh", "Delhi"],
+        itinerary: [
+          { day: 1, summary: "Arrive Leh.", details: "Acclimatization." },
+          { day: 2, summary: "Local sightseeing.", details: "Shanti Stupa, Leh Palace." },
+          { day: 3, summary: "Leh to Nubra.", details: "Khardung La pass." },
+          { day: 4, summary: "Nubra to Pangong.", details: "Overnight near lake." },
+          { day: 5, summary: "Pangong to Leh.", details: "Free evening." },
+          { day: 6, summary: "Departure.", details: "Fly back." }
+        ],
+        includes: ["Airport transfers", "Meals as per plan", "Inner line permits"],
+        excludes: ["Flights", "Personal expenses"]
       },
     ],
   },
@@ -693,8 +994,8 @@ export const TRAVEL_PACKAGES_DATA = [
     destination_name: "Kashmir",
     category: "domestic",
     description: "Paradise on earth with beautiful valleys and houseboats.",
-    thumbnail_image: "/assets/png/kashmir.jpg",
-    hero_image: "/assets/png/kashmir-hero.jpg",
+    thumbnail_image: kashmirImage,
+    hero_image: kashmirImage,
     reviews: [
       {
         name: "Priya Nair",
@@ -704,7 +1005,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 19,
+        tripId: 19,
         title: "Kashmir Valley & Houseboat",
         duration: "8D-7N",
         price: 35000,
@@ -712,9 +1013,18 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+            {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["jun25", "jul25", "aug25"],
         features: ["valley", "houseboat", "nature"],
@@ -728,8 +1038,8 @@ export const TRAVEL_PACKAGES_DATA = [
     destination_name: "Lonavala",
     category: "weekend",
     description: "Perfect weekend getaway with scenic views and adventure.",
-    thumbnail_image: "/assets/png/lonavala.jpg",
-    hero_image: "/assets/png/lonavala-hero.jpg",
+    thumbnail_image: BaliImage,
+    hero_image: BaliImage,
     reviews: [
       {
         name: "Ananya Sharma",
@@ -748,14 +1058,34 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["every-weekend"],
         features: ["weekend", "nature", "adventure"],
         customizable: true,
-        badge: { type: "weekend", text: "Weekend Special" },
+        badge: { type: "", text: "" },
+        capacity: 40,
+        meals: "Breakfast",
+        accommodations: "1 night in Resort",
+        baseCity: "Mumbai",
+        route: ["Mumbai", "Lonavala", "Mumbai"],
+        itinerary: [
+          { day: 1, summary: "Arrive and local sightseeing.", details: "Tiger Point, caves." },
+          { day: 2, summary: "Leisure and departure.", details: "Strawberry farm optional." }
+        ],
+        includes: ["Breakfast", "Resort stay"],
+        excludes: ["Transport to Lonavala", "Lunch/Dinner"]
       },
     ],
   },
@@ -765,8 +1095,8 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "weekend",
     description:
       "Queen of hill stations with strawberry farms and scenic beauty.",
-    thumbnail_image: "/assets/png/mahabaleshwar.jpg",
-    hero_image: "/assets/png/mahabaleshwar-hero.jpg",
+    thumbnail_image: uttarakhandImage,
+    hero_image: uttarakhandImage,
     reviews: [
       {
         name: "Rajesh Kumar",
@@ -777,7 +1107,7 @@ export const TRAVEL_PACKAGES_DATA = [
     ],
     trips: [
       {
-        id: 21,
+        tripId: 21,
         title: "Mahabaleshwar Strawberry Tour",
         duration: "2D-1N",
         price: 9500,
@@ -785,20 +1115,39 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
-          "/assets/png/banner1.jpg",
+          {
+            id: 1,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 2,
+            image: "/assets/png/banner1.jpg",
+          },
+          {
+            id: 3,
+            image: "/assets/png/banner1.jpg",
+          },
         ],
         availableDates: ["every-weekend"],
         features: ["weekend", "strawberry", "nature"],
         customizable: true,
-        badge: { type: "weekend", text: "Weekend Special" },
+        badge: { type: "", text: "" },
+        capacity: 40,
+        meals: "Breakfast",
+        accommodations: "1 night in Resort",
+        baseCity: "Pune",
+        route: ["Pune", "Mahabaleshwar", "Pune"],
+        itinerary: [
+          { day: 1, summary: "Mapro garden and viewpoints.", details: "Evening leisure." },
+          { day: 2, summary: "Strawberry picking and return.", details: "Shopping time." }
+        ],
+        includes: ["Breakfast", "Stay"],
+        excludes: ["Transport", "Lunch/Dinner"]
       },
     ],
   },
 ];
 
-// export const TRAVEL_PACKAGES_DATA = [
 //   {
 //     id: 1,
 //     title: "Beach & Sands",
@@ -1070,28 +1419,7 @@ export const TRAVEL_PACKAGES_DATA = [
 
 // Filter Options for the travel packages section
 export const FILTER_OPTIONS = {
-  destinations: [
-    { value: "Thailand", label: "Thailand" },
-    { value: "Europe", label: "Europe" },
-    { value: "Indonesia", label: "Indonesia" },
-    { value: "Vietnam", label: "Vietnam" },
-    { value: "Egypt", label: "Egypt" },
-    { value: "USA", label: "USA" },
-    { value: "Canada", label: "Canada" },
-    { value: "Japan", label: "Japan" },
-    { value: "Australia", label: "Australia" },
-    { value: "Singapore", label: "Singapore" },
-    { value: "Maldives", label: "Maldives" },
-    { value: "Dubai", label: "Dubai" },
-    { value: "Kerala", label: "Kerala" },
-    { value: "Goa", label: "Goa" },
-    { value: "Rajasthan", label: "Rajasthan" },
-    { value: "Himachal Pradesh", label: "Himachal Pradesh" },
-    { value: "Ladakh", label: "Ladakh" },
-    { value: "Kashmir", label: "Kashmir" },
-    { value: "Lonavala", label: "Lonavala" },
-    { value: "Mahabaleshwar", label: "Mahabaleshwar" },
-  ],
+  destinations: TRAVEL_PACKAGES_DATA.map(d => ({ value: d.destination_name, label: d.destination_name })),
   destinationType: [
     { value: "international", label: "International" },
     { value: "domestic", label: "Domestic" },

@@ -11,7 +11,7 @@ const FooterLinks = () => {
           <ul className={styles.linkList}>
             {FOOTER_LINKS.international.map((link, index) => (
               <li key={index}>
-                <a href="#" className={styles.link}>{link}</a>
+                <a href={link.url} className={styles.link}>{link.name}</a>
               </li>
             ))}
           </ul>
@@ -22,7 +22,7 @@ const FooterLinks = () => {
           <ul className={styles.linkList}>
             {FOOTER_LINKS.popularUpcoming.map((link, index) => (
               <li key={index}>
-                <a href="#" className={styles.link}>{link}</a>
+                <a href={link.url} className={styles.link}>{link.name}</a>
               </li>
             ))}
           </ul>

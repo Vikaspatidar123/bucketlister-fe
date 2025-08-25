@@ -9,14 +9,12 @@ const DestinationCard = ({ destination, onClick }) => {
       onClick(destination);
     }
   };
-
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.destinationCard} onClick={handleClick}>
         <div className={styles.cardImage}>
           {destination?.image ? (
-            ''
-            // <Image src={destination.image} alt={destination.name} fill sizes="(max-width: 768px) 100vw, 33vw" className={styles.image} />
+            <Image src={destination.image} alt={destination?.name || 'Destination'} fill sizes="(max-width: 768px) 100vw, 33vw" className={styles.image} />
           ) : (
             <div className={styles.imagePlaceholder}></div>
           )}

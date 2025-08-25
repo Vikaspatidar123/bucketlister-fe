@@ -53,7 +53,7 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
         // If a specific trip is selected, only include that trip
         if (selectedTripId) {
           destination.trips.forEach(trip => {
-            if (trip.id === selectedTripId) {
+            if (trip.tripId === selectedTripId) {
               flattened.push({
                 ...trip,
                 destination_name: destination.destination_name,

@@ -1,0 +1,60 @@
+.header {
+  width: 100%;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  margin-bottom: 30px;
+}
+
+.container {
+  max-width: 95vw;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+  font-family: Montserrat Alternates;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 32px;
+  line-height: 110.00000000000001%;
+  letter-spacing: 0%;
+}
+
+.priceBlock {
+  text-align: left;
+}
+
+.caption {
+  font-family: Montserrat Alternates;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 72%;
+  letter-spacing: 0%;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-family: Montserrat Alternates;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 24px;
+  line-height: 72%;
+  letter-spacing: 0%;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 22px;
+  }
+  .price {
+    font-size: 16px;
+  }
+}

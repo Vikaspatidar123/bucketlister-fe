@@ -25,6 +25,7 @@
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE/Edge */
     &::-webkit-scrollbar { display: none; height: 0; }
+    padding-top: 5px;
 
     .momentsRow {
       display: inline-flex;

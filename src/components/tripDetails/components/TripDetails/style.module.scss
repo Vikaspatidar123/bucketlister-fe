@@ -1,0 +1,33 @@
+.tripDetailsSection {
+  width: 100%;
+  padding: 0px 0px;
+}
+
+.container {
+  width: 100%;
+  max-width: 85vw;
+  margin: 0 auto;
+  // padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 24px;
+}
+
+@media (min-width: 992px) {
+  .container {
+    grid-template-columns: 56% 1fr;
+    grid-gap: 32px;
+  }
+}
+
+.leftCol {
+}
+
+.rightCol {
+}
+
+
+.fullRow {
+  grid-column: 1 / -1;
+}
+

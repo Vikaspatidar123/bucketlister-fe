@@ -1,0 +1,55 @@
+.wrapper {
+  width: 100%;
+  border-top: 1px solid #e9ecef;
+}
+
+.container {
+  max-width: 85vw;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.tabs {
+  flex: 1;
+  /* Override common Tabs styles locally to match design */
+  :global(.tabsContainer) {
+    background: transparent;
+    border-bottom: 1px solid #e9ecef;
+    gap: 28px;
+    padding: 6px 0;
+  }
+
+  :global(.pillsContainer) {
+    background: transparent;
+    gap: 28px;
+  }
+
+  :global(.tab.pills) {
+    background: transparent;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 9999px;
+    color: #111;
+    font-weight: 700;
+  }
+
+  :global(.tab.pills.active) {
+    background: #02658f;
+    color: #fff;
+    border: none;
+  }
+}
+
+.shareBtn {
+  background: transparent;
+  border: none;
+  color: #02658f;
+  font-size: 18px;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+

@@ -39,29 +39,11 @@ const TravelPackagesSection = ({
   } = useTravelPackages(selectedTripId, destinationName);
 
   const handleTripClick = (trip) => {
-    // Find the destination data for this trip
     const destination = TRAVEL_PACKAGES_DATA.find(
-      (dest) => dest.trips && dest.trips.some((t) => t.id === trip.id)
+      (dest) => dest.trips && dest.trips.some((t) => t.tripId === trip.tripId)
     );
-
     if (destination) {
-      // Create a comprehensive data object to pass
-      const tripData = {
-        trip: trip,
-        destination: {
-          destination_name: destination.destination_name,
-          name: destination.destination_name, // Keep both for compatibility
-          description: destination.description,
-          thumbnail_image: destination.thumbnail_image,
-          hero_image: destination.hero_image,
-          reviews: destination.reviews,
-          trips: destination.trips, // Include all trips from this destination
-        },
-      };
-
-      // Encode the data and redirect to explore page
-      const encodedData = encodeURIComponent(JSON.stringify(tripData));
-      router.push(`/explore?data=${encodedData}`);
+      router.push(`/trip?destinationId=${destination.destination_id}&tripId=${trip.tripId}`);
     }
   };
 
@@ -224,7 +206,7 @@ const TravelPackagesSection = ({
         <div className={styles.packagesGrid}>
           {paginatedData.map((trip) => (
             <div
-              key={trip.id}
+              key={trip.tripId}
               className={styles.packageCard}
               onClick={() => handleTripClick(trip)}
             >

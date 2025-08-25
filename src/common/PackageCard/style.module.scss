@@ -1,0 +1,147 @@
+.packageCard {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 6px 24px rgba(16, 24, 40, 0.06);
+
+  &:hover {
+    scale: 1.05;
+    transition: all 0.3s ease;
+  }
+
+  .cardImage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/2.9;
+    overflow: hidden;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+
+    .packageImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 48px;
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 48' preserveAspectRatio='none'><path d='M0,0 H45 C55,0 60,28 71,28 H100 V48 H0 Z' fill='%23ffffff'/></svg>")
+        no-repeat center/100% 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 47px;
+      height: 0;
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1' preserveAspectRatio='none'><path d='M0,1 H45 C55,1 60,1 71,1 H100' fill='none' stroke='%23000000' stroke-opacity='0.08' stroke-width='1.2'/></svg>")
+        no-repeat center/100% 1px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 3;
+
+      &.new { background: #28a745; color: white; }
+      &.luxe { background: #ffc107; color: #1a1a1a; }
+      &.nature { background: #20c997; color: white; }
+      &.featured { background: #dc3545; color: white; }
+    }
+  }
+
+  .cardBody {
+    position: relative;
+    margin-top: -16px;
+    background: #fff;
+    padding: 1px 16px 0 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .metaRow {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #3b3e45;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 100;
+    top: -26px;
+    left: -8px;
+
+    .metaIcon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 25px;
+      height: 25px;
+      border-radius: 6px;
+      color: #c2410c;
+      font-size: 0.75rem;
+      line-height: 1;
+    }
+
+    .metaDuration {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #6b7280;
+    }
+  }
+
+  .cardTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f2937;
+    line-height: 1.35;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+
+  .priceRow {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+
+    .currentPrice { font-size: 15px; font-weight: 600; color: #111827; }
+    .oldPrice { font-size: 15px; color: #111827; text-decoration: line-through; font-weight: 600; }
+    .discount { font-size: 15px; color: #e11d48; font-weight: 600; }
+  }
+
+  .footerRow {
+    margin-top: 12px;
+    background: transparent;
+    color: #6b7280;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 14px 0px 16px 0px;
+    border-top: 1px solid #e5e7eb;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+}
+
+

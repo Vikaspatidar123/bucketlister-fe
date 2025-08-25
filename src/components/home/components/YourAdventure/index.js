@@ -3,6 +3,7 @@ import React from 'react';
 import { DOMESTIC_BANNER_DATA, DOMESTIC_DESTINATIONS, YOUR_ADVENTURE_DATA } from '../../constants';
 import styles from './style.module.scss';
 import BannerSection from '@/components/BannerSection/components';
+import Image from 'next/image';
 
 const YourAdventureSection = () => {
   const handleExploreClick = () => {
@@ -32,7 +33,7 @@ const YourAdventureSection = () => {
             {YOUR_ADVENTURE_DATA.travelTypes.map((type) => (
               <div key={type.id} className={styles.travelTypeCard}>
                 {/* <div className={styles.iconWapper}> */}
-                  <img src={type.icon} alt={type.title} className={styles.icon} />
+                  <Image src={type.icon} alt={type.title} className={styles.icon} width={96} height={96} />
                 {/* </div> */}
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{type.title}</h3>

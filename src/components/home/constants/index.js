@@ -1,4 +1,5 @@
 import { destinationIcon, instagramIcon, reviewIcon } from "@/assets/svg";
+import { bigGroupImage, smallGroupImage, soloImage } from "@/assets/webp";
 
 export const HERO_DATA = {
   mainHeading: {
@@ -577,21 +578,21 @@ export const YOUR_ADVENTURE_DATA = {
   travelTypes: [
     {
       id: 1,
-      icon: "/assets/png/single-people.png",
+      icon:soloImage,
       title: "Solo Traveller",
       subtitle: "Never alone",
       description: "Link up with fellow explorers for safe, unforgettable adventures."
     },
     {
       id: 2,
-      icon: "/assets/png/group-people.png",
+      icon: smallGroupImage,
       title: "Small Group (2-3 People)",
       subtitle: "Your crew, our curation",
       description: "Intimate trips without the planning headaches."
     },
     {
       id: 3,
-      icon: "/assets/png/busicon.png",
+      icon: bigGroupImage,
       title: "Big Group (4+ People)",
       subtitle: "Effortless coordination and spacious fun",
       description: "Just show up and enjoy."
