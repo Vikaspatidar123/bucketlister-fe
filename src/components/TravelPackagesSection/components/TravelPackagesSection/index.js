@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import CustomSelect from "../../../../common/CustomSelect";
 import Tabs from "../../../../common/Tabs";
 import Pagination from "../../../../common/Pagination";
@@ -18,6 +18,7 @@ const TravelPackagesSection = ({
   destinationName = null,
 }) => {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const {
     filters,
@@ -36,7 +37,29 @@ const TravelPackagesSection = ({
     isPriceFilterOpen,
     togglePriceFilter,
     priceFilterRef,
+    maxPrice,
   } = useTravelPackages(selectedTripId, destinationName);
+
+  // Apply filters from query params (destination, date)
+  useEffect(() => {
+    if (!searchParams) return;
+    const destination = searchParams.get("destination");
+    const date = searchParams.get("date");
+
+    if (destination) {
+      const option = FILTER_OPTIONS.destinations.find(
+        (o) => o.value === destination
+      );
+      if (option) {
+        handleFilterChange("destinations", [option]);
+      }
+    }
+
+    if (date) {
+      setActiveDateTab(date);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   const handleTripClick = (trip) => {
     const destination = TRAVEL_PACKAGES_DATA.find(
@@ -49,7 +72,7 @@ const TravelPackagesSection = ({
 
   const formatPriceRange = () => {
     const [min, max] = filters.priceRange;
-    if (min === 0 && max === 100000) {
+    if (min === 0 && max === maxPrice) {
       return "Price Range";
     }
     return `₹${min.toLocaleString()} - ₹${max.toLocaleString()}`;
@@ -91,6 +114,7 @@ const TravelPackagesSection = ({
 
   return (
     <section
+      id="travel-packages"
       className={`${styles.travelPackagesSection} ${
         destinationName ? styles.explorePage : ""
       }`}
@@ -144,7 +168,7 @@ const TravelPackagesSection = ({
                     <div className={styles.priceFilterDropdown}>
                       <PriceRangeSlider
                         min={0}
-                        max={100000}
+                        max={maxPrice}
                         step={1000}
                         value={filters.priceRange}
                         onChange={handlePriceRangeChange}

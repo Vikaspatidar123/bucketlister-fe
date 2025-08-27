@@ -14,7 +14,7 @@ const curatedIcon = "/assets/svg/curated.svg";
 const immersiveIcon = "/assets/svg/immersive.svg";
 const andamanImage = "/assets/svg/Andaman.svg";
 const APImaImage = "/assets/svg/AP.svg";
-const BaliImage = "/assets/svg/Bali.svg";     
+const BaliImage = "/assets/svg/Bali.svg";
 const kashmirImage = "/assets/svg/Domestic-Kashmir.svg";
 const DubaiImage = "/assets/svg/dubai.svg";
 const GokarnaImage = "/assets/svg/Gokarna.svg";
@@ -33,6 +33,7 @@ const thailandImage = "/assets/svg/Thailand.svg";
 const uttarakhandImage = "/assets/svg/Uttarakhand.svg";
 const vietnamImage = "/assets/svg/Vietnam.svg";
 const zanskarImage = "/assets/svg/Zanskar-ladakh.svg";
+const shareIcon = "/assets/svg/share-icon.svg";
 
 export {
   downArrow,
@@ -70,4 +71,5 @@ export {
   uttarakhandImage,
   vietnamImage,
   zanskarImage,
+  shareIcon,
 };

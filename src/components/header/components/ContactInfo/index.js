@@ -9,7 +9,9 @@ const ContactInfo = () => {
     <div className={styles.contactInfo}>
       <div className={styles.phoneSection}>
         <Image src={phoneIcon} alt="phone-icon" width={18} height={18} />
-        <span className={styles.phoneNumber}>{CONTACT_INFO.phone}</span>
+        <a href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, '')}`} className={styles.phoneNumber}>
+          {CONTACT_INFO.phone}
+        </a>
       </div>
       <div className={styles.separator}></div>
       <div className={styles.searchIcon}>

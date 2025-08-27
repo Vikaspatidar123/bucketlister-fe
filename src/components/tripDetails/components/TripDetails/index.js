@@ -27,22 +27,34 @@ const TripDetails = ({ destination, trip }) => {
 
   return (
     <section className={styles.tripDetailsSection}>
-      <TripHeader title={destination.destination_name} price={trip.price} />
+      <div id="trip-overview">
+        <TripHeader title={destination.destination_name} price={trip.price} />
+      </div>
       <TripNavTabs />
       <div className={styles.container}>
         <div className={styles.leftCol}>
-          <Gallery trip={trip} />
+          <div id="trip-gallery">
+            <Gallery trip={trip} />
+          </div>
         </div>
         <div className={styles.rightCol}>
           <Details destination={destination} trip={trip} />
         </div>
       </div>
-      <Itinerary destination={destination} trip={trip} />
-      <Inclusions trip={trip} />
+      <div id="trip-itinerary">
+        <Itinerary destination={destination} trip={trip} />
+      </div>
+      <div id="trip-included">
+        <Inclusions trip={trip} />
+      </div>
       <FeaturesBar />
       <HappyMomentsSection />
-      <TravellersTestimonialsSection />
-      <SimilarTours trips={similarTrips} baseCategory={destination?.category} />
+      <div id="trip-reviews">
+        <TravellersTestimonialsSection />
+      </div>
+      <div id="trip-similar">
+        <SimilarTours trips={similarTrips} baseCategory={destination?.category} />
+      </div>
     </section>
   );
 };

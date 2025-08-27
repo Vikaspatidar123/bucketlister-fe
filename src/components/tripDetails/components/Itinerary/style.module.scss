@@ -44,32 +44,49 @@
   font-weight: 700;
 }
 
-.timeline {
+.timelineDynamic {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0;
+  padding-right: 20px; // extra space on the right as requested
 }
 
-.timelineStep {
-  display: flex;
+.segment {
+  display: inline-grid;
+  grid-template-columns: auto auto 1fr auto; // dot, label, line, optional end dot
   align-items: center;
   gap: 6px;
+  margin-right: 2px; // slight gap to account for chip divider
 }
 
-.timelineLabel {
-  font-size: 12px;
-  opacity: 0.7;
-}
-
-.timelineDot {
+.segmentDot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: #02658f;
 }
 
-.last {
+.segmentLabel {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-right: 6px;
+}
+
+.segmentLine {
+  display: block;
+  height: 4px;
   background: #02658f;
+  border-radius: 2px;
+  width: 100%; // consume remaining width so the whole segment fits chip width
+  min-width: 12px;
+}
+
+.segmentTailLine {
+  display: inline-block;
+  height: 4px;
+  background: #02658f;
+  border-radius: 2px;
+  margin-left: 6px; // gap after last dot
 }
 
 .routeChips {
@@ -84,13 +101,22 @@
 }
 
 .chip {
-  padding: 6px 10px;
+  padding: 8px 16px; // increase chip size
   font-weight: 600;
   font-size: 12px;
   cursor: pointer;
   background: #fff;
+  border: none; // reset button default border to preserve UI
   border-right: 3px solid #00000033;
   outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  color: inherit;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px; // ensure larger, consistent visual width
   transition: background-color 160ms ease, color 160ms ease,
     box-shadow 160ms ease, transform 160ms ease, border-color 160ms ease;
   will-change: transform;

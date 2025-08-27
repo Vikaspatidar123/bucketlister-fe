@@ -78,6 +78,106 @@
   }
 }
 
+.arrow {
+  transition: transform 0.2s ease;
+}
+
+.arrowOpen {
+  transform: rotate(180deg);
+}
+
+// Dropdown panel styles
+.dropdownPanel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-top: 10px;
+  white-space: nowrap;
+  z-index: 1001;
+}
+
+.dropdownGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 48px;
+}
+
+.dropdownItem {
+  color: #111;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 6px 0;
+}
+
+.dropdownItem:hover {
+  color: #444;
+}
+
+.domesticWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) max-content; // 2 columns for Domestic, 1 for Weekend
+  column-gap: 18px;
+  row-gap: 12px;
+  align-items: start;
+}
+
+// Ensure domestic list itself uses two columns inside the domestic wrapper
+.domesticWrapper .dropdownGrid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 32px;
+}
+
+.weekendColumn {
+  // padding-left: 1px;
+  grid-column: 3;
+  display: grid;
+  grid-template-rows: auto auto;
+  align-content: start;
+  row-gap: 4px;
+}
+
+.weekendTitle {
+  grid-row: 1;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 12px 0;
+  display: inline-flex;
+  align-items: center;
+  line-height: 28px; // match item row height for alignment
+}
+
+.weekendList {
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: repeat(1, max-content);
+  column-gap: 4px;
+  row-gap: 10px;
+  align-items: center;
+}
+
+.moreList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.moreItem {
+  color: #111;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+.moreItem:hover { color: #444; }
+
+// removed arrow styling
+
 // Contact info styles
 .contactInfo {
   display: flex;

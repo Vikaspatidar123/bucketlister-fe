@@ -52,7 +52,7 @@
   gap: 20px;
   flex-wrap: wrap;
   position: relative;
-  z-index: 1; // Ensure proper stacking context
+  z-index: 2000; // Ensure proper stacking context above cards
 
 
   &::before,
@@ -92,6 +92,7 @@
         padding: 10px 16px;
         min-height: 44px;
         transition: all 0.2s ease;
+        z-index: 2002; // keep header above nearby elements
 
         &:hover {
           border-color: #ff6b6b;
@@ -583,7 +584,7 @@
     display: flex;
     flex-direction: column;
     // gap: 10px;
-
+z
     // Disable previous curve
     &::before {
       display: none;
@@ -596,11 +597,12 @@
     align-items: center;
     // gap: 8px;
     color: #3b3e45; // gray-500
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     z-index: 100;
     top: -26px;
     left: -8px;
+    z-index: 1;
 
     .metaIcon {
       display: inline-flex;

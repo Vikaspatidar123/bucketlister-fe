@@ -1,24 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFooter } from '../../hook/useFooter';
 import styles from './style.module.scss';
 
 const ContactForm = () => {
+  // const [result, setResult] = useState("");
   const {
     formData,
     errors,
     isSubmitting,
     handleInputChange,
-    handleSubmit,
-    resetForm
+    handleSubmit
   } = useFooter();
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const success = await handleSubmit();
-    if (success) {
-      resetForm();
-    }
-  };
+  const onSubmit = handleSubmit;
 
   return (
     <div className={styles.contactForm}>
@@ -65,6 +59,7 @@ const ContactForm = () => {
             rows={4}
           />
         </div>
+        {errors.submit && <div className={styles.errorText}>{errors.submit}</div>}
         
         <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
           {isSubmitting ? 'Submitting...' : 'Enquire Now'}

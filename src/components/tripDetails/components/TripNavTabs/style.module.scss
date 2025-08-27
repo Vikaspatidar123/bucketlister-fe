@@ -1,6 +1,7 @@
 .wrapper {
   width: 100%;
-  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #dde1e6;
+  margin-bottom: 30px;
 }
 
 .container {
@@ -9,37 +10,37 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 0;
+  padding: 0 0 15px 0;
 }
 
-.tabs {
+.tabNav {
   flex: 1;
-  /* Override common Tabs styles locally to match design */
-  :global(.tabsContainer) {
-    background: transparent;
-    border-bottom: 1px solid #e9ecef;
-    gap: 28px;
-    padding: 6px 0;
-  }
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-  :global(.pillsContainer) {
-    background: transparent;
-    gap: 28px;
-  }
+.tabLink {
+  background: transparent;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
+}
 
-  :global(.tab.pills) {
-    background: transparent;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 9999px;
-    color: #111;
-    font-weight: 700;
-  }
+.tabLink:hover {
+  color: #024e6e;
+}
 
-  :global(.tab.pills.active) {
-    background: #02658f;
+.active {
+  background: #02658f;
+  color: #fff;
+  &:hover {
     color: #fff;
-    border: none;
+    background-color: #024b6a;
+    transform: translateY(-1px);
   }
 }
 
@@ -50,6 +51,8 @@
   font-size: 18px;
   padding: 6px 8px;
   cursor: pointer;
+  &:hover {
+    color: #024b6a;
+    transform: translateY(-1px);
+  }
 }
-
-

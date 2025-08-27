@@ -28,13 +28,37 @@ const useClickOutside = (isOpen, onClose) => {
 };
 
 export const useTravelPackages = (selectedTripId = null, destinationName = null) => {
+  // Determine dynamic maximum price from data
+  const maxPrice = useMemo(() => {
+    let max = 0;
+    TRAVEL_PACKAGES_DATA.forEach(destination => {
+      if (destination.trips && destination.trips.length > 0) {
+        destination.trips.forEach(trip => {
+          const priceNumber = Number(trip.price);
+          if (Number.isFinite(priceNumber) && priceNumber > max) {
+            max = priceNumber;
+          }
+        });
+      }
+    });
+    return Math.max(max, 100000);
+  }, []);
+
   const [filters, setFilters] = useState({
     destinations: [],
-    priceRange: [0, 100000], // Default price range
+    priceRange: [0, /** dynamic */ 0],
     dates: null,
     features: [],
     destinationType: null
   });
+
+  // Initialize price range upper bound once maxPrice is known
+  useEffect(() => {
+    setFilters(prev => ({
+      ...prev,
+      priceRange: [0, maxPrice]
+    }));
+  }, [maxPrice]);
   const [activeDateTab, setActiveDateTab] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState('default');
@@ -111,20 +135,19 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
 
       // Filter by price range
       if (filters.priceRange && filters.priceRange.length === 2) {
-        const tripPrice = parseInt(trip.price);
-        const [minPrice, maxPrice] = filters.priceRange;
-        if (tripPrice < minPrice || tripPrice > maxPrice) {
-          return false;
+        const tripPrice = Number(trip.price);
+        const [minPrice, maxPriceSelected] = filters.priceRange;
+        if (Number.isFinite(tripPrice)) {
+          if (tripPrice < minPrice || tripPrice > maxPriceSelected) {
+            return false;
+          }
         }
       }
 
-      // Filter by dates
-      if (filters.dates && activeDateTab !== 'all') {
+      // Filter by dates (using active tab)
+      if (activeDateTab !== 'all') {
         if (!trip.availableDates || !trip.availableDates.includes(activeDateTab)) {
           return false;
-        }
-        else{
-          return true;
         }
       }
 
@@ -154,16 +177,16 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     switch (sortBy) {
       case 'price-low':
         filtered.sort((a, b) => {
-          const priceA = parseInt(a.price.replace(/[^\d]/g, ''));
-          const priceB = parseInt(b.price.replace(/[^\d]/g, ''));
-          return priceA - priceB;
+          const priceA = Number(a.price);
+          const priceB = Number(b.price);
+          return (Number.isFinite(priceA) ? priceA : 0) - (Number.isFinite(priceB) ? priceB : 0);
         });
         break;
       case 'price-high':
         filtered.sort((a, b) => {
-          const priceA = parseInt(a.price.replace(/[^\d]/g, ''));
-          const priceB = parseInt(b.price.replace(/[^\d]/g, ''));
-          return priceB - priceA;
+          const priceA = Number(a.price);
+          const priceB = Number(b.price);
+          return (Number.isFinite(priceB) ? priceB : 0) - (Number.isFinite(priceA) ? priceA : 0);
         });
         break;
       case 'duration':
@@ -231,7 +254,7 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     
     setFilters({
       destinations: [],
-      priceRange: [0, 100000],
+      priceRange: [0, maxPrice],
       dates: null,
       features: [],
       destinationType: null
@@ -296,6 +319,7 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     currentPage,
     sortBy,
     isPriceFilterOpen,
+    maxPrice,
     
     // Computed values
     filteredAndSortedData,

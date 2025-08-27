@@ -12,6 +12,10 @@ export const useHeader = () => {
     }
   };
 
+  const openDropdown = (itemLabel) => {
+    setActiveDropdown(itemLabel);
+  };
+
   const closeAllDropdowns = () => {
     setActiveDropdown(null);
   };
@@ -19,6 +23,7 @@ export const useHeader = () => {
   return {
     activeDropdown,
     toggleDropdown,
+    openDropdown,
     closeAllDropdowns
   };
 };
