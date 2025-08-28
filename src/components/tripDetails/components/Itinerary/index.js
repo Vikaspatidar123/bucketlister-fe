@@ -2,8 +2,11 @@
 import React, { useMemo, useRef, useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import Accordion from "@/common/Accordion";
+import Modal, { useModal } from "@/common/Modal";
+import ContactForm from "@/components/footer/components/ContactForm";
 import { peopleIcon } from "@/assets/svg";
 import Image from "next/image";
+import jsPDF from "jspdf";
 
 const RouteChips = ({ route = [], onChipClick, getChipRef }) => {
   if (!Array.isArray(route) || route.length === 0) return null;
@@ -141,6 +144,98 @@ const Itinerary = ({ destination, trip }) => {
     if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const modal = useModal();
+
+  const getPdfFileName = () => {
+    const base = trip?.title || destination?.destination_name || "itinerary";
+    const safe = String(base).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    return `${safe || "itinerary"}.pdf`;
+  };
+
+  const triggerPdfDownload = () => {
+    try {
+      const doc = new jsPDF({ unit: "mm", format: "a4", compress: true });
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const pageHeight = doc.internal.pageSize.getHeight();
+      const marginX = 15;
+      const marginTop = 15;
+      const marginBottom = 15;
+      const contentWidth = pageWidth - marginX * 2;
+      let y = marginTop;
+
+      const titleText = trip?.title || destination?.destination_name || "Trip Itinerary";
+      doc.setFontSize(18);
+      doc.setFont("helvetica", "bold");
+      const titleLines = doc.splitTextToSize(titleText, contentWidth);
+      doc.text(titleLines, marginX, y);
+      y += 8 + (titleLines.length - 1) * 6;
+
+      doc.setFontSize(11);
+      doc.setFont("helvetica", "normal");
+      const meta = [
+        `Duration: ${trip?.duration || "N/A"}`,
+        `Base City: ${destination?.baseCity || "N/A"}`,
+        route && route.length ? `Route: ${route.join(" → ")}` : null,
+        `Generated: ${new Date().toLocaleString()}`,
+      ].filter(Boolean).join("  |  ");
+      const metaLines = doc.splitTextToSize(meta, contentWidth);
+      doc.text(metaLines, marginX, y);
+      y += 8 + (metaLines.length - 1) * 6;
+
+      const drawSeparator = () => {
+        doc.setDrawColor(220);
+        doc.setLineWidth(0.4);
+        doc.line(marginX, y, marginX + contentWidth, y);
+        y += 6;
+      };
+      drawSeparator();
+
+      // Days
+      days.forEach((d, index) => {
+        const ensureSpace = (needed = 20) => {
+          if (y + needed > pageHeight - marginBottom) {
+            doc.addPage();
+            y = marginTop;
+          }
+        };
+
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(13);
+        ensureSpace(12);
+        doc.text(`Day ${d.day}`, marginX, y);
+        y += 6;
+
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(12);
+        const summaryLines = doc.splitTextToSize(d.summary || "", contentWidth);
+        ensureSpace(summaryLines.length * 6 + 6);
+        doc.text(summaryLines, marginX, y);
+        y += summaryLines.length * 6 + 2;
+
+        if (d.details) {
+          doc.setFontSize(11);
+          const detailsLines = doc.splitTextToSize(d.details, contentWidth);
+          ensureSpace(detailsLines.length * 6 + 6);
+          doc.text(detailsLines, marginX, y);
+          y += detailsLines.length * 6 + 2;
+        }
+
+        if (index < days.length - 1) {
+          drawSeparator();
+        }
+      });
+
+      doc.save(getPdfFileName());
+    } catch (e) {
+      console.error("Failed to generate PDF:", e);
+    }
+  };
+
+  const handleContactSuccess = () => {
+    triggerPdfDownload();
+    modal.close();
+  };
+
   return (
     <section className={styles.itinerary}>
       <div className={styles.headerRow}>
@@ -148,7 +243,7 @@ const Itinerary = ({ destination, trip }) => {
           <Image src={peopleIcon} alt="calendar" width={22} height={22} />
           <h2 className={styles.title}>Itinerary</h2>
         </div>
-        <button className={styles.downloadBtn} type="button">
+        <button className={styles.downloadBtn} type="button" onClick={modal.open}>
           Download Itinerary
         </button>
       </div>
@@ -195,6 +290,25 @@ const Itinerary = ({ destination, trip }) => {
           <div key={`anchor-${idx}`} id={`itinerary-day-${idx + 1}`} />
         ))}
       </div>
+
+      <Modal
+        isOpen={modal.isOpen}
+        onClose={modal.close}
+        title="Download Itinerary"
+        size="md"
+        footer={
+          <ContactForm onSuccess={handleContactSuccess} submitLabel="Submit & Download PDF" />
+        }
+      >
+        <div>
+          <p style={{ marginBottom: 8 }}>
+            Provide your contact details to receive this itinerary file.
+          </p>
+          <p style={{ color: '#6b7280', fontSize: 14 }}>
+            File will download automatically after successful submission.
+          </p>
+        </div>
+      </Modal>
     </section>
   );
 };

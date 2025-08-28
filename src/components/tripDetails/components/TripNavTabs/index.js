@@ -57,9 +57,9 @@ const TripNavTabs = ({
               {t.label}
             </button>
           ))}
-          <button type="button" className={styles.shareBtn} aria-label="Share">
+          {/* <button type="button" className={styles.shareBtn} aria-label="Share">
             <img src={shareIcon} alt="Share" />
-          </button>
+          </button> */}
         </nav>
       </div>
     </div>

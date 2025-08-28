@@ -1,4 +1,22 @@
-import { andamanImage, BaliImage, coorgImage, DubaiImage, GokarnaImage, himachalImage, kashmirImage, keralaImage, lehImage, maldivesImage, sikkimImage, singaporeImage, spitiImage, srilankaImage, thailandImage, uttarakhandImage, vietnamImage } from "@/assets/svg";
+import {
+  andamanImage,
+  BaliImage,
+  coorgImage,
+  DubaiImage,
+  GokarnaImage,
+  himachalImage,
+  kashmirImage,
+  keralaImage,
+  lehImage,
+  maldivesImage,
+  sikkimImage,
+  singaporeImage,
+  spitiImage,
+  srilankaImage,
+  thailandImage,
+  uttarakhandImage,
+  vietnamImage,
+} from "@/assets/svg";
 
 // Travel Packages Data for the new section
 export const TRAVEL_PACKAGES_DATA = [
@@ -108,24 +126,44 @@ export const TRAVEL_PACKAGES_DATA = [
         baseCity: "Mumbai",
         route: ["Mumbai", "Bangkok", "Pattaya", "Mumbai"],
         itinerary: [
-          { day: 1, summary: "Arrive Bangkok, transfer to Pattaya.", details: "Evening leisure and local market visit." },
-          { day: 2, summary: "Coral Island tour.", details: "Water activities and beach time." },
-          { day: 3, summary: "Pattaya to Bangkok.", details: "Check-in and evening city walk." },
-          { day: 4, summary: "Bangkok City & Temple tour.", details: "Visit major temples and riverfront." },
-          { day: 5, summary: "Free day for shopping.", details: "Optional Safari World tour." },
-          { day: 6, summary: "Departure.", details: "Airport drop." }
+          {
+            day: 1,
+            summary: "Arrive Bangkok, transfer to Pattaya.",
+            details: "Evening leisure and local market visit.",
+          },
+          {
+            day: 2,
+            summary: "Coral Island tour.",
+            details: "Water activities and beach time.",
+          },
+          {
+            day: 3,
+            summary: "Pattaya to Bangkok.",
+            details: "Check-in and evening city walk.",
+          },
+          {
+            day: 4,
+            summary: "Bangkok City & Temple tour.",
+            details: "Visit major temples and riverfront.",
+          },
+          {
+            day: 5,
+            summary: "Free day for shopping.",
+            details: "Optional Safari World tour.",
+          },
+          { day: 6, summary: "Departure.", details: "Airport drop." },
         ],
         includes: [
           "Return airport transfers",
           "Daily breakfast",
           "City and Coral Island tours",
-          "All internal transfers"
+          "All internal transfers",
         ],
         excludes: [
           "Personal expenses",
           "Visa and insurance",
-          "Meals not mentioned"
-        ]
+          "Meals not mentioned",
+        ],
       },
       {
         tripId: 2,
@@ -160,23 +198,39 @@ export const TRAVEL_PACKAGES_DATA = [
         route: ["Mumbai", "Phuket", "Krabi", "Mumbai"],
         itinerary: [
           { day: 1, summary: "Arrive Phuket.", details: "Check-in and relax." },
-          { day: 2, summary: "Phi Phi Island tour.", details: "Snorkeling and beach time." },
-          { day: 3, summary: "Phuket city tour.", details: "Viewpoints and old town." },
-          { day: 4, summary: "Transfer to Krabi.", details: "Evening at leisure." },
-          { day: 5, summary: "Four Islands tour.", details: "Long-tail boat experience." },
+          {
+            day: 2,
+            summary: "Phi Phi Island tour.",
+            details: "Snorkeling and beach time.",
+          },
+          {
+            day: 3,
+            summary: "Phuket city tour.",
+            details: "Viewpoints and old town.",
+          },
+          {
+            day: 4,
+            summary: "Transfer to Krabi.",
+            details: "Evening at leisure.",
+          },
+          {
+            day: 5,
+            summary: "Four Islands tour.",
+            details: "Long-tail boat experience.",
+          },
           { day: 6, summary: "Free day.", details: "Optional activities." },
-          { day: 7, summary: "Departure.", details: "Airport drop." }
+          { day: 7, summary: "Departure.", details: "Airport drop." },
         ],
         includes: [
           "Airport transfers",
           "Breakfast",
-          "Phi Phi and 4 Islands tours"
+          "Phi Phi and 4 Islands tours",
         ],
         excludes: [
           "Any personal expenses",
           "Entry fees not mentioned",
-          "GST/TCS as applicable"
-        ]
+          "GST/TCS as applicable",
+        ],
       },
     ],
   },
@@ -186,7 +240,7 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     description:
       "Experience the charm of European cities, culture, and history.",
-    thumbnail_image:coorgImage,
+    thumbnail_image: coorgImage,
     hero_image: coorgImage,
     reviews: [
       {
@@ -229,26 +283,50 @@ export const TRAVEL_PACKAGES_DATA = [
         baseCity: "Mumbai",
         route: ["Mumbai", "Paris", "Zurich", "Venice", "Rome", "Mumbai"],
         itinerary: [
-          { day: 1, summary: "Arrive Paris.", details: "Evening Seine cruise." },
-          { day: 2, summary: "Paris city tour.", details: "Eiffel Tower photo-stop." },
-          { day: 3, summary: "Paris to Zurich.", details: "Scenic train ride." },
-          { day: 4, summary: "Mount Titlis excursion.", details: "Snow activities." },
-          { day: 5, summary: "Zurich to Venice.", details: "Gondola optional." },
+          {
+            day: 1,
+            summary: "Arrive Paris.",
+            details: "Evening Seine cruise.",
+          },
+          {
+            day: 2,
+            summary: "Paris city tour.",
+            details: "Eiffel Tower photo-stop.",
+          },
+          {
+            day: 3,
+            summary: "Paris to Zurich.",
+            details: "Scenic train ride.",
+          },
+          {
+            day: 4,
+            summary: "Mount Titlis excursion.",
+            details: "Snow activities.",
+          },
+          {
+            day: 5,
+            summary: "Zurich to Venice.",
+            details: "Gondola optional.",
+          },
           { day: 6, summary: "Venice to Rome.", details: "City orientation." },
-          { day: 7, summary: "Rome & Vatican.", details: "Colosseum exterior and St. Peter's." },
+          {
+            day: 7,
+            summary: "Rome & Vatican.",
+            details: "Colosseum exterior and St. Peter's.",
+          },
           { day: 8, summary: "Free day.", details: "Shopping and leisure." },
-          { day: 9, summary: "Departure.", details: "Fly back to Mumbai." }
+          { day: 9, summary: "Departure.", details: "Fly back to Mumbai." },
         ],
         includes: [
           "Airport transfers",
           "Daily breakfast",
-          "Seine cruise and Titlis"
+          "Seine cruise and Titlis",
         ],
         excludes: [
           "Schengen visa",
           "Insurance",
-          "Lunches and personal expenses"
-        ]
+          "Lunches and personal expenses",
+        ],
       },
     ],
   },
@@ -258,7 +336,7 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     description:
       "Discover tropical paradise with temples, rice fields, and beaches.",
-    thumbnail_image:maldivesImage,
+    thumbnail_image: maldivesImage,
     hero_image: maldivesImage,
     reviews: [
       {
@@ -300,16 +378,32 @@ export const TRAVEL_PACKAGES_DATA = [
         baseCity: "Mumbai",
         route: ["Mumbai", "Bali", "Ubud", "Kuta", "Mumbai"],
         itinerary: [
-          { day: 1, summary: "Arrive Bali.", details: "Relax and sunset at beach." },
-          { day: 2, summary: "Ubud & Rice terraces.", details: "Swing and coffee plantation." },
-          { day: 3, summary: "Temple tour.", details: "Tanah Lot and Ulun Danu." },
-          { day: 4, summary: "Nusa Penida day trip.", details: "Kelingking beach." },
+          {
+            day: 1,
+            summary: "Arrive Bali.",
+            details: "Relax and sunset at beach.",
+          },
+          {
+            day: 2,
+            summary: "Ubud & Rice terraces.",
+            details: "Swing and coffee plantation.",
+          },
+          {
+            day: 3,
+            summary: "Temple tour.",
+            details: "Tanah Lot and Ulun Danu.",
+          },
+          {
+            day: 4,
+            summary: "Nusa Penida day trip.",
+            details: "Kelingking beach.",
+          },
           { day: 5, summary: "Free day.", details: "Optional water sports." },
           { day: 6, summary: "Shopping.", details: "Local markets and spa." },
-          { day: 7, summary: "Departure.", details: "Airport drop." }
+          { day: 7, summary: "Departure.", details: "Airport drop." },
         ],
         includes: ["Breakfast", "Transfers", "Sightseeing as per itinerary"],
-        excludes: ["Personal expenses", "Entry fees not mentioned"]
+        excludes: ["Personal expenses", "Entry fees not mentioned"],
       },
     ],
   },
@@ -339,7 +433,7 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 2000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-            {
+          {
             id: 1,
             image: "/assets/png/banner1.jpg",
           },
@@ -360,19 +454,30 @@ export const TRAVEL_PACKAGES_DATA = [
         meals: "Breakfast",
         accommodations: "7 nights in Hotels",
         baseCity: "Mumbai",
-        route: ["Mumbai", "Hanoi", "Halong Bay", "Da Nang", "Ho Chi Minh", "Mumbai"],
+        route: [
+          "Mumbai",
+          "Hanoi",
+          "Halong Bay",
+          "Da Nang",
+          "Ho Chi Minh",
+          "Mumbai",
+        ],
         itinerary: [
           { day: 1, summary: "Arrive Hanoi.", details: "Old Quarter walk." },
-          { day: 2, summary: "Halong Bay cruise.", details: "Overnight on boat optional." },
+          {
+            day: 2,
+            summary: "Halong Bay cruise.",
+            details: "Overnight on boat optional.",
+          },
           { day: 3, summary: "Fly to Da Nang.", details: "Marble Mountains." },
           { day: 4, summary: "Hoi An.", details: "Ancient town tour." },
           { day: 5, summary: "Fly to HCMC.", details: "City tour." },
           { day: 6, summary: "Cu Chi tunnels.", details: "Guided excursion." },
           { day: 7, summary: "Mekong Delta.", details: "Local village visit." },
-          { day: 8, summary: "Departure.", details: "Airport drop." }
+          { day: 8, summary: "Departure.", details: "Airport drop." },
         ],
         includes: ["Breakfast", "Transfers", "Major sightseeing"],
-        excludes: ["Personal expenses", "Tips", "Meals not mentioned"]
+        excludes: ["Personal expenses", "Tips", "Meals not mentioned"],
       },
     ],
   },
@@ -424,14 +529,26 @@ export const TRAVEL_PACKAGES_DATA = [
         route: ["Mumbai", "Cairo", "Aswan", "Luxor", "Mumbai"],
         itinerary: [
           { day: 1, summary: "Arrive Cairo.", details: "Evening leisure." },
-          { day: 2, summary: "Giza Pyramids & Sphinx.", details: "Museum visit." },
-          { day: 3, summary: "Fly to Aswan, cruise start.", details: "Temple visits." },
-          { day: 4, summary: "Cruise to Luxor.", details: "Valley of the Kings." },
+          {
+            day: 2,
+            summary: "Giza Pyramids & Sphinx.",
+            details: "Museum visit.",
+          },
+          {
+            day: 3,
+            summary: "Fly to Aswan, cruise start.",
+            details: "Temple visits.",
+          },
+          {
+            day: 4,
+            summary: "Cruise to Luxor.",
+            details: "Valley of the Kings.",
+          },
           { day: 5, summary: "Luxor to Cairo.", details: "Free evening." },
-          { day: 6, summary: "Departure.", details: "Airport drop." }
+          { day: 6, summary: "Departure.", details: "Airport drop." },
         ],
         includes: ["Transfers", "Breakfast", "Cruise sector sightseeing"],
-        excludes: ["Visa", "Tips", "Personal expenses"]
+        excludes: ["Visa", "Tips", "Personal expenses"],
       },
     ],
   },
@@ -440,7 +557,7 @@ export const TRAVEL_PACKAGES_DATA = [
     destination_name: "USA",
     category: "international",
     description: "Experience the American dream, from coast to coast.",
-    thumbnail_image:GokarnaImage,
+    thumbnail_image: GokarnaImage,
     hero_image: GokarnaImage,
     reviews: [
       {
@@ -485,7 +602,7 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     description:
       "Discover natural beauty, friendly people, and outdoor adventures.",
-    thumbnail_image:andamanImage,
+    thumbnail_image: andamanImage,
     hero_image: andamanImage,
     reviews: [
       {
@@ -505,7 +622,7 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-            {
+          {
             id: 1,
             image: "/assets/png/banner1.jpg",
           },
@@ -687,7 +804,7 @@ export const TRAVEL_PACKAGES_DATA = [
         // discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-            {
+          {
             id: 1,
             image: "/assets/png/banner1.jpg",
           },
@@ -820,7 +937,7 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-              {
+          {
             id: 1,
             image: "/assets/png/banner1.jpg",
           },
@@ -978,14 +1095,26 @@ export const TRAVEL_PACKAGES_DATA = [
         route: ["Delhi", "Leh", "Nubra", "Pangong", "Leh", "Delhi"],
         itinerary: [
           { day: 1, summary: "Arrive Leh.", details: "Acclimatization." },
-          { day: 2, summary: "Local sightseeing.", details: "Shanti Stupa, Leh Palace." },
+          {
+            day: 2,
+            summary: "Local sightseeing.",
+            details: "Shanti Stupa, Leh Palace.",
+          },
           { day: 3, summary: "Leh to Nubra.", details: "Khardung La pass." },
-          { day: 4, summary: "Nubra to Pangong.", details: "Overnight near lake." },
+          {
+            day: 4,
+            summary: "Nubra to Pangong.",
+            details: "Overnight near lake.",
+          },
           { day: 5, summary: "Pangong to Leh.", details: "Free evening." },
-          { day: 6, summary: "Departure.", details: "Fly back." }
+          { day: 6, summary: "Departure.", details: "Fly back." },
         ],
-        includes: ["Airport transfers", "Meals as per plan", "Inner line permits"],
-        excludes: ["Flights", "Personal expenses"]
+        includes: [
+          "Airport transfers",
+          "Meals as per plan",
+          "Inner line permits",
+        ],
+        excludes: ["Flights", "Personal expenses"],
       },
     ],
   },
@@ -1013,7 +1142,7 @@ export const TRAVEL_PACKAGES_DATA = [
         discountAmount: 3000,
         image: "/assets/png/banner1.jpg",
         other_images: [
-            {
+          {
             id: 1,
             image: "/assets/png/banner1.jpg",
           },
@@ -1081,11 +1210,19 @@ export const TRAVEL_PACKAGES_DATA = [
         baseCity: "Mumbai",
         route: ["Mumbai", "Lonavala", "Mumbai"],
         itinerary: [
-          { day: 1, summary: "Arrive and local sightseeing.", details: "Tiger Point, caves." },
-          { day: 2, summary: "Leisure and departure.", details: "Strawberry farm optional." }
+          {
+            day: 1,
+            summary: "Arrive and local sightseeing.",
+            details: "Tiger Point, caves.",
+          },
+          {
+            day: 2,
+            summary: "Leisure and departure.",
+            details: "Strawberry farm optional.",
+          },
         ],
         includes: ["Breakfast", "Resort stay"],
-        excludes: ["Transport to Lonavala", "Lunch/Dinner"]
+        excludes: ["Transport to Lonavala", "Lunch/Dinner"],
       },
     ],
   },
@@ -1138,292 +1275,33 @@ export const TRAVEL_PACKAGES_DATA = [
         baseCity: "Pune",
         route: ["Pune", "Mahabaleshwar", "Pune"],
         itinerary: [
-          { day: 1, summary: "Mapro garden and viewpoints.", details: "Evening leisure." },
-          { day: 2, summary: "Strawberry picking and return.", details: "Shopping time." }
+          {
+            day: 1,
+            summary: "Mapro garden and viewpoints.",
+            details: "Evening leisure.",
+          },
+          {
+            day: 2,
+            summary: "Strawberry picking and return.",
+            details: "Shopping time.",
+          },
         ],
         includes: ["Breakfast", "Stay"],
-        excludes: ["Transport", "Lunch/Dinner"]
+        excludes: ["Transport", "Lunch/Dinner"],
       },
     ],
   },
 ];
 
-//   {
-//     id: 1,
-//     title: "Beach & Sands",
-//     destination: "beach",
-//     duration: "7D-8N",
-//     price: "Rs. 23,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["12 Jul", "25 Jul", "8 Aug", "13 Aug", "21 Aug", "5 Sep", "18 Sep"],
-//     features: ["beach", "relaxation", "water-sports"],
-//     customizable: false
-//   },
-//   {
-//     id: 2,
-//     title: "Summer Fun",
-//     destination: "beach",
-//     duration: "7D-8N",
-//     price: "Rs. 23,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["15 Jun", "28 Jun", "12 Jul", "25 Jul", "8 Aug"],
-//     features: ["beach", "adventure", "family"],
-//     customizable: true,
-//     badge: { type: "", text: "" }
-//   },
-//   {
-//     id: 3,
-//     title: "Crystal Waters",
-//     destination: "island",
-//     duration: "7D-8N",
-//     price: "Rs. 23,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["10 Jul", "22 Jul", "5 Aug", "18 Aug", "2 Sep", "15 Sep"],
-//     features: ["island", "luxury", "water-activities"],
-//     customizable: false
-//   },
-//   {
-//     id: 4,
-//     title: "Mountain Escape",
-//     destination: "nature",
-//     duration: "7D-8N",
-//     price: "Rs. 23,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["8 Jul", "20 Jul", "3 Aug", "16 Aug", "30 Aug", "12 Sep"],
-//     features: ["nature", "adventure", "outdoor"],
-//     customizable: true,
-//     badge: { type: "", text: "" }
-//   },
-//   {
-//     id: 5,
-//     title: "Desert Adventure",
-//     destination: "desert",
-//     duration: "7D-8N",
-//     price: "Rs. 23,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["14 Jul", "27 Jul", "10 Aug", "24 Aug", "7 Sep"],
-//     features: ["desert", "adventure", "culture"],
-//     customizable: true
-//   },
-//   {
-//     id: 6,
-//     title: "Forest Retreat",
-//     destination: "forest",
-//     duration: "7D-8N",
-//     price: "Rs. 23,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["18 Jul", "1 Aug", "15 Aug", "28 Aug", "10 Sep"],
-//     features: ["forest", "wildlife", "eco-tourism"],
-//     customizable: true,
-//     badge: { type: "", text: "" }
-//   },
-//   {
-//     id: 7,
-//     title: "City Lights",
-//     destination: "urban",
-//     duration: "7D-8N",
-//     price: "Rs. 23,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["22 Jul", "5 Aug", "19 Aug", "2 Sep", "16 Sep"],
-//     features: ["urban", "culture", "shopping"],
-//     customizable: true
-//   },
-//   {
-//     id: 8,
-//     title: "Heritage Trail",
-//     destination: "heritage",
-//     duration: "7D-8N",
-//     price: "Rs. 23,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["25 Jul", "8 Aug", "22 Aug", "5 Sep", "19 Sep"],
-//     features: ["heritage", "history", "architecture"],
-//     customizable: false
-//   },
-//   {
-//     id: 9,
-//     title: "Luxury Maldives",
-//     destination: "island",
-//     duration: "10D-11N",
-//     price: "Rs. 85,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["20 Jul", "3 Aug", "17 Aug", "31 Aug", "14 Sep"],
-//     features: ["island", "luxury", "water-activities", "spa"],
-//     customizable: true
-//   },
-//   {
-//     id: 10,
-//     title: "Himalayan Trek",
-//     destination: "nature",
-//     duration: "12D-13N",
-//     price: "Rs. 45,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["15 Jul", "29 Jul", "12 Aug", "26 Aug", "9 Sep"],
-//     features: ["nature", "adventure", "trekking", "mountains"],
-//     customizable: true
-//   },
-//   {
-//     id: 11,
-//     title: "Goa Beach Party",
-//     destination: "beach",
-//     duration: "5D-6N",
-//     price: "Rs. 18,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["25 Jul", "8 Aug", "22 Aug", "5 Sep", "19 Sep"],
-//     features: ["beach", "party", "nightlife", "water-sports"],
-//     customizable: true
-//   },
-//   {
-//     id: 12,
-//     title: "Kerala Backwaters",
-//     destination: "nature",
-//     duration: "6D-7N",
-//     price: "Rs. 28,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["18 Jul", "1 Aug", "15 Aug", "29 Aug", "12 Sep"],
-//     features: ["nature", "backwaters", "ayurveda", "houseboat"],
-//     customizable: false
-//   },
-//   {
-//     id: 13,
-//     title: "Rajasthan Royal",
-//     destination: "heritage",
-//     duration: "8D-9N",
-//     price: "Rs. 35,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["12 Jul", "26 Jul", "9 Aug", "23 Aug", "6 Sep"],
-//     features: ["heritage", "culture", "palace", "desert"],
-//     customizable: true
-//   },
-//   {
-//     id: 14,
-//     title: "Andaman Islands",
-//     destination: "island",
-//     duration: "9D-10N",
-//     price: "Rs. 52,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["16 Jul", "30 Jul", "13 Aug", "27 Aug", "10 Sep"],
-//     features: ["island", "beach", "water-activities", "history"],
-//     customizable: true
-//   },
-//   {
-//     id: 15,
-//     title: "Ladakh Adventure",
-//     destination: "nature",
-//     duration: "11D-12N",
-//     price: "Rs. 48,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["10 Jul", "24 Jul", "7 Aug", "21 Aug", "4 Sep"],
-//     features: ["nature", "adventure", "mountains", "buddhism"],
-//     customizable: true
-//   },
-//   {
-//     id: 16,
-//     title: "Mumbai City Tour",
-//     destination: "urban",
-//     duration: "4D-5N",
-//     price: "Rs. 15,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["28 Jul", "11 Aug", "25 Aug", "8 Sep", "22 Sep"],
-//     features: ["urban", "culture", "shopping", "food"],
-//     customizable: false
-//   },
-//   {
-//     id: 17,
-//     title: "Varanasi Spiritual",
-//     destination: "heritage",
-//     duration: "5D-6N",
-//     price: "Rs. 22,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["14 Jul", "28 Jul", "11 Aug", "25 Aug", "8 Sep"],
-//     features: ["heritage", "spiritual", "culture", "ganges"],
-//     customizable: true
-//   },
-//   {
-//     id: 18,
-//     title: "Coorg Coffee Trail",
-//     destination: "nature",
-//     duration: "6D-7N",
-//     price: "Rs. 25,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["20 Jul", "3 Aug", "17 Aug", "31 Aug", "14 Sep"],
-//     features: ["nature", "coffee", "plantations", "adventure"],
-//     customizable: true
-//   },
-//   {
-//     id: 19,
-//     title: "Pondicherry French",
-//     destination: "heritage",
-//     duration: "5D-6N",
-//     price: "Rs. 20,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["22 Jul", "5 Aug", "19 Aug", "2 Sep", "16 Sep"],
-//     features: ["heritage", "french", "beach", "culture"],
-//     customizable: false
-//   },
-//   {
-//     id: 20,
-//     title: "Shimla Hill Station",
-//     destination: "nature",
-//     duration: "7D-8N",
-//     price: "Rs. 30,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["17 Jul", "31 Jul", "14 Aug", "28 Aug", "11 Sep"],
-//     features: ["nature", "hills", "adventure", "toy-train"],
-//     customizable: true
-//   },
-//   {
-//     id: 21,
-//     title: "Udaipur Lake City",
-//     destination: "heritage",
-//     duration: "6D-7N",
-//     price: "Rs. 32,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["19 Jul", "2 Aug", "16 Aug", "30 Aug", "13 Sep"],
-//     features: ["heritage", "lakes", "palace", "romance"],
-//     customizable: true
-//   },
-//   {
-//     id: 22,
-//     title: "Rishikesh Yoga",
-//     destination: "nature",
-//     duration: "8D-9N",
-//     price: "Rs. 28,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["13 Jul", "27 Jul", "10 Aug", "24 Aug", "7 Sep"],
-//     features: ["nature", "yoga", "adventure", "ganges"],
-//     customizable: true
-//   },
-//   {
-//     id: 23,
-//     title: "Darjeeling Tea",
-//     destination: "nature",
-//     duration: "7D-8N",
-//     price: "Rs. 35,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["21 Jul", "4 Aug", "18 Aug", "1 Sep", "15 Sep"],
-//     features: ["nature", "tea", "mountains", "toy-train"],
-//     customizable: false
-//   },
-//   {
-//     id: 24,
-//     title: "Agra Taj Mahal",
-//     destination: "heritage",
-//     duration: "4D-5N",
-//     price: "Rs. 18,000/-",
-//     image: "/assets/png/banner1.jpg",
-//     availableDates: ["26 Jul", "9 Aug", "23 Aug", "6 Sep", "20 Sep"],
-//     features: ["heritage", "taj-mahal", "history", "culture"],
-//     customizable: true
-//   }
-// ];
-
-// Filter Options for the travel packages section
 export const FILTER_OPTIONS = {
-  destinations: TRAVEL_PACKAGES_DATA.map(d => ({ value: d.destination_name, label: d.destination_name })),
+  destinations: TRAVEL_PACKAGES_DATA.map((d) => ({
+    value: d.destination_name,
+    label: d.destination_name,
+  })),
   destinationType: [
     { value: "international", label: "International" },
     { value: "domestic", label: "Domestic" },
-    { value: "weekend", label: "Weekend" }
+    { value: "weekend", label: "Weekend" },
   ],
   dates: [
     { value: "jun25", label: "June 2025" },
@@ -1470,22 +1348,21 @@ export const FILTER_OPTIONS = {
     { value: "duration", label: "Duration" },
     { value: "name", label: "Name" },
   ],
-
 };
 
 // Date tabs for filtering
 export const DATE_TABS = [
   { id: "all", label: "All" },
-  { id: "jun25", label: "June 2025" },
-  { id: "jul25", label: "July 2025" },
-  { id: "aug25", label: "August 2025" },
-  { id: "sep25", label: "September 2025" },
-  { id: "oct25", label: "October 2025" },
-  { id: "nov25", label: "November 2025" },
-  { id: "dec25", label: "December 2025" },
-  { id: "jan26", label: "January 2026" },
-  { id: "feb26", label: "February 2026" },
-  { id: "mar26", label: "March 2026" },
-  { id: "apr26", label: "April 2026" },
-  { id: "may26", label: "May 2026" },
+  { id: "jun25", label: "Jun 25" },
+  { id: "jul25", label: "Jul 25" },
+  { id: "aug25", label: "Aug 25" },
+  { id: "sep25", label: "Sep 25" },
+  { id: "oct25", label: "Oct 25" },
+  { id: "nov25", label: "Nov 25" },
+  { id: "dec25", label: "Dec 25" },
+  { id: "jan26", label: "Jan 26" },
+  { id: "feb26", label: "Feb 26" },
+  { id: "mar26", label: "Mar 26" },
+  { id: "apr26", label: "Apr 26" },
+  { id: "may26", label: "May 26" },
 ];

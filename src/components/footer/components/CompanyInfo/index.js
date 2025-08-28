@@ -29,7 +29,7 @@ const CompanyInfo = () => {
       <div className={styles.socialMedia}>
         {COMPANY_INFO.socialMedia.map((social, index) => (
           <div key={index} className={styles.socialIcon} title={social.name}>
-            {social.icon}
+            <Image src={social.icon} alt={social.name} width={40} height={40} />
           </div>
         ))}
       </div>

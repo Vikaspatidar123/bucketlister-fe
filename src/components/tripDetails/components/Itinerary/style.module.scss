@@ -30,6 +30,12 @@
   height: 36px;
   padding: 0 14px;
   font-weight: 700;
+  cursor: pointer;
+  &:hover {
+    background: #ef3447;
+    color: #fff;
+    transform: translateY(-1px);
+  }
 }
 
 .subHeader {

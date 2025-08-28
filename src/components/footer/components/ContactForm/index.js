@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useFooter } from '../../hook/useFooter';
 import styles from './style.module.scss';
 
-const ContactForm = () => {
+const ContactForm = ({ onSuccess, submitLabel = 'Enquire Now' }) => {
   // const [result, setResult] = useState("");
   const {
     formData,
@@ -12,7 +12,12 @@ const ContactForm = () => {
     handleSubmit
   } = useFooter();
 
-  const onSubmit = handleSubmit;
+  const onSubmit = async (e) => {
+    const ok = await handleSubmit(e);
+    if (ok && typeof onSuccess === 'function') {
+      try { onSuccess(); } catch {}
+    }
+  };
 
   return (
     <div className={styles.contactForm}>
@@ -62,7 +67,7 @@ const ContactForm = () => {
         {errors.submit && <div className={styles.errorText}>{errors.submit}</div>}
         
         <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
-          {isSubmitting ? 'Submitting...' : 'Enquire Now'}
+          {isSubmitting ? 'Submitting...' : submitLabel}
         </button>
       </form>
     </div>

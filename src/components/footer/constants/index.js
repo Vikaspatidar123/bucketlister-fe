@@ -1,8 +1,13 @@
 import {
   chipIcon,
   curatedIcon,
+  facebookIcon,
   immersiveIcon,
+  instagramIconFooter,
+  linkedinIcon,
   supportIcon,
+  twitterIcon,
+  youtubeIcon
 } from "@/assets/svg";
 
 export const FOOTER_SERVICES = [
@@ -40,11 +45,11 @@ export const COMPANY_INFO = {
   phone: ["702664759", "9137911579"],
   email: "sales.thebucketlister@gmail.com",
   socialMedia: [
-    { name: "YouTube", icon: "📺" },
-    { name: "Facebook", icon: "📘" },
-    { name: "Twitter", icon: "🐦" },
-    { name: "Instagram", icon: "📷" },
-    { name: "LinkedIn", icon: "💼" },
+    { name: "YouTube", icon: youtubeIcon },
+    { name: "Facebook", icon: facebookIcon },
+    { name: "Twitter", icon: twitterIcon },
+    { name: "Instagram", icon: instagramIconFooter },
+    { name: "LinkedIn", icon: linkedinIcon },
   ],
 };
 

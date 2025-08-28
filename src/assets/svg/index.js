@@ -34,6 +34,11 @@ const uttarakhandImage = "/assets/svg/Uttarakhand.svg";
 const vietnamImage = "/assets/svg/Vietnam.svg";
 const zanskarImage = "/assets/svg/Zanskar-ladakh.svg";
 const shareIcon = "/assets/svg/share-icon.svg";
+const facebookIcon = "/assets/svg/facebook.svg";
+const twitterIcon = "/assets/svg/twitter.svg";
+const linkedinIcon = "/assets/svg/linkedin.svg";
+const youtubeIcon = "/assets/svg/youtube.svg";
+const instagramIconFooter = "/assets/svg/instagram-icon.svg";
 
 export {
   downArrow,
@@ -72,4 +77,9 @@ export {
   vietnamImage,
   zanskarImage,
   shareIcon,
+  facebookIcon,
+  twitterIcon,
+  linkedinIcon,
+  youtubeIcon,
+  instagramIconFooter,
 };
