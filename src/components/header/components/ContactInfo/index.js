@@ -4,7 +4,7 @@ import styles from "../style.module.scss";
 import Image from "next/image";
 import { searchIcon, phoneIcon } from "@/assets/svg";
 
-const ContactInfo = () => {
+const ContactInfo = ({ showSearch = true }) => {
   return (
     <div className={styles.contactInfo}>
       <div className={styles.phoneSection}>
@@ -13,10 +13,12 @@ const ContactInfo = () => {
           {CONTACT_INFO.phone}
         </a>
       </div>
-      <div className={styles.separator}></div>
-      <div className={styles.searchIcon}>
-        <Image src={searchIcon} alt="search-icon" width={32} height={32} />
-      </div>
+      {showSearch && <div className={styles.separator}></div>}
+      {showSearch && (
+        <div className={styles.searchIcon}>
+          <Image src={searchIcon} alt="search-icon" width={32} height={32} />
+        </div>
+      )}
     </div>
   );
 };

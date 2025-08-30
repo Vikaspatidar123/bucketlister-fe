@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   overflow: visible;
+  // background-color: #02658F;
   
   .backgroundImage {
     position: absolute;
@@ -84,16 +85,30 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .heroSection {
+    .content { padding: 1.5rem; }
+    .content .container { max-width: 92%; }
+  }
+}
+
 @media (max-width: 768px) {
   .heroSection {
-    min-height: 80vh;
+    min-height: 60vh;
+    
+    .backgroundImage { background-position: center top; }
     
     .content {
       padding: 1rem;
+      margin-bottom: -2px;
       
       .headingSection {
-        margin-bottom: 2rem;
+        margin-bottom: 1.25rem;
+        
+        .mainHeading { line-height: 1.25; }
       }
+      
+      .searchSection { display: none; }
     }
   }
 }
@@ -102,7 +117,8 @@
   .heroSection {
     .content {
       .headingSection .mainHeading {
-        font-size: 2rem;
+        font-size: 1.75rem;
+        line-height: 1.25;
       }
     }
   }

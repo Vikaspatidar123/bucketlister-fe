@@ -40,7 +40,7 @@ export const FEATURED_DESTINATIONS = [
   {
     id: 2,
     name: "Kaziranga",
-    image: "/assets/png/banner1.jpg",
+    image: "/assets/png/footer-image.jpg",
     duration: "10D-9N"
   },
   {
@@ -52,7 +52,7 @@ export const FEATURED_DESTINATIONS = [
   {
     id: 4,
     name: "Tadoba",
-    image: "/assets/png/banner1.jpg",
+    image: "/assets/png/footer-image.jpg",
     duration: "10D-9N"
   },
   {
@@ -64,7 +64,7 @@ export const FEATURED_DESTINATIONS = [
   {
     id: 6,
     name: "Bandhavgarh",
-    image: "/assets/png/banner1.jpg",
+    image: "/assets/png/footer-image.jpg",
     duration: "9D-8N"
   },
   {
@@ -76,7 +76,7 @@ export const FEATURED_DESTINATIONS = [
   {
     id: 8,
     name: "Corbett",
-    image: "/assets/png/banner1.jpg",
+    image: "/assets/png/footer-image.jpg",
     duration: "6D-5N"
   }
 ];

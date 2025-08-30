@@ -3,9 +3,10 @@
   background-color: #fff;
   
   .container {
-    max-width: 85vw;
+    max-width: 95vw;
+    width: 95vw;
     margin: 0 auto;
-    // padding: 0 1rem;
+    padding: 0;
   }
   
   .sectionTitle {
@@ -38,7 +39,7 @@
     
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
-      gap: 1.5rem;
+      gap: 1rem;
     }
   }
   

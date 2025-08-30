@@ -37,6 +37,26 @@ const FeaturesBar = () => {
                         </div>
                     ))}
                 </div>
+                <div className={styles.mobileMarquee} aria-hidden="true">
+                    <div className={styles.marqueeInner}>
+                        <div className={styles.marqueeContent}>
+                            {features.map((feature) => (
+                                <div key={`m1-${feature.id}`} className={styles.featureItem}>
+                                    <Image src={feature.icon} alt={feature.text} width={20} height={20} />
+                                    <span className={styles.featureText}>{feature.text}</span>
+                                </div>
+                            ))}
+                        </div>
+                        <div className={styles.marqueeContent} aria-hidden="true">
+                            {features.map((feature) => (
+                                <div key={`m2-${feature.id}`} className={styles.featureItem}>
+                                    <Image src={feature.icon} alt={feature.text} width={20} height={20} />
+                                    <span className={styles.featureText}>{feature.text}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );

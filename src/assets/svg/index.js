@@ -39,6 +39,7 @@ const twitterIcon = "/assets/svg/twitter.svg";
 const linkedinIcon = "/assets/svg/linkedin.svg";
 const youtubeIcon = "/assets/svg/youtube.svg";
 const instagramIconFooter = "/assets/svg/instagram-icon.svg";
+const mobileMenuIcon = "/assets/svg/mobile_menu_icon.svg";
 
 export {
   downArrow,
@@ -82,4 +83,5 @@ export {
   linkedinIcon,
   youtubeIcon,
   instagramIconFooter,
+  mobileMenuIcon,
 };

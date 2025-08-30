@@ -1,7 +1,7 @@
 .header {
   width: 100%;
-  border-top: 1px solid #DDE1E6;
-  border-bottom: 1px solid #DDE1E6;
+  border-top: 1px solid #dde1e6;
+  border-bottom: 1px solid #dde1e6;
   background: #fff;
   margin-bottom: 15px;
 }
@@ -51,6 +51,10 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    max-width: 94vw;
+    padding: 16px 0px;
+  }
   .title {
     font-size: 22px;
   }

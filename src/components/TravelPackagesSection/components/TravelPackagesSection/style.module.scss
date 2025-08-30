@@ -17,6 +17,16 @@
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
+  @media (max-width: 768px) {
+    padding: 0px 0;
+    margin-top: 70px;
+    width: 95vw;
+    .container {
+      margin-top: 500px 0px;
+      padding-top: 0px;
+      width: 95vw;
+    }
+  }
 }
 .explorePage {
   padding: 0px 0;
@@ -53,7 +63,6 @@
   flex-wrap: wrap;
   position: relative;
   z-index: 2000; // Ensure proper stacking context above cards
-
 
   &::before,
   &::after {
@@ -389,6 +398,16 @@
   }
 }
 
+// Mobile-only filter trigger bar (hidden by default)
+.mobileFilterBar {
+  display: none;
+}
+
+// Mobile filters overlay shell (hidden by default)
+.mobileFiltersOverlay {
+  display: none;
+}
+
 .dateSection {
   margin-bottom: 32px;
   margin-left: 10px;
@@ -409,13 +428,30 @@
 
   .dateTabs {
     flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; // Firefox: hide scrollbar
+    -ms-overflow-style: none; // IE/Edge: hide scrollbar
+    white-space: nowrap; // ensure single row of tabs
+
+    // WebKit: hide scrollbar
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+      background: transparent;
+    }
 
     :global(.tabsContainer) {
+      display: inline-flex !important;
       gap: 8px;
       background: transparent;
       border: none;
       border-radius: 0;
-      width: fit-content;
+      width: max-content;
+      min-width: max-content;
+      flex-wrap: nowrap !important;
 
       .tab {
         background: white;
@@ -584,7 +620,7 @@
     display: flex;
     flex-direction: column;
     // gap: 10px;
-z
+
     // Disable previous curve
     &::before {
       display: none;
@@ -746,7 +782,11 @@ z
     padding: 60px 0;
 
     .container {
-      padding: 0 16px;
+      width: 95vw;
+      max-width: 95vw;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0;
     }
   }
 
@@ -797,9 +837,15 @@ z
 @media (max-width: 768px) {
   .travelPackagesSection {
     padding: 40px 0;
-
+    width: 94vw;
+    margin-left: auto;
+    margin-right: auto;
     .container {
-      padding: 0 12px;
+      width: 94vw;
+      max-width: 94vw;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0;
     }
   }
 
@@ -869,11 +915,31 @@ z
   }
 
   .packagesGrid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-direction: row;
     gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 6px;
+    scrollbar-width: none; // Firefox hide
+    -ms-overflow-style: none; // IE/Edge hide
+    &::-webkit-scrollbar {
+      display: none;
+      height: 0;
+    }
   }
 
   .packageCard {
+    flex: 0 0 85%;
+    max-width: 85%;
+    scroll-snap-align: start;
+    &:hover {
+      // disable hover zoom on mobile
+      scale: 1;
+      transition: none;
+    }
     .cardImage {
       width: 100%; // Full width of card
       aspect-ratio: 4/3; // Maintain 4:3 ratio
@@ -901,6 +967,134 @@ z
 
       .packagePrice {
         font-size: 15px;
+      }
+    }
+  }
+}
+
+// Additional mobile styles for filter trigger and overlay
+@media (max-width: 768px) {
+  .mobileFilterBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    margin: 8px 0 4px 0;
+
+    .mobileFilterButton {
+      background: #ef3447;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .mobileResultsCount {
+      color: #6c757d;
+      font-size: 13px;
+      font-weight: 600;
+    }
+  }
+
+  // Hide desktop inline filters on mobile; use overlay instead
+  .filterBar {
+    display: none;
+  }
+
+  .mobileFiltersOverlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    pointer-events: none;
+
+    &.open {
+      pointer-events: auto;
+    }
+
+    .overlayBackdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    &.open .overlayBackdrop {
+      opacity: 1;
+    }
+
+    .overlayPanel {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      box-shadow: 0 -8px 24px rgba(16, 24, 40, 0.18);
+      transform: translateY(100%);
+      transition: transform 0.25s ease;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &.open .overlayPanel {
+      transform: translateY(0);
+    }
+
+    .overlayHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 16px;
+      border-bottom: 1px solid #e5e7eb;
+
+      .overlayTitle {
+        font-weight: 700;
+        font-size: 16px;
+        color: #111827;
+      }
+
+      .closeButton {
+        background: transparent;
+        border: none;
+        font-size: 22px;
+        line-height: 1;
+        padding: 4px 8px;
+        cursor: pointer;
+      }
+    }
+
+    .overlayContent {
+      padding: 12px 16px 4px 16px;
+      display: grid;
+      // grid-auto-rows: min-content;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      overflow: auto;
+    }
+
+    .overlayFooter {
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px 16px 16px;
+      border-top: 1px solid #e5e7eb;
+
+      .applyButton {
+        background: #ef3447;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 16px;
+        font-weight: 600;
+        font-size: 14px;
       }
     }
   }
@@ -981,12 +1175,67 @@ z
     }
   }
 
+  /* On mobile we use the bottom sheet overlay, not the inline filterBar */
+  .mobileFiltersOverlay .overlayContent .priceFilterContainer {
+    width: fit-content;
+    flex: 0 0 auto; // shrink to content
+    display: inline-flex;
+    background: #f4f4f4;
+    // border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 1; // Ensure proper stacking context
+    margin-bottom: 0; // Prevent margin issues
+
+    &:hover {
+      background: #ef3447;
+    }
+
+    &.open {
+      background: #ef3447;
+      // box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+      z-index: 1001; // Higher z-index when open
+    }  }
+  .mobileFiltersOverlay .overlayContent .priceFilterContainer .priceFilterHeader {
+    padding: 8px 12px;
+    min-height: 36px;
+  }
+  .mobileFiltersOverlay .overlayContent .priceFilterContainer .priceFilterArrow {
+    font-size: 12px;
+    margin-left: 8px;
+  }
+  .mobileFiltersOverlay .overlayContent .priceFilterContainer .priceFilterDisplay {
+    font-size: 13px;
+  }
+  
+
   .packagesGrid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 6px;
+    scrollbar-width: none; // Firefox hide
+    -ms-overflow-style: none; // IE/Edge hide
+    &::-webkit-scrollbar {
+      display: none;
+      height: 0;
+    }
   }
 
   .packageCard {
+    flex: 0 0 88%;
+    max-width: 88%;
+    scroll-snap-align: start;
+    &:hover {
+      // disable hover zoom on small phones
+      scale: 1;
+      transition: none;
+    }
     .cardImage {
       width: 100%; // Full width of card
       aspect-ratio: 4/2.9; // slightly shorter image to reduce height
@@ -1051,6 +1300,22 @@ z
     .footerRow {
       font-size: 13px;
       padding: 12px;
+    }
+  }
+  .clearButton{
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    &:hover {
+      color: #495057;
+      border: 1px solid #ef3447;
+      border-radius: 8px;
     }
   }
 }

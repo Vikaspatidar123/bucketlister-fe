@@ -54,19 +54,32 @@
 }
 
 .dropdown {
-  position: absolute;
-  top: 100%;
+  position: absolute; // may be overridden to fixed via inline style
   left: 0;
   right: 0;
   background: white;
   border: 2px solid #e1e5e9;
+  z-index: 2147483647 !important; // stay above mobile overlay
+  min-width: 200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+// Downward placement
+.dropdownDown {
+  top: 100%;
   border-top: none;
   border-radius: 0 0 8px 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  z-index: 99999 !important;
-  max-height: 300px;
-  overflow: hidden;
-  min-width: 200px;
+}
+
+// Upward placement
+.dropdownUp {
+  bottom: 100%;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .searchContainer {

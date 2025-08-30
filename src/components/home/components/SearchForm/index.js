@@ -7,7 +7,7 @@ import styles from './style.module.scss';
 import CustomSelect from '@/common/CustomSelect';
 import { FILTER_OPTIONS } from '@/components/TravelPackagesSection/constants';
 
-const SearchForm = () => {
+const SearchForm = ({ onSubmitted = null }) => {
   const router = useRouter();
 
   const {
@@ -47,6 +47,8 @@ const SearchForm = () => {
         }
       }, 0);
     }
+
+    try { onSubmitted && onSubmitted(); } catch (_) {}
   };
 
   return (

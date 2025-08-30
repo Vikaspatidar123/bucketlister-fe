@@ -8,7 +8,7 @@ const CompanyInfo = () => {
     <div className={styles.companyInfo}>
       <div className={styles.logoSection}>
         <h1 className={styles.companyName}>
-         <Image src={COMPANY_INFO.logo} alt={COMPANY_INFO.name} width={365} height={100} />
+         <Image src={COMPANY_INFO.logo} alt={COMPANY_INFO.name} width={365} height={100} className={styles.logo} />
         </h1>
       </div>
       

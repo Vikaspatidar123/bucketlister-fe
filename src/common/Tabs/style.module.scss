@@ -179,66 +179,66 @@
 }
 
 // Responsive design
-@media (max-width: 768px) {
-  .tabsContainer {
-    flex-wrap: wrap;
-    gap: 4px;
-  }
+// @media (max-width: 768px) {
+//   .tabsContainer {
+//     flex-wrap: wrap;
+//     gap: 4px;
+//   }
 
-  .pillsContainer {
-    gap: 6px;
-  }
+//   .pillsContainer {
+//     gap: 6px;
+//   }
 
-  .mediumContainer .tab {
-    padding: 10px 16px;
-    min-height: 40px;
-    font-size: 13px;
-  }
+//   .mediumContainer .tab {
+//     padding: 10px 16px;
+//     min-height: 40px;
+//     font-size: 13px;
+//   }
 
-  .largeContainer .tab {
-    padding: 14px 20px;
-    min-height: 48px;
-    font-size: 15px;
-  }
-}
+//   .largeContainer .tab {
+//     padding: 14px 20px;
+//     min-height: 48px;
+//     font-size: 15px;
+//   }
+// }
 
-@media (max-width: 480px) {
-  .tabsContainer {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
+// @media (max-width: 480px) {
+//   .tabsContainer {
+//     flex-direction: column;
+//     align-items: stretch;
+//     gap: 0;
+//   }
 
-  .pillsContainer {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
+//   .pillsContainer {
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     gap: 6px;
+//   }
 
-  .tab {
-    flex: 1;
-    min-width: 0;
-  }
+//   .tab {
+//     flex: 1;
+//     min-width: 0;
+//   }
 
-  .pills {
-    flex: 0 0 auto;
-  }
+//   .pills {
+//     flex: 0 0 auto;
+//   }
 
-  .smallContainer .tab {
-    padding: 6px 12px;
-    min-height: 32px;
-    font-size: 12px;
-  }
+//   .smallContainer .tab {
+//     padding: 6px 12px;
+//     min-height: 32px;
+//     font-size: 12px;
+//   }
 
-  .mediumContainer .tab {
-    padding: 8px 14px;
-    min-height: 36px;
-    font-size: 12px;
-  }
+//   .mediumContainer .tab {
+//     padding: 8px 14px;
+//     min-height: 36px;
+//     font-size: 12px;
+//   }
 
-  .largeContainer .tab {
-    padding: 12px 18px;
-    min-height: 44px;
-    font-size: 14px;
-  }
-}
+//   .largeContainer .tab {
+//     padding: 12px 18px;
+//     min-height: 44px;
+//     font-size: 14px;
+//   }
+// }

@@ -55,6 +55,16 @@
   align-items: center;
   gap: 0;
   padding-right: 20px; // extra space on the right as requested
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  touch-action: pan-x;
+}
+.timelineDynamic::-webkit-scrollbar {
+  display: none;
+  height: 0;
 }
 
 .segment {
@@ -63,6 +73,7 @@
   align-items: center;
   gap: 6px;
   margin-right: 2px; // slight gap to account for chip divider
+  flex: 0 0 auto; // do not shrink so container can overflow horizontally
 }
 
 .segmentDot {
@@ -96,14 +107,23 @@
 }
 
 .routeChips {
-  display: inline-flex;
+  display: flex;
   flex-wrap: nowrap;
   gap: 0;
   margin-bottom: 10px;
   border: 3px solid #00000033;
   border-radius: 12px;
-  overflow: hidden;
   background: #fff;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  touch-action: pan-x;
+}
+.routeChips::-webkit-scrollbar {
+  display: none;
+  height: 0;
 }
 
 .chip {
@@ -122,26 +142,40 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
   min-width: 120px; // ensure larger, consistent visual width
   transition: background-color 160ms ease, color 160ms ease,
     box-shadow 160ms ease, transform 160ms ease, border-color 160ms ease;
   will-change: transform;
+  
+  // Keep chips neutral on interaction (no selected color)
   &:hover {
-    background: #02658f;
-    color: #fff;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(2, 101, 143, 0.25);
+    background: #fff;
+    color: inherit;
+    transform: none;
+    box-shadow: none;
   }
   &:focus-visible {
-    background: #02658f;
-    color: #fff;
-    transform: translateY(-1px);
-    box-shadow: 0 0 0 3px rgba(2, 101, 143, 0.35);
+    background: #fff;
+    color: inherit;
+    transform: none;
+    box-shadow: none;
+    outline: none;
+  }
+  &:focus {
+    background: #fff;
+    color: inherit;
+    transform: none;
+    box-shadow: none;
+    outline: none;
   }
   &:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(2, 101, 143, 0.2);
+    background: #fff;
+    color: inherit;
+    transform: none;
+    box-shadow: none;
   }
+  -webkit-tap-highlight-color: transparent;
 }
 
 .chip:first-child {
@@ -249,4 +283,25 @@
 .dayDetails {
   margin-top: 8px;
   opacity: 0.85;
+}
+@media (max-width: 768px) {
+  .itinerary {
+    width: 94vw;
+  }
+  .routeChips {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+}
+
+/* Desktop: do not stretch chips to full width */
+@media (min-width: 1024px) {
+  .routeChips {
+    width: auto;
+    max-width: 100%;
+    overflow: visible;
+    display: inline-flex;
+  }
 }

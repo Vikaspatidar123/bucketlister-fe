@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './style.module.scss';
 
 const CustomSelect = ({
@@ -21,6 +22,12 @@ const CustomSelect = ({
     !isMulti ? value : null
   );
   const dropdownRef = useRef(null);
+  const headerRef = useRef(null);
+  const [placement, setPlacement] = useState('down'); // 'down' | 'up'
+  const [computedMaxHeight, setComputedMaxHeight] = useState(300);
+  const [dropdownRectStyle, setDropdownRectStyle] = useState({});
+  const [portalRoot, setPortalRoot] = useState(null);
+  const instanceId = useMemo(() => `cs-${Math.random().toString(36).slice(2)}`, []);
 
   // Filter options based on search term
   const filteredOptions = isSearchable
@@ -32,7 +39,11 @@ const CustomSelect = ({
   // Handle click outside to close dropdown
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      const rootEl = dropdownRef.current;
+      const portalEl = document.querySelector(`[data-select-owner="${instanceId}"]`);
+      const clickedInsideRoot = !!(rootEl && rootEl.contains(event.target));
+      const clickedInsidePortal = !!(portalEl && portalEl.contains(event.target));
+      if (!clickedInsideRoot && !clickedInsidePortal) {
         setIsOpen(false);
         setSearchTerm("");
       }
@@ -40,7 +51,63 @@ const CustomSelect = ({
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  }, [instanceId]);
+
+  // Compute dropdown placement and max height based on viewport space
+  const updatePlacementAndSize = () => {
+    if (!headerRef.current) return;
+    const rect = headerRef.current.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const margin = 8;
+    const desiredMax = 300;
+    const spaceBelow = viewportHeight - rect.bottom;
+    const spaceAbove = rect.top;
+
+    const shouldOpenUp = spaceBelow < desiredMax && spaceAbove > spaceBelow;
+    setPlacement(shouldOpenUp ? 'up' : 'down');
+
+    const available = (shouldOpenUp ? spaceAbove : spaceBelow) - margin;
+    const clamped = Math.max(160, Math.min(desiredMax, available));
+    setComputedMaxHeight(clamped);
+
+    // Compute fixed positioning to escape overflow clipping containers
+    const left = Math.max(8, rect.left);
+    const width = Math.min(window.innerWidth - 16, rect.width);
+    if (shouldOpenUp) {
+      const bottom = Math.max(8, window.innerHeight - rect.top);
+      setDropdownRectStyle({ position: 'fixed', left, width, right: 'auto', top: 'auto', bottom });
+    } else {
+      const top = Math.max(8, rect.bottom);
+      setDropdownRectStyle({ position: 'fixed', left, width, right: 'auto', top, bottom: 'auto' });
+    }
+  };
+
+  // Recalculate when opening and on resize/scroll while open
+  useEffect(() => {
+    if (portalRoot == null) {
+      setPortalRoot(document.body);
+    }
+    // advertise open state globally to avoid unintended outside-closes
+    if (isOpen) {
+      try { document.body.setAttribute('data-custom-select-open', 'true'); } catch (_) {}
+    } else {
+      try { document.body.removeAttribute('data-custom-select-open'); } catch (_) {}
+    }
+    if (!isOpen) return;
+    updatePlacementAndSize();
+
+    const handleWindowChange = () => updatePlacementAndSize();
+    window.addEventListener('resize', handleWindowChange, { passive: true });
+    window.addEventListener('scroll', handleWindowChange, { passive: true });
+    // capture scrolls from any scrollable ancestor (like overlay panel content)
+    document.addEventListener('scroll', handleWindowChange, { passive: true, capture: true });
+    return () => {
+      window.removeEventListener('resize', handleWindowChange);
+      window.removeEventListener('scroll', handleWindowChange);
+      document.removeEventListener('scroll', handleWindowChange, { capture: true });
+      try { document.body.removeAttribute('data-custom-select-open'); } catch (_) {}
+    };
+  }, [isOpen, portalRoot]);
 
   // Update local state when value prop changes
   useEffect(() => {
@@ -103,6 +170,7 @@ const CustomSelect = ({
       className={`${styles.customSelect} ${className} ${disabled ? styles.disabled : ''}`}
     >
       <div 
+        ref={headerRef}
         className={`${styles.selectHeader} ${isOpen ? styles.open : ''}`}
         onClick={toggleDropdown}
       >
@@ -112,8 +180,12 @@ const CustomSelect = ({
         <span className={styles.arrow}>▼</span>
       </div>
 
-      {isOpen && (
-        <div className={styles.dropdown}>
+      {isOpen && portalRoot && createPortal(
+        <div
+          className={`${styles.dropdown} ${placement === 'up' ? styles.dropdownUp : styles.dropdownDown}`}
+          style={{ maxHeight: computedMaxHeight, ...dropdownRectStyle }}
+          data-select-owner={instanceId}
+        >
           {isSearchable && (
             <div className={styles.searchContainer}>
               <input
@@ -177,7 +249,8 @@ const CustomSelect = ({
               </div>
             )}
           </div>
-        </div>
+        </div>,
+        portalRoot
       )}
     </div>
   );

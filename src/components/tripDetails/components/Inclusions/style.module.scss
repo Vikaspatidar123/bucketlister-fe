@@ -78,3 +78,18 @@
   margin-top: 8px;
   opacity: 0.85;
 }
+@media screen and (max-width: 992px) {
+  .wrapper {
+    width: 95vw;
+    margin: 0 auto;
+    margin-top: 24px;
+    border-top: 1px solid #00000040 !important;
+    border-bottom: 1px solid #00000040 !important;
+    padding: 16px 0 ;
+    margin-bottom: 24px;
+  }
+  .column1 {
+    border-left: none;  
+    padding-left: 0px;
+  }
+}

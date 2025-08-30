@@ -20,6 +20,7 @@
         right: -30px;
         animation: fly 3s ease-in-out infinite;
       }
+
     }
   }
   
@@ -92,7 +93,10 @@
   .companyInfo {
     .logoSection .companyName {
       font-size: 2rem;
-      
+      .logo{
+        max-width: 250px;
+        height: 100%;
+      }
       .airplaneIcon {
         font-size: 1.2rem;
         right: -25px;

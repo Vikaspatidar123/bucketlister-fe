@@ -26,15 +26,11 @@ const BannerSection = ({
   };
 
   const handleNextCards = () => {
-    setCurrentCardIndex((prevIndex) => 
-      prevIndex + 4 >= featuredDestinations.length ? 0 : prevIndex + 4
-    );
+    setCurrentCardIndex((prevIndex) => (prevIndex + 1) % featuredDestinations.length);
   };
 
   const handlePrevCards = () => {
-    setCurrentCardIndex((prevIndex) => 
-      prevIndex - 4 < 0 ? Math.max(0, featuredDestinations.length - 4) : prevIndex - 4
-    );
+    setCurrentCardIndex((prevIndex) => (prevIndex - 1 + featuredDestinations.length) % featuredDestinations.length);
   };
 
   return (
@@ -74,9 +70,11 @@ const BannerSection = ({
           {/* Destination Cards Section - Overlaid on Banner */}
           <div className={styles.destinationCardsSection}>
             <div className={styles.cardsRow}>
-              {featuredDestinations.slice(currentCardIndex, currentCardIndex + 4).map((destination) => (
+              {Array.from({ length: 4 }).map((_, i) => {
+                const destination = featuredDestinations[(currentCardIndex + i) % featuredDestinations.length];
+                return (
                 <div 
-                  key={destination.id} 
+                  key={destination.id}
                   className={styles.destinationCard}
                   onClick={() => handleDestinationClick(destination)}
                 >
@@ -92,7 +90,8 @@ const BannerSection = ({
                     <span className={styles.duration}>{destination.duration}</span>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

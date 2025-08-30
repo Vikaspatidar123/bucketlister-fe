@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import CustomSelect from "../../../../common/CustomSelect";
 import Tabs from "../../../../common/Tabs";
@@ -39,6 +39,8 @@ const TravelPackagesSection = ({
     priceFilterRef,
     maxPrice,
   } = useTravelPackages(selectedTripId, destinationName);
+
+  const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
 
   // Apply filters from query params (destination, date)
   useEffect(() => {
@@ -127,6 +129,17 @@ const TravelPackagesSection = ({
         {/* Filter Bar - Only show when not showing a specific trip or destination */}
         {!selectedTripId && !destinationName && (
           <>
+            <div className={styles.mobileFilterBar}>
+              <button
+                className={styles.mobileFilterButton}
+                onClick={() => setIsMobileFiltersOpen(true)}
+              >
+                Filters
+              </button>
+              <span className={styles.mobileResultsCount}>
+                {filteredAndSortedData.length} packages
+              </span>
+            </div>
             <div className={styles.filterBar}>
               <div className={styles.filterControls}>
                 <CustomSelect
@@ -207,6 +220,109 @@ const TravelPackagesSection = ({
                 <button className={styles.clearButton} onClick={clearFilters}>
                   Clear filters
                 </button>
+              </div>
+            </div>
+
+            {/* Mobile Filters Overlay */}
+            <div
+              className={`${styles.mobileFiltersOverlay} ${
+                isMobileFiltersOpen ? styles.open : ""
+              }`}
+              aria-hidden={!isMobileFiltersOpen}
+            >
+              <div
+                className={styles.overlayBackdrop}
+                onClick={() => setIsMobileFiltersOpen(false)}
+              />
+              <div className={styles.overlayPanel} role="dialog" aria-modal="true">
+                <div className={styles.overlayHeader}>
+                  <span className={styles.overlayTitle}>Filters</span>
+                  <button
+                    className={styles.closeButton}
+                    onClick={() => setIsMobileFiltersOpen(false)}
+                    aria-label="Close"
+                  >
+                    ×
+                  </button>
+                </div>
+                <div className={styles.overlayContent}>
+                  <CustomSelect
+                    options={FILTER_OPTIONS.destinations}
+                    value={filters.destinations}
+                    onChange={(value) => handleFilterChange("destinations", value)}
+                    placeholder="Destinations"
+                    isMulti={true}
+                    isSearchable={true}
+                    className={styles.filterSelect}
+                  />
+
+                  <div
+                    ref={priceFilterRef}
+                    className={`${styles.priceFilterContainer} ${
+                      isPriceFilterOpen ? styles.open : ""
+                    }`}
+                  >
+                    <div
+                      className={styles.priceFilterHeader}
+                      onClick={togglePriceFilter}
+                    >
+                      <span className={styles.priceFilterDisplay}>
+                        {formatPriceRange()}
+                      </span>
+                      <span
+                        className={`${styles.priceFilterArrow} ${
+                          isPriceFilterOpen ? styles.rotated : ""
+                        }`}
+                      >
+                        ▼
+                      </span>
+                    </div>
+
+                    {isPriceFilterOpen && (
+                      <div className={styles.priceFilterDropdown}>
+                        <PriceRangeSlider
+                          min={0}
+                          max={maxPrice}
+                          step={1000}
+                          value={filters.priceRange}
+                          onChange={handlePriceRangeChange}
+                          currency="₹"
+                          showLabels={true}
+                          showValues={true}
+                          className={styles.priceSlider}
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  <CustomSelect
+                    options={FILTER_OPTIONS.features}
+                    value={filters.features}
+                    onChange={(value) => handleFilterChange("features", value)}
+                    placeholder="Features"
+                    isMulti={true}
+                    className={styles.filterSelect}
+                  />
+                  <CustomSelect
+                    options={FILTER_OPTIONS.destinationType}
+                    value={filters.destinationType}
+                    onChange={(value) => handleFilterChange("destinationType", value)}
+                    placeholder="Destination Type"
+                    isMulti={false}
+                    className={styles.filterSelect}
+                  />
+                </div>
+                <div className={styles.overlayFooter}>
+                  <button
+                    className={styles.applyButton}
+                    onClick={() => setIsMobileFiltersOpen(false)}
+                  >
+                    Apply
+                  </button>
+                  <button className={styles.clearButton} onClick={clearFilters}>
+                    Clear filters
+                  </button>
+                </div>
               </div>
             </div>
 

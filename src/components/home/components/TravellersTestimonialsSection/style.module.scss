@@ -125,3 +125,12 @@
     }
   }
 }
+@media screen and (max-width: 992px) {
+  .container {
+    max-width: 95vw;
+    padding: 0;
+  }
+  .sectionTitle1 {
+    font-size: 2rem;
+  }
+}
