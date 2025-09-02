@@ -19,6 +19,7 @@ const TravelPackagesSection = ({
   selectedTripId = null,
   destinationName = null,
   isHomePage = false,
+  listLayout = false,
 }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -121,11 +122,11 @@ const TravelPackagesSection = ({
 
   // Check if any filters are active
   const hasActiveFilters = () => {
-    const hasDestinations = filters.destinations && filters.destinations.length > 0;
-    const hasFeatures = filters.features && filters.features.length > 0;
-    const hasDestinationType = filters.destinationType && filters.destinationType.length > 0;
-    const hasPriceFilter = filters.priceRange && (filters.priceRange[0] > 0 || filters.priceRange[1] < maxPrice);
-    
+    const hasDestinations = Array.isArray(filters.destinations) && filters.destinations.length > 0;
+    const hasFeatures = Array.isArray(filters.features) && filters.features.length > 0;
+    const hasDestinationType = !!(filters.destinationType && (filters.destinationType.value || filters.destinationType.label));
+    const hasPriceFilter = Array.isArray(filters.priceRange) && (filters.priceRange[0] > 0 || filters.priceRange[1] < maxPrice);
+
     return hasDestinations || hasFeatures || hasDestinationType || hasPriceFilter;
   };
 
@@ -134,13 +135,31 @@ const TravelPackagesSection = ({
       id="travel-packages"
       className={`${styles.travelPackagesSection} ${
         destinationName ? styles.explorePage : ""
-      }`}
+      } ${listLayout ? styles.listLayout : ""}`}
     >
       <div
         className={`${styles.container} ${
           destinationName ? styles.explorePageContainer : ""
         }`}
       >
+        {listLayout && (
+          <div className={styles.listBanner}>
+            <Image
+              src="/assets/png/banner1.jpg"
+              alt="Explore trips"
+              fill
+              priority
+              sizes="100vw"
+              className={styles.bannerImage}
+            />
+          </div>
+        )}
+
+        {listLayout && (
+          <div className={styles.listHeadingWrap}>
+            <h2 className={styles.listHeading}>Upcoming Trips</h2>
+          </div>
+        )}
         {/* Section Title - Only show on homepage */}
         {isHomePage && (
           <div className={styles.sectionTitle}>
@@ -148,7 +167,7 @@ const TravelPackagesSection = ({
               <h2>Upcoming Trips</h2>
               <button
                 className={styles.showMoreButton}
-                onClick={() => router.push("/explore")}
+                onClick={() => router.push("/explore/list")}
               >
                 <span>View All</span>
                 <span className={styles.arrowIcon}>→</span>

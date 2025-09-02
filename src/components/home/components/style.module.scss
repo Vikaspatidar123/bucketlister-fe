@@ -6,3 +6,13 @@
     margin-top: 0;
   }
 }
+
+.desktopOnly {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .desktopOnly {
+    display: none !important;
+  }
+}

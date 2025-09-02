@@ -41,6 +41,8 @@ const youtubeIcon = "/assets/svg/youtube.svg";
 const instagramIconFooter = "/assets/svg/instagram-icon.svg";
 const mobileMenuIcon = "/assets/svg/mobile_menu_icon.svg";
 const filterIcon = "/assets/svg/filter.svg";
+const whatsappIcon = "/assets/svg/whatsapp-icon.svg";
+const playIcon = "/assets/svg/play-icon.svg";
 
 export {
   downArrow,
@@ -86,4 +88,6 @@ export {
   instagramIconFooter,
   mobileMenuIcon,
   filterIcon,
+  whatsappIcon,
+  playIcon,
 };
