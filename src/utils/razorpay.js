@@ -45,7 +45,7 @@ export const initiateRazorpayPayment = async ({
     // For testing purposes, we'll create payment without order ID
     // In production, you MUST create an order on your backend first
     const options = {
-      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'rzp_test_RCfbWnUOv4fAUe', // Use environment variable
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'rzp_test_RCpLy9EXINX00z', // Use environment variable
       amount: amount * 100, // Razorpay expects amount in paisa
       currency: currency,
       name: 'Bucketlister',
