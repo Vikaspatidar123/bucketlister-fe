@@ -5,7 +5,7 @@ import Image from "next/image";
 import { instagramIcon, whatsappIcon, playIcon } from "@/assets/svg";
 
 const FloatingActions = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   const toggle = () => setOpen((v) => !v);
 

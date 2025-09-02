@@ -59,21 +59,24 @@ const Navigation = () => {
             <div className={styles.dropdownPanel}>
               {item.label === 'Domestic' ? (
                 <div className={styles.domesticWrapper}>
-                  <div className={styles.dropdownGrid}>
-                    {dropdownList.map((link) => (
-                      link.href ? (
-                        <a key={link.label} href={link.href} className={styles.dropdownItem}>
-                          {link.label}
-                        </a>
-                      ) : (
-                        <span key={link.label} className={styles.dropdownItem}>
-                          {link.label}
-                        </span>
-                      )
-                    ))}
+                  <div className={styles.domesticColumn}>
+                    <div className={styles.domesticTitle}>Domestic</div>
+                    <div className={styles.domesticList}>
+                      {dropdownList.map((link) => (
+                        link.href ? (
+                          <a key={link.label} href={link.href} className={styles.dropdownItem}>
+                            {link.label}
+                          </a>
+                        ) : (
+                          <span key={link.label} className={styles.dropdownItem}>
+                            {link.label}
+                          </span>
+                        )
+                      ))}
+                    </div>
                   </div>
                   <div className={styles.weekendColumn}>
-                    <div className={styles.weekendTitle}>{DOMESTIC_WEEKEND_GETAWAYS.title}</div>
+                    <div className={styles.weekendTitle}>Weekend Trips</div>
                     <div className={styles.weekendList}>
                       {DOMESTIC_WEEKEND_GETAWAYS.items.map((w) => (
                         w.href ? (

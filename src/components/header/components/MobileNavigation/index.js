@@ -5,12 +5,14 @@ import {
   NAVIGATION_ITEMS,
   INTERNATIONAL_DESTINATIONS,
   DOMESTIC_DESTINATIONS,
+  DOMESTIC_WEEKEND_GETAWAYS,
   MORE_LINKS
 } from '../../constants';
 
 const getSubLinksFor = (label) => {
   if (label === 'International') return INTERNATIONAL_DESTINATIONS;
   if (label === 'Domestic') return DOMESTIC_DESTINATIONS;
+  if (label === 'Weekend Trips') return DOMESTIC_WEEKEND_GETAWAYS.items || [];
   if (label === 'More') return MORE_LINKS;
   return [];
 };
@@ -27,9 +29,21 @@ const MobileNavigation = ({ sheetOpen = false }) => {
 
   const toggle = (label) => setOpen((prev) => ({ ...prev, [label]: !prev[label] }));
 
+  // Build mobile-specific items: remove 'More', add 'Weekend Trips'
+  const mobileItems = React.useMemo(() => {
+    const base = NAVIGATION_ITEMS.filter((i) => i.label !== 'More');
+    // Insert Weekend Trips after Domestic
+    const insertAt = base.findIndex((i) => i.label === 'Domestic');
+    const weekendItem = { label: 'Weekend Trips', hasDropdown: true, href: '/weekend' };
+    if (insertAt >= 0) {
+      return [...base.slice(0, insertAt + 1), weekendItem, ...base.slice(insertAt + 1)];
+    }
+    return [...base, weekendItem];
+  }, []);
+
   return (
     <nav className={styles.mobileNav}>
-      {NAVIGATION_ITEMS.map((item) => {
+      {mobileItems.map((item) => {
         const subLinks = item.hasDropdown ? getSubLinksFor(item.label) : [];
         const isOpen = !!open[item.label];
         return (
@@ -61,6 +75,19 @@ const MobileNavigation = ({ sheetOpen = false }) => {
           </div>
         );
       })}
+
+      {/* Inline 'More' links directly without dropdown */}
+      {MORE_LINKS && MORE_LINKS.length > 0 && (
+        <div className={styles.mobileNavItem}>
+          <div className={styles.mobileSubList}>
+            {MORE_LINKS.map((link) => (
+              <a key={link.label} href={link.href} className={styles.mobileSubLink}>
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

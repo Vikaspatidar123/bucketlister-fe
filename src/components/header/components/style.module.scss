@@ -111,58 +111,70 @@
   margin-top: 10px;
   white-space: nowrap;
   z-index: 1001;
+  min-width: 120px;
 }
 
 .dropdownGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px 48px;
+  grid-template-columns: repeat(1, max-content); // single column layout
+  gap: 0px 0; // vertical spacing only
 }
 
 .dropdownItem {
   color: #111;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 14px; // smaller font for denser layout
   font-weight: 500;
-  padding: 6px 0;
+  padding: 4px 0; // reduce vertical padding
 }
 
 .dropdownItem:hover {
   color: #444;
+  text-decoration: underline;
 }
 
 .domesticWrapper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr) max-content; // 2 columns for Domestic, 1 for Weekend
-  column-gap: 18px;
-  row-gap: 12px;
+  grid-template-columns: 1fr 1fr; // Domestic | Weekend
+  column-gap: 24px;
+  row-gap: 8px;
   align-items: start;
 }
 
-// Ensure domestic list itself uses two columns inside the domestic wrapper
-.domesticWrapper .dropdownGrid {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px 32px;
+// Domestic column
+.domesticColumn {
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 6px;
+}
+.domesticTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ef3447;
+  margin: 0 0 4px 0;
+}
+.domesticList {
+  display: grid;
+  grid-template-columns: repeat(1, max-content);
+  row-gap: 0px;
 }
 
 .weekendColumn {
-  // padding-left: 1px;
-  grid-column: 3;
   display: grid;
   grid-template-rows: auto auto;
   align-content: start;
-  row-gap: 4px;
+  row-gap: 0px;
 }
 
 .weekendTitle {
   grid-row: 1;
-  font-size: 20px;
-  font-weight: 700;
-  color: #111;
-  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ef3447;
+  margin: 0 0 8px 0;
   display: inline-flex;
   align-items: center;
-  line-height: 28px; // match item row height for alignment
+  line-height: 20px;
 }
 
 .weekendList {
@@ -170,24 +182,27 @@
   display: grid;
   grid-template-columns: repeat(1, max-content);
   column-gap: 4px;
-  row-gap: 10px;
+  row-gap: 0px;
   align-items: center;
 }
 
 .moreList {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0px; // match domestic/international spacing
 }
 
 .moreItem {
   color: #111;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 14px; // match others
   font-weight: 500;
+  padding: 4px 0; // match dropdownItem padding
 }
 .moreItem:hover {
   color: #444;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 // removed arrow styling
@@ -234,12 +249,35 @@
   padding: 0;
 }
 
-.mobileSearchWrapper { position: relative; }
+.mobileSearchWrapper {
+  position: relative;
+}
 // Centered to viewport, sits below the header
-.searchDropdownInline { display: none; position: fixed; left: 50%; transform: translateX(-50%); top: 64px; z-index: 2100; width: 100%; }
-.searchDropdownInline.open { display: block; }
-.searchDropdownInline .searchPanel { background: #fff; border-radius: 16px; box-shadow: 0 12px 32px rgba(16,24,40,.18); width: 95vw; max-width: 560px; padding: 12px; border: 1px solid #eef0f3; margin: 0 auto; }
-.searchDropdownInline .searchBody { padding: 0; }
+.searchDropdownInline {
+  display: none;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 64px;
+  z-index: 2100;
+  width: 100%;
+}
+.searchDropdownInline.open {
+  display: block;
+}
+.searchDropdownInline .searchPanel {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.18);
+  width: 95vw;
+  max-width: 560px;
+  padding: 12px;
+  border: 1px solid #eef0f3;
+  margin: 0 auto;
+}
+.searchDropdownInline .searchBody {
+  padding: 0;
+}
 
 .mobileSheet {
   display: none;
@@ -356,19 +394,33 @@
   display: flex;
   flex-direction: column;
   padding: 0 12px 12px 12px;
-  gap: 10px;
+  gap: 6px; // match spacing used between other mobile options
 }
 .mobileSubLink {
   color: #333;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  padding: 10px 0; // consistent breathing room like other items
 }
 .mobileSubLink:hover {
   color: #666;
+  text-decoration: underline;
 }
 
 .mobileContactRow {
   margin-top: 16px;
+  position: absolute;
+  bottom: 24px;
+  left: 12px;
+  right: 12px;
+  padding: 8px 12px;
+}
+
+// Ensure phone aligns to the left inside the mobile bottom row
+.mobileContactRow .contactInfo {
+  justify-content: flex-start;
 }
 
 // Responsive design
