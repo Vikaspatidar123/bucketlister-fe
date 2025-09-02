@@ -194,7 +194,8 @@ const CustomSelect = ({
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className={styles.searchInput}
-                autoFocus
+                // Avoid auto focusing on mobile to prevent viewport jump/scroll to top
+                // autoFocus
               />
             </div>
           )}

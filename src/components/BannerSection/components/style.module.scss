@@ -139,7 +139,9 @@
 // Prevent overlap on tablet/mobile by stacking the destination cards below the banner
 @media (max-width: 1024px) {
   .bannerSection {
-    margin-bottom: 100px; // breathing room before next section
+    margin-bottom: 0px; // reduced breathing room before next section
+    background: rgba(255, 248, 209, 0.51);
+    padding-bottom: 30px;
   }
 
   .destinationCardsSection {
@@ -387,5 +389,32 @@
         }
       }
     }
+  }
+}
+
+// Mobile Section Styles
+.mobileSection {
+  width: 100%;
+  padding: 10px 16px;
+  text-align: center;
+  
+  .mobileHeading {
+    font-family: serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 24px 0;
+    line-height: 1.2;
+  }
+  
+  .mobileSwiperWrapper {
+    width: 100%;
+  }
+}
+
+// Hide desktop banner on mobile
+@media (max-width: 768px) {
+  .bannerContainer {
+    display: none;
   }
 }

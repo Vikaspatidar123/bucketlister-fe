@@ -17,8 +17,8 @@ const Logo = () => {
       <Image
         src={BRAND_INFO.logoPath}
         alt="The Bucketlister Logo"
-        width={284}
-        height={79}
+        width={142}
+        height={39.5}
         className={styles.logoImage}
       />
     </div>

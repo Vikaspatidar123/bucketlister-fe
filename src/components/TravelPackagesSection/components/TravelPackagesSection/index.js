@@ -12,10 +12,13 @@ import {
 import { useTravelPackages } from "../../hooks/useTravelPackages";
 import styles from "./style.module.scss";
 import PriceRangeSlider from "../../../../common/PriceRangeSlider";
+import Image from "next/image";
+import { filterIcon } from "@/assets/svg";
 
 const TravelPackagesSection = ({
   selectedTripId = null,
   destinationName = null,
+  isHomePage = false,
 }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -60,7 +63,7 @@ const TravelPackagesSection = ({
     if (date) {
       setActiveDateTab(date);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   const handleTripClick = (trip) => {
@@ -68,7 +71,9 @@ const TravelPackagesSection = ({
       (dest) => dest.trips && dest.trips.some((t) => t.tripId === trip.tripId)
     );
     if (destination) {
-      router.push(`/trip?destinationId=${destination.destination_id}&tripId=${trip.tripId}`);
+      router.push(
+        `/trip?destinationId=${destination.destination_id}&tripId=${trip.tripId}`
+      );
     }
   };
 
@@ -114,6 +119,16 @@ const TravelPackagesSection = ({
     return "Dates on Request";
   };
 
+  // Check if any filters are active
+  const hasActiveFilters = () => {
+    const hasDestinations = filters.destinations && filters.destinations.length > 0;
+    const hasFeatures = filters.features && filters.features.length > 0;
+    const hasDestinationType = filters.destinationType && filters.destinationType.length > 0;
+    const hasPriceFilter = filters.priceRange && (filters.priceRange[0] > 0 || filters.priceRange[1] < maxPrice);
+    
+    return hasDestinations || hasFeatures || hasDestinationType || hasPriceFilter;
+  };
+
   return (
     <section
       id="travel-packages"
@@ -126,19 +141,49 @@ const TravelPackagesSection = ({
           destinationName ? styles.explorePageContainer : ""
         }`}
       >
+        {/* Section Title - Only show on homepage */}
+        {isHomePage && (
+          <div className={styles.sectionTitle}>
+            <div className={styles.titleRow}>
+              <h2>Upcoming Trips</h2>
+              <button
+                className={styles.showMoreButton}
+                onClick={() => router.push("/explore")}
+              >
+                <span>View All</span>
+                <span className={styles.arrowIcon}>→</span>
+              </button>
+            </div>
+          </div>
+        )}
         {/* Filter Bar - Only show when not showing a specific trip or destination */}
         {!selectedTripId && !destinationName && (
           <>
             <div className={styles.mobileFilterBar}>
-              <button
-                className={styles.mobileFilterButton}
-                onClick={() => setIsMobileFiltersOpen(true)}
-              >
-                Filters
-              </button>
-              <span className={styles.mobileResultsCount}>
-                {filteredAndSortedData.length} packages
-              </span>
+              <div className={styles.mobileTopRow}>
+                <Tabs
+                  tabs={DATE_TABS}
+                  activeTab={activeDateTab}
+                  onTabChange={setActiveDateTab}
+                  variant="pills"
+                  size="small"
+                  className={styles.mobileDateTabs}
+                />
+                <button
+                  className={`${styles.mobileFilterButton} ${hasActiveFilters() ? styles.hasActiveFilters : ''}`}
+                  onClick={() => setIsMobileFiltersOpen(true)}
+                >
+                  <span className={styles.filterIcon}>
+                    <Image
+                      src={filterIcon}
+                      alt="filter"
+                      width={24}
+                      height={24}
+                    />
+                  </span>
+                  {hasActiveFilters() && <span className={styles.filterDot}></span>}
+                </button>
+              </div>
             </div>
             <div className={styles.filterBar}>
               <div className={styles.filterControls}>
@@ -178,7 +223,7 @@ const TravelPackagesSection = ({
                   </div>
 
                   {isPriceFilterOpen && (
-                    <div className={styles.priceFilterDropdown}>
+                    <div className={styles.priceFilterDropdown} data-price-slider="true">
                       <PriceRangeSlider
                         min={0}
                         max={maxPrice}
@@ -202,10 +247,12 @@ const TravelPackagesSection = ({
                   isMulti={true}
                   className={styles.filterSelect}
                 />
-                 <CustomSelect
+                <CustomSelect
                   options={FILTER_OPTIONS.destinationType}
                   value={filters.destinationType}
-                  onChange={(value) => handleFilterChange("destinationType", value)}
+                  onChange={(value) =>
+                    handleFilterChange("destinationType", value)
+                  }
                   placeholder="Destination Type"
                   isMulti={false}
                   className={styles.filterSelect}
@@ -234,7 +281,11 @@ const TravelPackagesSection = ({
                 className={styles.overlayBackdrop}
                 onClick={() => setIsMobileFiltersOpen(false)}
               />
-              <div className={styles.overlayPanel} role="dialog" aria-modal="true">
+              <div
+                className={styles.overlayPanel}
+                role="dialog"
+                aria-modal="true"
+              >
                 <div className={styles.overlayHeader}>
                   <span className={styles.overlayTitle}>Filters</span>
                   <button
@@ -249,7 +300,9 @@ const TravelPackagesSection = ({
                   <CustomSelect
                     options={FILTER_OPTIONS.destinations}
                     value={filters.destinations}
-                    onChange={(value) => handleFilterChange("destinations", value)}
+                    onChange={(value) =>
+                      handleFilterChange("destinations", value)
+                    }
                     placeholder="Destinations"
                     isMulti={true}
                     isSearchable={true}
@@ -279,7 +332,7 @@ const TravelPackagesSection = ({
                     </div>
 
                     {isPriceFilterOpen && (
-                      <div className={styles.priceFilterDropdown}>
+                      <div className={styles.priceFilterDropdown} data-price-slider="true">
                         <PriceRangeSlider
                           min={0}
                           max={maxPrice}
@@ -306,19 +359,21 @@ const TravelPackagesSection = ({
                   <CustomSelect
                     options={FILTER_OPTIONS.destinationType}
                     value={filters.destinationType}
-                    onChange={(value) => handleFilterChange("destinationType", value)}
+                    onChange={(value) =>
+                      handleFilterChange("destinationType", value)
+                    }
                     placeholder="Destination Type"
                     isMulti={false}
                     className={styles.filterSelect}
                   />
                 </div>
                 <div className={styles.overlayFooter}>
-                  <button
-                    className={styles.applyButton}
-                    onClick={() => setIsMobileFiltersOpen(false)}
+                  <div
+                    // className={styles.}
+                    // onClick={() => setIsMobileFiltersOpen(false)}
                   >
-                    Apply
-                  </button>
+                    {/* Apply */}
+                  </div>
                   <button className={styles.clearButton} onClick={clearFilters}>
                     Clear filters
                   </button>

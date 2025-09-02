@@ -1,11 +1,11 @@
-'use client'
-import React from 'react';
-import Logo from './Logo';
-import Navigation from './Navigation';
-import ContactInfo from './ContactInfo';
-import MobileMenu from './MobileMenu';
-import MobileSearch from './MobileSearch';
-import styles from './style.module.scss';
+"use client";
+import React from "react";
+import Logo from "./Logo";
+import Navigation from "./Navigation";
+import ContactInfo from "./ContactInfo";
+import MobileMenu from "./MobileMenu";
+import MobileSearch from "./MobileSearch";
+import styles from "./style.module.scss";
 
 const Header = () => {
   return (
@@ -16,9 +16,11 @@ const Header = () => {
         <ContactInfo showSearch={false} />
       </div>
       <div className={styles.mobileBar}>
-        <MobileMenu />
         <Logo />
-        <MobileSearch />
+        <div className={styles.mobileBarRight}>
+          <MobileSearch />
+          <MobileMenu />
+        </div>
       </div>
     </header>
   );

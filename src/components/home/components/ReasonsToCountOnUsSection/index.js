@@ -1,4 +1,9 @@
-import { expertExperienceImage, likeMindsImage, pricingImage, safeSpaceImage } from "@/assets/webp";
+import {
+  expertExperienceImage,
+  likeMindsImage,
+  pricingImage,
+  safeSpaceImage,
+} from "@/assets/webp";
 import styles from "./style.module.scss";
 import Image from "next/image";
 
@@ -54,8 +59,10 @@ const ReasonsToCountOnUsSection = () => {
                   height={96}
                 />
               </div>
-              <h3 className={styles.reasonTitle}>{reason.title}</h3>
-              <p className={styles.reasonDescription}>{reason.description}</p>
+              <div className={styles.reasonContent}>
+                <h3 className={styles.reasonTitle}>{reason.title}</h3>
+                <p className={styles.reasonDescription}>{reason.description}</p>
+              </div>
             </div>
           ))}
         </div>

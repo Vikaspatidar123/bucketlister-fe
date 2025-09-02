@@ -61,6 +61,11 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   touch-action: pan-x;
+
+  // Hide on mobile
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 .timelineDynamic::-webkit-scrollbar {
   display: none;
@@ -120,6 +125,11 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
   touch-action: pan-x;
+
+  // Hide on mobile
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 .routeChips::-webkit-scrollbar {
   display: none;

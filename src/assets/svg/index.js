@@ -40,6 +40,7 @@ const linkedinIcon = "/assets/svg/linkedin.svg";
 const youtubeIcon = "/assets/svg/youtube.svg";
 const instagramIconFooter = "/assets/svg/instagram-icon.svg";
 const mobileMenuIcon = "/assets/svg/mobile_menu_icon.svg";
+const filterIcon = "/assets/svg/filter.svg";
 
 export {
   downArrow,
@@ -84,4 +85,5 @@ export {
   youtubeIcon,
   instagramIconFooter,
   mobileMenuIcon,
+  filterIcon,
 };

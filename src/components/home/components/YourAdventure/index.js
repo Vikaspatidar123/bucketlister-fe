@@ -56,6 +56,7 @@ const YourAdventureSection = () => {
           featuredDestinations={DOMESTIC_DESTINATIONS}
           onExploreClick={handleExploreClick}
           onDestinationClick={handleDestinationClick}
+          mobileHeading='Domestic Trips'
         />
       </div>
     </section>

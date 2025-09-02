@@ -23,7 +23,7 @@ const Home = () => {
       <StatsSection />
       <ExploreDestinations />
       <BannerSection />
-      <TravelPackagesSection />
+      <TravelPackagesSection isHomePage={true} />
       <YourAdventureSection />
       <HappyMomentsSection />
       <FeaturesBar />

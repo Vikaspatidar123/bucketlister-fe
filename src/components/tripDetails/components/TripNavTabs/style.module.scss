@@ -65,6 +65,10 @@
   }
 }
 @media (max-width: 768px) {
+  .wrapper {
+    display: none;
+  }
+  
   .container {
     max-width: 94vw;
   }

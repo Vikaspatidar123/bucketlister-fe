@@ -22,6 +22,11 @@
 .mobileBar {
   display: none;
 }
+.mobileBarRight {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
 
 // Logo styles
 .logo {
@@ -29,12 +34,14 @@
   align-items: center;
   gap: 12px;
   cursor: pointer;
+  max-height: 60px;
 }
 
 .logoImage {
   width: 142;
   height: 39.5;
   opacity: 1;
+  max-height: 60px;
 }
 // Navigation styles
 .navigation {
@@ -253,20 +260,20 @@
     transition: opacity 0.2s;
   }
   .mobileSheetPanel {
-    border-radius: 0px 16px 16px 0px;
+    border-radius: 16px 0px 0px 16px;
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
+    right: 0;
     width: 78vw;
     max-width: 340px;
     background: #fff;
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
-    transform: translateX(-100%);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
     transition: transform 0.25s;
     display: flex;
     flex-direction: column;
-    background: radial-gradient(circle at 100% 460px, transparent 23px, #fff 0);
+    background: radial-gradient(circle at 0% 460px, transparent 23px, #fff 0);
   }
   // .mobileSheetCloseWrapper {
   //   position: absolute;
@@ -285,7 +292,7 @@
   // }
   .mobileSheetClose {
     position: absolute;
-    right: -18px;
+    left: -18px;
     top: 442px;
     width: 36px;
     height: 36px;

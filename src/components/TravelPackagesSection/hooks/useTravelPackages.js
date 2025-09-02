@@ -9,6 +9,16 @@ const useClickOutside = (isOpen, onClose) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
+        // Check if the click is on any price filter related element
+        const clickedElement = event.target;
+        const isSliderElement = clickedElement.closest('[data-price-slider]') || 
+                                clickedElement.closest('.priceSlider') ||
+                                clickedElement.closest('.priceRangeSlider');
+        
+        if (isSliderElement) {
+          return; // Don't close if clicking on slider content
+        }
+        
         onClose();
       }
     };
