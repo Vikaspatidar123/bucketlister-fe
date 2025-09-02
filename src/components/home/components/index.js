@@ -22,14 +22,16 @@ const Home = () => {
       <HeroSection />
       <StatsSection />
       <ExploreDestinations />
-      <BannerSection />
+      <BannerSection category="international" mobileHeading="International Trips" />
       <TravelPackagesSection isHomePage={true} />
       <YourAdventureSection />
       <HappyMomentsSection />
       <FeaturesBar />
       <ReasonsToCountOnUsSection />
       <TravellersTestimonialsSection />
-      <MomentsInMotionSection />
+      <div className={styles.desktopOnly}>
+        <MomentsInMotionSection />
+      </div>
       {/* Add more sections here as you create them */}
     </div>
   );

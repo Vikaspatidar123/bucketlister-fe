@@ -25,6 +25,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Remove global top padding on reels page */
+body[data-page="reels"] {
+  padding-top: 0 !important;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -45,5 +50,8 @@ a {
 @media (max-width: 768px) {
   body {
     padding-top: 65px;
+  }
+  body[data-page="reels"] {
+    padding-top: 0 !important;
   }
 }

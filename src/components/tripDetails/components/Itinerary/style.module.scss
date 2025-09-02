@@ -288,11 +288,15 @@
 
 .daySummary {
   margin-top: 6px;
+  font-size: 14px;
+  color: #000000e3;
 }
 
 .dayDetails {
   margin-top: 8px;
   opacity: 0.85;
+  font-size: 14px;
+  color: #000000e3;
 }
 @media (max-width: 768px) {
   .itinerary {

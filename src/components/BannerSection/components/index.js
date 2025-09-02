@@ -1,43 +1,18 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { BANNER_DATA, FEATURED_DESTINATIONS } from '../constants';
+import { useRouter } from 'next/navigation';
+import { BANNER_DATA } from '../constants';
+import { TRAVEL_PACKAGES_DATA } from '@/components/TravelPackagesSection/constants';
 import SwiperCards from '@/common/swiper';
 import styles from './style.module.scss';
 
-/**
- * BannerSection Component - Responsive banner with desktop and mobile views
- * 
- * @param {Object} props
- * @param {string} props.title - Banner title for desktop view
- * @param {string} props.description - Banner description for desktop view
- * @param {string} props.ctaButton - CTA button text
- * @param {Array} props.featuredDestinations - Array of destination objects for desktop cards
- * @param {string} props.mobileHeading - Heading text for mobile view (default: "International")
- * @param {Array} props.mobileSwiperData - Custom data for mobile swiper (optional)
- * @param {Function} props.onExploreClick - Click handler for explore button
- * @param {Function} props.onDestinationClick - Click handler for destination cards
- * 
- * @example
- * // Basic usage with default mobile heading
- * <BannerSection />
- * 
- * @example
- * // Custom mobile heading
- * <BannerSection mobileHeading="Domestic Trips" />
- * 
- * @example
- * // Custom mobile swiper data
- * <BannerSection 
- *   mobileHeading="Weekend Getaways"
- *   mobileSwiperData={weekendDestinations}
- * />
- */
 const BannerSection = ({ 
   title = BANNER_DATA.title,
   description = BANNER_DATA.description,
   ctaButton = BANNER_DATA.ctaButton,
-  featuredDestinations = FEATURED_DESTINATIONS,
+  featuredDestinations = null,
+  category = 'international',
   mobileHeading = "International", // Dynamic mobile heading
   mobileSwiperData = null, // Custom swiper data for mobile
   onExploreClick,
@@ -46,6 +21,7 @@ const BannerSection = ({
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const checkMobile = () => {
@@ -67,19 +43,62 @@ const BannerSection = ({
   const handleDestinationClick = (destination) => {
     if (onDestinationClick) {
       onDestinationClick(destination);
+      return;
+    }
+    if (destination?.href) {
+      router.push(destination.href);
     }
   };
 
-  const handleNextCards = () => {
-    setCurrentCardIndex((prevIndex) => (prevIndex + 1) % featuredDestinations.length);
-  };
-
-  const handlePrevCards = () => {
-    setCurrentCardIndex((prevIndex) => (prevIndex - 1 + featuredDestinations.length) % featuredDestinations.length);
-  };
+  // handlers will be defined after `featured` is computed
 
   const handleImageError = () => {
     setImageError(true);
+  };
+
+  // Build featured list from TRAVEL_PACKAGES_DATA if not provided
+  const computedFeatured = React.useMemo(() => {
+    try {
+      const trips = [];
+      TRAVEL_PACKAGES_DATA.forEach((destination) => {
+        if (destination?.category === category && Array.isArray(destination.trips)) {
+          destination.trips.forEach((trip, index) => {
+            const id = trip.tripId ?? trip.id ?? `${destination.destination_id}-${index}`;
+            const tripId = trip.tripId ?? trip.id;
+            const destinationId = destination.destination_id;
+            trips.push({
+              id,
+              name: trip.title ?? destination.destination_name,
+              title: trip.title ?? destination.destination_name,
+              price: typeof trip.price === 'number' ? `₹ ${trip.price.toLocaleString('en-IN')}` : (trip.price || ''),
+              image: trip.image || destination.thumbnail_image || destination.hero_image || '/assets/png/banner1.jpg',
+              duration: trip.duration ?? '',
+              destinationId,
+              tripId,
+              href: (destinationId && tripId) ? `/trip?destinationId=${destinationId}&tripId=${tripId}` : undefined,
+            });
+          });
+        }
+      });
+      return trips;
+    } catch (e) {
+      return [];
+    }
+  }, [category]);
+
+  // Use provided featuredDestinations or computed ones
+  const featured = featuredDestinations && Array.isArray(featuredDestinations) && featuredDestinations.length > 0
+    ? featuredDestinations
+    : computedFeatured;
+
+  const handleNextCards = () => {
+    if (!featured || featured.length === 0) return;
+    setCurrentCardIndex((prevIndex) => (prevIndex + 1) % featured.length);
+  };
+
+  const handlePrevCards = () => {
+    if (!featured || featured.length === 0) return;
+    setCurrentCardIndex((prevIndex) => (prevIndex - 1 + featured.length) % featured.length);
   };
 
   // Mobile view - show only heading and SwiperCards
@@ -94,7 +113,7 @@ const BannerSection = ({
               <SwiperCards customData={mobileSwiperData} />
             ) : (
               // Default swiper data
-              <SwiperCards />
+              <SwiperCards customData={featured} />
             )}
           </div>
         </div>
@@ -142,28 +161,29 @@ const BannerSection = ({
         {/* Destination Cards Section - Overlaid on Banner */}
         <div className={styles.destinationCardsSection}>
           <div className={styles.cardsRow}>
-            {Array.from({ length: 4 }).map((_, i) => {
-              const destination = featuredDestinations[(currentCardIndex + i) % featuredDestinations.length];
+            {featured && featured.length > 0 && Array.from({ length: 4 }).map((_, i) => {
+              const destination = featured[(currentCardIndex + i) % featured.length];
+              if (!destination) return null;
               return (
-              <div 
-                key={destination.id}
-                className={styles.destinationCard}
-                onClick={() => handleDestinationClick(destination)}
-              >
-                <div className={styles.cardImage}>
-                  <Image 
-                    src={destination.image} 
-                    alt={destination.name}
-                    className={styles.destinationImage}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                  />
+                <div 
+                  key={destination.id}
+                  className={styles.destinationCard}
+                  onClick={() => handleDestinationClick(destination)}
+                >
+                  <div className={styles.cardImage}>
+                    <Image 
+                      src={destination.image} 
+                      alt={destination.name}
+                      className={styles.destinationImage}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                  <div className={styles.cardContent}>
+                    <h3 className={styles.destinationName}>{destination.name}</h3>
+                    <span className={styles.duration}>{destination.duration}</span>
+                  </div>
                 </div>
-                <div className={styles.cardContent}>
-                  <h3 className={styles.destinationName}>{destination.name}</h3>
-                  <span className={styles.duration}>{destination.duration}</span>
-                </div>
-              </div>
               );
             })}
           </div>

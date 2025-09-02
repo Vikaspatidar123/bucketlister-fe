@@ -52,8 +52,7 @@ const YourAdventureSection = () => {
           title={DOMESTIC_BANNER_DATA.title}
           description={DOMESTIC_BANNER_DATA.description}
           ctaButton={DOMESTIC_BANNER_DATA.ctaButton}
-          carouselSlides={DOMESTIC_BANNER_DATA.carouselSlides}
-          featuredDestinations={DOMESTIC_DESTINATIONS}
+          category="domestic"
           onExploreClick={handleExploreClick}
           onDestinationClick={handleDestinationClick}
           mobileHeading='Domestic Trips'
