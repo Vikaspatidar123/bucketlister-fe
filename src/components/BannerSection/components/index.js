@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { BANNER_DATA, FEATURED_DESTINATIONS } from '../constants';
 import SwiperCards from '@/common/swiper';
 import styles from './style.module.scss';
@@ -44,6 +45,7 @@ const BannerSection = ({
 }) => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -76,6 +78,10 @@ const BannerSection = ({
     setCurrentCardIndex((prevIndex) => (prevIndex - 1 + featuredDestinations.length) % featuredDestinations.length);
   };
 
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   // Mobile view - show only heading and SwiperCards
   if (isMobile) {
     return (
@@ -100,11 +106,18 @@ const BannerSection = ({
   return (
     <section className={styles.bannerSection}>
       <div className={styles.bannerContainer}>
-        <img 
-          src="/assets/png/banner1.jpg" 
-          alt="Banner background" 
-          className={styles.bannerImage}
-        />
+        {!imageError && (
+          <Image 
+            src="/assets/png/banner1.jpg" 
+            alt="Banner background" 
+            className={styles.bannerImage}
+            fill
+            priority
+            style={{ objectFit: 'cover' }}
+            onError={handleImageError}
+            onLoad={() => setImageError(false)}
+          />
+        )}
         <div className={styles.bannerOverlay}>
           <div className={styles.bannerContent}>
             <h1 className={styles.bannerTitle}>{title}</h1>
@@ -138,10 +151,12 @@ const BannerSection = ({
                 onClick={() => handleDestinationClick(destination)}
               >
                 <div className={styles.cardImage}>
-                  <img 
+                  <Image 
                     src={destination.image} 
                     alt={destination.name}
                     className={styles.destinationImage}
+                    fill
+                    style={{ objectFit: 'cover' }}
                   />
                 </div>
                 <div className={styles.cardContent}>

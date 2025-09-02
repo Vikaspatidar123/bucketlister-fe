@@ -1,0 +1,193 @@
+.batchesContainer {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
+  margin-bottom: 0;
+}
+
+.header {
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 6px;
+}
+
+.filterTabs {
+  max-width: fit-content;
+}
+
+.batchesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 0;
+}
+
+.batchCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+
+  &:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  &.selected {
+    border-color: #374151;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: #f9fafb;
+  }
+}
+
+.batchRadio {
+  display: flex;
+  align-items: center;
+}
+
+.radioInput {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+  transition: all 0.2s ease;
+
+  &:checked {
+    border-color: #374151;
+    background-color: #374151;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: white;
+    }
+  }
+
+  &:hover {
+    border-color: #374151;
+  }
+}
+
+.batchInfo {
+  flex: 1;
+}
+
+.dateRange {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+}
+
+.status {
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+  
+  &.available {
+    background: #d1fae5;
+    color: #065f46;
+  }
+}
+
+.ctaSection {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.proceedBtn {
+  background: #ef3447;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #d82c3f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 52, 71, 0.3);
+  }
+}
+
+@media (max-width: 768px) {
+  .batchesContainer {
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .header {
+    margin-bottom: 24px;
+  }
+  
+  .title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .batchesGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .batchCard {
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .dateRange {
+    font-size: 15px;
+  }
+  
+  .status {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .batchesContainer {
+    padding: 20px;
+  }
+  
+  .batchCard {
+    padding: 14px;
+  }
+  
+  .dateRange {
+    font-size: 14px;
+  }
+}

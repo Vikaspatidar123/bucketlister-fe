@@ -83,6 +83,10 @@
   font-weight: 700;
   border: none;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   &:hover {
     background: #ef3447;
     color: #fff;
@@ -90,6 +94,10 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+}
+
+.linkBtn {
+  text-decoration: none;
 }
 
 .primary {

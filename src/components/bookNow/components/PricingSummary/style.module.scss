@@ -1,0 +1,181 @@
+.pricingSummaryContainer {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
+  margin-bottom: 12px;
+  
+  &.compact {
+    padding: 8px;
+    margin-bottom: 0;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.compact .header {
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+}
+
+.compact .title {
+  font-size: 14px;
+}
+
+.compact .totalAmount {
+  font-size: 16px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.totalAmount {
+  font-size: 18px;
+  font-weight: 700;
+  color: #02658f;
+}
+
+.breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.breakdownRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 0;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 400;
+  color: #374151;
+  flex: 1;
+}
+
+.sublabel {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b7280;
+  padding-left: 16px;
+  flex: 1;
+}
+
+.value {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1f2937;
+  text-align: right;
+  min-width: 80px;
+}
+
+.bookingRow {
+  background: #eff6ff;
+  padding: 6px;
+  border-radius: 6px;
+  margin: 4px 0;
+  border: 1px solid #dbeafe;
+  
+  .label {
+    font-weight: 500;
+    color: #1e40af;
+    font-size: 13px;
+  }
+  
+  .value {
+    font-weight: 600;
+    color: #1e40af;
+    font-size: 13px;
+  }
+}
+
+.subtotalRow {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 8px;
+  margin-top: 4px;
+  
+  .label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #1f2937;
+  }
+  
+  .value {
+    font-weight: 600;
+    font-size: 13px;
+    color: #1f2937;
+  }
+}
+
+.finalRow {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 8px;
+  margin-top: 4px;
+  
+  .label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1f2937;
+  }
+  
+  .value {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1f2937;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricingSummaryContainer {
+    padding: 20px;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  .totalAmount {
+    font-size: 24px;
+  }
+  
+  .breakdownRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    
+    &:not(:last-child) {
+      border-bottom: 1px solid #f8f9fa;
+      padding-bottom: 12px;
+    }
+  }
+  
+  .sublabel {
+    padding-left: 0;
+    font-size: 13px;
+  }
+  
+  .value {
+    text-align: left;
+    min-width: auto;
+    align-self: flex-end;
+  }
+}

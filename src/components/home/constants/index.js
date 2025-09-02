@@ -581,21 +581,21 @@ export const YOUR_ADVENTURE_DATA = {
       icon:soloImage,
       title: "Solo Traveller",
       subtitle: "Never alone",
-      description: "Link up with fellow explorers for safe, unforgettable adventures."
+      description: ""
     },
     {
       id: 2,
       icon: smallGroupImage,
       title: "Small Group (2-3 People)",
       subtitle: "Your crew, our curation",
-      description: "Intimate trips without the planning headaches."
+      description: ""
     },
     {
-      id: 3,
+      id: 3,  
       icon: bigGroupImage,
       title: "Big Group (4+ People)",
       subtitle: "Effortless coordination and spacious fun",
-      description: "Just show up and enjoy."
+      description: ""
     }
   ]
 };

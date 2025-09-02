@@ -3,6 +3,7 @@ import { bedIcon, calendarIcon, foodIcon, peopleIcon } from "@/assets/svg";
 import Tabs from "@/common/Tabs";
 import { DATE_LABELS } from "@/components/tripDetails/constants";
 import Image from "next/image";
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import styles from "./style.module.scss";
 
@@ -125,7 +126,12 @@ const Details = ({ destination, trip }) => {
 
       <div className={styles.ctaRow}>
         <button className={`${styles.btn} ${styles.secondary}`}>Enquire</button>
-        <button className={`${styles.btn} ${styles.primary}`}>Book Tour</button>
+        <Link 
+          href={`/book-now/${trip?.tripId || destination?.destination_id}?destination=${encodeURIComponent(destination?.destination_name || '')}&title=${encodeURIComponent(trip?.title || '')}&price=${trip?.price || ''}&duration=${encodeURIComponent(trip?.duration || '')}&capacity=${trip?.capacity || ''}`}
+          className={`${styles.btn} ${styles.primary} ${styles.linkBtn}`}
+        >
+          Book Tour
+        </Link>
       </div>
     </div>
   );

@@ -1,0 +1,208 @@
+.occupancyContainer {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
+  margin-bottom: 0;
+}
+
+.header {
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 2px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0;
+  font-weight: 400;
+}
+
+.occupancyTabs {
+  margin-bottom: 8px;
+}
+
+.vehicleSection {
+  margin-bottom: 8px;
+}
+
+.selectWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.vehicleSelect {
+  width: 100%;
+  padding: 8px 28px 8px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #1f2937;
+  background: #f9fafb;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 1px 0 rgba(16,24,40,0.04);
+
+  &:hover {
+    background: white;
+    border-color: #d1d5db;
+  }
+
+  &:focus {
+    outline: none;
+    background: white;
+    border-color: #374151;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.selectArrow {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.pricingSection {
+  margin-bottom: 16px;
+}
+
+.pricingCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  background: #f8f9fa;
+}
+
+.pricingLeft, .pricingCenter, .pricingRight {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.occupancyLabel, .priceLabel, .quantityLabel {
+  font-size: 12px;
+  color: #6c757d;
+  font-weight: 400;
+}
+
+.occupancyType {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+}
+
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.originalPrice {
+  font-size: 12px;
+  color: #6c757d;
+  text-decoration: line-through;
+  font-weight: 400;
+}
+
+.currentPrice {
+  font-size: 14px;
+  font-weight: 600;
+  color: #02658f;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantityBtn {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  background: white;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: #f8f9fa;
+    border-color: #374151;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.quantity {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  min-width: 16px;
+  text-align: center;
+}
+
+.totalSection {
+  text-align: right;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.totalPrice {
+  font-size: 20px;
+  font-weight: 700;
+  color: #02658f;
+}
+
+@media (max-width: 768px) {
+  .occupancyContainer {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  .pricingCard {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .pricingLeft, .pricingCenter, .pricingRight {
+    align-items: center;
+  }
+  
+  .quantityControls {
+    justify-content: center;
+  }
+  
+  .totalSection {
+    text-align: center;
+  }
+}
