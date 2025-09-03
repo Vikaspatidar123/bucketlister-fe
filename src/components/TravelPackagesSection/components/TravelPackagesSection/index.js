@@ -117,30 +117,28 @@ const TravelPackagesSection = ({
       const firstDates = [];
       let totalCount = 0;
       const monthMap = {
-        '01': 'jan', '1': 'jan', 'jan': 'jan',
-        '02': 'feb', '2': 'feb', 'feb': 'feb',
-        '03': 'mar', '3': 'mar', 'mar': 'mar',
-        '04': 'apr', '4': 'apr', 'apr': 'apr',
-        '05': 'may', '5': 'may', 'may': 'may',
-        '06': 'jun', '6': 'jun', 'jun': 'jun',
-        '07': 'jul', '7': 'jul', 'jul': 'jul',
+        '01': 'Jan', '1': 'Jan', 'jan': 'Jan',
+        '02': 'Feb', '2': 'Feb', 'feb': 'Feb',
+        '03': 'Mar', '3': 'Mar', 'mar': 'Mar',
+        '04': 'Apr', '4': 'Apr', 'apr': 'Apr',
+        '05': 'May', '5': 'May', 'may': 'May',
+        '06': 'Jun', '6': 'Jun', 'jun': 'Jun',
+        '07': 'Jul', '7': 'Jul', 'jul': 'Jul',
         '08': 'aug', '8': 'aug', 'aug': 'aug',
-        '09': 'sep', '9': 'sep', 'sep': 'sep',
-        '10': 'oct', 'oct': 'oct',
-        '11': 'nov', 'nov': 'nov',
-        '12': 'dec', 'dec': 'dec',
+        '09': 'Sep', '9': 'Sep', 'sep': 'Sep',
+        '10': 'Oct', 'oct': 'Oct',
+        '11': 'Nov', 'nov': 'Nov',
+        '12': 'Dec', 'dec': 'Dec',
       };
 
-      const toCompact = (rangeStr) => {
+      const toStartMonYY = (rangeStr) => {
         try {
           const [startRaw, endRaw] = String(rangeStr).split(/\s*-\s*/);
           const [sd, sm] = startRaw.split('/')
             .map((s) => s.trim());
-          const [ed, em] = endRaw.split('/')
-            .map((s) => s.trim());
-          const start = `${monthMap[sm?.replace(/^0+/, '') || sm] || ''}${parseInt(sd, 10)}`;
-          const end = `${monthMap[em?.replace(/^0+/, '') || em] || ''}${parseInt(ed, 10)}`;
-          if (start && end) return `${start}-${end}`;
+          const sy = startRaw.split('/')[2]?.trim();
+          const mon = monthMap[sm?.replace(/^0+/, '') || sm] || '';
+          if (mon && sy) return `${mon}${sy}`;
         } catch {}
         return rangeStr;
       };
@@ -158,13 +156,18 @@ const TravelPackagesSection = ({
       }
       if (totalCount > 0) {
         const extra = Math.max(0, totalCount - firstDates.length);
-        const compact = firstDates.map(toCompact);
+        const compact = firstDates.map(toStartMonYY);
         return `Dates: ${compact.join(', ')}${extra > 0 ? ` +${extra} more` : ''}`;
       }
     }
     // Fallback to availableDates (legacy)
     if (Array.isArray(trip?.availableDates) && trip.availableDates.length > 0) {
-      const shown = trip.availableDates.slice(0, 3);
+      const shown = trip.availableDates.slice(0, 3).map((code) => {
+        const mon = (code || '').replace(/\d+/g, '').toLowerCase();
+        const yr = (code || '').replace(/\D+/g, '');
+        const map = { jan: 'Jan', feb: 'Feb', mar: 'Mar', apr: 'Apr', may: 'May', jun: 'Jun', jul: 'Jul', aug: 'Aug', sep: 'Sep', oct: 'Oct', nov: 'Nov', dec: 'Dec' };
+        return `${map[mon] || mon}${yr}`;
+      });
       const extra = trip.availableDates.length - shown.length;
       return `Dates: ${shown.join(', ')}${extra > 0 ? ` +${extra} more` : ''}`;
     }

@@ -205,8 +205,20 @@
   margin-bottom: 8px;
 }
 
+.daysListWrap {
+  display: flex;
+  // flex-direction: column;
+  justify-content: space-between;
+  gap: 26px;
+  width: 100%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
 .daysList {
   margin-top: 4px;
+  width: 100%;
 }
 
 .dayRow {

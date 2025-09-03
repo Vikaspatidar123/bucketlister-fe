@@ -7,6 +7,7 @@ import ContactForm from "@/components/footer/components/ContactForm";
 import { peopleIcon } from "@/assets/svg";
 import Image from "next/image";
 import jsPDF from "jspdf";
+import TripDatesCard from "../TripDatesCard";
 
 const RouteChips = ({ route = [], onChipClick, getChipRef }) => {
   if (!Array.isArray(route) || route.length === 0) return null;
@@ -118,7 +119,7 @@ const Itinerary = ({ destination, trip }) => {
       if (!el) return 80;
       const rectWidth = el.getBoundingClientRect().width;
       const cs = window.getComputedStyle(el);
-      const borderRight = parseFloat(cs.borderRightWidth || '0') || 0;
+      const borderRight = parseFloat(cs.borderRightWidth || "0") || 0;
       const adjust = borderRight + 4; // leave a small gap before divider
       return Math.max(8, rectWidth - adjust);
     });
@@ -148,7 +149,10 @@ const Itinerary = ({ destination, trip }) => {
 
   const getPdfFileName = () => {
     const base = trip?.title || destination?.destination_name || "itinerary";
-    const safe = String(base).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    const safe = String(base)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
     return `${safe || "itinerary"}.pdf`;
   };
 
@@ -163,7 +167,8 @@ const Itinerary = ({ destination, trip }) => {
       const contentWidth = pageWidth - marginX * 2;
       let y = marginTop;
 
-      const titleText = trip?.title || destination?.destination_name || "Trip Itinerary";
+      const titleText =
+        trip?.title || destination?.destination_name || "Trip Itinerary";
       doc.setFontSize(18);
       doc.setFont("helvetica", "bold");
       const titleLines = doc.splitTextToSize(titleText, contentWidth);
@@ -177,7 +182,9 @@ const Itinerary = ({ destination, trip }) => {
         `Base City: ${destination?.baseCity || "N/A"}`,
         route && route.length ? `Route: ${route.join(" → ")}` : null,
         `Generated: ${new Date().toLocaleString()}`,
-      ].filter(Boolean).join("  |  ");
+      ]
+        .filter(Boolean)
+        .join("  |  ");
       const metaLines = doc.splitTextToSize(meta, contentWidth);
       doc.text(metaLines, marginX, y);
       y += 8 + (metaLines.length - 1) * 6;
@@ -243,16 +250,20 @@ const Itinerary = ({ destination, trip }) => {
           <Image src={peopleIcon} alt="calendar" width={22} height={22} />
           <h2 className={styles.title}>Itinerary</h2>
         </div>
-        <button className={styles.downloadBtn} type="button" onClick={modal.open}>
+        {/* <button className={styles.downloadBtn} type="button" onClick={modal.open}>
           Download Itinerary
-        </button>
+        </button> */}
       </div>
 
       <div className={styles.subHeader}>
         <div className={styles.subHeaderLabel}>Upcoming Trips</div>
         <div className={styles.timelineDynamic}>
           {segmentWidths.map((w, idx) => (
-            <div key={`seg-${idx}`} className={styles.segment} style={{ width: w }}>
+            <div
+              key={`seg-${idx}`}
+              className={styles.segment}
+              style={{ width: w }}
+            >
               <span className={styles.segmentDot} />
               <span className={styles.segmentLabel}>{`Day ${idx + 1}`}</span>
               <span className={styles.segmentLine} />
@@ -262,30 +273,40 @@ const Itinerary = ({ destination, trip }) => {
             </div>
           ))}
           {segmentWidths.length > 0 && (
-            <span className={styles.segmentTailLine} style={{ width: TAIL_GAP_PX }} />
+            <span
+              className={styles.segmentTailLine}
+              style={{ width: TAIL_GAP_PX }}
+            />
           )}
         </div>
       </div>
 
-      <RouteChips route={route} onChipClick={handleChipClick} getChipRef={setChipRef} />
+      <RouteChips
+        route={route}
+        onChipClick={handleChipClick}
+        getChipRef={setChipRef}
+      />
 
       <div className={styles.startEnd}>
         Start and End from {destination?.baseCity || "Mumbai"}
       </div>
 
-      <div className={styles.daysList}>
-        {days.map((d, idx) => (
-          <DayRow
-            key={d.day}
-            dayNumber={d.day}
-            summary={d.summary}
-            details={d.details}
-            open={openIndex === idx}
-            onToggle={(next) => setOpenIndex(next ? idx : null)}
-          />
-        ))}
+      <div className={styles.daysListWrap}>
+        <div className={styles.daysList}>
+          {days.map((d, idx) => (
+            <DayRow
+              key={d.day}
+              dayNumber={d.day}
+              summary={d.summary}
+              details={d.details}
+              open={openIndex === idx}
+              onToggle={(next) => setOpenIndex(next ? idx : null)}
+            />
+          ))}
+        </div>
+        <TripDatesCard trip={trip} />
       </div>
-      <div style={{display: 'none'}}>
+      <div style={{ display: "none" }}>
         {days.map((_, idx) => (
           <div key={`anchor-${idx}`} id={`itinerary-day-${idx + 1}`} />
         ))}
@@ -297,14 +318,17 @@ const Itinerary = ({ destination, trip }) => {
         title="Download Itinerary"
         size="md"
         footer={
-          <ContactForm onSuccess={handleContactSuccess} submitLabel="Submit & Download PDF" />
+          <ContactForm
+            onSuccess={handleContactSuccess}
+            submitLabel="Submit & Download PDF"
+          />
         }
       >
         <div>
           <p style={{ marginBottom: 8 }}>
             Provide your contact details to receive this itinerary file.
           </p>
-          <p style={{ color: '#6b7280', fontSize: 14 }}>
+          <p style={{ color: "#6b7280", fontSize: 14 }}>
             File will download automatically after successful submission.
           </p>
         </div>
