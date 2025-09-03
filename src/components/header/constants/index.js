@@ -12,7 +12,7 @@ export const NAVIGATION_ITEMS = [
   {
     label: "Upcoming Tours",
     hasDropdown: false,
-    href: "/#travel-packages",
+    href: "/explore/list",
   },
   {
     label: "Customise Your Trip",

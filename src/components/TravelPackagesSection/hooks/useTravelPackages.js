@@ -38,6 +38,39 @@ const useClickOutside = (isOpen, onClose) => {
 };
 
 export const useTravelPackages = (selectedTripId = null, destinationName = null) => {
+  const generateBatchesFromAvailableDates = (availableDates) => {
+    if (!Array.isArray(availableDates) || availableDates.length === 0) return undefined;
+    const monthMap = {
+      jan: { num: '01', name: 'January' },
+      feb: { num: '02', name: 'February' },
+      mar: { num: '03', name: 'March' },
+      apr: { num: '04', name: 'April' },
+      may: { num: '05', name: 'May' },
+      jun: { num: '06', name: 'June' },
+      jul: { num: '07', name: 'July' },
+      aug: { num: '08', name: 'August' },
+      sep: { num: '09', name: 'September' },
+      oct: { num: '10', name: 'October' },
+      nov: { num: '11', name: 'November' },
+      dec: { num: '12', name: 'December' },
+    };
+    const batches = [];
+    for (const code of availableDates) {
+      const match = String(code).match(/([a-zA-Z]+)(\d{2})/);
+      if (!match) continue;
+      const monKey = match[1].toLowerCase();
+      const yy = match[2];
+      const m = monthMap[monKey];
+      if (!m) continue;
+      // Create 2 generic ranges per month
+      const ranges = [
+        `05/${m.num}/${yy} - 11/${m.num}/${yy}`,
+        `19/${m.num}/${yy} - 25/${m.num}/${yy}`,
+      ];
+      batches.push({ [m.name]: ranges });
+    }
+    return batches.length > 0 ? batches : undefined;
+  };
   // Determine dynamic maximum price from data
   const maxPrice = useMemo(() => {
     let max = 0;
@@ -95,7 +128,8 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
                 hero_image: destination.hero_image,
                 description: destination.description,
                 reviews: destination.reviews,
-                category: destination.category
+                category: destination.category,
+                batches: trip.batches || generateBatchesFromAvailableDates(trip.availableDates)
               });
             }
           });
@@ -110,7 +144,8 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
               hero_image: destination.hero_image,
               description: destination.description,
               reviews: destination.reviews,
-              category: destination.category
+              category: destination.category,
+              batches: trip.batches || generateBatchesFromAvailableDates(trip.availableDates)
             });
           });
         }
@@ -124,7 +159,8 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
               hero_image: destination.hero_image,
               description: destination.description,
               reviews: destination.reviews,
-              category: destination.category
+              category: destination.category,
+              batches: trip.batches || generateBatchesFromAvailableDates(trip.availableDates)
             });
           });
         }

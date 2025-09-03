@@ -164,6 +164,38 @@ export const TRAVEL_PACKAGES_DATA = [
           "Visa and insurance",
           "Meals not mentioned",
         ],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+          {
+            November: [
+              "26/10/25 - 01/11/25",
+              "02/11/25 - 08/11/25",
+              "16/11/25 - 22/11/25",
+              "30/11/25 - 06/12/25",
+            ],
+          },
+          {
+            December: ["14/12/25 - 20/12/25", "21/12/25 - 27/12/25"],
+          },
+          {
+            January: [
+              "26/12/25 - 01/01/26",
+              "27/12/25 - 02/01/26",
+              "28/12/25 - 03/01/26",
+              "29/12/25 - 04/01/26",
+              "11/01/26 - 17/01/26",
+              "25/01/26 - 31/01/26",
+            ],
+          },
+          {
+            February: ["08/02/26 - 14/02/26", "22/02/26 - 28/02/26"],
+          },
+          {
+            March: ["01/03/26 - 07/03/26"],
+          },
+        ],
       },
       {
         tripId: 2,
@@ -196,6 +228,38 @@ export const TRAVEL_PACKAGES_DATA = [
         accommodations: "6 nights in 3★/4★ Hotels",
         baseCity: "Mumbai",
         route: ["Mumbai", "Phuket", "Krabi", "Mumbai"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+          {
+            November: [
+              "26/10/25 - 01/11/25",
+              "02/11/25 - 08/11/25",
+              "16/11/25 - 22/11/25",
+              "30/11/25 - 06/12/25",
+            ],
+          },
+          {
+            December: ["14/12/25 - 20/12/25", "21/12/25 - 27/12/25"],
+          },
+          {
+            January: [
+              "26/12/25 - 01/01/26",
+              "27/12/25 - 02/01/26",
+              "28/12/25 - 03/01/26",
+              "29/12/25 - 04/01/26",
+              "11/01/26 - 17/01/26",
+              "25/01/26 - 31/01/26",
+            ],
+          },
+          {
+            February: ["08/02/26 - 14/02/26", "22/02/26 - 28/02/26"],
+          },
+          {
+            March: ["01/03/26 - 07/03/26"],
+          },
+        ],
         itinerary: [
           { day: 1, summary: "Arrive Phuket.", details: "Check-in and relax." },
           {
@@ -274,6 +338,35 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["sep25", "oct25", "nov25"],
+        batches: [
+          {
+            November: [
+              "26/10/25 - 01/11/25",
+              "02/11/25 - 08/11/25",
+              "16/11/25 - 22/11/25",
+              "30/11/25 - 06/12/25",
+            ],
+          },
+          {
+            December: ["14/12/25 - 20/12/25", "21/12/25 - 27/12/25"],
+          },
+          {
+            January: [
+              "26/12/25 - 01/01/26",
+              "27/12/25 - 02/01/26",
+              "28/12/25 - 03/01/26",
+              "29/12/25 - 04/01/26",
+              "11/01/26 - 17/01/26",
+              "25/01/26 - 31/01/26",
+            ],
+          },
+          {
+            February: ["08/02/26 - 14/02/26", "22/02/26 - 28/02/26"],
+          },
+          {
+            March: ["01/03/26 - 07/03/26"],
+          },
+        ],
         features: ["culture", "history", "architecture"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -369,6 +462,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["jul25", "aug25", "sep25"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["temple", "beach", "culture"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -404,6 +502,19 @@ export const TRAVEL_PACKAGES_DATA = [
         ],
         includes: ["Breakfast", "Transfers", "Sightseeing as per itinerary"],
         excludes: ["Personal expenses", "Entry fees not mentioned"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+          {
+            November: [
+              "26/10/25 - 01/11/25",
+              "02/11/25 - 08/11/25",
+              "16/11/25 - 22/11/25",
+              "30/11/25 - 06/12/25",
+            ],
+          },
+        ],
       },
     ],
   },
@@ -447,6 +558,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["aug25", "sep25", "oct25"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["culture", "food", "history"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -519,6 +635,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["oct25", "nov25", "dec25"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["history", "pyramids", "nile-cruise"],
         customizable: true,
         badge: { type: "historical", text: "Historical Tour" },
@@ -590,6 +711,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["nov25", "dec25", "jan26"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["cities", "culture", "adventure"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -636,6 +762,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["jun25", "jul25", "aug25"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["mountains", "nature", "adventure"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -681,6 +812,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["mar26", "apr26", "may26"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["cherry-blossom", "culture", "technology"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -727,6 +863,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["sep25", "oct25", "nov25"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["wildlife", "reef", "cities"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -773,6 +914,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["jun25", "jul25", "aug25"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["city", "culture", "shopping"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -818,6 +964,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["aug25", "sep25", "oct25"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["luxury", "beach", "water-villa"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -862,6 +1013,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["dec25", "jan26", "feb26"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["shopping", "luxury", "desert"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -906,6 +1062,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["jun25", "jul25", "aug25"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["backwaters", "ayurveda", "nature"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -951,6 +1112,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["jun25", "jul25", "aug25"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["beach", "party", "heritage"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -995,6 +1161,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["oct25", "nov25", "dec25"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["heritage", "palace", "culture"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -1040,6 +1211,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["jun25", "jul25", "aug25"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["mountains", "adventure", "nature"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -1085,6 +1261,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["jun25", "jul25", "aug25", "sep25"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["mountain", "adventure", "culture"],
         customizable: false,
         badge: { type: "hot", text: "Trending" },
@@ -1156,6 +1337,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["jun25", "jul25", "aug25"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["valley", "houseboat", "nature"],
         customizable: true,
         badge: { type: "romantic", text: "Romantic Getaway" },
@@ -1201,6 +1387,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["every-weekend"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["weekend", "nature", "adventure"],
         customizable: true,
         badge: { type: "", text: "" },
@@ -1266,6 +1457,11 @@ export const TRAVEL_PACKAGES_DATA = [
           },
         ],
         availableDates: ["every-weekend"],
+        batches: [
+          {
+            October: ["19/10/25 - 25/10/25"],
+          },
+        ],
         features: ["weekend", "strawberry", "nature"],
         customizable: true,
         badge: { type: "", text: "" },

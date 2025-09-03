@@ -112,12 +112,63 @@ const TravelPackagesSection = ({
   // };
 
   const getDatesFooter = (trip) => {
+    // Prefer batches (array of { MonthName: [dateRangeStrings...] })
+    if (Array.isArray(trip?.batches) && trip.batches.length > 0) {
+      const firstDates = [];
+      let totalCount = 0;
+      const monthMap = {
+        '01': 'jan', '1': 'jan', 'jan': 'jan',
+        '02': 'feb', '2': 'feb', 'feb': 'feb',
+        '03': 'mar', '3': 'mar', 'mar': 'mar',
+        '04': 'apr', '4': 'apr', 'apr': 'apr',
+        '05': 'may', '5': 'may', 'may': 'may',
+        '06': 'jun', '6': 'jun', 'jun': 'jun',
+        '07': 'jul', '7': 'jul', 'jul': 'jul',
+        '08': 'aug', '8': 'aug', 'aug': 'aug',
+        '09': 'sep', '9': 'sep', 'sep': 'sep',
+        '10': 'oct', 'oct': 'oct',
+        '11': 'nov', 'nov': 'nov',
+        '12': 'dec', 'dec': 'dec',
+      };
+
+      const toCompact = (rangeStr) => {
+        try {
+          const [startRaw, endRaw] = String(rangeStr).split(/\s*-\s*/);
+          const [sd, sm] = startRaw.split('/')
+            .map((s) => s.trim());
+          const [ed, em] = endRaw.split('/')
+            .map((s) => s.trim());
+          const start = `${monthMap[sm?.replace(/^0+/, '') || sm] || ''}${parseInt(sd, 10)}`;
+          const end = `${monthMap[em?.replace(/^0+/, '') || em] || ''}${parseInt(ed, 10)}`;
+          if (start && end) return `${start}-${end}`;
+        } catch {}
+        return rangeStr;
+      };
+      for (const obj of trip.batches) {
+        if (!obj || typeof obj !== 'object') continue;
+        const monthKey = Object.keys(obj)[0];
+        const dates = obj[monthKey];
+        if (Array.isArray(dates)) {
+          totalCount += dates.length;
+          for (const d of dates) {
+            if (firstDates.length < 3) firstDates.push(d);
+          }
+        }
+        if (firstDates.length >= 3) break;
+      }
+      if (totalCount > 0) {
+        const extra = Math.max(0, totalCount - firstDates.length);
+        const compact = firstDates.map(toCompact);
+        return `Dates: ${compact.join(', ')}${extra > 0 ? ` +${extra} more` : ''}`;
+      }
+    }
+    // Fallback to availableDates (legacy)
     if (Array.isArray(trip?.availableDates) && trip.availableDates.length > 0) {
       const shown = trip.availableDates.slice(0, 3);
       const extra = trip.availableDates.length - shown.length;
-      return `Dates: ${shown.join(", ")}${extra > 0 ? ` +${extra} more` : ""}`;
+      return `Dates: ${shown.join(', ')}${extra > 0 ? ` +${extra} more` : ''}`;
     }
-    return "Dates on Request";
+    return 'Dates on Request';
   };
 
   // Check if any filters are active
