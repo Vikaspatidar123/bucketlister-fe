@@ -14,9 +14,24 @@ import {
   spitiImage,
   srilankaImage,
   thailandImage,
-  uttarakhandImage,
   vietnamImage,
+  APImaImage
 } from "@/assets/svg";
+
+import {
+  meghalayaBanner,
+  cambodiaBanner,
+  europeBanner,
+  franceBanner,
+  georgiaBanner,
+  malaysiaBanner,
+  northenlightsBanner,
+  switzerlandBanner,
+  japanBanner,
+  hampiBanner,
+  kazakhstanBanner,
+  rajasthanBanner
+} from "@/assets/webp";
 
 // Travel Packages Data for the new section
 export const TRAVEL_PACKAGES_DATA = [
@@ -26,8 +41,8 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "domestic",
     destination_description:
       "Meghalaya, meaning 'Abode of Clouds', is a breathtaking northeastern state that offers an incredible blend of adventure and natural beauty. **Living root bridges** carved by nature herself stretch across crystal-clear rivers, while **Asia's cleanest village** showcases the harmony between humans and environment.\n\nKey highlights include:\n- Double Decker Living Root Bridge - a marvel of bio-engineering\n- **Dawki River** with its crystal-clear waters perfect for kayaking\n- __Cherrapunjee__ - one of the wettest places on Earth\n- Sacred forests and mystical caves waiting to be explored\n- Stunning waterfalls including India's tallest plunge waterfall\n\nWhether you're seeking adrenaline-pumping adventures like cliff jumping, serene camping under starlit skies, or cultural immersion with local tribes, Meghalaya delivers an unforgettable journey through India's most pristine landscapes.",
-    thumbnail_image: "/assets/png/banner1.jpg",
-    hero_image: "/assets/png/banner1.jpg",
+    thumbnail_image: meghalayaBanner,
+    hero_image: meghalayaBanner,
     hero_image_description:
       "Experience Meghalaya's mystical living root bridges and crystal-clear rivers flowing through lush green valleys.",
     reviews: [
@@ -82,27 +97,32 @@ export const TRAVEL_PACKAGES_DATA = [
         price: 21999,
         originalPrice: 25999,
         discountAmount: 4000,
-        image: "/assets/png/banner1.jpg",
+        image: meghalayaBanner,
         other_images: [
           {
             id: 1,
-            image: "/assets/png/banner1.jpg",
+            image: meghalayaBanner,
+            hero_image: meghalayaBanner,
           },
           {
             id: 2,
-            image: "/assets/png/banner1.jpg",
+            image: meghalayaBanner,
+            hero_image: meghalayaBanner,
           },
           {
             id: 3,
-            image: "/assets/png/banner1.jpg",
+            image: meghalayaBanner,
+            hero_image: meghalayaBanner,
           },
           {
             id: 4,
-            image: "/assets/png/banner1.jpg",
+            image: meghalayaBanner,
+            hero_image: meghalayaBanner,
           },
           {
             id: 5,
-            image: "/assets/png/banner1.jpg",
+            image: meghalayaBanner,
+            hero_image: meghalayaBanner,
           },
         ],
         features: ["adventure", "nature", "trekking", "camping", "waterfalls"],
@@ -231,9 +251,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "domestic",
     destination_description:
       "Spiti Valley, meaning 'The Middle Land', is a breathtaking cold desert mountain valley nestled between India and Tibet. This remote Himalayan destination offers an otherworldly experience with ancient Buddhist monasteries, dramatic landscapes, and unique cultural encounters at extreme altitudes.\n\nKey highlights include:\n- **World's Highest Post Office** at Hikkim village (14,567 ft)\n- **Chandratal Lake** - the mystical moon lake at 4,200 meters\n- **Ancient Monasteries** - Tabo (1000+ years old) and Key Monastery\n- **India's Last Village** Chitkul on Indo-Tibet border\n- **Fossil Village Langza** with prehistoric remains and Giant Buddha statue\n- **Chicham Bridge** - world's highest suspension bridge\n- **Kinnaur Kailash** views - Lord Shiva's summer abode\n\nWhether you're seeking spiritual awakening in ancient gompas, adventure through high-altitude passes, or cultural immersion with Tibetan Buddhist communities, Spiti Valley delivers an unforgettable journey through one of the world's most remote and pristine landscapes.",
-    thumbnail_image: "/assets/svg/Spiti.svg",
-    hero_image: "/assets/svg/Spiti.svg",
-    hero_image_description: "",
+    thumbnail_image: spitiImage,
+    hero_image: spitiImage,
+    hero_image_description: "Experience Spiti Valley's rugged landscapes, and high-altitude adventures in the heart of the Himalayas.",
     reviews: [],
     trips: [
       {
@@ -245,8 +265,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: 21000,
         originalPrice: "",
         discountAmount: "",
-        image: "/assets/png/banner1.jpg",
-        other_images: [],
+        image: spitiImage,
+        other_images: [
+          {
+            id: 1,
+            image: spitiImage,
+            hero_image: spitiImage,
+          },
+          {
+            id: 2,
+            image: spitiImage,
+            hero_image: spitiImage,
+          },
+          {
+            id: 3,
+            image: spitiImage,
+            hero_image: spitiImage,
+          },
+          {
+            id: 4,
+            image: spitiImage,
+            hero_image: spitiImage,
+          },
+          {
+            id: 5,
+            image: spitiImage,
+            hero_image: spitiImage,
+          },
+        ],
         features: [
           "adventure",
           "mountains",
@@ -395,8 +441,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: 22000,
         originalPrice: "",
         discountAmount: "",
-        image: "/assets/png/banner1.jpg",
-        other_images: [],
+        image: spitiImage,
+        other_images: [
+          {
+            id: 1,
+            image: spitiImage,
+            hero_image: spitiImage,
+          },
+          {
+            id: 2,
+            image: spitiImage,
+            hero_image: spitiImage,
+          },
+          {
+            id: 3,
+            image: spitiImage,
+            hero_image: spitiImage,
+          },
+          {
+            id: 4,
+            image: spitiImage,
+            hero_image: spitiImage,
+          },
+          {
+            id: 5,
+            image: spitiImage,
+            hero_image: spitiImage,
+          },
+        ],
         features: [
           "adventure",
           "mountains",
@@ -540,9 +612,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "domestic",
     destination_description:
       "Himachal Pradesh, the 'Land of Gods', offers an incredible journey through snow-capped mountains, serene valleys, and vibrant hill stations. From the hippie paradise of **Kasol** in Parvati Valley to the adventure hub of **Manali**, this destination promises diverse experiences for every traveler.\n\nKey highlights include:\n- **Kasol & Parvati Valley** - Israel of India with stunning mountain views\n- **Manali** - Gateway to Himalayan adventures and Solang Valley\n- **Bir Billing** - Asia's highest paragliding site\n- **Golden Temple, Amritsar** - Spiritual serenity and cultural immersion\n- White water rafting in Kullu and adventure activities\n- Scenic train journey through the heart of India\n\nWhether you're seeking mountain adventures, spiritual experiences, or cultural exploration through local dhabas and cafes, this circuit trip delivers an authentic taste of North Indian hill station culture combined with thrilling outdoor activities.",
-    thumbnail_image: "/assets/png/banner1.jpg",
-    hero_image: "/assets/png/banner1.jpg",
-    hero_image_description: "",
+    thumbnail_image: himachalImage,
+    hero_image: himachalImage,
+    hero_image_description: "Experience Himachal's majestic mountains, serene valleys, and vibrant hill stations in one unforgettable journey.",
     reviews: [],
     trips: [
       {
@@ -554,8 +626,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: 20499,
         originalPrice: "",
         discountAmount: "",
-        image: "/assets/png/banner1.jpg",
-        other_images: [],
+        image: himachalImage,
+        other_images: [
+          {
+            id: 1,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 2,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 3,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 4,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 5,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+        ],
         features: [
           "offbeat",
           "mountains",
@@ -691,8 +789,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: 22999,
         originalPrice: "",
         discountAmount: "",
-        image: "/assets/png/banner1.jpg",
-        other_images: [],
+        image: himachalImage,
+        other_images: [
+          {
+            id: 1,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 2,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 3,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 4,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 5,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+        ],
         features: [
           "offbeat",
           "mountains",
@@ -826,8 +950,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: 22999,
         originalPrice: "",
         discountAmount: "",
-        image: "/assets/png/banner1.jpg",
-        other_images: [],
+        image: himachalImage,
+        other_images: [
+          {
+            id: 1,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 2,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 3,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 4,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 5,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+        ],
         features: [
           "newyear",
           "mountains",
@@ -960,8 +1110,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: 20999,
         originalPrice: "",
         discountAmount: "",
-        image: "/assets/png/banner1.jpg",
-        other_images: [],
+        image: himachalImage,
+        other_images: [
+          {
+            id: 1,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 2,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 3,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 4,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+          {
+            id: 5,
+            image: himachalImage,
+            hero_image: himachalImage,
+          },
+        ],
         features: [
           "adventure",
           "mountains",
@@ -1112,9 +1288,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "weekend",
     destination_description:
       "Gokarna, meaning 'Cow's Ear', is a pristine coastal paradise in Karnataka that perfectly blends spirituality with stunning beach landscapes. This laid-back destination offers unspoiled beaches, ancient temples, and thrilling adventures, making it an ideal weekend escape from city life.\n\nKey highlights include:\n- **Beach Trek Circuit** - Belekon, Paradise, Half Moon, and iconic Om Beach\n- **Murudeshwar** - World's largest Shiva statue by the Arabian Sea\n- **Vibhuti Falls** - Hidden waterfall perfect for a refreshing dip\n- **Sharavati River** - Kerala-style backwater boating experience\n- **Mahabaleshwar Temple** - Ancient Shiva temple and pilgrimage site\n- **Water Activities** - Surfing, kayaking, and beach sports at Om Beach\n\nWhether you're seeking spiritual solace, beach adventures, or simply want to unwind by pristine coastlines, Gokarna delivers the perfect blend of tranquility and excitement in a compact weekend getaway.",
-    thumbnail_image: "/assets/png/banner1.jpg",
-    hero_image: "/assets/png/banner1.jpg",
-    hero_image_description: "",
+    thumbnail_image: GokarnaImage,
+    hero_image: GokarnaImage,
+    hero_image_description: "Discover Gokarna's pristine beaches, ancient temples, and thrilling adventures in a perfect weekend escape.",
     reviews: [],
     trips: [
       {
@@ -1126,8 +1302,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: 9499,
         originalPrice: "",
         discountAmount: "",
-        image: "/assets/png/banner1.jpg",
-        other_images: [],
+        image: GokarnaImage,
+        other_images: [
+          {
+            id: 1,
+            image: GokarnaImage,
+            hero_image: GokarnaImage,
+          },
+          {
+            id: 2,
+            image: GokarnaImage,
+            hero_image: GokarnaImage,
+          },
+          {
+            id: 3,
+            image: GokarnaImage,
+            hero_image: GokarnaImage,
+          },
+          {
+            id: 4,
+            image: GokarnaImage,
+            hero_image: GokarnaImage,
+          },
+          {
+            id: 5,
+            image: GokarnaImage,
+            hero_image: GokarnaImage,
+          },
+        ],
         features: [
           "beaches",
           "trekking",
@@ -1255,7 +1457,8 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
+        image: GokarnaImage,
+        hero_image: GokarnaImage,
         other_images: [],
         features: ["luxury", "weekend", "romance", "beach", "spa", "scenic"],
         customizable: true,
@@ -1314,7 +1517,8 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
+        image: GokarnaImage,
+        hero_image: GokarnaImage,
         other_images: [],
         features: [
           "offbeat",
@@ -1374,7 +1578,8 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
+        image: GokarnaImage,
+        hero_image: GokarnaImage,
         other_images: [],
         features: [
           "experience",
@@ -1446,9 +1651,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "weekend",
     destination_description:
       "Hampi, a UNESCO World Heritage Site, is an extraordinary open-air museum that transports you back to the golden age of the Vijayanagara Empire. This ancient city offers a perfect blend of historical magnificence, spiritual significance, and adventure activities amidst stunning boulder landscapes.\n\nKey highlights include:\n- **Vijaya Vitthala Temple** - Iconic stone chariot featured on ₹50 note\n- **Hippie Island** - Coracle rides and cliff jumping in Tungabhadra River\n- **Virupaksha Temple** - Ancient living temple dedicated to Lord Shiva\n- **Heritage Cycle Tours** - Explore ruins including Lotus Mahal, Elephant Stables\n- **Malyavanta Hill** - Spectacular sunrise and sunset viewpoints\n- **Boulder Landscapes** - Unique geological formations perfect for rock climbing\n- **Hampi Bazaar** - Ancient marketplace with vibrant local culture\n\nWhether you're fascinated by history, seeking spiritual experiences, or craving adventure activities, Hampi offers an unforgettable journey through India's glorious past in a compact weekend adventure.",
-    thumbnail_image: "/assets/png/banner1.jpg",
-    hero_image: "/assets/png/banner1.jpg",
-    hero_image_description: "",
+    thumbnail_image: hampiBanner,
+    hero_image: hampiBanner,
+    hero_image_description: "A stunning view of the ancient ruins of Hampi amidst boulder-strewn landscapes.",
     reviews: [],
     trips: [
       {
@@ -1460,8 +1665,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: 8999,
         originalPrice: "",
         discountAmount: "",
-        image: "/assets/png/banner1.jpg",
-        other_images: [],
+        image: hampiBanner,
+        other_images: [
+          {
+            id: 1,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 2,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 3,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 4,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 5,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+        ],
         features: [
           "heritage",
           "culture",
@@ -1588,8 +1819,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: hampiBanner,
+        other_images: [
+          {
+            id: 1,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 2,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 3,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 4,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 5,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+        ],
         features: [
           "luxury",
           "weekend",
@@ -1656,8 +1913,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: hampiBanner,
+        other_images: [
+          {
+            id: 1,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 2,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 3,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 4,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 5,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+        ],
         features: [
           "offbeat",
           "adventure",
@@ -1723,8 +2006,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: hampiBanner,
+        other_images: [
+          {
+            id: 1,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 2,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 3,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 4,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+          {
+            id: 5,
+            image: hampiBanner,
+            hero_image: hampiBanner,
+          },
+        ],
         features: [
           "experience",
           "history",
@@ -1789,9 +2098,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "weekend",
     destination_description:
       "Coorg, known as the 'Scotland of India', is a mesmerizing hill station in Karnataka famous for its coffee plantations, misty mountains, and rich cultural heritage. This verdant destination offers the perfect blend of natural beauty, adventure, and aromatic coffee experiences.\n\nKey highlights include:\n- **Mandalpatti Peak** - Breathtaking sunrise viewpoint with off-road jeep safari\n- **Dubarae Elephant Camp** - Interactive elephant experiences and Tibetan monastery\n- **Coffee Plantations** - Guided tours through aromatic coffee estates\n- **Abbey Falls** - Spectacular waterfall requiring a scenic trek\n- **Raja's Seat** - Stunning sunset viewpoint of the Western Ghats\n- **Omkareshwar Temple** - Ancient temple with unique architecture\n- **Madikeri Fort** - Historical fort with panoramic valley views\n\nWhether you're seeking mountain adventures, coffee plantation walks, wildlife encounters, or simply want to unwind in misty hills, Coorg delivers an enchanting weekend escape with its cool climate and warm hospitality.",
-    thumbnail_image: "/assets/png/banner1.jpg",
-    hero_image: "/assets/png/banner1.jpg",
-    hero_image_description: "",
+    thumbnail_image: coorgImage,
+    hero_image: coorgImage,
+    hero_image_description: "Immerse yourself in Coorg's lush landscapes, aromatic coffee plantations, and rich cultural heritage.",
     reviews: [],
     trips: [
       {
@@ -1803,8 +2112,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: 9999,
         originalPrice: "",
         discountAmount: "",
-        image: "/assets/png/banner1.jpg",
-        other_images: [],
+        image: coorgImage,
+        other_images: [
+          {
+            id: 1,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+          {
+            id: 2,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+          {
+            id: 3,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+          {
+            id: 4,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+          {
+            id: 5,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+        ],
         features: [
           "hills",
           "coffee",
@@ -1919,8 +2254,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: coorgImage,
+        other_images: [
+          {
+            id: 1,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+          {
+            id: 2,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+          {
+            id: 3,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+          {
+            id: 4,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+          {
+            id: 5,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+        ],
         features: ["luxury", "weekend", "romance", "nature", "coffee", "spa"],
         customizable: true,
         badge: { type: "luxury", text: "Luxury Weekend" },
@@ -1980,8 +2341,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: coorgImage,
+        other_images: [
+          {
+            id: 1,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+          {
+            id: 2,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+          {
+            id: 3,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+          {
+            id: 4,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+          {
+            id: 5,
+            image: coorgImage,
+            hero_image: coorgImage,
+          },
+        ],
         features: [
           "offbeat",
           "adventure",
@@ -2045,7 +2432,8 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
+        image: coorgImage,
+        hero_image: coorgImage,
         other_images: [],
         features: [
           "experience",
@@ -2111,9 +2499,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     destination_description:
       "Vietnam is a country of breathtaking natural beauty and resilient spirit. From the dramatic limestone karsts of Halong Bay and the terraced rice fields of Sapa to the bustling energy of its cities and the tranquil waterways of the Mekong Delta, Vietnam offers an incredible diversity of experiences. Its rich history, delicious cuisine, and warm, welcoming people make it a captivating destination for every type of traveler.\n\nKey highlights include:\n- **Halong Bay** - Cruise through thousands of limestone islands on a traditional junk boat.\n- **Hanoi** - The charming capital with its bustling Old Quarter and colonial architecture.\n- **Hoi An** - A beautifully preserved ancient town with lantern-lit streets and a vibrant culinary scene.\n- **Ho Chi Minh City (Saigon)** - A dynamic, modern metropolis rich with history from the Vietnam War.\n- **Mekong Delta** - Explore floating markets and lush fruit orchards in the 'rice bowl' of Vietnam.\n- **Sapa** - Trek through stunning terraced rice paddies and meet local hill-tribe communities.",
-    thumbnail_image: "/assets/png/banner1.jpg",
-    hero_image: "/assets/png/banner1.jpg",
-    hero_image_description: "",
+    thumbnail_image: vietnamImage,
+    hero_image: vietnamImage,
+    hero_image_description: "Experience Vietnam's vibrant culture, stunning landscapes, and rich history in one unforgettable journey.",
     reviews: [],
     trips: [
       {
@@ -2125,8 +2513,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: vietnamImage,
+        other_images: [
+          {
+            id: 1,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+          {
+            id: 2,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+          {
+            id: 3,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+          {
+            id: 4,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+          {
+            id: 5,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+        ],
         features: [
           "luxury",
           "culture",
@@ -2254,8 +2668,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: vietnamImage,
+        other_images: [
+          {
+            id: 1,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+          {
+            id: 2,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+          {
+            id: 3,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+          {
+            id: 4,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+          {
+            id: 5,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+        ],
         features: [
           "offbeat",
           "adventure",
@@ -2390,8 +2830,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: vietnamImage,
+        other_images: [
+          {
+            id: 1,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+          {
+            id: 2,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+          {
+            id: 3,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+          {
+            id: 4,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+          {
+            id: 5,
+            image: vietnamImage,
+            hero_image: vietnamImage,
+          },
+        ],
         features: [
           "experience",
           "culture",
@@ -2501,9 +2967,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     destination_description:
       "Thailand, the 'Land of Smiles', is a kingdom of wonders, from shimmering temples and bustling cities to idyllic islands and lush jungles. It's a country where ancient culture is woven into the fabric of modern life, and the world-renowned cuisine tantalizes the taste buds. Whether you're seeking spiritual enlightenment, pristine beaches, or vibrant nightlife, Thailand offers a warm welcome and an unforgettable adventure.\n\nKey highlights include:\n- **Bangkok** - A vibrant metropolis with ornate shrines, bustling markets, and a sophisticated rooftop bar scene.\n- **Chiang Mai** - The cultural heart of Northern Thailand, known for its temples, elephant sanctuaries, and night bazaars.\n- **Andaman Islands (Phuket, Krabi, Phi Phi)** - World-famous for their stunning limestone cliffs, turquoise waters, and vibrant marine life.\n- **Gulf Islands (Koh Samui, Koh Phangan, Koh Tao)** - Beautiful islands offering everything from luxury resorts to legendary Full Moon Parties and world-class diving.\n- **Thai Cuisine** - From street food stalls to fine dining, experience one of the world's most beloved culinary traditions.",
-    thumbnail_image: "/assets/png/banner1.jpg",
-    hero_image: "/assets/png/banner1.jpg",
-    hero_image_description: "",
+    thumbnail_image: thailandImage,
+    hero_image: thailandImage,
+    hero_image_description: "Experience Thailand's vibrant culture, stunning landscapes, and rich history in one unforgettable journey.",
     reviews: [],
     trips: [
       {
@@ -2515,8 +2981,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: thailandImage,
+        other_images: [
+          {
+            id: 1,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+          {
+            id: 2,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+          {
+            id: 3,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+          {
+            id: 4,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+          {
+            id: 5,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+        ],
         features: ["luxury", "romance", "beach", "foodie", "spa", "yacht"],
         customizable: true,
         badge: { type: "luxury", text: "Ultimate Luxury" },
@@ -2619,8 +3111,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: thailandImage,
+        other_images: [
+          {
+            id: 1,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+          {
+            id: 2,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+          {
+            id: 3,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+          {
+            id: 4,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+          {
+            id: 5,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+        ],
         features: [
           "offbeat",
           "culture",
@@ -2748,8 +3266,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: thailandImage,
+        other_images: [
+          {
+            id: 1,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+          {
+            id: 2,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+          {
+            id: 3,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+          {
+            id: 4,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+          {
+            id: 5,
+            image: thailandImage,
+            hero_image: thailandImage,
+          },
+        ],
         features: [
           "experience",
           "beach",
@@ -2853,9 +3397,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     destination_description:
       "Cambodia, the Kingdom of Wonder, is a country with a soul-stirring history and a hopeful future. It is home to the magnificent temples of Angkor, a testament to the incredible power of the ancient Khmer empire. Beyond the temples, Cambodia offers vibrant cities, a beautiful coastline, and a countryside dotted with rice paddies and sugar palms. The resilience and warmth of the Cambodian people are what truly make a visit here unforgettable.\n\nKey highlights include:\n- **Angkor Wat** - The world's largest religious monument and the breathtaking heart of the Angkor temple complex.\n- **Angkor Thom** - The last capital of the Khmer Empire, featuring the enigmatic stone faces of the Bayon Temple.\n- **Phnom Penh** - The bustling capital, home to the Royal Palace and poignant historical sites like the Killing Fields.\n- **Tonlé Sap Lake** - Southeast Asia's largest freshwater lake, with fascinating floating villages.\n- **Southern Coast (Koh Rong)** - Unspoiled islands with white-sand beaches and turquoise waters.",
-    thumbnail_image: "/assets/png/banner1.jpg",
-    hero_image: "/assets/png/banner1.jpg",
-    hero_image_description: "",
+    thumbnail_image: cambodiaBanner,
+    hero_image: cambodiaBanner,
+    hero_image_description: "Explore the ancient temples, vibrant culture, and stunning landscapes of Cambodia.",
     reviews: [],
     trips: [
       {
@@ -2867,8 +3411,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: cambodiaBanner,
+        other_images: [
+          {
+            id: 1,
+            image: cambodiaBanner,
+            hero_image: cambodiaBanner,
+          },
+          {
+            id: 2,
+            image: cambodiaBanner,
+            hero_image: cambodiaBanner,
+          },
+          {
+            id: 3,
+            image: cambodiaBanner,
+            hero_image: cambodiaBanner,
+          },
+          {
+            id: 4,
+            image: cambodiaBanner,
+            hero_image: cambodiaBanner,
+          },
+          {
+            id: 5,
+            image: cambodiaBanner,
+            hero_image: cambodiaBanner,
+          },
+        ],
         features: [
           "luxury",
           "culture",
@@ -3185,9 +3755,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     destination_description:
       "Singapore is a futuristic city-state where gleaming skyscrapers, lush green spaces, and a vibrant multicultural tapestry create a truly unique destination. This small island packs a powerful punch with its world-class attractions, innovative architecture, and a legendary culinary scene that ranges from Michelin-starred restaurants to bustling hawker centres. It's a marvel of efficiency, cleanliness, and imagination.\n\nKey highlights include:\n- **Gardens by the Bay** - Explore the iconic Supertree Grove and the stunning Cloud Forest and Flower Dome biomes.\n- **Marina Bay Sands** - The architectural icon with its rooftop SkyPark, infinity pool, and luxury shops.\n- **Hawker Centres** - Dive into Singapore's foodie soul and sample a huge variety of delicious and affordable local dishes.\n- **Jewel Changi Airport** - An attraction in itself, featuring the world's tallest indoor waterfall.\n- **Cultural Enclaves** - Explore the vibrant streets of Chinatown, Little India, and Kampong Glam.\n\nSingapore is a perfect destination for a stopover or a longer city break, offering a seamless blend of nature, technology, and culture.",
-    thumbnail_image: "/assets/png/banner1.jpg",
-    hero_image: "/assets/png/banner1.jpg",
-    hero_image_description: "",
+    thumbnail_image: singaporeImage,
+    hero_image: singaporeImage,
+    hero_image_description: "Experience Singapore's blend of modernity and tradition, from iconic skyscrapers to lush gardens.",
     reviews: [],
     trips: [
       {
@@ -3199,8 +3769,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: singaporeImage,
+        other_images: [
+          {
+            id: 1,
+            image: singaporeImage,
+            hero_image: singaporeImage,
+          },
+          {
+            id: 2,
+            image: singaporeImage,
+            hero_image: singaporeImage,
+          },
+          {
+            id: 3,
+            image: singaporeImage,
+            hero_image: singaporeImage,
+          },
+          {
+            id: 4,
+            image: singaporeImage,
+            hero_image: singaporeImage,
+          },
+          {
+            id: 5,
+            image: singaporeImage,
+            hero_image: singaporeImage,
+          },
+        ],
         features: [
           "luxury",
           "city break",
@@ -3440,9 +4036,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     destination_description:
       "Malaysia is a vibrant and diverse country where different cultures, religions, and cuisines coexist harmoniously. It offers a tale of two halves: the bustling, modern cities and colonial towns of Peninsular Malaysia, and the wild, untamed jungles of Borneo. From towering skyscrapers to ancient rainforests, and from idyllic beaches to flavorful street food, Malaysia is truly Asia in miniature.\n\nKey highlights include:\n- **Kuala Lumpur** - The dynamic capital, home to the iconic Petronas Towers and Batu Caves.\n- **Penang** - A UNESCO World Heritage site famous for its colonial architecture, street art, and legendary street food.\n- **Langkawi** - An archipelago of 99 islands offering beautiful beaches, lush jungles, and duty-free shopping.\n- **Malaysian Borneo (Sabah & Sarawak)** - Home to incredible biodiversity, including orangutans, remote tribes, and Mount Kinabalu.\n- **Cameron Highlands** - A cool, mountainous region with rolling tea plantations and strawberry farms.",
-    thumbnail_image: "/assets/png/banner1.jpg",
-    hero_image: "/assets/png/banner1.jpg",
-    hero_image_description: "",
+    thumbnail_image: malaysiaBanner,
+    hero_image: malaysiaBanner,
+    hero_image_description: "A beautiful view of the Petronas Towers in Kuala Lumpur",
     reviews: [],
     trips: [
       { 
@@ -3454,8 +4050,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: malaysiaBanner,
+        other_images: [
+          {
+            id: 1,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+          {
+            id: 2,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+          {
+            id: 3,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+          {
+            id: 4,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+          {
+            id: 5,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+        ],
         features: [
           "luxury",
           "rainforest",
@@ -3569,8 +4191,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+       image: malaysiaBanner,
+        other_images: [
+          {
+            id: 1,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+          {
+            id: 2,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+          {
+            id: 3,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+          {
+            id: 4,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+          {
+            id: 5,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+        ],
         features: [
           "offbeat",
           "adventure",
@@ -3700,8 +4348,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+       image: malaysiaBanner,
+        other_images: [
+          {
+            id: 1,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+          {
+            id: 2,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+          {
+            id: 3,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+          {
+            id: 4,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+          {
+            id: 5,
+            image: malaysiaBanner,
+            hero_image: malaysiaBanner,
+          },
+        ],
         features: [
           "experience",
           "foodie",
@@ -3794,9 +4468,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     destination_description:
       "Japan is a timeless land where ancient traditions harmoniously coexist with futuristic technology. From the neon-lit energy of Tokyo and the serene temples of Kyoto to the majestic peak of Mount Fuji and the pristine nature of its national parks, Japan offers a journey of profound contrasts and unparalleled beauty.\n\nKey highlights include:\n- **Tokyo** - The bustling capital, a megapolis of iconic landmarks, world-class cuisine, and vibrant pop culture.\n- **Kyoto** - The heart of traditional Japan, with stunning temples, geisha districts, and tranquil gardens.\n- **Mount Fuji** - The iconic, sacred volcano that has inspired artists and pilgrims for centuries.\n- **Shinkansen (Bullet Train)** - Experience futuristic travel on one of the world's most efficient and scenic rail networks.\n- **Onsen (Hot Springs)** - Relax and rejuvenate in natural geothermal hot springs, a quintessential Japanese experience.\n- **Japanese Cuisine** - Savor everything from Michelin-starred sushi to hearty ramen and delicate kaiseki meals.\n\nWhether you seek cultural immersion, culinary adventures, or breathtaking landscapes, Japan promises an impeccably organized and deeply enriching travel experience that will captivate your senses and leave a lasting impression.",
-    thumbnail_image: "/assets/png/banner1.jpg",
-    hero_image: "/assets/png/banner1.jpg",
-    hero_image_description: "",
+    thumbnail_image: japanBanner,
+    hero_image: japanBanner,
+    hero_image_description: "Discover Japan's perfect blend of ancient traditions and cutting-edge modernity, from serene temples to bustling cityscapes.",
     reviews: [],
     trips: [
       {
@@ -3808,8 +4482,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: japanBanner,
+        other_images: [
+          {
+            id: 1,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+          {
+            id: 2,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+          {
+            id: 3,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+          {
+            id: 4,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+          {
+            id: 5,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+        ],
         features: [
           "luxury",
           "culture",
@@ -3921,8 +4621,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+        image: japanBanner,
+        other_images: [
+          {
+            id: 1,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+          {
+            id: 2,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+          {
+            id: 3,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+          {
+            id: 4,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+          {
+            id: 5,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+        ],
         features: [
           "offbeat",
           "adventure",
@@ -4048,8 +4774,34 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image: "",
-        other_images: [],
+       image: japanBanner,
+        other_images: [
+          {
+            id: 1,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+          {
+            id: 2,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+          {
+            id: 3,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+          {
+            id: 4,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+          {
+            id: 5,
+            image: japanBanner,
+            hero_image: japanBanner,
+          },
+        ],
         features: [
           "experience",
           "pop culture",
@@ -4156,9 +4908,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     destination_description:
       "Venture into the Arctic Circle to witness the Aurora Borealis, one of nature's most spectacular phenomena. This magical region in Finnish Lapland offers a surreal winter wonderland experience, from husky sledding through pristine forests to meeting reindeer herders and staying in iconic glass igloos.\n\nKey highlights include:\n- **Aurora Borealis** - Chase the ethereal dancing green lights in the night sky.\n- **Glass Igloos & Aurora Cabins** - Sleep under the stars and (hopefully) the Northern Lights.\n- **Husky Sledding & Reindeer Safaris** - Experience traditional Arctic modes of transport.\n- **Santa Claus Village** - Cross the Arctic Circle and meet Santa himself in Rovaniemi.\n- **Snowmobile Adventures** - Thrilling rides across frozen lakes and snowy landscapes.\n- **Finnish Saunas & Ice Floating** - Indulge in quintessential Finnish wellness rituals, from intense heat to icy plunges.",
-    thumbnail_image: "",
-    hero_image: "",
-    hero_image_description: "",
+    thumbnail_image: northenlightsBanner,
+    hero_image: northenlightsBanner,
+    hero_image_description: "A breathtaking view of the Northern Lights over a snowy landscape",
     reviews: [],
     trips: [
       {
@@ -4452,9 +5204,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     destination_description:
       "Europe is a continent of unparalleled diversity, where ancient history, groundbreaking art, and breathtaking landscapes converge. From the romantic avenues of Paris to the majestic peaks of the Swiss Alps and the sun-drenched coasts of the Mediterranean, a journey through Europe is a rite of passage. Each country offers a unique cultural tapestry, a distinct culinary identity, and a wealth of experiences waiting to be discovered.\n\nKey highlights include:\n- **Iconic Capitals** - Explore the world-class museums, historic landmarks, and vibrant street life of cities like Paris, Rome, London, and Prague.\n- **Stunning Landscapes** - Witness the dramatic fjords of Norway, the rolling vineyards of Tuscany, and the pristine lakes of Switzerland.\n- **Rich History** - Step back in time at ancient Greek ruins, Roman colosseums, and medieval castles.\n- **Efficient Travel** - Traverse the continent with ease using its extensive and scenic high-speed rail network.",
-    thumbnail_image: "",
-    hero_image: "",
-    hero_image_description: "",
+    thumbnail_image: europeBanner,
+    hero_image: europeBanner,
+    hero_image_description: "A stunning view of the European landscape",
     reviews: [],
     trips: [
       {
@@ -4818,9 +5570,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     destination_description:
       "France is a country of timeless allure, captivating visitors with its iconic landmarks, world-renowned cuisine, and diverse landscapes. From the romantic ambiance of Paris to the sun-drenched lavender fields of Provence and the glamorous coastline of the French Riviera, France offers an endless array of experiences.\n\nKey highlights include:\n- **Paris** - The Eiffel Tower, Louvre Museum, Notre Dame, and charming cobblestone streets.\n- **Provence** - Rolling vineyards, fragrant lavender fields, and historic towns like Avignon and Arles.\n- **French Riviera (Côte d'Azur)** - Glamorous beaches in Nice, Cannes, and Saint-Tropez.\n- **Loire Valley** - A fairy-tale region of magnificent châteaux and gardens.\n- **Normandy** - Historic D-Day beaches, Mont Saint-Michel, and delicious cheese and cider.\n\nIndulge in haute couture, savor exquisite wines and cheeses, and immerse yourself in a culture that has shaped the course of Western civilization. A journey through France is a feast for all the senses.",
-    thumbnail_image: "",
-    hero_image: "",
-    hero_image_description: "",
+    thumbnail_image: franceBanner,
+    hero_image: franceBanner,
+    hero_image_description: "A beautiful view of the Eiffel Tower in Paris",
     reviews: [],
     trips: [
       {
@@ -5173,9 +5925,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     destination_description:
       "Switzerland is a land of dramatic natural beauty, where majestic snow-capped Alps, pristine turquoise lakes, and rolling green meadows create a picture-perfect landscape. Renowned for its efficiency, cleanliness, and quality, it's a paradise for outdoor enthusiasts and luxury seekers alike.\n\nKey highlights include:\n- **The Matterhorn** - The iconic, pyramid-shaped peak towering over the car-free village of Zermatt.\n- **Jungfrau Region** - Home to stunning peaks like Eiger, Mönch, and Jungfrau, and charming towns like Interlaken and Grindelwald.\n- **Scenic Train Journeys** - Ride the world-famous Glacier Express or Bernina Express through breathtaking landscapes.\n- **Pristine Lakes** - Cruise on Lake Geneva, Lake Lucerne, or the twin lakes of Thun and Brienz.\n- **World-Class Chocolate & Cheese** - Indulge in the country's finest culinary exports.",
-    thumbnail_image: "",
-    hero_image: "",
-    hero_image_description: "",
+    thumbnail_image: switzerlandBanner,
+    hero_image: switzerlandBanner,
+    hero_image_description: "A stunning view of the Swiss Alps with a picturesque village in the foreground.",
     reviews: [],
     trips: [
       {
@@ -5482,9 +6234,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     destination_description:
       "Nestled at the crossroads of Europe and Asia, Georgia is a land of ancient history, stunning mountain landscapes, and legendary hospitality. Known as the birthplace of wine, this captivating country offers a unique blend of culture, adventure, and gastronomy that is still largely undiscovered by mass tourism.\n\nKey highlights include:\n- **Tbilisi** - A vibrant capital with a charming Old Town, eclectic architecture, and Sulphur baths.\n- **Caucasus Mountains** - Breathtaking scenery in regions like Svaneti and Kazbegi, perfect for hiking and exploration.\n- **Kakheti Wine Region** - Explore ancient monasteries and taste wine made in traditional qvevri (clay jars).\n- **Cave Monasteries** - Marvel at the ancient cave cities of Uplistsikhe and Vardzia.\n- **Georgian Cuisine** - Savor delicious dishes like Khachapuri (cheese bread) and Khinkali (dumplings).\n\nWith its warm-hearted people, rich history, and dramatic scenery, Georgia is a destination that will capture your heart and soul.",
-    thumbnail_image: "",
-    hero_image: "",
-    hero_image_description: "",
+    thumbnail_image: georgiaBanner,
+    hero_image: georgiaBanner,
+    hero_image_description: "A breathtaking view of the Caucasus Mountains in Georgia",
     reviews: [],
     trips: [
       {
@@ -5802,9 +6554,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "international",
     destination_description:
       "Almaty, the former capital of Kazakhstan, is a city of stunning natural beauty and Soviet-era charm, nestled at the foothills of the majestic Tian Shan mountains. This vibrant cultural hub offers a unique blend of nomadic traditions, modern city life, and breathtaking alpine landscapes just a short drive away.\n\nKey highlights include:\n- **Big Almaty Lake** - A surreal, turquoise alpine lake surrounded by snow-capped peaks.\n- **Charyn Canyon** - Often compared to the Grand Canyon, with its dramatic 'Valley of Castles'.\n- **Shymbulak Ski Resort** - Ride the gondola for panoramic views, whether in snowy winter or green summer.\n- **Kolsai and Kaindy Lakes** - A pair of stunning mountain lakes, with Kaindy famous for its submerged forest.\n- **Zenkov Cathedral** - A remarkable wooden cathedral built entirely without nails.\n\nDiscover a destination off the beaten path, where epic landscapes, warm hospitality, and a fascinating history await.",
-    thumbnail_image: "",
-    hero_image: "",
-    hero_image_description: "",
+    thumbnail_image: kazakhstanBanner,
+    hero_image: kazakhstanBanner,
+    hero_image_description: "The stunning landscapes and rich culture of Kazakhstan.",
     reviews: [],
     trips: [
       {
@@ -6071,9 +6823,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "domestic",
     destination_description:
       "Ladakh, the 'Land of High Passes', is a starkly beautiful desert landscape in the Himalayas. A world of dramatic barren mountains, crystal-clear turquoise lakes, and ancient Buddhist monasteries clinging to cliffs, it offers an adventure that is both spiritual and thrilling. The crisp mountain air and the vast, empty spaces create a sense of profound peace and wonder.\n\nKey highlights include:\n- **Pangong Tso Lake** - A mesmerizing high-altitude lake that changes colour throughout the day.\n- **Nubra Valley** - Famous for its sand dunes, double-humped Bactrian camels, and the Diskit Monastery.\n- **Khardung La Pass** - One of the world's highest motorable roads, offering breathtaking views.\n- **Monasteries** - Explore the ancient wisdom and art at Thiksey, Hemis, and Diskit monasteries.\n- **Leh Market** - The vibrant heart of Ladakh, perfect for acclimatization and souvenir shopping.",
-    thumbnail_image: "",
-    hero_image: "",
-    hero_image_description: "",
+    thumbnail_image: lehImage,
+    hero_image: lehImage,
+    hero_image_description: "Experience the breathtaking landscapes and rich culture of Ladakh, from its majestic mountains to serene monasteries.",
     reviews: [],
     trips: [
       {
@@ -6431,9 +7183,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "domestic",
     destination_description:
       "Often called 'Paradise on Earth', Kashmir is a land of breathtaking beauty, with lush green valleys, snow-capped Himalayan peaks, and serene lakes. The intricate Mughal gardens, the unique experience of staying on a houseboat on Dal Lake, and the warmth of Kashmiri hospitality create a truly magical atmosphere.\n\nKey highlights include:\n- **Srinagar** - The summer capital, famous for Dal Lake, shikara rides, and Mughal gardens like Shalimar Bagh.\n- **Gulmarg** - A stunning meadow of flowers in summer and a world-class ski resort in winter, with the famous Gondola ride.\n- **Pahalgam** - A tranquil town on the banks of the Lidder River, serving as the gateway to many treks.\n- **Sonamarg** - The 'Meadow of Gold', offering spectacular views of glaciers and alpine scenery.\n- **Kashmiri Cuisine (Wazwan)** - A delicious and elaborate multi-course meal, a feast for the senses.",
-    thumbnail_image: "",
-    hero_image: "",
-    hero_image_description: "",
+    thumbnail_image: kashmirImage,
+    hero_image: kashmirImage,
+    hero_image_description: "Discover the breathtaking beauty and rich culture of Kashmir, from its serene lakes to majestic mountains and vibrant markets.",
     reviews: [],
     trips: [
       {
@@ -6740,9 +7492,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "domestic",
     destination_description:
       "Known as 'God's Own Country', Kerala is a slice of tropical paradise in South India. Famous for its serene backwaters, lush tea plantations, palm-fringed beaches, and vibrant culture, it offers a perfect blend of relaxation and rejuvenation. The state's rich heritage is visible in its Kathakali performances, Ayurvedic traditions, and delicious cuisine.\n\nKey highlights include:\n- **Alleppey (Alappuzha)** - The heart of the backwaters, famous for its houseboat cruises.\n- **Munnar** - A breathtaking hill station with rolling hills covered in emerald-green tea gardens.\n- **Kochi (Cochin)** - A city with a rich colonial past, known for Fort Kochi's Chinese fishing nets and art scene.\n- **Thekkady** - Home to the Periyar National Park, offering chances to see wildlife like elephants and tigers.\n- **Varkala & Kovalam** - Stunning cliff-side and crescent-shaped beaches.",
-    thumbnail_image: "",
-    hero_image: "",
-    hero_image_description: "",
+    thumbnail_image: keralaImage,
+    hero_image: keralaImage,
+    hero_image_description: "Experience the serene backwaters, lush tea plantations, and vibrant culture of Kerala.",
     reviews: [],
     trips: [
       {
@@ -7052,9 +7804,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "domestic",
     destination_description:
       "Known as the 'Land of the Dawn-Lit Mountains', Arunachal Pradesh is one of India's most remote and unexplored states. A treasure trove of natural beauty, it features lush valleys, roaring rivers, and snow-capped peaks. The state is home to a diverse array of tribal cultures, each with its unique traditions, and ancient Buddhist monasteries that seem to touch the sky.\n\nKey highlights include:\n- **Tawang Monastery** - The second-largest monastery in the world, offering stunning views and spiritual solace.\n- **Sela Pass** - A breathtaking high-altitude pass at 13,700 ft, surrounded by pristine lakes.\n- **Ziro Valley** - A UNESCO World Heritage tentative site, home to the Apatani tribe and famous for its paddy-cum-fish cultivation.\n- **Dirang Valley** - Known for its apple and kiwi orchards, hot springs, and the Monpa tribe.\n- **Bum La Pass** - The Indo-China border, offering a sense of adventure and patriotic pride (requires special permits).",
-    thumbnail_image: "",
-    hero_image: "",
-    hero_image_description: "",
+    thumbnail_image: APImaImage,
+    hero_image: APImaImage,
+    hero_image_description: "Explore the breathtaking landscapes and rich cultural heritage of Arunachal Pradesh, from its majestic monasteries to serene valleys and high mountain passes.",
     reviews: [],
     trips: [
       {
@@ -7391,9 +8143,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "domestic",
     destination_description:
       "Sikkim, a tiny Himalayan state, is a land of pristine natural beauty and serene spirituality. Dominated by the magnificent Mount Kanchenjunga, the world's third-highest peak, Sikkim offers a stunning panorama of snow-capped mountains, vibrant rhododendron forests, and cascading waterfalls. It is a peaceful haven of ancient Buddhist monasteries and warm, welcoming people.\n\nKey highlights include:\n- **Gangtok** - The charming capital city with stunning views, a pedestrian-friendly main street, and access to Tsomgo Lake.\n- **Pelling** - Offers the best close-up views of the Kanchenjunga range and is home to the Pemayangtse Monastery.\n- **Tsomgo Lake & Nathu La Pass** - A beautiful glacial lake and a high-altitude pass on the Indo-China border.\n- **Yumthang Valley** - The 'Valley of Flowers' in North Sikkim, a paradise of alpine meadows and hot springs.\n- **Rumtek Monastery** - A magnificent Tibetan Buddhist monastery, the seat of the Karmapa Lama.",
-    thumbnail_image: "",
-    hero_image: "",
-    hero_image_description: "",
+    thumbnail_image: sikkimImage,
+    hero_image: sikkimImage,
+    hero_image_description: "Discover the pristine natural beauty and serene spirituality of Sikkim, from its majestic mountains to vibrant monasteries and tranquil lakes.",
     reviews: [],
     trips: [
       {
@@ -7702,9 +8454,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "domestic",
     destination_description:
       "Rajasthan, the 'Land of Kings', is a dazzling tapestry of majestic forts, opulent palaces, and vibrant culture. It's a land of heroic tales, royal traditions, and stark desert landscapes. From the Pink City of Jaipur to the Blue City of Jodhpur and the Golden City of Jaisalmer, Rajasthan is a journey back in time to an era of regal splendor.\n\nKey highlights include:\n- **Jaipur** - The capital, famous for the Hawa Mahal, Amer Fort, and bustling bazaars.\n- **Udaipur** - The 'City of Lakes', a romantic oasis with the stunning Lake Pichola and City Palace.\n- **Jodhpur** - The 'Blue City', dominated by the imposing Mehrangarh Fort.\n- **Jaisalmer** - The 'Golden City', a magical desert outpost with a living fort and vast sand dunes.\n- **Thar Desert** - Experience a camel safari and a night under the stars in the desert.",
-    thumbnail_image: "",
-    hero_image: "",
-    hero_image_description: "",
+    thumbnail_image: rajasthanBanner,
+    hero_image: rajasthanBanner,
+    hero_image_description: "The majestic forts and vibrant culture of Rajasthan.",
     reviews: [],
     trips: [
       {
@@ -8032,9 +8784,9 @@ export const TRAVEL_PACKAGES_DATA = [
     category: "domestic",
     destination_description:
       "The Andaman and Nicobar Islands are a stunning archipelago in the Bay of Bengal, a slice of paradise with pristine white-sand beaches, turquoise waters, and lush tropical rainforests. Famous for their world-class coral reefs and vibrant marine life, they are a haven for scuba diving, snorkeling, and relaxation.\n\nKey highlights include:\n- **Havelock Island (Swaraj Dweep)** - The most popular island, home to the world-famous Radhanagar Beach.\n- **Neil Island (Shaheed Dweep)** - A quieter island with a relaxed vibe and beautiful beaches like Bharatpur and Laxmanpur.\n- **Port Blair** - The capital city and gateway to the islands, rich with history including the infamous Cellular Jail.\n- **Scuba Diving & Snorkeling** - Explore the incredible underwater world and vibrant coral reefs.\n- **Radhanagar Beach** - Consistently ranked among the best beaches in Asia for its stunning beauty and sunsets.",
-    thumbnail_image: "",
-    hero_image: "",
-    hero_image_description: "",
+    thumbnail_image: andamanImage,
+    hero_image: andamanImage,
+    hero_image_description: "Tropical paradise with pristine beaches and vibrant marine life in the Andaman & Nicobar Islands.",
     reviews: [],
     trips: [
       {
@@ -8322,6 +9074,462 @@ export const TRAVEL_PACKAGES_DATA = [
       },
     ],
   },
+  {
+    destination_id: 26,
+    destination_name: "Bali (Indonesia)",
+    category: "international",
+    destination_description: "Known as the 'Island of the Gods', Bali is a mesmerizing blend of spiritual culture, stunning natural beauty, and vibrant energy. From the lush, terraced rice paddies and sacred temples of Ubud to the chic beach clubs of Seminyak and the dramatic cliff-side vistas of Uluwatu, Bali offers a world of experiences. Its warm hospitality, world-class wellness scene, and unique artistic soul make it an unforgettable destination.\n\nKey highlights include:\n- **Ubud** - The cultural heart of Bali, famous for its yoga studios, art markets, and the Tegalalang Rice Terraces.\n- **Seminyak & Canggu** - Trendy beach towns known for their surf spots, stylish cafes, and vibrant nightlife.\n- **Uluwatu** - Dramatic sea cliffs, stunning beaches, and the famous Uluwatu Temple with its Kecak fire dance.\n- **Mount Batur** - An active volcano offering a popular sunrise trek with incredible views.\n- **Nusa Islands** - A trio of stunning islands (Penida, Lembongan, Ceningan) off the southeast coast, perfect for snorkeling and diving.",
+    thumbnail_image: BaliImage,
+    hero_image: BaliImage,
+    hero_image_description: "Bali's iconic rice terraces and lush landscapes",
+    reviews: [],
+    trips: [
+      {
+        tripId: 77,
+        title: "Balinese Bliss: An Ultimate Luxury Villa & Yacht Escape",
+        tripDescription: "A 9-day journey into Bali's most luxurious offerings. Stay in exclusive private pool villas in Ubud and Uluwatu, charter a private yacht to the Nusa Islands, indulge in world-class fine dining, and rejuvenate with private yoga and spa treatments.",
+        duration: "8N-9D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: "",
+        other_images: [],
+        features: ["luxury", "romance", "villa", "yacht", "spa", "foodie", "beach"],
+        customizable: true,
+        badge: {type: "luxury", text: "Ultimate Indulgence"},
+        capacity: 4,
+        meals: "8 Breakfasts, 5 Lunches, 6 Dinners",
+        accommodations: "4 nights in a luxury private pool villa in Ubud (e.g., Four Seasons Sayan), 4 nights in a cliff-front private pool villa in Uluwatu (e.g., Alila Villas Uluwatu).",
+        baseCity: "Denpasar",
+        route: ["Denpasar", "Ubud", "Nusa Lembongan", "Uluwatu"],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {day: 1, summary: "Arrival in Ubud", details: "Arrive at Ngurah Rai Airport (DPS). VIP fast-track service and private luxury transfer to your villa nestled in the Sayan Valley, Ubud. Welcome dinner prepared by a private chef in your villa."},
+          {day: 2, summary: "Spiritual Ubud & Private Yoga", details: "Morning visit to the Tirta Empul water temple for a private purification ritual. Return to your villa for a private yoga and meditation session with a renowned instructor."},
+          {day: 3, summary: "Helicopter Tour & Fine Dining", details: "Experience Bali from above with a private helicopter tour over Mount Batur and its crater lake. In the evening, a reservation at a world-class gastronomic restaurant like Mozaic or Locavore."},
+          {day: 4, summary: "Artisan Villages & Spa", details: "Private tour of Ubud's artisan villages, visiting master silversmiths and woodcarvers. Afternoon dedicated to an indulgent multi-hour spa ritual at a top-rated spa."},
+          {day: 5, summary: "Private Yacht to Nusa Lembongan", details: "Charter a private luxury yacht for a day trip to the Nusa Islands. Snorkel in crystal-clear waters at Manta Point, enjoy a gourmet lunch on board, and relax at a chic beach club on Nusa Lembongan before returning to the mainland and transferring to your Uluwatu villa."},
+          {day: 6, summary: "Uluwatu's Cliff-Front Paradise", details: "A full day at leisure to enjoy your stunning cliff-front villa and its private pool. Your personal butler will be on hand to arrange anything you desire."},
+          {day: 7, summary: "Exclusive Beach Club & Uluwatu Temple", details: "Enjoy VIP access to one of Uluwatu's most exclusive private beach clubs. In the late afternoon, visit the Uluwatu Temple with VIP seating for the dramatic Kecak fire dance at sunset."},
+          {day: 8, summary: "Surfing Lesson & Farewell Dinner", details: "Take a private surfing lesson with a pro surfer at a beginner-friendly beach. In the evening, enjoy a farewell seafood barbecue dinner on a secluded beach, arranged just for you."},
+          {day: 9, summary: "Departure", details: "Enjoy a final floating breakfast in your private pool before your luxury transfer to the airport for departure."}
+        ],
+        includes: ["All luxury private pool villa accommodation", "VIP airport services and private luxury transfers", "Private helicopter tour", "Private full-day yacht charter", "Meals as specified, including fine dining experiences", "Private guides, yoga instructor, and surf coach", "All entrance fees and exclusive access"],
+        excludes: ["International flights", "Visa fees", "Travel insurance", "Personal expenses"],
+        notes: ["This itinerary is highly customizable and perfect for honeymoons or milestone celebrations.", "Reservations for top restaurants and villas should be made many months in advance."]
+      },
+      {
+        tripId: 78,
+        title: "Offbeat Bali: Volcanoes, Waterfalls & The Wild North",
+        tripDescription: "A 10-day adventure that escapes the southern crowds to uncover Bali's raw, natural beauty. Trek Mount Batur for sunrise, chase hidden waterfalls in Munduk, dive in the clear waters of Amed, and experience the authentic Bali.",
+        duration: "9N-10D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: "",
+        other_images: [],
+        features: ["offbeat", "adventure", "hiking", "nature", "diving", "waterfall"],
+        customizable: true,
+        badge: {type: "offbeat", text: "Nature Expedition"},
+        capacity: 12,
+        meals: "9 Breakfasts, 3 Lunches, 2 Dinners",
+        accommodations: "Boutique hotels, eco-lodges in Munduk and Sidemen, and a dive resort in Amed.",
+        baseCity: "Denpasar",
+        route: ["Ubud", "Mount Batur", "Munduk", "Amed", "Sidemen"],
+        isCircuit: true,
+        batches: [],
+        itinerary: [
+          {day: 1, summary: "Arrival in Ubud", details: "Arrive in Bali and transfer to a boutique hotel in a quieter part of Ubud. Welcome dinner at a restaurant specializing in authentic Balinese cuisine."},
+          {day: 2, summary: "Mount Batur Sunrise Trek", details: "A pre-dawn start to trek the active volcano, Mount Batur. Reach the summit for a spectacular sunrise and enjoy breakfast cooked by the volcano's steam. Return to Ubud for a rest."},
+          {day: 3, summary: "Journey to Munduk", details: "Travel north to the cool, misty highlands of Munduk. En route, visit the Jatiluwih Rice Terraces (UNESCO) and the Ulun Danu Beratan temple on the lake."},
+          {day: 4, summary: "Chasing Waterfalls in Munduk", details: "Embark on a guided trek to some of North Bali's most stunning waterfalls, like Sekumpul or Banyumala Twin Waterfalls. Enjoy a refreshing swim in the natural pools."},
+          {day: 5, summary: "To the East Coast: Amed", details: "Drive along the scenic north coast to Amed, a quiet fishing village famous for its diving and snorkeling. Check into your dive resort."},
+          {day: 6, summary: "Diving the USAT Liberty Shipwreck", details: "Explore one of the world's most famous wreck dives, the USAT Liberty in Tulamben, just a short drive from Amed. It's accessible for both divers and snorkelers. Afternoon at leisure."},
+          {day: 7, summary: "To the Sidemen Valley", details: "Travel to the serene Sidemen Valley, often described as 'Ubud 20 years ago'. Check into your eco-lodge surrounded by rice paddies and with views of Mount Agung."},
+          {day: 8, summary: "Rice Paddy Trek & Local Life", details: "Take a guided trek through the stunning rice paddies of Sidemen. Visit a local village and learn about the traditional weaving process."},
+          {day: 9, summary: "Return to the South", details: "Drive back towards the south of Bali. Spend the final night in the coastal town of Sanur for a relaxed end to the trip. Farewell dinner on the beach."},
+          {day: 10, summary: "Departure", details: "Enjoy a final Balinese coffee before transferring to the airport for your departure."}
+        ],
+        includes: ["All accommodation", "Private AC vehicle and driver", "Meals as specified", "Guided Mount Batur sunrise trek", "Guided Munduk waterfalls trek", "Two dives in Amed/Tulamben (or a snorkeling trip)", "Guided rice paddy trek in Sidemen"],
+        excludes: ["International flights", "Most lunches and dinners", "Personal expenses", "Travel insurance"],
+        notes: ["This is an active trip requiring a good level of fitness for trekking.", "Roads in the north can be winding and travel times longer than expected."]
+      },
+      {
+        tripId: 79,
+        title: "The Bali Experience: Eat, Surf, Pray",
+        tripDescription: "A classic 8-day Bali journey for the first-timer or spiritual seeker. Find your balance with yoga in Ubud, learn to surf the waves of Canggu, and experience the island's unique culture at its most famous temples and rice terraces.",
+        duration: "7N-8D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: "",
+        other_images: [],
+        features: ["experience", "classic", "yoga", "surfing", "culture", "beach"],
+        customizable: true,
+        badge: {type: "experience", text: "Wellness & Waves"},
+        capacity: 16,
+        meals: "7 Breakfasts, 2 Dinners",
+        accommodations: "4 nights in a wellness-focused hotel in Ubud, 3 nights in a stylish hotel in Canggu.",
+        baseCity: "Denpasar",
+        route: ["Ubud", "Tegalalang", "Canggu", "Uluwatu"],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {day: 1, summary: "Arrival in Ubud, the Spiritual Heart", details: "Arrive in Bali, transfer to your hotel in Ubud. Settle in and attend a gentle evening yoga class. Welcome dinner at a healthy organic restaurant."},
+          {day: 2, summary: "Ubud's Culture & Rice Terraces", details: "Morning visit to the iconic Tegalalang Rice Terraces. Continue to the Tirta Empul temple for a spiritual cleansing experience. Afternoon explore the Ubud Art Market."},
+          {day: 3, summary: "Monkey Forest & Cooking Class", details: "Visit the Sacred Monkey Forest Sanctuary. In the afternoon, participate in a Balinese cooking class, learning the secrets of the local cuisine."},
+          {day: 4, summary: "Free Day for Wellness", details: "A full day to yourself in Ubud. Indulge in a spa treatment, attend more yoga classes, visit a local healer, or simply relax by the pool."},
+          {day: 5, summary: "To the Coast: Canggu", details: "Travel to the trendy surf town of Canggu. Check into your hotel. In the afternoon, it's time for your first surfing lesson at Batu Bolong beach."},
+          {day: 6, summary: "Surf, Eat, Repeat", details: "Morning surf session to practice your new skills. Spend the rest of the day exploring Canggu's famous cafe scene and boutique shops. Enjoy sunset at a beachfront bar."},
+          {day: 7, summary: "Uluwatu's Cliffs & Kecak Dance", details: "Day trip to the stunning Uluwatu area. Relax on a beautiful beach like Padang Padang. In the evening, visit the Uluwatu Temple on the cliff edge and watch the captivating Kecak fire dance at sunset. Farewell dinner."},
+          {day: 8, summary: "Departure", details: "Enjoy a final surf or a healthy breakfast before transferring to the airport for your departure."}
+        ],
+        includes: ["All accommodation", "Airport transfers", "Private vehicle for tours and transfers", "Meals as specified", "Daily yoga class in Ubud", "Balinese cooking class", "Two surfing lessons in Canggu", "Entrance fees for specified sights"],
+        excludes: ["International flights", "Lunches and most dinners", "Optional activities", "Travel insurance"],
+        notes: ["This itinerary offers a great balance between culture, wellness, and beach fun.", "Canggu and Ubud have a huge variety of excellent and affordable cafes for you to explore."]
+      }
+    ]
+  },
+  {
+    destination_id: 27,
+    destination_name: "Dubai",
+    category: "international",
+    destination_description: "Dubai is a dazzling metropolis that has risen from the desert sands to become a global symbol of ambition and luxury. A city of superlatives, it is home to the world's tallest building, largest shopping mall, and spectacular man-made islands. Beyond the glamour, you can discover its heritage in the old souks and experience the timeless magic of the Arabian desert.\n\nKey highlights include:\n- **Burj Khalifa** - Ascend to the observation deck of the world's tallest building for breathtaking views.\n- **The Dubai Mall** - A massive shopping and entertainment complex, featuring an aquarium and the Dubai Fountain show.\n- **Desert Safari** - A quintessential Dubai experience with dune bashing, camel rides, and a traditional Bedouin-style dinner.\n- **Old Dubai** - Explore the historic Al Fahidi neighborhood, and cross the Dubai Creek on an Abra to visit the Gold and Spice Souks.\n- **Palm Jumeirah** - The iconic man-made palm-shaped island, home to luxury resorts like Atlantis, The Palm.",
+    thumbnail_image: DubaiImage,
+    hero_image: DubaiImage,
+    hero_image_description: "Experience the opulence and modernity of Dubai, from its iconic skyline to its luxurious resorts.",
+    reviews: [],
+    trips: [
+      {
+        tripId: 80,
+        title: "Dubai's Ultimate Luxury: A Sky-High & Sand-Dune Sojourn",
+        tripDescription: "A 6-day immersion into the pinnacle of Dubai's luxury. Stay in iconic 7-star and 5-star hotels, take a private helicopter tour, enjoy an exclusive desert safari, and dine at the city's most prestigious restaurants.",
+        duration: "5N-6D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: "",
+        other_images: [],
+        features: ["luxury", "romance", "desert safari", "helicopter", "city break", "fine dining"],
+        customizable: true,
+        badge: {type: "luxury", text: "Seven-Star Luxury"},
+        capacity: 2,
+        meals: "5 Breakfasts, 3 Lunches, 4 Dinners",
+        accommodations: "2 nights in a suite at the Burj Al Arab Jumeirah, 3 nights in an executive suite at the Armani Hotel in Burj Khalifa.",
+        baseCity: "Dubai",
+        route: ["Dubai", "Palm Jumeirah", "Arabian Desert"],
+        isCircuit: true,
+        batches: [],
+        itinerary: [
+          {day: 1, summary: "Arrival at the Icon: Burj Al Arab", details: "Arrive at Dubai International Airport (DXB). Be greeted by a private Rolls-Royce transfer to the Burj Al Arab. Check into your opulent duplex suite. Evening at leisure to enjoy the hotel's exclusive facilities."},
+          {day: 2, summary: "Private Yacht & Spa", details: "Charter a private yacht for a morning cruise around the Palm Jumeirah and World Islands. In the afternoon, indulge in a luxurious spa treatment at the Talise Spa."},
+          {day: 3, summary: "Helicopter Tour & Transfer to Burj Khalifa", details: "Take a private helicopter tour for breathtaking aerial views of Dubai's iconic landmarks. Afterwards, transfer to the Armani Hotel in the Burj Khalifa. Dinner at At.mosphere on the 122nd floor."},
+          {day: 4, summary: "VIP Shopping & Dubai Fountain", details: "Enjoy a personalized shopping experience at The Dubai Mall with a personal stylist. In the evening, watch the spectacular Dubai Fountain show from a private waterfront terrace at a fine-dining restaurant."},
+          {day: 5, summary: "Luxury Desert Safari & Private Camp", details: "Embark on an exclusive desert safari in a vintage Land Rover. Enjoy a private falconry display at sunset. Arrive at your private, luxurious Bedouin-style camp for a gourmet six-course dinner under the stars."},
+          {day: 6, summary: "Departure in Style", details: "Enjoy a final gourmet breakfast. Private limousine transfer to DXB airport for your departure."}
+        ],
+        includes: ["All luxury suite accommodation", "Private Rolls-Royce and limousine transfers", "Private yacht charter", "Private helicopter tour", "Exclusive desert safari with private camp", "Meals as specified including fine dining", "VIP shopping experience"],
+        excludes: ["International flights", "Visa fees", "Travel insurance", "Personal expenses"],
+        notes: ["This is a no-expense-spared itinerary designed for the ultimate luxury experience.", "All reservations must be made months in advance."]
+      },
+      {
+        tripId: 81,
+        title: "Offbeat Dubai: History, Art & Mountain Adventures",
+        tripDescription: "A 6-day journey that uncovers the hidden gems of Dubai and its surroundings, beyond the glitz and glamour. Explore the historic heart of the city, discover the mountain exclave of Hatta, and find the soul of the emirate.",
+        duration: "5N-6D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: "",
+        other_images: [],
+        features: ["offbeat", "adventure", "culture", "history", "hiking", "kayaking"],
+        customizable: true,
+        badge: {type: "offbeat", text: "Hidden Emirates"},
+        capacity: 12,
+        meals: "5 Breakfasts, 2 Lunches, 1 Dinner",
+        accommodations: "5 nights in a boutique heritage-style hotel in the Al Fahidi district (e.g., XVA Art Hotel).",
+        baseCity: "Dubai",
+        route: ["Dubai", "Al Fahidi", "Hatta", "Jumeirah"],
+        isCircuit: true,
+        batches: [],
+        itinerary: [
+          {day: 1, summary: "Arrival in Old Dubai", details: "Arrive in Dubai. Transfer to your boutique hotel in the Al Fahidi Historical Neighbourhood. Spend the afternoon wandering the narrow alleyways and art galleries."},
+          {day: 2, summary: "Dubai's Cultural Heart", details: "A guided walking tour of Old Dubai. Visit the Dubai Museum, cross the Dubai Creek on a traditional Abra, and explore the bustling Gold and Spice Souks. Dinner with a local family at the Sheikh Mohammed Centre for Cultural Understanding."},
+          {day: 3, summary: "Hatta Mountain Adventure", details: "Full-day trip to the mountain exclave of Hatta. Go kayaking on the serene Hatta Dam, surrounded by the Hajar Mountains. Visit the Hatta Heritage Village and enjoy a hike on one of the many trails."},
+          {day: 4, summary: "Street Art & Local Flavors", details: "Explore Dubai's modern, creative side. Discover the street art at City Walk and La Mer. In the evening, embark on a food tour through a local neighborhood like Al Rigga, tasting authentic Middle Eastern and South Asian cuisines."},
+          {day: 5, summary: "Ras Al Khor & Jumeirah's Secrets", details: "Morning visit to the Ras Al Khor Wildlife Sanctuary to see the surprising sight of thousands of flamingos with the city skyline in the background. Later, visit the beautiful Jumeirah Mosque and relax at a public beach away from the crowds."},
+          {day: 6, summary: "Departure", details: "Enjoy a final Arabic coffee before departing from Dubai."}
+        ],
+        includes: ["All accommodation", "Private vehicle for Hatta trip and airport transfers", "Guided tours of Old Dubai and street art", "Local food tour", "Kayaking in Hatta", "Meals as specified"],
+        excludes: ["International flights", "Visa fees", "Public transport within the city (Metro/Taxi)", "Most meals", "Travel insurance"],
+        notes: ["This itinerary shows a completely different side of Dubai, rich in culture and nature.", "Staying in Al Fahidi offers a unique, atmospheric experience."]
+      },
+      {
+        tripId: 82,
+        title: "Classic Dubai Experience: The Best of the City & Desert",
+        tripDescription: "A 5-day action-packed itinerary that covers all of Dubai's must-see attractions. From the top of the Burj Khalifa and the thrill of a desert safari to the massive malls and vibrant souks, this is the perfect introduction to the city of wonders.",
+        duration: "4N-5D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: "",
+        other_images: [],
+        features: ["experience", "classic", "city break", "desert safari", "family", "shopping"],
+        customizable: true,
+        badge: {type: "experience", text: "Dubai Highlights"},
+        capacity: 20,
+        meals: "4 Breakfasts, 1 Dinner",
+        accommodations: "4 nights in a well-located 4-star hotel in Downtown or Barsha Heights.",
+        baseCity: "Dubai",
+        route: ["Dubai", "Burj Khalifa", "Arabian Desert", "Old Dubai"],
+        isCircuit: true,
+        batches: [],
+        itinerary: [
+          {day: 1, summary: "Arrival & Dubai Mall", details: "Arrive in Dubai, transfer to your hotel. In the evening, head to The Dubai Mall. Witness the spectacular Dubai Fountain show and see the Dubai Aquarium."},
+          {day: 2, summary: "Burj Khalifa & Old Dubai", details: "Ascend to the 'At the Top' observation deck of the Burj Khalifa for incredible views. In the afternoon, travel to Old Dubai, cross the creek on an Abra, and explore the Gold and Spice Souks."},
+          {day: 3, summary: "Evening Desert Safari", details: "Morning at leisure. You can visit the Mall of the Emirates to see Ski Dubai. In the late afternoon, get picked up for an evening desert safari, including thrilling dune bashing, a camel ride, and a BBQ dinner with entertainment at a Bedouin-style camp."},
+          {day: 4, summary: "Beach & Marina", details: "Spend the morning at a public beach like The Beach at JBR with views of the Ain Dubai observation wheel. In the evening, explore the Dubai Marina, perhaps taking a dhow cruise for dinner."},
+          {day: 5, summary: "Departure", details: "Enjoy some last-minute shopping or sightseeing before transferring to the airport for your departure."}
+        ],
+        includes: ["All accommodation", "Airport transfers", "Tickets to Burj Khalifa 'At the Top'", "Evening desert safari with dinner", "Daily breakfast"],
+        excludes: ["International flights", "Visa fees", "Lunches and most dinners", "Public transport/taxis", "Dhow cruise", "Travel insurance"],
+        notes: ["This is a fast-paced itinerary perfect for a short trip or stopover.", "Book Burj Khalifa tickets online in advance to get your preferred time slot."]
+      }
+    ]
+  },
+  {
+    destination_id: 28,
+    destination_name: "Sri Lanka",
+    category: "international",
+    destination_description: "Known as the 'Pearl of the Indian Ocean', Sri Lanka is an island of incredible diversity. Within a small area, you can discover ancient cities, lush tea plantations, pristine beaches, and national parks teeming with wildlife. The island's rich history, flavorful cuisine, and the genuine warmth of its people make it a truly enchanting destination.\n\nKey highlights include:\n- **Cultural Triangle** - Explore the ancient cities and UNESCO sites of Sigiriya, Dambulla, and Polonnaruwa.\n- **Kandy** - A scenic city that's home to the sacred Temple of the Tooth Relic.\n- **Tea Country (Ella & Nuwara Eliya)** - Ride the world's most scenic train journey through emerald-green tea plantations.\n- **Yala National Park** - One of the best places in the world to spot leopards, alongside elephants and sloth bears.\n- **Southern Beaches** - Relax on the golden sands of Mirissa, Unawatuna, or Bentota, and see stilt fishermen.",
+    thumbnail_image: srilankaImage,
+    hero_image: srilankaImage,
+    hero_image_description: "The stunning landscapes and rich culture of Sri Lanka.",
+    reviews: [],
+    trips: [
+      {
+        tripId: 83,
+        title: "Sri Lanka in Style: Tea Trails, Safaris & Colonial Charm",
+        tripDescription: "A 10-day luxury journey through Sri Lanka's highlights. Stay in iconic colonial-era hotels and boutique tea plantation bungalows, enjoy private safaris, and explore UNESCO sites with a personal chauffeur-guide.",
+        duration: "9N-10D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: "",
+        other_images: [],
+        features: ["luxury", "heritage", "tea plantations", "wildlife safari", "culture", "beach"],
+        customizable: true,
+        badge: {type: "luxury", text: "Boutique Luxury"},
+        capacity: 4,
+        meals: "9 Breakfasts, 4 Lunches, 8 Dinners",
+        accommodations: "Boutique hotels in the Cultural Triangle, an all-inclusive luxury bungalow at Ceylon Tea Trails, a luxury tented camp near Yala, and a 5-star colonial hotel in Galle (e.g., Amangalla).",
+        baseCity: "Colombo",
+        route: ["Colombo", "Sigiriya", "Kandy", "Hatton (Tea Country)", "Yala National Park", "Galle"],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {day: 1, summary: "Arrival & Transfer to the Cultural Triangle", details: "Arrive at Bandaranaike Airport (CMB). Meet your chauffeur-guide and drive directly to your luxury hotel near Sigiriya."},
+          {day: 2, summary: "Sigiriya Rock Fortress & Polonnaruwa", details: "Early morning climb of the magnificent Sigiriya Rock Fortress. In the afternoon, explore the ancient capital of Polonnaruwa by bicycle or private vehicle."},
+          {day: 3, summary: "Dambulla Caves & Kandy", details: "Visit the Dambulla Cave Temples, a stunning UNESCO site. Continue to Kandy and check into your hotel. In the evening, visit the Temple of the Tooth Relic during the ceremony."},
+          {day: 4, summary: "To the Tea Country: Ceylon Tea Trails", details: "A scenic drive into the heart of the tea country. Check into your luxurious colonial-era bungalow at Ceylon Tea Trails, where everything from gourmet meals to laundry is included."},
+          {day: 5, summary: "Life on a Tea Plantation", details: "Enjoy the 'tea experience', from a guided walk through the plantations to a factory tour. The day is at your leisure to enjoy high tea, croquet on the lawn, or relax by the pool."},
+          {day: 6, summary: "Journey to Yala National Park", details: "Drive south to Yala National Park. Check into your luxury tented camp bordering the park. Enjoy a sundowner cocktail followed by dinner."},
+          {day: 7, summary: "Private Leopard Safari in Yala", details: "Embark on both morning and evening private jeep safaris into Yala National Park with an expert naturalist, maximizing your chances of spotting the elusive leopard, as well as elephants and sloth bears."},
+          {day: 8, summary: "To the Colonial Fort of Galle", details: "Drive along the stunning south coast to the historic Galle Fort. Check into your iconic colonial hotel within the fort walls. Explore the charming streets, boutiques, and art galleries."},
+          {day: 9, summary: "Galle Fort & Whale Watching", details: "Morning whale watching excursion from Mirissa on a private boat (seasonal, Nov-Apr). The afternoon is free to explore Galle Fort further. Farewell dinner at a top restaurant."},
+          {day: 10, summary: "Departure", details: "After a leisurely breakfast, drive back to Colombo's airport for your departure."}
+        ],
+        includes: ["All luxury accommodation", "All-inclusive stay at Ceylon Tea Trails", "Private AC car with chauffeur-guide for the entire tour", "All meals as specified", "Private jeep safaris in Yala", "Private whale watching boat", "All entrance fees"],
+        excludes: ["International flights", "Sri Lanka ETA (visa)", "Lunches not specified", "Alcoholic beverages", "Travel insurance"],
+        notes: ["This itinerary is for discerning travelers seeking unique, high-end experiences.", "The whale watching season is from November to April."]
+      },
+      {
+        tripId: 84,
+        title: "Offbeat Sri Lanka: Knuckles Range Trek & East Coast Waves",
+        tripDescription: "A 14-day adventure for active travelers that explores Sri Lanka's wild side. Trek through the remote Knuckles Mountain Range, discover the vibrant culture of Jaffna in the north, and surf the famous waves of Arugam Bay on the east coast.",
+        duration: "13N-14D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: "",
+        other_images: [],
+        features: ["offbeat", "adventure", "hiking", "surfing", "culture", "remote"],
+        customizable: true,
+        badge: {type: "offbeat", text: "Island Explorer"},
+        capacity: 10,
+        meals: "13 Breakfasts, 5 Lunches, 5 Dinners",
+        accommodations: "Guesthouses, eco-lodges, basic hotels in Jaffna, and a surf camp in Arugam Bay.",
+        baseCity: "Colombo",
+        route: ["Colombo", "Kandy", "Knuckles Range", "Jaffna", "Trincomalee", "Arugam Bay", "Ella"],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {day: 1, summary: "Arrival in Colombo & Transfer to Kandy", details: "Arrive in Colombo and travel directly to Kandy to start the adventure."},
+          {day: 2, summary: "Knuckles Mountain Range Trek - Day 1", details: "Drive to the Knuckles Range. Begin a 2-day guided trek through tea plantations, cloud forests, and remote villages. Overnight in a basic trekking camp or guesthouse."},
+          {day: 3, summary: "Knuckles Trek & Return to Kandy", details: "Complete the trek and return to Kandy in the evening for a well-deserved rest."},
+          {day: 4, summary: "Overnight Train to Jaffna", details: "Day at leisure in Kandy. In the evening, board the overnight train to Jaffna, a unique experience."},
+          {day: 5, summary: "Exploring Jaffna", details: "Arrive in Jaffna. Explore the city's unique Tamil culture, visit the Nallur Kandaswamy Kovil, and the Jaffna Fort."},
+          {day: 6, summary: "Jaffna's Islands", details: "Take local ferries to explore the nearby islands like Neduntheevu (Delft) with its wild ponies and Nagadeepa, a sacred Buddhist site."},
+          {day: 7, summary: "To the East Coast: Trincomalee", details: "Travel down the east coast to the port city of Trincomalee. Relax at the beautiful Nilaveli or Uppuveli beaches."},
+          {day: 8, summary: "Pigeon Island & Koneswaram Temple", details: "Take a boat trip to Pigeon Island National Park for some of Sri Lanka's best snorkeling. Visit the historic Koneswaram Temple perched on a cliff."},
+          {day: 9, summary: "Journey to Arugam Bay", details: "Travel south along the coast to Arugam Bay, Sri Lanka's surfing mecca (best from April to October)."},
+          {day: 10, summary: "Surfing in Arugam Bay", details: "Take a surfing lesson or, if you're experienced, ride the famous right-hand point break. Enjoy the laid-back, bohemian vibe of the town."},
+          {day: 11, summary: "Arugam Bay & Kumana National Park", details: "Morning surf session. In the afternoon, take a safari in the nearby Kumana National Park, known for its birdlife."},
+          {day: 12, summary: "Travel to Ella", details: "Travel inland to the cool, misty hills of Ella. Check into your guesthouse."},
+          {day: 13, summary: "Hiking in Ella", details: "Hike up Little Adam's Peak for sunrise and visit the iconic Nine Arch Bridge. The afternoon is free to relax in one of Ella's many cool cafes."},
+          {day: 14, summary: "Departure", details: "Take a taxi or train from Ella to Colombo for your departure."}
+        ],
+        includes: ["All accommodation", "Private vehicle for parts of the journey", "Overnight train ticket", "Guided Knuckles Range trek with meals", "Safari in Kumana National Park"],
+        excludes: ["International flights", "Most meals", "Surf lessons and board rental", "Entrance fees not specified", "Travel insurance"],
+        notes: ["This is a fast-paced, rugged itinerary for independent and adventurous travelers.", "The best season for the east coast is April to October."]
+      },
+      {
+        tripId: 85,
+        title: "Classic Sri Lanka Experience: The Cultural & Coastal Loop",
+        tripDescription: "The perfect 8-day introduction to the wonders of Sri Lanka. Climb the iconic Sigiriya Rock, take the famous Kandy to Ella train, spot elephants on a safari, and relax on the beautiful beaches of the south coast.",
+        duration: "7N-8D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: "",
+        other_images: [],
+        features: ["experience", "classic", "culture", "train", "wildlife safari", "beach"],
+        customizable: true,
+        badge: {type: "experience", text: "Classic Circuit"},
+        capacity: 16,
+        meals: "7 Breakfasts, 2 Dinners",
+        accommodations: "Comfortable and well-located 3/4-star hotels and guesthouses.",
+        baseCity: "Colombo",
+        route: ["Colombo", "Sigiriya", "Kandy", "Ella", "Yala", "Mirissa", "Galle"],
+        isCircuit: true,
+        batches: [],
+        itinerary: [
+          {day: 1, summary: "Arrival & Journey to Sigiriya", details: "Arrive in Colombo and meet your driver. Drive directly to your hotel in the Cultural Triangle area."},
+          {day: 2, summary: "Sigiriya Rock & Kandy", details: "Early morning climb of Sigiriya Rock Fortress. Afterwards, drive to Kandy, visiting a spice garden en route. In the evening, visit the Temple of the Tooth Relic."},
+          {day: 3, summary: "The World's Most Scenic Train Ride", details: "Board the train in Kandy for the breathtakingly beautiful journey to Ella, winding through tea plantations and misty mountains."},
+          {day: 4, summary: "Hiking in Ella", details: "In Ella, hike to Little Adam's Peak for stunning views and then walk along the tracks to the famous Nine Arch Bridge."},
+          {day: 5, summary: "Yala National Park Safari", details: "Travel south from Ella to Yala National Park. In the afternoon, embark on a jeep safari to spot leopards, elephants, sloth bears, and crocodiles."},
+          {day: 6, summary: "To the South Coast: Mirissa", details: "Drive to the beach town of Mirissa. The day is free to relax on the beach, swim, or try some fresh seafood at a beachside shack."},
+          {day: 7, summary: "Galle Fort Exploration", details: "Visit the iconic stilt fishermen near Weligama. Continue to the UNESCO World Heritage Galle Fort. Spend the afternoon exploring its charming cobblestone streets. Farewell dinner in Galle."},
+          {day: 8, summary: "Departure", details: "Drive up the coast from Galle to Colombo's airport for your departure."}
+        ],
+        includes: ["All accommodation", "Private AC car with chauffeur-guide", "Scenic train ticket (Kandy-Ella)", "Yala National Park jeep safari", "Entrance fees for Sigiriya and Temple of the Tooth", "Meals as specified"],
+        excludes: ["International flights", "Sri Lanka ETA (visa)", "Lunches and most dinners", "Whale watching (optional)", "Travel insurance"],
+        notes: ["This itinerary covers all the major highlights and is perfect for first-time visitors.", "Train tickets, especially for reserved seats, should be booked well in advance."]
+      }
+    ]
+  },
+  {
+    destination_id: 29,
+    destination_name: "Maldives",
+    category: "international",
+    destination_description: "The Maldives is the epitome of a tropical paradise, a stunning archipelago of coral islands scattered across the Indian Ocean. It's a world of pristine white-sand beaches, crystal-clear turquoise lagoons, and luxurious overwater villas. Renowned for its vibrant marine life and coral reefs, it is a dream destination for honeymooners, divers, and anyone seeking ultimate relaxation and seclusion.\n\nKey highlights include:\n- **Overwater Villas** - The iconic Maldivian accommodation, offering direct access to the lagoon.\n- **Marine Life** - Snorkel or dive with manta rays, whale sharks, turtles, and a kaleidoscope of colorful fish.\n- **Pristine Beaches** - Relax on some of the world's most beautiful and secluded beaches.\n- **Underwater Restaurants** - Dine below the ocean's surface for a truly unique experience.\n- **Seaplane Transfers** - Enjoy breathtaking aerial views of the atolls as you fly to your resort.",
+    thumbnail_image: maldivesImage,
+    hero_image: maldivesImage,
+    hero_image_description: "Experience the ultimate tropical paradise in the Maldives, with its stunning overwater villas and vibrant marine life.",
+    reviews: [],
+    trips: [
+      {
+        tripId: 86,
+        title: "Maldivian Dream: An Ultra-Luxury Overwater Villa Escape",
+        tripDescription: "The ultimate 6-day Maldivian fantasy. Arrive by private seaplane to your exclusive overwater villa with a private pool. Indulge in underwater dining, private sandbank picnics, and unparalleled service from a personal butler.",
+        duration: "5N-6D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: "",
+        other_images: [],
+        features: ["luxury", "romance", "overwater villa", "beach", "scuba diving", "fine dining"],
+        customizable: true,
+        badge: {type: "luxury", text: "Ultimate Paradise"},
+        capacity: 2,
+        meals: "5 Breakfasts, 4 Lunches, 5 Dinners (All-Inclusive Plan)",
+        accommodations: "5 nights in a premier Overwater Villa with Private Pool at a top-tier resort (e.g., The St. Regis, Cheval Blanc).",
+        baseCity: "Malé",
+        route: ["Malé", "Private Resort Atoll"],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {day: 1, summary: "Arrival in Paradise", details: "Arrive at Malé International Airport (MLE). Be escorted to the private lounge to await your seaplane transfer. Enjoy the stunning aerial views as you fly to your resort. Your personal butler will greet you and check you into your overwater villa."},
+          {day: 2, summary: "Private Snorkeling & Sunset Cruise", details: "Your marine biologist guide will take you on a private snorkeling tour of the house reef. In the evening, embark on a private sunset dolphin cruise on a traditional Dhoni boat with champagne and canapés."},
+          {day: 3, summary: "Underwater Dining & Spa", details: "Experience the magic of dining at an underwater restaurant for lunch, surrounded by marine life. The afternoon is reserved for an indulgent couple's spa journey at the overwater spa."},
+          {day: 4, summary: "Private Sandbank Picnic", details: "Be whisked away by speedboat to a secluded, pristine sandbank. A gourmet picnic lunch and snorkeling gear will be set up for you to enjoy a few hours in complete privacy."},
+          {day: 5, summary: "Leisure & Stargazing", details: "A full day at leisure to enjoy your villa, the resort's facilities, or watersports. After a private dinner on your villa's deck, enjoy a stargazing session with the resort's powerful telescope and resident expert."},
+          {day: 6, summary: "Departure", details: "Enjoy a final floating breakfast in your private pool before your seaplane transfer back to Malé for your departure."}
+        ],
+        includes: ["All luxury accommodation", "Round-trip seaplane transfers", "Premium all-inclusive meal plan", "Personal butler service", "All specified private excursions (snorkeling, sunset cruise, sandbank picnic)", "Underwater restaurant experience", "Spa journey"],
+        excludes: ["International flights", "Discretionary tips", "Specialized watersports or diving courses", "Travel insurance"],
+        notes: ["This is the pinnacle of luxury travel, designed for ultimate privacy and romance.", "Book at least 6-9 months in advance for the best villas and availability."]
+      },
+      {
+        tripId: 87,
+        title: "Offbeat Maldives: Local Island Hopping Adventure",
+        tripDescription: "A 7-day journey that reveals the 'real' Maldives, beyond the luxury resorts. Hop between local islands like Maafushi and Dhigurah, stay in community guesthouses, interact with Maldivian culture, and enjoy the same stunning natural beauty on a budget.",
+        duration: "6N-7D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: "",
+        other_images: [],
+        features: ["offbeat", "adventure", "budget", "snorkeling", "local life", "culture"],
+        customizable: true,
+        badge: {type: "offbeat", text: "Local Experience"},
+        capacity: 12,
+        meals: "6 Breakfasts",
+        accommodations: "6 nights in clean and comfortable local guesthouses on Maafushi and Dhigurah islands.",
+        baseCity: "Malé",
+        route: ["Malé", "Maafushi", "Dhigurah", "South Ari Atoll"],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {day: 1, summary: "Arrival in Malé & Transfer to Maafushi", details: "Arrive at Malé airport. Take a public speedboat or ferry to Maafushi Island in the South Malé Atoll. Check into your guesthouse and explore the island."},
+          {day: 2, summary: "Snorkeling Safari from Maafushi", details: "Join a full-day excursion from Maafushi. Snorkel at multiple reefs like Biyadhoo Reef, spot turtles at Turtle Point, and enjoy lunch on a sandbank."},
+          {day: 3, summary: "Day Trip to a Luxury Resort", details: "Experience the resort life for a day. Many resorts offer day packages to local island guests, which include transfers, lunch, drinks, and use of their facilities like the pool and beach."},
+          {day: 4, summary: "Ferry to Dhigurah", details: "Take a local ferry or speedboat to Dhigurah Island in the South Ari Atoll, famous for its long beach and year-round presence of whale sharks."},
+          {day: 5, summary: "Whale Shark & Manta Ray Expedition", details: "Embark on a speedboat safari with a local guide in search of the majestic whale shark, the largest fish in the sea. You may also get to snorkel with graceful manta rays."},
+          {day: 6, summary: "Explore Dhigurah & Return to Malé", details: "Enjoy a final morning on the beautiful bikini beach of Dhigurah. In the afternoon, take a speedboat back to Malé and check into a hotel for the night."},
+          {day: 7, summary: "Departure", details: "Transfer to Malé airport for your departure."}
+        ],
+        includes: ["All accommodation in guesthouses", "All public ferry/speedboat transfers between islands", "Daily breakfast", "Full-day snorkeling trip from Maafushi", "Whale shark safari from Dhigurah"],
+        excludes: ["International flights", "Lunches and dinners", "Resort day trip cost", "Travel insurance", "Personal expenses"],
+        notes: ["This is a budget-friendly and culturally immersive way to see the Maldives.", "Respect local culture: dress modestly when in villages, and alcohol is not available on local islands.", "'Bikini beaches' are designated areas for tourists to sunbathe."]
+      },
+      {
+        tripId: 88,
+        title: "Maldives Dive & Relax Experience",
+        tripDescription: "A 7-day trip for ocean lovers, balancing world-class scuba diving with blissful relaxation. Stay at a premium resort with a fantastic house reef and dive center, explore vibrant dive sites, and enjoy plenty of time to unwind in paradise.",
+        duration: "6N-7D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: "",
+        other_images: [],
+        features: ["experience", "scuba diving", "snorkeling", "beach", "relaxation", "family"],
+        customizable: true,
+        badge: {type: "experience", text: "Dive & Unwind"},
+        capacity: 14,
+        meals: "6 Breakfasts, 6 Dinners (Half Board)",
+        accommodations: "6 nights in a Beach Villa or Overwater Villa at a 4/5-star resort with a PADI 5-star dive center.",
+        baseCity: "Malé",
+        route: ["Malé", "Resort in North or South Ari Atoll"],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {day: 1, summary: "Arrival & Resort Welcome", details: "Arrive in Malé and take a speedboat or seaplane to your resort. Check in and spend the afternoon settling in and snorkeling on the house reef."},
+          {day: 2, summary: "Discover Scuba or Fun Dives", details: "For beginners: a Discover Scuba Diving session to experience breathing underwater. For certified divers: two morning fun dives at nearby sites. Afternoon at leisure."},
+          {day: 3, summary: "Manta Ray or Turtle Safari", details: "Join a guided boat trip to a known manta ray cleaning station or a turtle reef for a memorable snorkeling or diving experience."},
+          {day: 4, summary: "Relax & Rejuvenate", details: "A full day to relax. Enjoy the resort's pool, beach, and non-motorized watersports like kayaking or paddleboarding. You could also opt for a spa treatment."},
+          {day: 5, summary: "More Diving & Exploration", details: "Two more dives for certified divers to explore different types of underwater topography like channels (kandu) or pinnacles (thila). Afternoon free."},
+          {day: 6, summary: "Sunset Fishing & Beach BBQ", details: "Try your hand at traditional Maldivian hand-line fishing on a sunset fishing trip. The chefs at the resort will cook your catch for a special beach barbecue dinner."},
+          {day: 7, summary: "Departure", details: "Enjoy a final breakfast in paradise. Depending on your flight time, you might have time for one last swim before your transfer back to Malé airport."}
+        ],
+        includes: ["6 nights resort accommodation", "Round-trip speedboat/seaplane transfers", "Half board meal plan (Breakfast and Dinner)", "A package of 6 dives for certified divers OR a Discover Scuba Diving experience for beginners", "Sunset fishing trip", "Use of non-motorized watersports"],
+        excludes: ["International flights", "Lunches", "Additional dives or courses", "Spa treatments", "Travel insurance"],
+        notes: ["Choose a resort in an atoll known for its diving, like South Ari Atoll for whale sharks or Baa Atoll for mantas (seasonal).", "Remember the 18-24 hour no-fly rule after your last dive."]
+      }
+    ]
+  }
 ];
 
 export const FILTER_OPTIONS = {

@@ -64,7 +64,7 @@ export const useFooter = () => {
       body.append('name', formData.name);
       body.append('contactNumber', formData.contactNumber);
       body.append('comment', formData.comment || '');
-      body.append('access_key', '00176335-a9f3-421c-b7cd-b53b561f0526');
+      body.append('access_key', 'c5ef9919-27cb-464e-bd82-1662fbd7989d');
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',

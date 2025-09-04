@@ -256,7 +256,7 @@ const Itinerary = ({ destination, trip }) => {
       </div>
 
       <div className={styles.subHeader}>
-        <div className={styles.subHeaderLabel}>Upcoming Trips</div>
+        {/* <div className={styles.subHeaderLabel}>Upcoming Trips</div> */}
         <div className={styles.timelineDynamic}>
           {segmentWidths.map((w, idx) => (
             <div

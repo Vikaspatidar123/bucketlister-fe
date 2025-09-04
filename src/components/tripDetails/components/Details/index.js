@@ -7,10 +7,12 @@ import { DATE_LABELS } from "@/components/tripDetails/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import EnquiryPopup from "@/components/common/EnquiryPopup";
 import styles from "./style.module.scss";
 
 const Details = ({ destination, trip }) => {
   const [activeTab, setActiveTab] = useState("dates");
+  const [isEnquiryPopupOpen, setIsEnquiryPopupOpen] = useState(false);
 
   const dateTabs = useMemo(() => {
     const ids = Array.isArray(trip?.availableDates) ? trip.availableDates : [];
@@ -139,7 +141,12 @@ const Details = ({ destination, trip }) => {
       </div> */}
 
       <div className={styles.ctaRow}>
-        <button className={`${styles.btn} ${styles.secondary}`}>Enquire</button>
+        <button 
+          className={`${styles.btn} ${styles.secondary}`}
+          onClick={() => setIsEnquiryPopupOpen(true)}
+        >
+          Enquire
+        </button>
         <Link 
           href={`/book-now/${trip?.tripId || destination?.destination_id}?destination=${encodeURIComponent(destination?.destination_name || '')}&title=${encodeURIComponent(trip?.title || '')}&price=${trip?.price || ''}&duration=${encodeURIComponent(trip?.duration || '')}&capacity=${trip?.capacity || ''}`}
           className={`${styles.btn} ${styles.primary} ${styles.linkBtn}`}
@@ -147,6 +154,13 @@ const Details = ({ destination, trip }) => {
           Book Tour
         </Link>
       </div>
+
+      <EnquiryPopup
+        isOpen={isEnquiryPopupOpen}
+        onClose={() => setIsEnquiryPopupOpen(false)}
+        destinationName={destination?.destination_name}
+        tripTitle={trip?.title}
+      />
     </div>
   );
 };

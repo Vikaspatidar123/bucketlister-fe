@@ -18,7 +18,7 @@ const loadRazorpayScript = () => {
     }
 
     const script = document.createElement('script');
-    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.src = process.env.NEXT_PUBLIC_RAZORPAY_CHECKOUT_URL || 'https://checkout.razorpay.com/v1/checkout.js';
     script.onload = () => resolve(true);
     script.onerror = () => resolve(false);
     document.body.appendChild(script);
@@ -28,6 +28,7 @@ const loadRazorpayScript = () => {
 // Initialize Razorpay payment
 export const initiateRazorpayPayment = async ({
   amount,
+  orderId = null,
   currency = 'INR',
   customerDetails,
   bookingDetails,
@@ -35,6 +36,19 @@ export const initiateRazorpayPayment = async ({
   onFailure
 }) => {
   try {
+    // Validate amount
+    if (!amount || amount <= 0) {
+      throw new Error(`Invalid amount: ${amount}`);
+    }
+    
+    const amountInPaisa = Math.round(amount * 100);
+    console.log('Razorpay Payment Init:', {
+      originalAmount: amount,
+      amountInPaisa,
+      currency,
+      customerDetails: customerDetails?.email
+    });
+    
     // Load Razorpay script
     const isLoaded = await loadRazorpayScript();
     
@@ -42,15 +56,15 @@ export const initiateRazorpayPayment = async ({
       throw new Error('Failed to load Razorpay');
     }
 
-    // For testing purposes, we'll create payment without order ID
-    // In production, you MUST create an order on your backend first
+    // Payment options for Razorpay
     const options = {
-      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'rzp_test_RCpLy9EXINX00z', // Use environment variable
-      amount: amount * 100, // Razorpay expects amount in paisa
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID, // Use environment variable
+      amount: amountInPaisa, // Razorpay expects amount in paisa
       currency: currency,
       name: 'Bucketlister',
       description: `Booking Payment - ${bookingDetails.batchName || 'Adventure Trip'}`,
       image: '/favicon.ico', // Your logo URL
+      ...(orderId && { order_id: orderId }), // Include order_id if provided
       prefill: {
         name: customerDetails.name || '',
         email: customerDetails.email,
@@ -66,6 +80,7 @@ export const initiateRazorpayPayment = async ({
         color: '#ef3447',
       },
       handler: function (response) {
+        console.log('Razorpay Success Response:', response);
         // Payment successful
         onSuccess({
           razorpay_payment_id: response.razorpay_payment_id,
@@ -88,6 +103,13 @@ export const initiateRazorpayPayment = async ({
 
   } catch (error) {
     console.error('Razorpay payment error:', error);
+    console.error('Razorpay error details:', {
+      message: error.message,
+      stack: error.stack,
+      name: error.name,
+      razorpayLoaded: !!window.Razorpay,
+      keyId: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID
+    });
     onFailure({
       error: 'payment_initialization_failed',
       message: error.message || 'Failed to initialize payment'

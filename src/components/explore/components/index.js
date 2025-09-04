@@ -46,13 +46,13 @@ const ExplorePage = () => {
           <section className={styles.destinationDescriptionSection}>
             <div className={styles.container}>
               <p className={styles.destinationName}>
-                About {destinationData.destination_name} Tours & Packages
+                About {destinationData.destination_name}
               </p>
               <div className={styles.destinationDescription}>
                 <ReadMoreText 
                   text={destinationData.destination_description || destinationData.description}
                   maxLength={200}
-                  modalTitle={`About ${destinationData.destination_name} Tours & Packages`}
+                  modalTitle={`About ${destinationData.destination_name}`}
                 />
               </div>
             </div>

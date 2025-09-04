@@ -28,7 +28,11 @@ const TripDetails = ({ destination, trip }) => {
   return (
     <section className={styles.tripDetailsSection}>
       <div id="trip-overview">
-        <TripHeader title={destination.destination_name} price={trip.price} />
+        <TripHeader 
+          title={destination.destination_name} 
+          price={trip.price} 
+          hasBatches={Array.isArray(trip?.batches) && trip.batches.length > 0}
+        />
       </div>
       <TripNavTabs />
       <div className={styles.container}>

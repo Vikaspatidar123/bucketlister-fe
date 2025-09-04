@@ -9,16 +9,10 @@ const CouponsOffers = ({ onCouponApply, appliedCoupon = null, compact = false })
 
   const availableCoupons = [
     {
-      code: "WRAVELER",
-      discount: 5000,
-      description: "Use code WRAVELER & get upto 5000 off on this booking",
-      applied: appliedCoupon?.code === "WRAVELER"
-    },
-    {
       code: "FIRST100",
-      discount: 1000,
-      description: "First time booking discount of ₹1000",
-      applied: false
+      discount: 500,
+      description: "First time booking discount of 500",
+      applied: true
     },
     {
       code: "WEEKEND50",

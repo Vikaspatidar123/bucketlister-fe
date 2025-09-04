@@ -3,10 +3,74 @@
   right: max(16px, env(safe-area-inset-right));
   bottom: max(16px, env(safe-area-inset-bottom));
   z-index: 4000;
-  display: none;
+  display: block;
 
-  @media (max-width: 768px) {
-    display: block;
+  // Desktop adjustments
+  @media (min-width: 769px) {
+    right: max(24px, env(safe-area-inset-right));
+    bottom: max(24px, env(safe-area-inset-bottom));
+  }
+}
+
+// Desktop: Only WhatsApp Icon
+.desktopWhatsApp {
+  display: none;
+  
+  @media (min-width: 769px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #25d366; // WhatsApp green color
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transition: all 0.2s ease;
+    position: relative;
+    
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+      background: #22c55e;
+    }
+    
+    &:active {
+      transform: scale(0.98);
+    }
+
+    // Subtle pulse effect
+    &::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: radial-gradient(closest-side, rgba(37, 211, 102, 0.2), transparent 70%);
+      opacity: 0.7;
+      filter: blur(2px);
+      animation: whatsappPulse 3s ease-in-out infinite;
+    }
+
+    &:hover::after {
+      animation: none;
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes whatsappPulse {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+// Mobile: Full FAB System
+.mobileFab {
+  display: block;
+  
+  @media (min-width: 769px) {
+    display: none;
   }
 
   &.open .fabActions {
@@ -28,6 +92,16 @@
   font-weight: 700;
   box-shadow: 0 10px 24px rgba(239, 52, 71, 0.35);
   position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  // Desktop hover effects
+  @media (min-width: 769px) {
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 28px rgba(239, 52, 71, 0.45);
+    }
+  }
 }
 
 .plusIcon {
@@ -58,6 +132,16 @@
   opacity: 0;
   transform: translateY(8px) scale(0.9);
   animation: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  // Desktop hover effects
+  @media (min-width: 769px) {
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(0) scale(1.05);
+    }
+  }
 }
 
 .open .fabAction:nth-child(1) {

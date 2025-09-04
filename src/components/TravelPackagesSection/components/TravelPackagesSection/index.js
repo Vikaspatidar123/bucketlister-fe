@@ -125,6 +125,11 @@ const TravelPackagesSection = ({
     return duration;
   };
 
+  // Helper to check if trip has active batches
+  const hasBatches = (trip) => {
+    return Array.isArray(trip?.batches) && trip.batches.length > 0;
+  };
+
   // const parsePriceNumber = (priceString) => {
   //   if (!priceString) return null;
   //   const n = parseInt(String(priceString).replace(/[^\d]/g, ''));
@@ -139,64 +144,59 @@ const TravelPackagesSection = ({
   const getDatesFooter = (trip) => {
     // Prefer batches (array of { MonthName: [dateRangeStrings...] })
     if (Array.isArray(trip?.batches) && trip.batches.length > 0) {
-      const firstDates = [];
-      let totalCount = 0;
+      const allStartDates = [];
       const monthMap = {
-        '01': 'Jan', '1': 'Jan', 'jan': 'Jan',
-        '02': 'Feb', '2': 'Feb', 'feb': 'Feb',
-        '03': 'Mar', '3': 'Mar', 'mar': 'Mar',
-        '04': 'Apr', '4': 'Apr', 'apr': 'Apr',
-        '05': 'May', '5': 'May', 'may': 'May',
-        '06': 'Jun', '6': 'Jun', 'jun': 'Jun',
-        '07': 'Jul', '7': 'Jul', 'jul': 'Jul',
-        '08': 'aug', '8': 'aug', 'aug': 'aug',
-        '09': 'Sep', '9': 'Sep', 'sep': 'Sep',
-        '10': 'Oct', 'oct': 'Oct',
-        '11': 'Nov', 'nov': 'Nov',
-        '12': 'Dec', 'dec': 'Dec',
+        'January': 'Jan', 'February': 'Feb', 'March': 'Mar', 'April': 'Apr', 
+        'May': 'May', 'June': 'Jun', 'July': 'Jul', 'August': 'Aug', 
+        'September': 'Sep', 'October': 'Oct', 'November': 'Nov', 'December': 'Dec'
       };
 
-      const toStartMonYY = (rangeStr) => {
-        try {
-          const [startRaw, endRaw] = String(rangeStr).split(/\s*-\s*/);
-          const [sd, sm] = startRaw.split('/')
-            .map((s) => s.trim());
-          const sy = startRaw.split('/')[2]?.trim();
-          const mon = monthMap[sm?.replace(/^0+/, '') || sm] || '';
-          if (mon && sy) return `${mon}${sy}`;
-        } catch { }
-        return rangeStr;
-      };
-      for (const obj of trip.batches) {
-        if (!obj || typeof obj !== 'object') continue;
-        const monthKey = Object.keys(obj)[0];
-        const dates = obj[monthKey];
-        if (Array.isArray(dates)) {
-          totalCount += dates.length;
-          for (const d of dates) {
-            if (firstDates.length < 3) firstDates.push(d);
+      // Extract all start dates from batches
+      for (const batch of trip.batches) {
+        if (!batch || typeof batch !== 'object') continue;
+        
+        for (const [monthName, dateRanges] of Object.entries(batch)) {
+          if (!Array.isArray(dateRanges)) continue;
+          
+          const monthAbbr = monthMap[monthName] || monthName.slice(0, 3);
+          
+          for (const dateRange of dateRanges) {
+            try {
+              const [startDateStr] = String(dateRange).split(/\s*-\s*/);
+              const [day, month, year] = startDateStr.split('/').map(s => s.trim());
+              
+              if (day && month && year) {
+                allStartDates.push(`${monthAbbr} ${parseInt(day)}`);
+              }
+            } catch (e) {
+              // Skip invalid date formats
+            }
           }
         }
-        if (firstDates.length >= 3) break;
       }
-      if (totalCount > 0) {
-        const extra = Math.max(0, totalCount - firstDates.length);
-        const compact = firstDates.map(toStartMonYY);
-        return `Dates: ${compact.join(', ')}${extra > 0 ? ` +${extra} more` : ''}`;
+
+      if (allStartDates.length > 0) {
+        const maxShow = 4;
+        const shown = allStartDates.slice(0, maxShow);
+        const extra = Math.max(0, allStartDates.length - maxShow);
+        
+        return shown.join(', ') + (extra > 0 ? `, +${extra}more` : '');
       }
     }
+    
     // Fallback to availableDates (legacy)
     if (Array.isArray(trip?.availableDates) && trip.availableDates.length > 0) {
-      const shown = trip.availableDates.slice(0, 3).map((code) => {
+      const shown = trip.availableDates.slice(0, 4).map((code) => {
         const mon = (code || '').replace(/\d+/g, '').toLowerCase();
         const yr = (code || '').replace(/\D+/g, '');
         const map = { jan: 'Jan', feb: 'Feb', mar: 'Mar', apr: 'Apr', may: 'May', jun: 'Jun', jul: 'Jul', aug: 'Aug', sep: 'Sep', oct: 'Oct', nov: 'Nov', dec: 'Dec' };
         return `${map[mon] || mon}${yr}`;
       });
-      const extra = trip.availableDates.length - shown.length;
-      return `Dates: ${shown.join(', ')}${extra > 0 ? ` +${extra} more` : ''}`;
+      const extra = Math.max(0, trip.availableDates.length - 4);
+      return shown.join(', ') + (extra > 0 ? `, +${extra}more` : '');
     }
-    return 'Dates on Request';
+    
+    return 'Customizable Dates';
   };
 
   // Check if any filters are active
@@ -524,19 +524,23 @@ const TravelPackagesSection = ({
                 </div>
                 <h3 className={styles.cardTitle}>{trip.title}</h3>
 
-                <div className={styles.priceRow}>
-                  <span className={styles.currentPrice}>{trip.price}</span>
-                  {trip.originalPrice && (
-                    <span className={styles.oldPrice}>
-                      {trip.originalPrice}
+                {hasBatches(trip) && (
+                  <div className={styles.priceRow}>
+                    <span className={styles.currentPrice}>
+                      ₹{typeof trip.price === 'number' ? trip.price.toLocaleString('en-IN') : trip.price}
                     </span>
-                  )}
-                  {trip.discountAmount && (
-                    <span className={styles.discount}>
-                      ₹ {trip.discountAmount} Off
-                    </span>
-                  )}
-                </div>
+                    {trip.originalPrice && (
+                      <span className={styles.oldPrice}>
+                        ₹{typeof trip.originalPrice === 'number' ? trip.originalPrice.toLocaleString('en-IN') : trip.originalPrice}
+                      </span>
+                    )}
+                    {trip.discountAmount && (
+                      <span className={styles.discount}>
+                        ₹{typeof trip.discountAmount === 'number' ? trip.discountAmount.toLocaleString('en-IN') : trip.discountAmount} Off
+                      </span>
+                    )}
+                  </div>
+                )}
 
                 <div className={styles.footerRow}>{getDatesFooter(trip)}</div>
               </div>

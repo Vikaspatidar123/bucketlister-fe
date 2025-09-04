@@ -4,6 +4,7 @@ import styles from "./style.module.scss";
 
 const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, subtitle, hideAmount = false }) => {
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     phone: "",
   });
@@ -12,6 +13,13 @@ const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, 
 
   const validateForm = () => {
     const newErrors = {};
+    
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = "Full name is required";
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Please enter your full name";
+    }
     
     // Email validation
     if (!formData.email.trim()) {
@@ -42,6 +50,7 @@ const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, 
     
     try {
       await onSubmit({
+        name: formData.name.trim(),
         email: formData.email.trim(),
         phone: formData.phone.trim(),
       });
@@ -100,6 +109,22 @@ const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, 
         )}
 
         <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label htmlFor="name" className={styles.label}>
+              Full Name <span className={styles.required}>*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              value={formData.name}
+              onChange={(e) => handleInputChange("name", e.target.value)}
+              className={`${styles.input} ${errors.name ? styles.error : ""}`}
+              placeholder="Enter your full name"
+              disabled={isSubmitting}
+            />
+            {errors.name && <span className={styles.errorText}>{errors.name}</span>}
+          </div>
+
           <div className={styles.formGroup}>
             <label htmlFor="email" className={styles.label}>
               Email Address <span className={styles.required}>*</span>

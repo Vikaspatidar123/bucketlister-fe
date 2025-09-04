@@ -140,42 +140,99 @@
 
 @media (max-width: 768px) {
   .pricingSummaryContainer {
-    padding: 20px;
-  }
-  
-  .header {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
-  
-  .title {
-    font-size: 20px;
-  }
-  
-  .totalAmount {
-    font-size: 24px;
-  }
-  
-  .breakdownRow {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 0;
     
-    &:not(:last-child) {
-      border-bottom: 1px solid #f8f9fa;
-      padding-bottom: 12px;
+    &.compact {
+      padding: 14px;
     }
   }
   
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+  }
+  
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .totalAmount {
+    font-size: 20px;
+    font-weight: 800;
+  }
+  
+  .compact .title {
+    font-size: 16px;
+  }
+  
+  .compact .totalAmount {
+    font-size: 18px;
+  }
+  
+  .breakdown {
+    gap: 8px;
+  }
+  
+  .breakdownRow {
+    padding: 6px 0;
+    border-bottom: 1px solid #f1f5f9;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  .label {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
   .sublabel {
-    padding-left: 0;
     font-size: 13px;
+    padding-left: 12px;
+    color: #64748b;
   }
   
   .value {
-    text-align: left;
-    min-width: auto;
-    align-self: flex-end;
+    font-size: 14px;
+    font-weight: 600;
+    min-width: 70px;
+  }
+  
+  .bookingRow {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    padding: 8px;
+    margin: 6px 0;
+    
+    .label {
+      color: #0369a1;
+      font-weight: 600;
+    }
+    
+    .value {
+      color: #0369a1;
+      font-weight: 700;
+    }
+  }
+  
+  .subtotalRow,
+  .finalRow {
+    border-top: 2px solid #e2e8f0;
+    padding-top: 10px;
+    margin-top: 8px;
+    
+    .label,
+    .value {
+      font-size: 15px;
+      font-weight: 700;
+    }
   }
 }
