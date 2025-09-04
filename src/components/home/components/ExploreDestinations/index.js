@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { DESTINATION_TABS } from '../../constants';
 import { useDestinations } from '../../hooks/useDestinations';
 import DestinationCard from '../DestinationCard';
@@ -13,10 +13,43 @@ const ExploreDestinations = () => {
     router
   } = useDestinations();
 
+  const [indicatorStyle, setIndicatorStyle] = useState({});
+  const tabsRef = useRef(null);
+  const tabRefs = useRef([]);
+
   const handleDestinationClick = (destination) => {
     const id = destination.destination_id || destination.id;
     router.push(`/explore?destinationId=${id}`);
   };
+
+  const updateIndicator = () => {
+    const activeIndex = DESTINATION_TABS.findIndex(tab => tab.id === activeTab);
+    if (activeIndex !== -1 && tabRefs.current[activeIndex]) {
+      const activeTabElement = tabRefs.current[activeIndex];
+      const tabsContainer = tabsRef.current;
+
+      if (activeTabElement && tabsContainer) {
+        const tabRect = activeTabElement.getBoundingClientRect();
+        const containerRect = tabsContainer.getBoundingClientRect();
+
+        setIndicatorStyle({
+          left: tabRect.left - containerRect.left,
+          width: tabRect.width,
+          opacity: 1
+        });
+      }
+    }
+  };
+
+  useEffect(() => {
+    updateIndicator();
+  }, [activeTab]);
+
+  useEffect(() => {
+    const handleResize = () => updateIndicator();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <section className={styles.exploreDestinations}>
@@ -24,12 +57,17 @@ const ExploreDestinations = () => {
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>Explore Destinations</h2>
         </div>
-        
+
         <div className={styles.tabsContainer}>
-          <div className={styles.tabs}>
-            {DESTINATION_TABS.map((tab) => (
+          <div className={styles.tabs} ref={tabsRef}>
+            <div
+              className={styles.slidingIndicator}
+              style={indicatorStyle}
+            />
+            {DESTINATION_TABS.map((tab, index) => (
               <button
                 key={tab.id}
+                ref={el => tabRefs.current[index] = el}
                 className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
                 onClick={() => handleTabChange(tab.id)}
               >
@@ -38,7 +76,7 @@ const ExploreDestinations = () => {
             ))}
           </div>
         </div>
-        
+
         <div className={styles.destinationsContainer}>
           <div className={styles.destinationsRow}>
             {destinations.slice(0, Math.ceil(destinations.length / 2)).map((destination) => (
