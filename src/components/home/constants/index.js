@@ -23,7 +23,7 @@ export const STATS_DATA = [
   {
     id: 1,
     icon: reviewIcon,
-    text: "★4.9 Stars (727 Reviews)"
+    text: "★4.9 Stars (700+ Reviews)"
   },
   {
     id: 2,
@@ -38,7 +38,7 @@ export const STATS_DATA = [
   {
     id: 4,
     icon: instagramIcon,
-    text: "99K+ Following"
+    text: "17K+ Following"
   }
 ];
 

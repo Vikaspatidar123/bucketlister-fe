@@ -33,7 +33,7 @@ const FooterLinks = () => {
           <ul className={styles.linkList}>
             {FOOTER_LINKS.otherServices.map((link, index) => (
               <li key={index}>
-                <a href="#" className={styles.link}>{link}</a>
+                <a href={link.url} className={styles.link}>{link.name}</a>
               </li>
             ))}
           </ul>
@@ -44,7 +44,7 @@ const FooterLinks = () => {
           <ul className={styles.linkList}>
             {FOOTER_LINKS.quickLinks.map((link, index) => (
               <li key={index}>
-                <a href="#" className={styles.link}>{link}</a>
+                <a href={link.url} className={styles.link}>{link.name}</a>
               </li>
             ))}
           </ul>

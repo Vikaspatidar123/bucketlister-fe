@@ -219,7 +219,7 @@ const TermsAndConditions = () => {
                     <strong>Email:</strong> sales.thebucketlister@gmail.com
                   </div>
                   <div className={styles.contactItem}>
-                    <strong>Phone:</strong> +91-702664759, +91-9137911579
+                    <strong>Phone:</strong> +91-702664759
                   </div>
                   <div className={styles.contactItem}>
                     <strong>Address:</strong><br/>

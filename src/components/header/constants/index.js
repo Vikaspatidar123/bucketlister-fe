@@ -28,7 +28,7 @@ export const NAVIGATION_ITEMS = [
 ];
 
 export const CONTACT_INFO = {
-  phone: "+91 987654321",
+  phone: "+91 70216 64759",
   phoneIcon: "📞",
 };
 
