@@ -30,12 +30,14 @@ const TravelPackagesSection = ({
     currentPage,
     sortBy,
     filteredAndSortedData,
-    totalPages,
-    paginatedData,
+    totalItems,
+    hasMoreItems,
+    displayedData,
     handleFilterChange,
     handlePriceRangeChange,
     clearFilters,
     handlePageChange,
+    handleLoadMore,
     setActiveDateTab,
     setSortBy,
     isPriceFilterOpen,
@@ -119,7 +121,7 @@ const TravelPackagesSection = ({
       if (Number.isFinite(days) && Number.isFinite(nights)) {
         return `${nights} nights / ${days} days`;
       }
-    } catch (e) {}
+    } catch (e) { }
     return duration;
   };
 
@@ -162,7 +164,7 @@ const TravelPackagesSection = ({
           const sy = startRaw.split('/')[2]?.trim();
           const mon = monthMap[sm?.replace(/^0+/, '') || sm] || '';
           if (mon && sy) return `${mon}${sy}`;
-        } catch {}
+        } catch { }
         return rangeStr;
       };
       for (const obj of trip.batches) {
@@ -210,14 +212,12 @@ const TravelPackagesSection = ({
   return (
     <section
       id="travel-packages"
-      className={`${styles.travelPackagesSection} ${
-        destinationName ? styles.explorePage : ""
-      } ${listLayout ? styles.listLayout : ""}`}
+      className={`${styles.travelPackagesSection} ${destinationName ? styles.explorePage : ""
+        } ${listLayout ? styles.listLayout : ""}`}
     >
       <div
-        className={`${styles.container} ${
-          destinationName ? styles.explorePageContainer : ""
-        }`}
+        className={`${styles.container} ${destinationName ? styles.explorePageContainer : ""
+          }`}
       >
         {listLayout && (
           <div className={styles.listBanner}>
@@ -298,9 +298,8 @@ const TravelPackagesSection = ({
                 {/* Collapsible Price Range Filter */}
                 <div
                   ref={priceFilterRef}
-                  className={`${styles.priceFilterContainer} ${
-                    isPriceFilterOpen ? styles.open : ""
-                  }`}
+                  className={`${styles.priceFilterContainer} ${isPriceFilterOpen ? styles.open : ""
+                    }`}
                 >
                   <div
                     className={styles.priceFilterHeader}
@@ -310,9 +309,8 @@ const TravelPackagesSection = ({
                       {formatPriceRange()}
                     </span>
                     <span
-                      className={`${styles.priceFilterArrow} ${
-                        isPriceFilterOpen ? styles.rotated : ""
-                      }`}
+                      className={`${styles.priceFilterArrow} ${isPriceFilterOpen ? styles.rotated : ""
+                        }`}
                     >
                       ▼
                     </span>
@@ -356,7 +354,7 @@ const TravelPackagesSection = ({
               </div>
               <div className={styles.resultsInfo}>
                 <span className={styles.resultsCount}>
-                  {filteredAndSortedData.length} packages found
+                  {/* {filteredAndSortedData.length} packages found */}
                 </span>
               </div>
               <div className={styles.filterActions}>
@@ -368,9 +366,8 @@ const TravelPackagesSection = ({
 
             {/* Mobile Filters Overlay */}
             <div
-              className={`${styles.mobileFiltersOverlay} ${
-                isMobileFiltersOpen ? styles.open : ""
-              }`}
+              className={`${styles.mobileFiltersOverlay} ${isMobileFiltersOpen ? styles.open : ""
+                }`}
               aria-hidden={!isMobileFiltersOpen}
             >
               <div
@@ -407,9 +404,8 @@ const TravelPackagesSection = ({
 
                   <div
                     ref={priceFilterRef}
-                    className={`${styles.priceFilterContainer} ${
-                      isPriceFilterOpen ? styles.open : ""
-                    }`}
+                    className={`${styles.priceFilterContainer} ${isPriceFilterOpen ? styles.open : ""
+                      }`}
                   >
                     <div
                       className={styles.priceFilterHeader}
@@ -419,9 +415,8 @@ const TravelPackagesSection = ({
                         {formatPriceRange()}
                       </span>
                       <span
-                        className={`${styles.priceFilterArrow} ${
-                          isPriceFilterOpen ? styles.rotated : ""
-                        }`}
+                        className={`${styles.priceFilterArrow} ${isPriceFilterOpen ? styles.rotated : ""
+                          }`}
                       >
                         ▼
                       </span>
@@ -465,8 +460,8 @@ const TravelPackagesSection = ({
                 </div>
                 <div className={styles.overlayFooter}>
                   <div
-                    // className={styles.}
-                    // onClick={() => setIsMobileFiltersOpen(false)}
+                  // className={styles.}
+                  // onClick={() => setIsMobileFiltersOpen(false)}
                   >
                     {/* Apply */}
                   </div>
@@ -495,7 +490,7 @@ const TravelPackagesSection = ({
         )}
         {/* Travel Package Cards Grid */}
         <div className={styles.packagesGrid}>
-          {paginatedData.map((trip) => (
+          {displayedData.map((trip) => (
             <div
               key={trip.tripId}
               className={styles.packageCard}
@@ -549,16 +544,15 @@ const TravelPackagesSection = ({
           ))}
         </div>
 
-        {/* Pagination - Only show when not showing a specific trip or destination */}
-        {!selectedTripId && !destinationName && totalPages > 1 && (
-          <div className={styles.paginationWrapper}>
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-              size="medium"
-              showFirstLast={false}
-            />
+        {/* Load More Button - Only show when not showing a specific trip or destination */}
+        {!selectedTripId && !destinationName && hasMoreItems && (
+          <div className={styles.loadMoreWrapper}>
+            <button
+              className={styles.loadMoreButton}
+              onClick={handleLoadMore}
+            >
+              Load More
+            </button>
           </div>
         )}
       </div>

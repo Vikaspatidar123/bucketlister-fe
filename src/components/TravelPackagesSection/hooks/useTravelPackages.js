@@ -167,8 +167,9 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState('default');
   const [isPriceFilterOpen, setIsPriceFilterOpen] = useState(false);
+  const [itemsToShow, setItemsToShow] = useState(4);
 
-  const itemsPerPage = 8;
+  const itemsPerLoad = 4;
 
   // Use the click outside hook
   const priceFilterRef = useClickOutside(isPriceFilterOpen, () => setIsPriceFilterOpen(false));
@@ -312,12 +313,10 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     return filtered;
   }, [flattenedData, filters, activeDateTab, sortBy]);
 
-  // Pagination
-  const totalPages = Math.ceil(filteredAndSortedData.length / itemsPerPage);
-  const paginatedData = filteredAndSortedData.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  // Load More functionality
+  const totalItems = filteredAndSortedData.length;
+  const hasMoreItems = itemsToShow < totalItems;
+  const displayedData = filteredAndSortedData.slice(0, itemsToShow);
 
   const handleFilterChange = (filterType, value) => {
     // Store current scroll position
@@ -328,6 +327,7 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
       [filterType]: value
     }));
     setCurrentPage(1); // Reset to first page when filters change
+    setItemsToShow(4); // Reset to show only 4 items when filters change
     
     // Maintain scroll position after filter change
     setTimeout(() => {
@@ -346,6 +346,7 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
       priceRange: priceRange
     }));
     setCurrentPage(1); // Reset to first page when price range changes
+    setItemsToShow(4); // Reset to show only 4 items when price range changes
     
     // Maintain scroll position after price range change
     setTimeout(() => {
@@ -365,6 +366,7 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
       destinationType: null
     });
     setCurrentPage(1);
+    setItemsToShow(4); // Reset to show only 4 items when clearing filters
     setActiveDateTab('all');
     setSortBy('default');
     
@@ -389,6 +391,7 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     
     setActiveDateTab(tabId);
     setCurrentPage(1);
+    setItemsToShow(4); // Reset to show only 4 items when date tab changes
     
     // Maintain scroll position after date tab change
     setTimeout(() => {
@@ -402,11 +405,16 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     
     setSortBy(sortValue);
     setCurrentPage(1);
+    setItemsToShow(4); // Reset to show only 4 items when sort changes
     
     // Maintain scroll position after sort change
     setTimeout(() => {
       window.scrollTo(0, currentScrollPosition);
     }, 0);
+  };
+
+  const handleLoadMore = () => {
+    setItemsToShow(prev => Math.min(prev + itemsPerLoad, totalItems));
   };
 
   const togglePriceFilter = () => {
@@ -425,17 +433,20 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     sortBy,
     isPriceFilterOpen,
     maxPrice,
+    itemsToShow,
     
     // Computed values
     filteredAndSortedData,
-    totalPages,
-    paginatedData,
+    totalItems,
+    hasMoreItems,
+    displayedData,
     
     // Actions
     handleFilterChange,
     handlePriceRangeChange,
     clearFilters,
     handlePageChange,
+    handleLoadMore,
     setActiveDateTab: setActiveDateTabHandler,
     setSortBy: setSortByHandler,
     togglePriceFilter,

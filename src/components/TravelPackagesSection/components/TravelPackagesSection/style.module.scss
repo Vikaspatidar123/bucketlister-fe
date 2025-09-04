@@ -1,5 +1,5 @@
 .travelPackagesSection {
-  padding: 80px 0;
+  padding: 40px 0;
   // background: #f8f9fa;
 
   .container {
@@ -7,8 +7,8 @@
     margin: 0 auto;
     // padding: 0 20px;
     margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid red;
+    padding-top: 20px;
+    // border-top: 1px solid red;
   }
 
   /* When used on Explore, remove the top border and spacing */
@@ -102,6 +102,8 @@
     }
   }
 
+  
+
   // Mobile responsive styles
   @media (max-width: 768px) {
     margin-bottom: 30px;
@@ -177,7 +179,7 @@
   // background: white;
   border-radius: 16px;
   padding: 2px 8px;
-  margin-bottom: 3px;
+  margin-bottom: 12px;
   // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: flex-start; // Changed from center to flex-start
@@ -491,8 +493,10 @@
     transition: color 0.2s ease;
     padding: 10px 20px;
     border: 1px solid transparent;
+    text-decoration: underline;
+    color: #ef3447;
     &:hover {
-      color: #495057;
+      // color: #495057;
       border: 1px solid #ef3447;
       border-radius: 8px;
     }
@@ -781,7 +785,7 @@
   border-radius: 16px;
   overflow: hidden;
   // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   width: 100%;
 
@@ -792,8 +796,7 @@
   &:hover {
     // transform: translateY(-8px);
     // box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    scale: 1.05;
-    transition: all 0.3s ease;
+    transform: scale(1.05);
   }
 
   .cardImage {
@@ -805,7 +808,6 @@
     border-top-right-radius: 16px;
     &:hover {
       border-radius: 0px;
-      transition: all 0.3s ease;
     }
 
     .packageImage {
@@ -1010,6 +1012,41 @@
   margin-top: 40px;
 }
 
+.loadMoreWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.loadMoreButton {
+  background: #ef3447;
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(239, 52, 71, 0.3);
+  
+  &:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 52, 71, 0.4);
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(239, 52, 71, 0.3);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(239, 52, 71, 0.2);
+  }
+}
+
 // Responsive design
 @media (min-width: 1600px) {
   .travelPackagesSection .container {
@@ -1203,6 +1240,15 @@
       display: none;
       height: 0;
     }
+  }
+
+  .loadMoreWrapper {
+    margin-top: 32px;
+  }
+
+  .loadMoreButton {
+    padding: 10px 28px;
+    font-size: 15px;
   }
 
   .packageCard {
@@ -1585,9 +1631,18 @@
     }
   }
 
+  .loadMoreWrapper {
+    margin-top: 28px;
+  }
+
+  .loadMoreButton {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+
   .packageCard {
-    flex: 0 0 88%;
-    max-width: 88%;
+    flex: 0 0 62%;
+    max-width: 62%;
     scroll-snap-align: start;
     &:hover {
       // disable hover zoom on small phones
@@ -1627,7 +1682,7 @@
 @media (max-width: 768px) {
   .packageCard {
     .cardBody {
-      padding: 10px 12px 0 12px;
+      padding: 6px 4px 0 6px;
       gap: 8px;
       margin-top: -14px;
     }
@@ -1640,7 +1695,7 @@
     }
 
     .cardTitle {
-      font-size: 17px;
+      font-size: 14px;
     }
 
     .priceRow {
@@ -1657,7 +1712,7 @@
 
     .footerRow {
       font-size: 13px;
-      padding: 12px;
+      padding: 8px;
     }
   }
   .clearButton{

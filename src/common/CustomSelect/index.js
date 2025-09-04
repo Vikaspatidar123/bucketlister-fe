@@ -32,8 +32,8 @@ const CustomSelect = ({
   // Filter options based on search term
   const filteredOptions = isSearchable
     ? options.filter(option =>
-        option && option.label && option.label.toLowerCase().includes(searchTerm.toLowerCase())
-      )
+      option && option.label && option.label.toLowerCase().includes(searchTerm.toLowerCase())
+    )
     : options.filter(option => option && option.label);
 
   // Handle click outside to close dropdown
@@ -89,9 +89,9 @@ const CustomSelect = ({
     }
     // advertise open state globally to avoid unintended outside-closes
     if (isOpen) {
-      try { document.body.setAttribute('data-custom-select-open', 'true'); } catch (_) {}
+      try { document.body.setAttribute('data-custom-select-open', 'true'); } catch (_) { }
     } else {
-      try { document.body.removeAttribute('data-custom-select-open'); } catch (_) {}
+      try { document.body.removeAttribute('data-custom-select-open'); } catch (_) { }
     }
     if (!isOpen) return;
     updatePlacementAndSize();
@@ -105,7 +105,7 @@ const CustomSelect = ({
       window.removeEventListener('resize', handleWindowChange);
       window.removeEventListener('scroll', handleWindowChange);
       document.removeEventListener('scroll', handleWindowChange, { capture: true });
-      try { document.body.removeAttribute('data-custom-select-open'); } catch (_) {}
+      try { document.body.removeAttribute('data-custom-select-open'); } catch (_) { }
     };
   }, [isOpen, portalRoot]);
 
@@ -122,13 +122,13 @@ const CustomSelect = ({
     if (isMulti) {
       const isSelected = selectedOptions.some(opt => opt.value === option.value);
       let newSelectedOptions;
-      
+
       if (isSelected) {
         newSelectedOptions = selectedOptions.filter(opt => opt.value !== option.value);
       } else {
         newSelectedOptions = [...selectedOptions, option];
       }
-      
+
       setSelectedOptions(newSelectedOptions);
       onChange?.(newSelectedOptions);
     } else {
@@ -165,11 +165,11 @@ const CustomSelect = ({
   };
 
   return (
-    <div 
+    <div
       ref={dropdownRef}
       className={`${styles.customSelect} ${className} ${disabled ? styles.disabled : ''}`}
     >
-      <div 
+      <div
         ref={headerRef}
         className={`${styles.selectHeader} ${isOpen ? styles.open : ''}`}
         onClick={toggleDropdown}
@@ -194,8 +194,8 @@ const CustomSelect = ({
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className={styles.searchInput}
-                // Avoid auto focusing on mobile to prevent viewport jump/scroll to top
-                // autoFocus
+              // Avoid auto focusing on mobile to prevent viewport jump/scroll to top
+              // autoFocus
               />
             </div>
           )}
