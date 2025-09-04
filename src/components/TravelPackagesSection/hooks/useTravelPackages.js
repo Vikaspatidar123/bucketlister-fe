@@ -38,6 +38,67 @@ const useClickOutside = (isOpen, onClose) => {
 };
 
 export const useTravelPackages = (selectedTripId = null, destinationName = null) => {
+  // Extract month-year codes (e.g., "aug25") from a trip's batches or availableDates
+  const extractTripDateCodes = (trip) => {
+    const monthNumToKey = {
+      '01': 'jan', '1': 'jan',
+      '02': 'feb', '2': 'feb',
+      '03': 'mar', '3': 'mar',
+      '04': 'apr', '4': 'apr',
+      '05': 'may', '5': 'may',
+      '06': 'jun', '6': 'jun',
+      '07': 'jul', '7': 'jul',
+      '08': 'aug', '8': 'aug',
+      '09': 'sep', '9': 'sep',
+      '10': 'oct',
+      '11': 'nov',
+      '12': 'dec'
+    };
+    const monthNameToKey = {
+      january: 'jan', february: 'feb', march: 'mar', april: 'apr', may: 'may', june: 'jun',
+      july: 'jul', august: 'aug', september: 'sep', october: 'oct', november: 'nov', december: 'dec'
+    };
+
+    const codes = new Set();
+
+    // Prefer parsing from batches if present
+    if (Array.isArray(trip?.batches) && trip.batches.length > 0) {
+      for (const obj of trip.batches) {
+        if (!obj || typeof obj !== 'object') continue;
+        const monthKeyName = Object.keys(obj)[0];
+        const dates = obj[monthKeyName];
+        if (!Array.isArray(dates)) continue;
+
+        for (const rangeStr of dates) {
+          try {
+            const [startRaw] = String(rangeStr).split(/\s*-\s*/);
+            const parts = String(startRaw).split('/').map(s => s.trim());
+            const sm = parts[1]; // month (MM or M)
+            const sy = parts[2]; // year (YY)
+            const monKey = monthNumToKey[sm?.replace(/^0+/, '') || sm];
+            const yy = (sy || '').slice(-2);
+            if (monKey && yy) codes.add(`${monKey}${yy}`);
+          } catch (_) {
+            // Fallback: try using the month name key and year from any digits in the range
+            const monKey = monthNameToKey[(monthKeyName || '').toLowerCase()];
+            const yy = (String(rangeStr).match(/\b(\d{2})\b/) || [])[1];
+            if (monKey && yy) codes.add(`${monKey}${yy}`);
+          }
+        }
+      }
+    }
+
+    // Fallback to legacy availableDates directly if batches not usable
+    if (codes.size === 0 && Array.isArray(trip?.availableDates)) {
+      for (const code of trip.availableDates) {
+        if (typeof code === 'string' && code.trim()) {
+          codes.add(code.trim().toLowerCase());
+        }
+      }
+    }
+
+    return Array.from(codes);
+  };
   const generateBatchesFromAvailableDates = (availableDates) => {
     if (!Array.isArray(availableDates) || availableDates.length === 0) return undefined;
     const monthMap = {
@@ -192,7 +253,8 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
 
       // Filter by dates (using active tab)
       if (activeDateTab !== 'all') {
-        if (!trip.availableDates || !trip.availableDates.includes(activeDateTab)) {
+        const tripCodes = extractTripDateCodes(trip);
+        if (!Array.isArray(tripCodes) || !tripCodes.includes(activeDateTab)) {
           return false;
         }
       }
@@ -201,9 +263,6 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
       if (filters.destinationType && filters.destinationType.value) {
         if (trip.category !== filters.destinationType.value) {
           return false;
-        }
-        else{
-          return true;
         }
       }
 

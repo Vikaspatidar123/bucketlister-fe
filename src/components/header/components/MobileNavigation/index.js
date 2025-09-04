@@ -81,7 +81,7 @@ const MobileNavigation = ({ sheetOpen = false }) => {
         <div className={styles.mobileNavItem}>
           <div className={styles.mobileSubList}>
             {MORE_LINKS.map((link) => (
-              <a key={link.label} href={link.href} className={styles.mobileSubLink}>
+              <a key={link.label} href={link.href} className={styles.mobileSubLinkMore}>
                 {link.label}
               </a>
             ))}

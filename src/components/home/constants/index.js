@@ -43,9 +43,10 @@ export const STATS_DATA = [
 ];
 
 export const DESTINATION_TABS = [
-  { id: 'international', label: 'International', isActive: true },
+  { id: 'all', label: 'All', isActive: true },
+  { id: 'international', label: 'International', isActive: false },
   { id: 'domestic', label: 'Domestic', isActive: false },
-  { id: 'weekend', label: 'Weekend Getaways', isActive: false }
+  { id: 'weekend', label: 'Weekend', isActive: false }
 ];
 
 

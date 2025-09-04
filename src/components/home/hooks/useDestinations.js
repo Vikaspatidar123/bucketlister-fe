@@ -4,7 +4,7 @@ import { TRAVEL_PACKAGES_DATA } from "@/components/TravelPackagesSection/constan
 import { useRouter } from "next/navigation";
 
 export const useDestinations = () => {
-  const [activeTab, setActiveTab] = useState("international");
+  const [activeTab, setActiveTab] = useState("all");
   const [destinations, setDestinations] = useState([]);
   const router = useRouter();
 
@@ -13,6 +13,7 @@ export const useDestinations = () => {
     const international = [];
     const domestic = [];
     const weekend = [];
+    const all = [];
 
     TRAVEL_PACKAGES_DATA.forEach((destination) => {
       const mapped = {
@@ -29,9 +30,10 @@ export const useDestinations = () => {
       if (category === "domestic") domestic.push(mapped);
       else if (category === "weekend") weekend.push(mapped);
       else international.push(mapped);
+      all.push(mapped);
     });
 
-    return { international, domestic, weekend };
+    return { all, international, domestic, weekend };
   }, []);
 
   // Handle tab change
@@ -52,9 +54,9 @@ export const useDestinations = () => {
     return pool.filter((d) => d.name.toLowerCase().includes(query.toLowerCase()));
   };
 
-  // Initialize with international
+  // Initialize with all
   useEffect(() => {
-    setDestinations(categorized.international || []);
+    setDestinations(categorized.all || []);
   }, [categorized]);
 
   return {

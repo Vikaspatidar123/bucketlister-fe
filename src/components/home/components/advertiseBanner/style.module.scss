@@ -1,0 +1,17 @@
+.advertiseBanner {
+  width: 84vw;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 2rem;
+  .advertiseBannerImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    // object-fit: cover;
+  }
+  @media (max-width: 768px) {
+    display: none;
+    width: 94vw;
+    min-height: 289px;
+  }
+}

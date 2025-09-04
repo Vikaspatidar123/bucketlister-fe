@@ -5,6 +5,7 @@ const expertExperienceImage = "/assets/webp/expertise-experience.webp";
 const likeMindsImage = "/assets/webp/like-minded-travellers.webp";
 const pricingImage = "/assets/webp/pricing.webp";
 const safeSpaceImage = "/assets/webp/safe-space.webp";
+const advertiseBanner = "/assets/webp/website-banner.webp";
 
 export {
   bigGroupImage,
@@ -14,4 +15,5 @@ export {
   likeMindsImage,
   pricingImage,
   safeSpaceImage,
+  advertiseBanner,
 };

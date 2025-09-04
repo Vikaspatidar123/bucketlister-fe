@@ -15,14 +15,19 @@ import ReasonsToCountOnUsSection from "./ReasonsToCountOnUsSection";
 import TravellersTestimonialsSection from "./TravellersTestimonialsSection";
 import MomentsInMotionSection from "./MomentsInMotionSection";
 import FeaturesBar from "./FeaturesBar";
+import AdvertiseBanner from "./advertiseBanner";
 
 const Home = () => {
   return (
     <div className={styles.home}>
       <HeroSection />
       <StatsSection />
+      <AdvertiseBanner />
       <ExploreDestinations />
-      <BannerSection category="international" mobileHeading="International Trips" />
+      <BannerSection
+        category="international"
+        mobileHeading="International Trips"
+      />
       <TravelPackagesSection isHomePage={true} />
       <YourAdventureSection />
       <HappyMomentsSection />

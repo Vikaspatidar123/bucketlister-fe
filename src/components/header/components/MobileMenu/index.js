@@ -1,13 +1,38 @@
 "use client";
 import { mobileMenuIcon } from "@/assets/svg";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContactInfo from "../ContactInfo";
 import MobileNavigation from "../MobileNavigation";
 import styles from "../style.module.scss";
 
 const MobileMenu = () => {
   const [open, setOpen] = useState(false);
+  
+  // Lock body scroll when mobile sheet is open
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const body = document.body;
+    if (open) {
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      body.style.top = `-${scrollY}px`;
+      body.style.position = 'fixed';
+      body.style.left = '0';
+      body.style.right = '0';
+      body.style.width = '100%';
+      body.style.overflow = 'hidden';
+      return () => {
+        const y = Math.abs(parseInt(body.style.top || '0', 10)) || 0;
+        body.style.position = '';
+        body.style.top = '';
+        body.style.left = '';
+        body.style.right = '';
+        body.style.width = '';
+        body.style.overflow = '';
+        window.scrollTo(0, y);
+      };
+    }
+  }, [open]);
   return (
     <>
       <button

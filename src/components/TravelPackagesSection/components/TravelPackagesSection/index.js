@@ -62,7 +62,30 @@ const TravelPackagesSection = ({
     }
 
     if (date) {
-      setActiveDateTab(date);
+      const raw = String(date).trim().toLowerCase();
+      const exists = (id) => Array.isArray(DATE_TABS) && DATE_TABS.some(t => t.id === id);
+      const month3 = raw.slice(0, 3);
+
+      let normalized = raw;
+
+      // If format is monYYYY -> convert to monYY
+      if (/^[a-z]{3}\d{4}$/.test(raw)) {
+        normalized = `${month3}${raw.slice(-2)}`;
+      }
+
+      // If only month given -> pick the first matching tab id (e.g., "dec" -> "dec25")
+      if (/^[a-z]{3}$/.test(normalized)) {
+        const firstMatch = DATE_TABS.find(t => String(t.id).startsWith(month3));
+        if (firstMatch) normalized = firstMatch.id;
+      }
+
+      // If monYY format but not present, try to fallback to first tab with same month
+      if (/^[a-z]{3}\d{2}$/.test(normalized) && !exists(normalized)) {
+        const firstMatch = DATE_TABS.find(t => String(t.id).startsWith(month3));
+        if (firstMatch) normalized = firstMatch.id;
+      }
+
+      setActiveDateTab(normalized);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);

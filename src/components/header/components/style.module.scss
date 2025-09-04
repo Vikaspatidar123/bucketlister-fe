@@ -39,7 +39,7 @@
 
 .logoImage {
   width: 142;
-  height: 39.5;
+  height: auto;
   opacity: 1;
   max-height: 60px;
 }
@@ -348,6 +348,7 @@
     padding: 16px;
     overflow: auto;
     height: 100%;
+    margin-bottom: 70px;
   }
 }
 .mobileSheet.open {
@@ -365,6 +366,14 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+.mobileSubLinkMore{
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  padding: 10px 0;
 }
 .mobileNavItem {
   border-bottom: 1px solid #f0f0f0;
@@ -399,10 +408,10 @@
 .mobileSubLink {
   color: #333;
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   display: block;
-  padding: 10px 0; // consistent breathing room like other items
+  padding: 3px 0; // consistent breathing room like other items
 }
 .mobileSubLink:hover {
   color: #666;

@@ -55,16 +55,16 @@ export const COMPANY_INFO = {
 
 export const FOOTER_LINKS = {
   international: [
-    { name: "Thailand", url: "/explore?destinationId=1" },
-    { name: "Indonesia", url: "/explore?destinationId=3" },
-    { name: "Europe", url: "/explore?destinationId=2" },
-    { name: "Japan", url: "/explore?destinationId=8" },
+    { name: "Thailand", url: "/explore?destinationId=8" },
+    { name: "Vietnam", url: "/explore?destinationId=7" },
+    { name: "Europe", url: "/explore?destinationId=14" },
+    { name: "Japan", url: "/explore?destinationId=12" },
   ],
   popularUpcoming: [
-    { name: "Goa", url: "/explore?destinationId=14" },
-    { name: "Mahabaleshwar", url: "/explore?destinationId=20" },
-    { name: "Kashmir", url: "/explore?destinationId=18" },
-    { name: "Ladakh", url: "/explore?destinationId=17" },
+    { name: "Gokarna", url: "/explore?destinationId=4" },
+    { name: "Himachal", url: "/explore?destinationId=3" },
+    { name: "Kashmir", url: "/explore?destinationId=20" },
+    { name: "Ladakh", url: "/explore?destinationId=19" },
   ],
   otherServices: [
     { name: "Corporate Trips", url: "/explore/list" },
