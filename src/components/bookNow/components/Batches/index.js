@@ -69,33 +69,39 @@ const Batches = ({ selectedBatch, onBatchSelect, tripData }) => {
       </div>
 
       <div className={styles.batchesGrid}>
-        {filteredBatches.map((batch) => (
-          <div
-            key={batch.id}
-            className={`${styles.batchCard} ${
-              selectedBatch === batch.id ? styles.selected : ""
-            }`}
-            onClick={() => handleBatchSelect(batch.id)}
-          >
-            <div className={styles.batchRadio}>
-              <input
-                type="radio"
-                name="batch"
-                checked={selectedBatch === batch.id}
-                onChange={() => handleBatchSelect(batch.id)}
-                className={styles.radioInput}
-              />
+        {filteredBatches.length > 0 ? (
+          filteredBatches.map((batch) => (
+            <div
+              key={batch.id}
+              className={`${styles.batchCard} ${
+                selectedBatch === batch.id ? styles.selected : ""
+              }`}
+              onClick={() => handleBatchSelect(batch.id)}
+            >
+              <div className={styles.batchRadio}>
+                <input
+                  type="radio"
+                  name="batch"
+                  checked={selectedBatch === batch.id}
+                  onChange={() => handleBatchSelect(batch.id)}
+                  className={styles.radioInput}
+                />
+              </div>
+              <div className={styles.batchInfo}>
+                <h3 className={styles.dateRange}>{batch.dateRange}</h3>
+              </div>
+              <div className={styles.statusContainer}>
+                <span className={`${styles.status} ${styles.available}`}>
+                  {batch.status}
+                </span>
+              </div>
             </div>
-            <div className={styles.batchInfo}>
-              <h3 className={styles.dateRange}>{batch.dateRange}</h3>
-            </div>
-            <div className={styles.statusContainer}>
-              <span className={`${styles.status} ${styles.available}`}>
-                {batch.status}
-              </span>
-            </div>
+          ))
+        ) : (
+          <div className={styles.noBatchesMessage}>
+            <p>No upcoming batches for this trip. Send us an enquiry to customize your trip on your preferred dates.</p>
           </div>
-        ))}
+        )}
       </div>
 
     </div>

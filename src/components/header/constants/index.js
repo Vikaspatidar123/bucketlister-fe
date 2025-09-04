@@ -39,31 +39,30 @@ export const BRAND_INFO = {
 
 // Curated static dropdowns (subset of destinations)
 export const INTERNATIONAL_DESTINATIONS = [
-  { label: "Thailand", href: "/explore?destinationId=1" },
-  { label: "Europe", href: "/explore?destinationId=2" },
-  { label: "Indonesia", href: "/explore?destinationId=3" },
-  { label: "Egypt", href: "/explore?destinationId=5" },
-  { label: "Japan", href: "/explore?destinationId=8" },
-  { label: "Singapore", href: "/explore?destinationId=10" },
-  { label: "Maldives", href: "/explore?destinationId=11" },
-  { label: "Dubai", href: "/explore?destinationId=12" },
+  { label: "Northern Lights (Finnish Lapland)", href: "/explore?destinationId=7" },
+  { label: "Europe", href: "/explore?destinationId=8" },
+  { label: "France", href: "/explore?destinationId=9" },
+  { label: "Switzerland", href: "/explore?destinationId=10" },
+  { label: "Georgia", href: "/explore?destinationId=11" },
+  { label: "Kazakhstan (Almaty)", href: "/explore?destinationId=12" },
 ];
 
 export const DOMESTIC_DESTINATIONS = [
+  { label: "Meghalaya", href: "/explore?destinationId=1" },
+  { label: "Spiti Valley", href: "/explore?destinationId=2" },
+  { label: "Himachal", href: "/explore?destinationId=3" },
   { label: "Kerala", href: "/explore?destinationId=13" },
   { label: "Goa", href: "/explore?destinationId=14" },
   { label: "Rajasthan", href: "/explore?destinationId=15" },
-  { label: "Himachal Pradesh", href: "/explore?destinationId=16" },
-  { label: "Ladakh", href: "/explore?destinationId=17" },
-  { label: "Kashmir", href: "/explore?destinationId=18" },
 ];
 
 // Optional extra column for Domestic dropdown
 export const DOMESTIC_WEEKEND_GETAWAYS = {
   title: "Weekend Getaways",
   items: [
-    { label: "Lonavala", href: "/explore?destinationId=19" },
-    { label: "Mahabaleshwar", href: "/explore?destinationId=20" },
+    { label: "Gokarna", href: "/explore?destinationId=4" },
+    { label: "Hampi", href: "/explore?destinationId=5" },
+    { label: "Coorg", href: "/explore?destinationId=6" },
   ],
 };
 

@@ -32,9 +32,9 @@ const CustomSelect = ({
   // Filter options based on search term
   const filteredOptions = isSearchable
     ? options.filter(option =>
-        option.label.toLowerCase().includes(searchTerm.toLowerCase())
+        option && option.label && option.label.toLowerCase().includes(searchTerm.toLowerCase())
       )
-    : options;
+    : options.filter(option => option && option.label);
 
   // Handle click outside to close dropdown
   useEffect(() => {

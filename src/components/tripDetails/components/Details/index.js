@@ -1,6 +1,8 @@
 "use client";
 import { bedIcon, calendarIcon, foodIcon, peopleIcon } from "@/assets/svg";
 import Tabs from "@/common/Tabs";
+import ReadMoreText from "@/common/ReadMoreText";
+import { truncateText } from "@/utils/textFormatter";
 import { DATE_LABELS } from "@/components/tripDetails/constants";
 import Image from "next/image";
 import Link from "next/link";
@@ -48,10 +50,22 @@ const Details = ({ destination, trip }) => {
   return (
     <div className={styles.details}>
       <h1 className={styles.title}>{trip?.title}</h1>
-      {destination?.description && (
+      {trip?.tripDescription && (
         <div className={styles.section}>
-          {/* <h2 className={styles.sectionTitle}>Description</h2> */}
-          <p className={styles.description}>{destination.description}</p>
+          <div className={styles.description}>
+            {truncateText(trip.tripDescription, 100)}
+          </div>
+        </div>
+      )}
+      {(destination?.destination_description || destination?.description) && (
+        <div className={styles.section}>
+          <div className={styles.description}>
+            <ReadMoreText 
+              text={destination?.destination_description || destination?.description}
+              maxLength={180}
+              modalTitle={`About ${destination?.destination_name || 'Destination'}`}
+            />
+          </div>
         </div>
       )}
       {Array.isArray(trip?.route) && trip.route.length > 0 && (
@@ -111,7 +125,7 @@ const Details = ({ destination, trip }) => {
         )}
       </div>
 
-      <div className={styles.section}>
+      {/* <div className={styles.section}>
         <h2 className={styles.sectionTitle}>
           <Image src={peopleIcon} alt="calendar" width={22} height={22} />
           <span className={styles.sectionTitleText}>Upcoming Trips</span>
@@ -122,7 +136,7 @@ const Details = ({ destination, trip }) => {
           onTabChange={setActiveTab}
           variant="pills"
         />
-      </div>
+      </div> */}
 
       <div className={styles.ctaRow}>
         <button className={`${styles.btn} ${styles.secondary}`}>Enquire</button>

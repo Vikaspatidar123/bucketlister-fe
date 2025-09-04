@@ -74,6 +74,23 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+.heroDescription {
+  display: inline;
+}
+
+.heroReadMore {
+  color: #ffd700 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  
+  &:hover {
+    color: #ffed4a !important;
+  }
+  
+  &:focus {
+    outline-color: #ffd700;
+  }
+}
+
 @media (max-width: 768px) {
   .heroSection {
     height: 400px;

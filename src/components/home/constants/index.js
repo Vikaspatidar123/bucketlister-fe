@@ -235,6 +235,15 @@ export const DESTINATIONS_DATA = {
   ],
   domestic: [
     {
+      id: 52,
+      name: 'Spiti',
+      image: '/assets/png/kerala.jpg',
+      category: 'domestic',
+      rating: 4.8,
+      price: '₹25,000',
+      duration: '5 Days'
+    },
+    {
       id: 21,
       name: 'Kerala',
       image: '/assets/png/kerala.jpg',
@@ -368,6 +377,14 @@ export const DESTINATIONS_DATA = {
       rating: 4.0,
       price: '₹20,000',
       duration: '4 Days'
+    },{
+      id: 51,
+      name: 'Meghalaya',
+      image: '/assets/png/west-bengal.jpg',
+      category: 'domestic',
+      rating: 4.0,
+      price: '₹25,000',
+      duration: '9 Days'
     }
   ],
   weekend: [

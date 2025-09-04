@@ -126,7 +126,12 @@ const TripDatesCard = ({ trip }) => {
           </label>
         ))}
         {(!datesForMonth || datesForMonth.length === 0) && (
-          <div className={styles.noDates}>Select a month to view dates</div>
+          <div className={styles.noDates}>
+            {!trip?.batches || trip.batches.length === 0 
+              ? "No upcoming batches for this trip. Send us an enquiry to customize your trip on your preferred dates."
+              : "Select a month to view dates"
+            }
+          </div>
         )}
       </div>
 
