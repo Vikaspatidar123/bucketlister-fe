@@ -68,6 +68,10 @@
   animation: popUp 260ms ease forwards;
 }
 
+.open .fabAction:nth-child(3) {
+  animation: popUp 300ms ease forwards;
+}
+
 /* Rotate plus into an × when open */
 .open .plusIcon {
   transform: translateY(-1px) rotate(45deg);
