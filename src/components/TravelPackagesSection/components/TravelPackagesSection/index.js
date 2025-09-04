@@ -513,11 +513,11 @@ const TravelPackagesSection = ({
                   className={styles.packageImage}
                 />
 
-                {trip.badge && (
+                {/* {trip.badge && (
                   <div className={`${styles.badge} ${styles[trip.badge.type]}`}>
                     {trip.badge.text}
                   </div>
-                )}
+                )} */}
               </div>
 
               <div className={styles.cardBody}>

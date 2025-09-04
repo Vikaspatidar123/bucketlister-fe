@@ -10,7 +10,7 @@ import { useSimilarTours } from "../../hooks/useSimilarTours";
 import TripHeader from "../TripHeader";
 import FeaturesBar from "@/components/home/components/FeaturesBar";
 import TravellersTestimonialsSection from "@/components/home/components/TravellersTestimonialsSection";
-import HappyMomentsSection from "@/components/home/components/HappyMomentsSection";
+// import HappyMomentsSection from "@/components/home/components/HappyMomentsSection";
 import TripNavTabs from "../TripNavTabs";
 
 const TripDetails = ({ destination, trip }) => {
@@ -48,7 +48,7 @@ const TripDetails = ({ destination, trip }) => {
         <Inclusions trip={trip} />
       </div>
       <FeaturesBar />
-      <HappyMomentsSection />
+      {/* <HappyMomentsSection /> */}
       <div id="trip-reviews">
         <TravellersTestimonialsSection />
       </div>

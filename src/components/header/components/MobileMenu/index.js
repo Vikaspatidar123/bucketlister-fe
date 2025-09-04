@@ -66,9 +66,9 @@ const MobileMenu = () => {
           </div>
           <div className={styles.mobileSheetContent}>
             <MobileNavigation sheetOpen={open} />
-            <div className={styles.mobileContactRow}>
+            {/* <div className={styles.mobileContactRow}>
               <ContactInfo showSearch={false} />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
