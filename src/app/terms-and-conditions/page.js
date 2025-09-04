@@ -27,7 +27,7 @@ const TermsAndConditions = () => {
             
             <div className={styles.policyContent}>
               <p className={styles.description}>
-                Please read these Terms and Conditions carefully before using The Bucketlister's services.
+                Please read these Terms and Conditions carefully before using The Bucketlister&apos;s services.
               </p>
               
               <div className={styles.contentBlock}>

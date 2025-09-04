@@ -27,7 +27,7 @@ const AboutUs = () => {
               <span className={styles.titlePart2}>Extraordinary Adventures</span>
             </h2>
             <p className={styles.description}>
-              At The Bucketlister, we believe that travel is more than just visiting new places—it's about creating memories that last a lifetime. Founded with a passion for exploration and a commitment to excellence, we curate unique travel experiences that connect you with diverse cultures, breathtaking landscapes, and unforgettable moments.
+              At The Bucketlister, we believe that travel is more than just visiting new places—it&apos;s about creating memories that last a lifetime. Founded with a passion for exploration and a commitment to excellence, we curate unique travel experiences that connect you with diverse cultures, breathtaking landscapes, and unforgettable moments.
             </p>
             <p className={styles.description}>
               From the serene temples of Kyoto to the rolling vineyards of Tuscany, we design every journey with meticulous attention to detail, ensuring that your adventure is both seamless and spectacular.
@@ -122,7 +122,7 @@ const AboutUs = () => {
             <div className={styles.visionCard}>
               <h3 className={styles.cardTitle}>Our Vision</h3>
               <p className={styles.cardDescription}>
-                To be the world's leading travel company, known for our innovative itineraries, exceptional service, and commitment to making every journey a life-changing adventure that creates lasting memories and meaningful connections.
+                To be the world&apos;s leading travel company, known for our innovative itineraries, exceptional service, and commitment to making every journey a life-changing adventure that creates lasting memories and meaningful connections.
               </p>
             </div>
           </div>
