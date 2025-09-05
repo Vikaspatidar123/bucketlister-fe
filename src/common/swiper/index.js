@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCards } from "swiper/modules";
 import "swiper/css";
@@ -78,7 +78,7 @@ const defaultCards = [
 
 const SwiperCards = ({ customData = null }) => {
   // Use custom data if provided, otherwise use default cards
-  const cardsToShow = customData || defaultCards;
+  const cardsToShow = useMemo(() => customData || defaultCards, [customData]);
 
   return (
     <div className={styles.cardsSwiperContainer}>
@@ -87,6 +87,18 @@ const SwiperCards = ({ customData = null }) => {
         effect="cards"
         grabCursor={true}
         className={styles.cardsSwiper}
+        touchEventsTarget="container"
+        touchReleaseOnEdges={true}
+        touchMoveStopPropagation={false}
+        allowTouchMove={true}
+        passiveListeners={true}
+        resistance={true}
+        resistanceRatio={0.85}
+        followFinger={true}
+        threshold={5}
+        longSwipesRatio={0.5}
+        longSwipesMs={300}
+        shortSwipes={true}
       >
         {cardsToShow.map((card, index) => (
           <SwiperSlide key={card.id || card.title || index} className={styles.cardSlide}>
@@ -104,4 +116,4 @@ const SwiperCards = ({ customData = null }) => {
   );
 };
 
-export default SwiperCards;
+export default React.memo(SwiperCards);

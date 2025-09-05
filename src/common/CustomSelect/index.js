@@ -102,9 +102,9 @@ const CustomSelect = ({
     // capture scrolls from any scrollable ancestor (like overlay panel content)
     document.addEventListener('scroll', handleWindowChange, { passive: true, capture: true });
     return () => {
-      window.removeEventListener('resize', handleWindowChange);
-      window.removeEventListener('scroll', handleWindowChange);
-      document.removeEventListener('scroll', handleWindowChange, { capture: true });
+      window.removeEventListener('resize', handleWindowChange, { passive: true });
+      window.removeEventListener('scroll', handleWindowChange, { passive: true });
+      document.removeEventListener('scroll', handleWindowChange, { passive: true, capture: true });
       try { document.body.removeAttribute('data-custom-select-open'); } catch (_) { }
     };
   }, [isOpen, portalRoot]);

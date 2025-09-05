@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { BANNER_DATA } from '../constants';
@@ -23,24 +23,24 @@ const BannerSection = ({
   const [imageError, setImageError] = useState(false);
   const router = useRouter();
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
+  const checkMobile = useCallback(() => {
+    setIsMobile(window.innerWidth <= 768);
   }, []);
 
-  const handleExploreClick = () => {
+  useEffect(() => {
+    checkMobile();
+    window.addEventListener('resize', checkMobile, { passive: true });
+    
+    return () => window.removeEventListener('resize', checkMobile, { passive: true });
+  }, [checkMobile]);
+
+  const handleExploreClick = useCallback(() => {
     if (onExploreClick) {
       onExploreClick();
     }
-  };
+  }, [onExploreClick]);
 
-  const handleDestinationClick = (destination) => {
+  const handleDestinationClick = useCallback((destination) => {
     if (onDestinationClick) {
       onDestinationClick(destination);
       return;
@@ -48,7 +48,7 @@ const BannerSection = ({
     if (destination?.href) {
       router.push(destination.href);
     }
-  };
+  }, [onDestinationClick, router]);
 
   // handlers will be defined after `featured` is computed
 
@@ -91,15 +91,15 @@ const BannerSection = ({
     ? featuredDestinations
     : computedFeatured;
 
-  const handleNextCards = () => {
+  const handleNextCards = useCallback(() => {
     if (!featured || featured.length === 0) return;
     setCurrentCardIndex((prevIndex) => (prevIndex + 1) % featured.length);
-  };
+  }, [featured]);
 
-  const handlePrevCards = () => {
+  const handlePrevCards = useCallback(() => {
     if (!featured || featured.length === 0) return;
     setCurrentCardIndex((prevIndex) => (prevIndex - 1 + featured.length) % featured.length);
-  };
+  }, [featured]);
 
   // Mobile view - show only heading and SwiperCards
   if (isMobile) {
@@ -193,4 +193,4 @@ const BannerSection = ({
   );
 };
 
-export default BannerSection;
+export default React.memo(BannerSection);

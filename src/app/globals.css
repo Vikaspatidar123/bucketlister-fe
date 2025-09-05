@@ -25,6 +25,10 @@ body {
   font-family: "Nunito";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Touch optimization for mobile performance */
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Remove global top padding on reels page */
@@ -49,11 +53,40 @@ a {
     color-scheme: light !important;
   }
 }
+/* Performance optimizations for touch interactions */
+.swiper-container {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+button, a, [role="button"] {
+  touch-action: manipulation;
+}
+
+/* Optimize animated elements */
+[data-swiper-slide-index] {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Smooth scrolling optimization */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
 @media (max-width: 768px) {
   body {
     padding-top: 65px;
+    /* Enhanced touch performance on mobile */
+    -webkit-overflow-scrolling: touch;
   }
   body[data-page="reels"] {
     padding-top: 0 !important;
+  }
+  
+  /* Mobile-specific performance optimizations */
+  .swiper-container {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
   }
 }
