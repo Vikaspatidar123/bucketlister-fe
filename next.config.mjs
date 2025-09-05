@@ -21,7 +21,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'bucketlister-website.s3.ap-south-1.amazonaws.com',
+        hostname: 'd39lxglzvkql6.cloudfront.net',
         pathname: '/public/assets/**',
       },
     ],
