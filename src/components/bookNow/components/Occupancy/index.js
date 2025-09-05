@@ -2,22 +2,13 @@
 import React, { useState } from "react";
 import styles from "./style.module.scss";
 import Tabs from "@/common/Tabs";
-import CustomSelect from "@/common/CustomSelect";
 
 const Occupancy = ({ occupancyDetails, onOccupancyChange, tripData }) => {
   const activeOccupancy = occupancyDetails?.type || "Triple Occupancy";
   const quantity = occupancyDetails?.quantity || 1;
-  const [selectedVehicle, setSelectedVehicle] = useState("SUV or Toyota Hiace bus or Toyota Coaster bus");
-
   const occupancyTabs = [
-    { id: "Triple Occupancy", label: "Triple Occupancy", badge: "1 member" },
-    { id: "Double Occupancy", label: "Double Occupancy", badge: "0 member" },
-  ];
-
-  const vehicleOptions = [
-    { value: "SUV or Toyota Hiace bus or Toyota Coaster bus", label: "SUV or Toyota Hiace bus or Toyota Coaster bus" },
-    { value: "Premium SUV", label: "Premium SUV" },
-    { value: "Luxury Coach", label: "Luxury Coach" },
+    { id: "Triple Occupancy", label: "Triple Occupancy" },
+    { id: "Double Occupancy", label: "Double Occupancy" },
   ];
 
   // Use trip price if available, otherwise use default pricing
@@ -28,8 +19,8 @@ const Occupancy = ({ occupancyDetails, onOccupancyChange, tripData }) => {
       currentPrice: baseTripPrice,
     },
     "Double Occupancy": {
-      originalPrice: Math.round(baseTripPrice * 1.375), // 37.5% markup for original
-      currentPrice: Math.round(baseTripPrice * 1.25), // 25% markup for current
+      originalPrice: Math.round((baseTripPrice + 2500) * 1.375), // Add INR 2,500 + 37.5% markup for original
+      currentPrice: baseTripPrice + 2500, // Add INR 2,500 for double occupancy
     },
   };
 
@@ -44,9 +35,10 @@ const Occupancy = ({ occupancyDetails, onOccupancyChange, tripData }) => {
   };
 
   const handleOccupancyTypeChange = (newType) => {
+    const baseTripPrice = tripData?.price || 40000;
     const pricing = {
-      "Triple Occupancy": { basePrice: 40000 },
-      "Double Occupancy": { basePrice: 50000 }
+      "Triple Occupancy": { basePrice: baseTripPrice },
+      "Double Occupancy": { basePrice: baseTripPrice + 2500 } // Add INR 2,500 for double occupancy
     };
     
     onOccupancyChange({
@@ -75,22 +67,6 @@ const Occupancy = ({ occupancyDetails, onOccupancyChange, tripData }) => {
         />
       </div>
 
-      <div className={styles.vehicleSection}>
-        <div className={styles.selectWrapper}>
-          <select 
-            className={styles.vehicleSelect}
-            value={selectedVehicle}
-            onChange={(e) => setSelectedVehicle(e.target.value)}
-          >
-            {vehicleOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-          <div className={styles.selectArrow}>▼</div>
-        </div>
-      </div>
 
       <div className={styles.pricingSection}>
         <div className={styles.pricingCard}>

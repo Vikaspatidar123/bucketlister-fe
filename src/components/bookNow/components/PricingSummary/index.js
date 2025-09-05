@@ -11,7 +11,9 @@ const PricingSummary = ({
   compact = false,
   tripData = null,
   appliedCoupon = null,
-  paymentType = "slot" // "slot" or "full"
+  paymentType = "slot", // "slot" or "full"
+  onPaymentTypeChange,
+  selectedBatchInfo = null
 }) => {
   const subtotal = baseAmount * quantity;
   
@@ -21,7 +23,7 @@ const PricingSummary = ({
   const discountedAmount = subtotal - totalDiscount;
   
   // Calculate fees
-  const convenienceFeeRate = 0.025; // 2.5%
+  const convenienceFeeRate = 0.02; // 2%
   const convenienceFee = discountedAmount * convenienceFeeRate;
   const amountAfterConvenience = discountedAmount + convenienceFee;
   
@@ -39,8 +41,14 @@ const PricingSummary = ({
   const tcsAmount = isInternational ? amountAfterConvenience * tcsRate : 0;
   
   const totalPackageAmount = amountAfterConvenience + gstAmount + tcsAmount;
-  const bookingAmount = paymentType === "full" ? totalPackageAmount : totalPackageAmount * 0.1; // Full amount or 10%
-  const remainingAmount = totalPackageAmount - bookingAmount;
+  
+  // Payment discounts
+  const bookingDiscount = paymentType === "slot" ? 500 : 0; // ₹500 off for booking amount
+  const fullPaymentDiscount = paymentType === "full" ? Math.min(totalPackageAmount * 0.10, 1500) : 0; // Up to 10% off, max ₹1500
+  
+  const discountedTotal = totalPackageAmount - bookingDiscount - fullPaymentDiscount;
+  const bookingAmount = paymentType === "full" ? discountedTotal : discountedTotal * 0.2; // Full amount or 20%
+  const remainingAmount = discountedTotal - bookingAmount;
 
   const formatCurrency = (amount) => {
     return `₹${amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -50,13 +58,16 @@ const PricingSummary = ({
   React.useEffect(() => {
     if (onAmountsCalculated) {
       onAmountsCalculated({
-        totalPackageAmount,
+        totalPackageAmount: discountedTotal,
         bookingAmount,
         remainingAmount,
-        paymentType
+        paymentType,
+        originalTotal: totalPackageAmount,
+        bookingDiscount,
+        fullPaymentDiscount
       });
     }
-  }, [totalPackageAmount, bookingAmount, remainingAmount, paymentType, onAmountsCalculated]);
+  }, [discountedTotal, bookingAmount, remainingAmount, paymentType, totalPackageAmount, bookingDiscount, fullPaymentDiscount, onAmountsCalculated]);
 
   return (
     <div className={`${styles.pricingSummaryContainer} ${compact ? styles.compact : ''}`}>
@@ -66,6 +77,9 @@ const PricingSummary = ({
           {tripData && compact && (
             <div className={styles.tripInfo}>
               <span className={styles.tripName}>{tripData.title}</span>
+              {selectedBatchInfo && (
+                <span className={styles.batchInfo}>Batch: {selectedBatchInfo.dateRange}</span>
+              )}
             </div>
           )}
         </h2>
@@ -73,14 +87,6 @@ const PricingSummary = ({
       </div>
 
       <div className={styles.breakdown}>
-        <div className={styles.breakdownRow}>
-          <div className={styles.label}>Travel Mode</div>
-        </div>
-        
-        <div className={styles.breakdownRow}>
-          <div className={styles.sublabel}>{vehicleType}</div>
-        </div>
-
         <div className={styles.breakdownRow}>
           <div className={styles.label}>Amount</div>
           <div className={styles.value}>{formatCurrency(subtotal)}</div>
@@ -101,7 +107,7 @@ const PricingSummary = ({
         )}
         
         <div className={styles.breakdownRow}>
-          <div className={styles.label}>Convenience Fee (2.5%)</div>
+          <div className={styles.label}>Convenience Fees</div>
           <div className={styles.value}>{formatCurrency(convenienceFee)}</div>
         </div>
 
@@ -121,24 +127,44 @@ const PricingSummary = ({
           <div className={styles.label}>Subtotal</div>
           <div className={styles.value}>{formatCurrency(totalPackageAmount)}</div>
         </div>
-
-        <div className={`${styles.breakdownRow} ${styles.bookingRow}`}>
-          <div className={styles.label}>
-            {paymentType === "full" ? "Full Payment" : "Booking Amount (10%)"}
-          </div>
-          <div className={styles.value}>{formatCurrency(bookingAmount)}</div>
-        </div>
         
-        {paymentType === "slot" && (
+        {(bookingDiscount > 0 || fullPaymentDiscount > 0) && (
           <div className={styles.breakdownRow}>
-            <div className={styles.label}>Remaining Amount</div>
-            <div className={styles.value}>{formatCurrency(remainingAmount)}</div>
+            <div className={styles.label}>Booking Discount</div>
+            <div className={styles.value}>- ₹{(bookingDiscount + fullPaymentDiscount).toLocaleString('en-IN')}</div>
           </div>
         )}
+
+        <div className={`${styles.breakdownRow} ${styles.subtotalRow}`}>
+          <div className={styles.label}>Payable Amount</div>
+          <div className={styles.value}>{formatCurrency(discountedTotal)}</div>
+        </div>
+      </div>
+
+
+      {/* Payment Selection Cards */}
+      <div className={styles.paymentCards}>
+        <div 
+          className={`${styles.paymentCard} ${paymentType === 'slot' ? styles.selected : ''}`}
+          onClick={() => onPaymentTypeChange && onPaymentTypeChange('slot')}
+        >
+          <div className={styles.cardHeader}>
+            <h3>Book my Slot</h3>
+            <span className={styles.discount}>Save Flat ₹500</span>
+          </div>
+          <div className={styles.tooltip}>
+            Pending amount to be paid 15 days prior trip
+          </div>
+        </div>
         
-        <div className={`${styles.breakdownRow} ${styles.finalRow}`}>
-          <div className={styles.label}>Amount To Pay Now</div>
-          <div className={styles.value}>{formatCurrency(bookingAmount)}</div>
+        <div 
+          className={`${styles.paymentCard} ${paymentType === 'full' ? styles.selected : ''}`}
+          onClick={() => onPaymentTypeChange && onPaymentTypeChange('full')}
+        >
+          <div className={styles.cardHeader}>
+            <h3>Pay Full Amount</h3>
+            <span className={styles.discount}>Save upto ₹1500</span>
+          </div>
         </div>
       </div>
     </div>

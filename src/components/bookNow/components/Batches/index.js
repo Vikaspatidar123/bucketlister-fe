@@ -1,11 +1,11 @@
 "use client";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import styles from "./style.module.scss";
 import Tabs from "@/common/Tabs";
 import { TRAVEL_PACKAGES_DATA } from "@/components/TravelPackagesSection/constants";
 
 const Batches = ({ selectedBatch, onBatchSelect, tripData }) => {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("");
 
   // Get trip data from TRAVEL_PACKAGES_DATA based on tripId
   const tripDetails = useMemo(() => {
@@ -90,7 +90,7 @@ const Batches = ({ selectedBatch, onBatchSelect, tripData }) => {
   // Generate month filters based on available batches
   const monthFilters = useMemo(() => {
     const availableMonths = [...new Set(batches.map(batch => batch.month))];
-    const filters = [{ id: "All", label: "All" }];
+    const filters = [];
     
     availableMonths.forEach(month => {
       filters.push({ id: month, label: month });
@@ -99,7 +99,14 @@ const Batches = ({ selectedBatch, onBatchSelect, tripData }) => {
     return filters;
   }, [batches]);
 
-  const filteredBatches = activeFilter === "All" 
+  // Set default active filter to first available month
+  useEffect(() => {
+    if (monthFilters.length > 0 && !activeFilter) {
+      setActiveFilter(monthFilters[0].id);
+    }
+  }, [monthFilters, activeFilter]);
+
+  const filteredBatches = !activeFilter || activeFilter === "All" 
     ? batches 
     : batches.filter(batch => batch.month === activeFilter);
 

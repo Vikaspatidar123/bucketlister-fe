@@ -147,12 +147,14 @@ const Details = ({ destination, trip }) => {
         >
           Enquire
         </button>
-        <Link 
-          href={`/book-now/${trip?.tripId || destination?.destination_id}?destination=${encodeURIComponent(destination?.destination_name || '')}&title=${encodeURIComponent(trip?.title || '')}&price=${trip?.price || ''}&duration=${encodeURIComponent(trip?.duration || '')}&capacity=${trip?.capacity || ''}`}
-          className={`${styles.btn} ${styles.primary} ${styles.linkBtn}`}
-        >
-          Book Tour
-        </Link>
+        {Array.isArray(trip?.batches) && trip.batches.length > 0 && (
+          <Link 
+            href={`/book-now/${trip?.tripId || destination?.destination_id}?destination=${encodeURIComponent(destination?.destination_name || '')}&title=${encodeURIComponent(trip?.title || '')}&price=${trip?.price || ''}&duration=${encodeURIComponent(trip?.duration || '')}&capacity=${trip?.capacity || ''}`}
+            className={`${styles.btn} ${styles.primary} ${styles.linkBtn}`}
+          >
+            Book Tour
+          </Link>
+        )}
       </div>
 
       <EnquiryPopup

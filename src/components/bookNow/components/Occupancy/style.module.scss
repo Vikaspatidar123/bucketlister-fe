@@ -1,79 +1,35 @@
 .occupancyContainer {
   background: white;
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(16, 24, 40, 0.08);
   margin-bottom: 0;
+  border: 1px solid #f3f4f6;
 }
 
 .header {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .title {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   color: #1f2937;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
 }
 
 .subtitle {
-  font-size: 12px;
+  font-size: 14px;
   color: #6b7280;
   margin: 0;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .occupancyTabs {
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 
-.vehicleSection {
-  margin-bottom: 8px;
-}
-
-.selectWrapper {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-}
-
-.vehicleSelect {
-  width: 100%;
-  padding: 8px 28px 8px 10px;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 400;
-  color: #1f2937;
-  background: #f9fafb;
-  cursor: pointer;
-  appearance: none;
-  transition: all 0.2s ease;
-  box-shadow: inset 0 1px 0 rgba(16,24,40,0.04);
-
-  &:hover {
-    background: white;
-    border-color: #d1d5db;
-  }
-
-  &:focus {
-    outline: none;
-    background: white;
-    border-color: #374151;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
-  }
-}
-
-.selectArrow {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: #9ca3af;
-  font-size: 12px;
-}
 
 .pricingSection {
   margin-bottom: 16px;
@@ -82,11 +38,11 @@
 .pricingCard {
   display: grid;
   grid-template-columns: 1fr 1fr auto;
-  gap: 12px;
+  gap: 16px;
   align-items: center;
-  padding: 8px;
-  border: 1px solid #e9ecef;
-  border-radius: 6px;
+  padding: 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
   background: #f8f9fa;
 }
 
@@ -97,15 +53,18 @@
 }
 
 .occupancyLabel, .priceLabel, .quantityLabel {
-  font-size: 12px;
+  font-size: 14px;
   color: #6c757d;
-  font-weight: 400;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .occupancyType {
-  font-size: 13px;
-  font-weight: 500;
-  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+  letter-spacing: -0.01em;
 }
 
 .priceContainer {
@@ -115,16 +74,17 @@
 }
 
 .originalPrice {
-  font-size: 12px;
+  font-size: 14px;
   color: #6c757d;
   text-decoration: line-through;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .currentPrice {
-  font-size: 14px;
-  font-weight: 600;
-  color: #02658f;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+  letter-spacing: -0.01em;
 }
 
 .quantityControls {
@@ -174,9 +134,10 @@
 }
 
 .totalPrice {
-  font-size: 20px;
-  font-weight: 700;
-  color: #02658f;
+  font-size: 22px;
+  font-weight: 800;
+  color: #1f2937;
+  letter-spacing: -0.02em;
 }
 
 @media (max-width: 768px) {

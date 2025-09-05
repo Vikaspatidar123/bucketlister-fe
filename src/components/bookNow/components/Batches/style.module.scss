@@ -1,20 +1,22 @@
 .batchesContainer {
   background: white;
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(16, 24, 40, 0.08);
   margin-bottom: 0;
+  border: 1px solid #f3f4f6;
 }
 
 .header {
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
 .title {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   color: #1f2937;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
 }
 
 .filterTabs {
@@ -24,17 +26,17 @@
 .batchesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 14px;
+  gap: 16px;
   margin-bottom: 0;
 }
 
 .batchCard {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
+  gap: 12px;
+  padding: 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
   background: white;
@@ -45,9 +47,9 @@
   }
 
   &.selected {
-    border-color: #374151;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    background: #f9fafb;
+    border-color: #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background: #F4F4F4;
   }
 }
 
@@ -67,8 +69,8 @@
   transition: all 0.2s ease;
 
   &:checked {
-    border-color: #374151;
-    background-color: #374151;
+    border-color: #495057;
+    background-color: #495057;
     
     &::after {
       content: '';
@@ -84,7 +86,7 @@
   }
 
   &:hover {
-    border-color: #374151;
+    border-color: #6c757d;
   }
 }
 
@@ -93,11 +95,12 @@
 }
 
 .dateRange {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   color: #1f2937;
   margin: 0;
   line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 .statusContainer {
@@ -106,10 +109,10 @@
 }
 
 .status {
-  padding: 1px 6px;
+  padding: 4px 8px;
   border-radius: 8px;
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
   text-align: center;
   
   &.available {

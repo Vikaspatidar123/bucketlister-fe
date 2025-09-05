@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useMemo } from "react";
 import styles from "./style.module.scss";
 import Batches from "./Batches";
 import Occupancy from "./Occupancy";
@@ -8,6 +8,7 @@ import CouponsOffers from "./CouponsOffers";
 import GiftCard from "./GiftCard";
 import ContactDetailsModal from "./ContactDetailsModal";
 import { initiateRazorpayPayment } from "@/utils/razorpay";
+import { TRAVEL_PACKAGES_DATA } from "@/components/TravelPackagesSection/constants";
 
 const BookNow = ({ tripId, searchParams = {} }) => {
   const [tripData, setTripData] = useState(null);
@@ -23,6 +24,69 @@ const BookNow = ({ tripId, searchParams = {} }) => {
   const [showContactModal, setShowContactModal] = useState(false);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
   const [paymentType, setPaymentType] = useState("slot"); // "slot" or "full"
+
+  // Get selected batch information
+  const selectedBatchInfo = useMemo(() => {
+    if (!selectedBatch || !tripData?.tripId) return null;
+
+    // Find the trip across all destinations
+    for (const destination of TRAVEL_PACKAGES_DATA) {
+      if (destination.trips) {
+        const trip = destination.trips.find(t => t.tripId.toString() === tripData.tripId.toString());
+        if (trip && trip.batches) {
+          // Process batches to find the selected one
+          const monthMap = {
+            'January': 'Jan', 'February': 'Feb', 'March': 'Mar', 'April': 'Apr',
+            'May': 'May', 'June': 'Jun', 'July': 'Jul', 'August': 'Aug',
+            'September': 'Sep', 'October': 'Oct', 'November': 'Nov', 'December': 'Dec'
+          };
+
+          let batchId = 1;
+          for (const batchGroup of trip.batches) {
+            for (const [monthName, dateRanges] of Object.entries(batchGroup)) {
+              if (Array.isArray(dateRanges)) {
+                for (const dateRange of dateRanges) {
+                  if (batchId === selectedBatch) {
+                    const monthAbbr = monthMap[monthName] || monthName.slice(0, 3);
+                    
+                    // Format the date range for display
+                    let formattedRange = dateRange;
+                    if (dateRange.includes(' - ')) {
+                      const [startDate, endDate] = dateRange.split(' - ');
+                      const [startDay, startMonth] = startDate.split('/');
+                      const [endDay, endMonth] = endDate.split('/');
+                      
+                      const startMonthName = Object.keys(monthMap).find(key => 
+                        monthMap[key] === Object.keys(monthMap)[parseInt(startMonth) - 1]
+                      ) || monthName;
+                      const startMonthAbbr = monthMap[startMonthName] || startMonthName.slice(0, 3);
+                      
+                      const endMonthName = Object.keys(monthMap).find(key => 
+                        monthMap[key] === Object.keys(monthMap)[parseInt(endMonth) - 1]
+                      ) || monthName;
+                      const endMonthAbbr = monthMap[endMonthName] || endMonthName.slice(0, 3);
+                      
+                      formattedRange = `${startMonthAbbr} ${parseInt(startDay)} - ${endMonthAbbr} ${parseInt(endDay)}`;
+                    }
+                    
+                    return {
+                      id: batchId,
+                      dateRange: formattedRange,
+                      month: monthAbbr,
+                      originalMonth: monthName,
+                      originalRange: dateRange
+                    };
+                  }
+                  batchId++;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return null;
+  }, [selectedBatch, tripData?.tripId]);
 
   // Web3Forms email sender function
   const sendPaymentConfirmationEmail = async (contactDetails, paymentData, status) => {
@@ -342,13 +406,15 @@ Action Required:
                 tripData={tripData}
                 appliedCoupon={appliedCoupon}
                 paymentType={paymentType}
+                onPaymentTypeChange={setPaymentType}
+                selectedBatchInfo={selectedBatchInfo}
               />
               
-              <CouponsOffers 
+              {/* <CouponsOffers 
                 onCouponApply={handleCouponApply}
                 appliedCoupon={appliedCoupon}
                 compact={true}
-              />
+              /> */}
               
               {/* <GiftCard 
                 onGiftCardApply={handleGiftCardApply}
@@ -358,23 +424,6 @@ Action Required:
               
               {(selectedBatch && occupancyDetails) && (
                 <div className={styles.finalCta}>
-                  <div className={styles.paymentOptions}>
-                    <div className={styles.paymentTypeToggle}>
-                      <button 
-                        className={`${styles.toggleBtn} ${paymentType === "slot" ? styles.active : ""}`}
-                        onClick={() => setPaymentType("slot")}
-                      >
-                        Book Your Slot (10%)
-                      </button>
-                      <button 
-                        className={`${styles.toggleBtn} ${paymentType === "full" ? styles.active : ""}`}
-                        onClick={() => setPaymentType("full")}
-                      >
-                        Book Full Amount
-                      </button>
-                    </div>
-                  </div>
-                  
                   <button 
                     className={styles.proceedToPaymentBtn}
                     onClick={handleProceedToPayment}
