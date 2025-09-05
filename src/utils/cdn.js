@@ -10,13 +10,13 @@
  */
 export const getAssetUrl = (assetPath) => {
   // Check if we're in development or if CDN is disabled
-  const isDevelopment = process.env.NODE_ENV === 'development';
+  // const isDevelopment = process.env.NODE_ENV === 'development';
   const cdnBaseUrl = process.env.NEXT_PUBLIC_CDN_BASE_URL;
   
   // Use local assets in development or if CDN URL is not configured
-  if (isDevelopment || !cdnBaseUrl) {
-    return assetPath;
-  }
+  // if (isDevelopment || !cdnBaseUrl) {
+  //   return assetPath;
+  // }
   
   // Remove leading slash from assetPath if present and construct CDN URL
   const cleanPath = assetPath.startsWith('/') ? assetPath.slice(1) : assetPath;
