@@ -57,6 +57,7 @@ a {
 .swiper-container {
   will-change: transform;
   transform: translateZ(0);
+  contain: layout style;
 }
 
 button, a, [role="button"] {
@@ -67,11 +68,28 @@ button, a, [role="button"] {
 [data-swiper-slide-index] {
   will-change: transform;
   transform: translateZ(0);
+  contain: layout style;
 }
 
 /* Smooth scrolling optimization */
 * {
   -webkit-overflow-scrolling: touch;
+}
+
+/* CSS containment for performance isolation */
+.swiper-slide {
+  contain: content;
+}
+
+/* Optimize images for better layout stability */
+img {
+  content-visibility: auto;
+  contain-intrinsic-size: 300px 200px;
+}
+
+/* Container queries optimization */
+main, section, article {
+  contain: layout style;
 }
 
 @media (max-width: 768px) {

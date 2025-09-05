@@ -1,6 +1,7 @@
 'use client';
-import { useState, useMemo, useEffect, useRef } from 'react';
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import { TRAVEL_PACKAGES_DATA } from '../constants';
+import { debounce } from '@/utils/debounce';
 
 // Custom hook for handling click outside
 const useClickOutside = (isOpen, onClose) => {
@@ -24,13 +25,13 @@ const useClickOutside = (isOpen, onClose) => {
     };
 
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      document.addEventListener('touchstart', handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside, { passive: true });
+      document.addEventListener('touchstart', handleClickOutside, { passive: true });
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside, { passive: true });
+      document.removeEventListener('touchstart', handleClickOutside, { passive: true });
     };
   }, [isOpen, onClose]);
 
@@ -318,7 +319,15 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
   const hasMoreItems = itemsToShow < totalItems;
   const displayedData = filteredAndSortedData.slice(0, itemsToShow);
 
-  const handleFilterChange = (filterType, value) => {
+  // Debounced scroll position utility
+  const debouncedScrollTo = useCallback(
+    debounce((position) => {
+      window.scrollTo({ top: position, behavior: 'instant' });
+    }, 16), // ~1 frame at 60fps
+    []
+  );
+
+  const handleFilterChange = useCallback((filterType, value) => {
     // Store current scroll position
     const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     
@@ -329,13 +338,13 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     setCurrentPage(1); // Reset to first page when filters change
     setItemsToShow(4); // Reset to show only 4 items when filters change
     
-    // Maintain scroll position after filter change
-    setTimeout(() => {
-      window.scrollTo(0, currentScrollPosition);
-    }, 0);
-  };
+    // Maintain scroll position after filter change - debounced for performance
+    requestAnimationFrame(() => {
+      debouncedScrollTo(currentScrollPosition);
+    });
+  }, [debouncedScrollTo]);
 
-  const handlePriceRangeChange = (priceRange) => {
+  const handlePriceRangeChange = useCallback((priceRange) => {
     console.log('Price range changed:', priceRange); // Debug log
     
     // Store current scroll position
@@ -348,13 +357,13 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     setCurrentPage(1); // Reset to first page when price range changes
     setItemsToShow(4); // Reset to show only 4 items when price range changes
     
-    // Maintain scroll position after price range change
-    setTimeout(() => {
-      window.scrollTo(0, currentScrollPosition);
-    }, 0);
-  };
+    // Maintain scroll position after price range change - debounced for performance
+    requestAnimationFrame(() => {
+      debouncedScrollTo(currentScrollPosition);
+    });
+  }, [debouncedScrollTo]);
 
-  const clearFilters = () => {
+  const clearFilters = useCallback(() => {
     // Store current scroll position
     const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     
@@ -370,22 +379,22 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     setActiveDateTab('all');
     setSortBy('default');
     
-    // Maintain scroll position after clearing filters
-    setTimeout(() => {
-      window.scrollTo(0, currentScrollPosition);
-    }, 0);
-  };
+    // Maintain scroll position after clearing filters - debounced for performance
+    requestAnimationFrame(() => {
+      debouncedScrollTo(currentScrollPosition);
+    });
+  }, [maxPrice, debouncedScrollTo]);
 
-  const handlePageChange = (page) => {
+  const handlePageChange = useCallback((page) => {
     setCurrentPage(page);
-    // Prevent scroll to top by maintaining current scroll position
+    // Prevent scroll to top by maintaining current scroll position - debounced for performance
     const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-    setTimeout(() => {
-      window.scrollTo(0, currentScrollPosition);
-    }, 0);
-  };
+    requestAnimationFrame(() => {
+      debouncedScrollTo(currentScrollPosition);
+    });
+  }, [debouncedScrollTo]);
 
-  const setActiveDateTabHandler = (tabId) => {
+  const setActiveDateTabHandler = useCallback((tabId) => {
     // Store current scroll position
     const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     
@@ -393,13 +402,13 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     setCurrentPage(1);
     setItemsToShow(4); // Reset to show only 4 items when date tab changes
     
-    // Maintain scroll position after date tab change
-    setTimeout(() => {
-      window.scrollTo(0, currentScrollPosition);
-    }, 0);
-  };
+    // Maintain scroll position after date tab change - debounced for performance
+    requestAnimationFrame(() => {
+      debouncedScrollTo(currentScrollPosition);
+    });
+  }, [debouncedScrollTo]);
 
-  const setSortByHandler = (sortValue) => {
+  const setSortByHandler = useCallback((sortValue) => {
     // Store current scroll position
     const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     
@@ -407,11 +416,11 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     setCurrentPage(1);
     setItemsToShow(4); // Reset to show only 4 items when sort changes
     
-    // Maintain scroll position after sort change
-    setTimeout(() => {
-      window.scrollTo(0, currentScrollPosition);
-    }, 0);
-  };
+    // Maintain scroll position after sort change - debounced for performance
+    requestAnimationFrame(() => {
+      debouncedScrollTo(currentScrollPosition);
+    });
+  }, [debouncedScrollTo]);
 
   const handleLoadMore = () => {
     setItemsToShow(prev => Math.min(prev + itemsPerLoad, totalItems));

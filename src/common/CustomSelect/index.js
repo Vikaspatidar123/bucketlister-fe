@@ -1,7 +1,8 @@
 "use client";
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './style.module.scss';
+import { throttle } from '@/utils/debounce';
 
 const CustomSelect = ({
   options = [],
@@ -53,8 +54,8 @@ const CustomSelect = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [instanceId]);
 
-  // Compute dropdown placement and max height based on viewport space
-  const updatePlacementAndSize = () => {
+  // Throttled function to compute dropdown placement and max height based on viewport space
+  const updatePlacementAndSize = useCallback(throttle(() => {
     if (!headerRef.current) return;
     const rect = headerRef.current.getBoundingClientRect();
     const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -80,7 +81,7 @@ const CustomSelect = ({
       const top = Math.max(8, rect.bottom);
       setDropdownRectStyle({ position: 'fixed', left, width, right: 'auto', top, bottom: 'auto' });
     }
-  };
+  }, 16), []); // Throttle to ~60fps
 
   // Recalculate when opening and on resize/scroll while open
   useEffect(() => {

@@ -103,7 +103,14 @@ const SwiperCards = ({ customData = null }) => {
         {cardsToShow.map((card, index) => (
           <SwiperSlide key={card.id || card.title || index} className={styles.cardSlide}>
             <a href={card.href || "#"} className={styles.cardLink}>
-              <img src={card.image} alt={card.title} className={styles.cardImage} />
+              <img 
+                src={card.image} 
+                alt={card.title} 
+                className={styles.cardImage}
+                loading="lazy"
+                decoding="async"
+                style={{ contentVisibility: 'auto' }}
+              />
               <div className={styles.cardOverlay}>
                 <h3 className={styles.cardTitle}>{card.title}</h3>
                 <p className={styles.cardSubtitle}>{card.price}</p>

@@ -47,8 +47,8 @@ const ExploreDestinations = () => {
 
   useEffect(() => {
     const handleResize = () => updateIndicator();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => window.removeEventListener('resize', handleResize, { passive: true });
   }, []);
 
   return (

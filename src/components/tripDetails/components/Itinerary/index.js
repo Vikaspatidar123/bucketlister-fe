@@ -131,8 +131,8 @@ const Itinerary = ({ destination, trip }) => {
     const handle = () => {
       window.requestAnimationFrame(recalcWidths);
     };
-    window.addEventListener("resize", handle);
-    return () => window.removeEventListener("resize", handle);
+    window.addEventListener("resize", handle, { passive: true });
+    return () => window.removeEventListener("resize", handle, { passive: true });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [route]);
 
