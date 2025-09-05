@@ -11,7 +11,7 @@ const TripHeader = ({ title, price, hasBatches = true }) => {
         {hasBatches && (
           <div className={styles.priceBlock}>
             <div className={styles.caption}>Starting from</div>
-            <div className={styles.price}>{formatPrice(price)}</div>
+            <div className={styles.price}>{formatPrice(price)} per person</div>
           </div>
         )}
       </div>

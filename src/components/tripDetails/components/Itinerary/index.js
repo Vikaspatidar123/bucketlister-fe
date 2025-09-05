@@ -304,7 +304,7 @@ const Itinerary = ({ destination, trip }) => {
             />
           ))}
         </div>
-        <TripDatesCard trip={trip} />
+        <TripDatesCard trip={trip} destination={destination} />
       </div>
       <div style={{ display: "none" }}>
         {days.map((_, idx) => (

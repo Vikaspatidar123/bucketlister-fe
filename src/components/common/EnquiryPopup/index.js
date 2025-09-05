@@ -19,6 +19,42 @@ const EnquiryPopup = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  // Handle body scroll lock when popup is open
+  React.useEffect(() => {
+    if (isOpen) {
+      // Prevent body scroll
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '0px'; // Prevent layout shift
+    } else {
+      // Restore body scroll
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    };
+  }, [isOpen]);
+
+  // Handle ESC key to close popup
+  React.useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen, onClose]);
+
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
       ...prev,
@@ -130,10 +166,6 @@ New Travel Enquiry Details:
 
   return (
     <div className={`${styles.enquiryOverlay} ${isOpen ? styles.open : ""}`}>
-      <div 
-        className={styles.overlayBackdrop} 
-        onClick={onClose}
-      />
       <div className={styles.overlayPanel}>
         <div className={styles.overlayHeader}>
           <h3 className={styles.overlayTitle}>Send Enquiry</h3>

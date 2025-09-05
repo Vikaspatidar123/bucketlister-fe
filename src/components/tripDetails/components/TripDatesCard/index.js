@@ -2,6 +2,7 @@
 import React from "react";
 import styles from "./style.module.scss";
 import CustomSelect from "@/common/CustomSelect";
+import EnquiryPopup from "@/components/common/EnquiryPopup";
 
 const buildMonthOptions = (batches = []) => {
   const seen = new Set();
@@ -18,9 +19,10 @@ const buildMonthOptions = (batches = []) => {
   return opts;
 };
 
-const TripDatesCard = ({ trip }) => {
+const TripDatesCard = ({ trip, destination }) => {
   const [selectedMonth, setSelectedMonth] = React.useState(null);
   const [selectedDate, setSelectedDate] = React.useState(null);
+  const [isEnquiryPopupOpen, setIsEnquiryPopupOpen] = React.useState(false);
   const monthOptions = React.useMemo(
     () => buildMonthOptions(trip?.batches),
     [trip]
@@ -135,7 +137,19 @@ const TripDatesCard = ({ trip }) => {
         )}
       </div>
 
-      <button className={styles.primaryBtn}>Send Enquiry</button>
+      <button 
+        className={styles.primaryBtn}
+        onClick={() => setIsEnquiryPopupOpen(true)}
+      >
+        Send Enquiry
+      </button>
+      
+      <EnquiryPopup
+        isOpen={isEnquiryPopupOpen}
+        onClose={() => setIsEnquiryPopupOpen(false)}
+        destinationName={destination?.destination_name}
+        tripTitle={trip?.title}
+      />
     </div>
   );
 };

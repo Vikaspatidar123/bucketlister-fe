@@ -42,14 +42,13 @@ export const COMPANY_INFO = {
   name: "THE BUCKETL.STER",
   address:
     "Sai leela commercial complex, 502, Swami Vivekananda Rd, opp. Moksh Plaza, Datta Park Borivali, Mumbai, Maharashtra 400092",
-  phone: ["702664759", "9137911579"],
+  phone: ["+91 702664759"],
   email: "sales.thebucketlister@gmail.com",
   socialMedia: [
-    { name: "YouTube", icon: youtubeIcon },
-    { name: "Facebook", icon: facebookIcon },
-    { name: "Twitter", icon: twitterIcon },
-    { name: "Instagram", icon: instagramIconFooter },
-    { name: "LinkedIn", icon: linkedinIcon },
+    { name: "YouTube", icon: youtubeIcon, url: "https://www.youtube.com/@the_bucketlister" },
+    { name: "Facebook", icon: facebookIcon, url: "https://www.facebook.com/TheBucketlisterTravels" },
+    { name: "Instagram", icon: instagramIconFooter, url: "https://www.instagram.com/thebucketlister_/" },
+    { name: "LinkedIn", icon: linkedinIcon, url: "https://www.linkedin.com/company/the-bucketlister" },
   ],
 };
 

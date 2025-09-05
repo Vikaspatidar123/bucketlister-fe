@@ -28,9 +28,17 @@ const CompanyInfo = () => {
       
       <div className={styles.socialMedia}>
         {COMPANY_INFO.socialMedia.map((social, index) => (
-          <div key={index} className={styles.socialIcon} title={social.name}>
+          <a 
+            key={index} 
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialIcon} 
+            title={social.name}
+            aria-label={`Visit our ${social.name} page`}
+          >
             <Image src={social.icon} alt={social.name} width={40} height={40} />
-          </div>
+          </a>
         ))}
       </div>
     </div>
