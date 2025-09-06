@@ -62,7 +62,8 @@ const BannerSection = ({
       const trips = [];
       TRAVEL_PACKAGES_DATA.forEach((destination) => {
         if (destination?.category === category && Array.isArray(destination.trips)) {
-          destination.trips.forEach((trip, index) => {
+          // destination.trips.forEach((trip, index) => {
+            const trip = destination.trips[0];
             const id = trip.tripId ?? trip.id ?? `${destination.destination_id}-${index}`;
             const tripId = trip.tripId ?? trip.id;
             const destinationId = destination.destination_id;
@@ -77,7 +78,7 @@ const BannerSection = ({
               tripId,
               href: (destinationId && tripId) ? `/trip?destinationId=${destinationId}&tripId=${tripId}` : undefined,
             });
-          });
+          // });
         }
       });
       return trips;

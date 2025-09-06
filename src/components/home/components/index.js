@@ -10,7 +10,7 @@ import TravelPackagesSection from "../../TravelPackagesSection/components/Travel
 import styles from "./style.module.scss";
 import BannerSection from "@/components/BannerSection/components";
 import YourAdventureSection from "./YourAdventure";
-// import HappyMomentsSection from "./HappyMomentsSection";
+import HappyMomentsSection from "./HappyMomentsSection";
 import ReasonsToCountOnUsSection from "./ReasonsToCountOnUsSection";
 import TravellersTestimonialsSection from "./TravellersTestimonialsSection";
 import MomentsInMotionSection from "./MomentsInMotionSection";
@@ -30,7 +30,7 @@ const Home = () => {
       />
       <TravelPackagesSection isHomePage={true} />
       <YourAdventureSection />
-      {/* <HappyMomentsSection /> */}
+      <HappyMomentsSection />
       <FeaturesBar />
       <ReasonsToCountOnUsSection />
       <TravellersTestimonialsSection />

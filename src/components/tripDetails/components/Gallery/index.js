@@ -12,9 +12,6 @@ const Gallery = ({ trip }) => {
       return null;
     };
 
-    const main = pickUrl(trip?.image);
-    if (main) arr.push(main);
-
     if (Array.isArray(trip?.other_images)) {
       for (const it of trip.other_images) {
         const url = pickUrl(it);
