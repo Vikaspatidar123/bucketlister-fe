@@ -42,16 +42,17 @@ export const getAssetUrlWithFallback = (assetPath) => {
   
   // Remove leading slash from assetPath if present and construct CDN URL
   const cleanPath = assetPath.startsWith('/') ? assetPath.slice(1) : assetPath;
-  const cdnUrl = `${cdnBaseUrl}/public/${cleanPath}`;
+  // const cdnUrl = `${cdnBaseUrl}/public/${cleanPath}`;
   
-  return {
-    src: cdnUrl,
-    onError: (e) => {
-      // Fallback to local path if CDN fails
-      console.warn(`CDN failed for ${cdnUrl}, falling back to local path`);
-      e.target.src = assetPath;
-    }
-  };
+  return cleanPath;
+  // {
+    // src: cdnUrl,
+    // onError: (e) => {
+    //   // Fallback to local path if CDN fails
+    //   console.warn(`CDN failed for ${cdnUrl}, falling back to local path`);
+    //   e.target.src = assetPath;
+    // }
+  // };
 };
 
 /**
