@@ -9,14 +9,19 @@ import GiftCard from "./GiftCard";
 import ContactDetailsModal from "./ContactDetailsModal";
 import { initiateRazorpayPayment } from "@/utils/razorpay";
 import { TRAVEL_PACKAGES_DATA } from "@/components/TravelPackagesSection/constants";
+import { useRouter } from "next/router";
 
-const BookNow = ({ tripId, searchParams = {} }) => {
+const BookNow = () => {
+  
+  const params = useRouter();
+  const tripId = params.query.tripId;
+  const searchParams = params.query;
   const [tripData, setTripData] = useState(null);
   const [selectedBatch, setSelectedBatch] = useState(null);
   const [occupancyDetails, setOccupancyDetails] = useState({
     type: "Triple Occupancy",
     quantity: 1,
-    basePrice: 40000
+    basePrice: 40000,
   });
   const [appliedCoupon, setAppliedCoupon] = useState(null);
   const [appliedGiftCard, setAppliedGiftCard] = useState(null);
@@ -32,13 +37,24 @@ const BookNow = ({ tripId, searchParams = {} }) => {
     // Find the trip across all destinations
     for (const destination of TRAVEL_PACKAGES_DATA) {
       if (destination.trips) {
-        const trip = destination.trips.find(t => t.tripId.toString() === tripData.tripId.toString());
+        const trip = destination.trips.find(
+          (t) => t.tripId.toString() === tripData.tripId.toString()
+        );
         if (trip && trip.batches) {
           // Process batches to find the selected one
           const monthMap = {
-            'January': 'Jan', 'February': 'Feb', 'March': 'Mar', 'April': 'Apr',
-            'May': 'May', 'June': 'Jun', 'July': 'Jul', 'August': 'Aug',
-            'September': 'Sep', 'October': 'Oct', 'November': 'Nov', 'December': 'Dec'
+            January: "Jan",
+            February: "Feb",
+            March: "Mar",
+            April: "Apr",
+            May: "May",
+            June: "Jun",
+            July: "Jul",
+            August: "Aug",
+            September: "Sep",
+            October: "Oct",
+            November: "Nov",
+            December: "Dec",
           };
 
           let batchId = 1;
@@ -47,34 +63,45 @@ const BookNow = ({ tripId, searchParams = {} }) => {
               if (Array.isArray(dateRanges)) {
                 for (const dateRange of dateRanges) {
                   if (batchId === selectedBatch) {
-                    const monthAbbr = monthMap[monthName] || monthName.slice(0, 3);
-                    
+                    const monthAbbr =
+                      monthMap[monthName] || monthName.slice(0, 3);
+
                     // Format the date range for display
                     let formattedRange = dateRange;
-                    if (dateRange.includes(' - ')) {
-                      const [startDate, endDate] = dateRange.split(' - ');
-                      const [startDay, startMonth] = startDate.split('/');
-                      const [endDay, endMonth] = endDate.split('/');
-                      
-                      const startMonthName = Object.keys(monthMap).find(key => 
-                        monthMap[key] === Object.keys(monthMap)[parseInt(startMonth) - 1]
-                      ) || monthName;
-                      const startMonthAbbr = monthMap[startMonthName] || startMonthName.slice(0, 3);
-                      
-                      const endMonthName = Object.keys(monthMap).find(key => 
-                        monthMap[key] === Object.keys(monthMap)[parseInt(endMonth) - 1]
-                      ) || monthName;
-                      const endMonthAbbr = monthMap[endMonthName] || endMonthName.slice(0, 3);
-                      
-                      formattedRange = `${startMonthAbbr} ${parseInt(startDay)} - ${endMonthAbbr} ${parseInt(endDay)}`;
+                    if (dateRange.includes(" - ")) {
+                      const [startDate, endDate] = dateRange.split(" - ");
+                      const [startDay, startMonth] = startDate.split("/");
+                      const [endDay, endMonth] = endDate.split("/");
+
+                      const startMonthName =
+                        Object.keys(monthMap).find(
+                          (key) =>
+                            monthMap[key] ===
+                            Object.keys(monthMap)[parseInt(startMonth) - 1]
+                        ) || monthName;
+                      const startMonthAbbr =
+                        monthMap[startMonthName] || startMonthName.slice(0, 3);
+
+                      const endMonthName =
+                        Object.keys(monthMap).find(
+                          (key) =>
+                            monthMap[key] ===
+                            Object.keys(monthMap)[parseInt(endMonth) - 1]
+                        ) || monthName;
+                      const endMonthAbbr =
+                        monthMap[endMonthName] || endMonthName.slice(0, 3);
+
+                      formattedRange = `${startMonthAbbr} ${parseInt(
+                        startDay
+                      )} - ${endMonthAbbr} ${parseInt(endDay)}`;
                     }
-                    
+
                     return {
                       id: batchId,
                       dateRange: formattedRange,
                       month: monthAbbr,
                       originalMonth: monthName,
-                      originalRange: dateRange
+                      originalRange: dateRange,
                     };
                   }
                   batchId++;
@@ -89,15 +116,24 @@ const BookNow = ({ tripId, searchParams = {} }) => {
   }, [selectedBatch, tripData?.tripId]);
 
   // Web3Forms email sender function
-  const sendPaymentConfirmationEmail = async (contactDetails, paymentData, status) => {
+  const sendPaymentConfirmationEmail = async (
+    contactDetails,
+    paymentData,
+    status
+  ) => {
     const body = new FormData();
-    
-    body.append('access_key', 'c5ef9919-27cb-464e-bd82-1662fbd7989d');
-    body.append('from_name', 'Bucketlister Website');
-    
-    if (status === 'success') {
-      body.append('subject', `Payment Confirmation - ${tripData?.title || 'Booking'} - ${paymentData.razorpay_payment_id}`);
-      
+
+    body.append("access_key", "c5ef9919-27cb-464e-bd82-1662fbd7989d");
+    body.append("from_name", "Bucketlister Website");
+
+    if (status === "success") {
+      body.append(
+        "subject",
+        `Payment Confirmation - ${tripData?.title || "Booking"} - ${
+          paymentData.razorpay_payment_id
+        }`
+      );
+
       const message = `
 PAYMENT SUCCESSFUL - Booking Confirmation
 
@@ -107,29 +143,36 @@ Customer Details:
 - Phone: ${contactDetails.phone}
 
 Trip Details:
-- Trip: ${tripData?.title || 'N/A'}
-- Destination: ${tripData?.destination || 'N/A'}
-- Duration: ${tripData?.duration || 'N/A'}
-- Occupancy: ${occupancyDetails.type} (${occupancyDetails.quantity} person${occupancyDetails.quantity > 1 ? 's' : ''})
+- Trip: ${tripData?.title || "N/A"}
+- Destination: ${tripData?.destination || "N/A"}
+- Duration: ${tripData?.duration || "N/A"}
+- Occupancy: ${occupancyDetails.type} (${occupancyDetails.quantity} person${
+        occupancyDetails.quantity > 1 ? "s" : ""
+      })
 
 Payment Details:
 - Payment ID: ${paymentData.razorpay_payment_id}
-- Order ID: ${paymentData.razorpay_order_id || 'N/A'}
-- Booking Amount: ₹${calculatedAmounts.bookingAmount?.toLocaleString() || 'N/A'}
-- Total Package Amount: ₹${calculatedAmounts.totalPackageAmount?.toLocaleString() || 'N/A'}
+- Order ID: ${paymentData.razorpay_order_id || "N/A"}
+- Booking Amount: ₹${calculatedAmounts.bookingAmount?.toLocaleString() || "N/A"}
+- Total Package Amount: ₹${
+        calculatedAmounts.totalPackageAmount?.toLocaleString() || "N/A"
+      }
 - Payment Status: SUCCESS
-- Payment Time: ${new Date().toLocaleString('en-IN')}
+- Payment Time: ${new Date().toLocaleString("en-IN")}
 
 Next Steps:
 1. Customer will receive booking confirmation
 2. Remaining amount to be collected before travel
 3. Travel documents to be sent closer to travel date
       `.trim();
-      
-      body.append('message', message);
+
+      body.append("message", message);
     } else {
-      body.append('subject', `Payment Failed - ${tripData?.title || 'Booking Attempt'}`);
-      
+      body.append(
+        "subject",
+        `Payment Failed - ${tripData?.title || "Booking Attempt"}`
+      );
+
       const message = `
 PAYMENT FAILED - Booking Attempt
 
@@ -139,36 +182,40 @@ Customer Details:
 - Phone: ${contactDetails.phone}
 
 Trip Details:
-- Trip: ${tripData?.title || 'N/A'}
-- Destination: ${tripData?.destination || 'N/A'}
-- Duration: ${tripData?.duration || 'N/A'}
-- Occupancy: ${occupancyDetails.type} (${occupancyDetails.quantity} person${occupancyDetails.quantity > 1 ? 's' : ''})
+- Trip: ${tripData?.title || "N/A"}
+- Destination: ${tripData?.destination || "N/A"}
+- Duration: ${tripData?.duration || "N/A"}
+- Occupancy: ${occupancyDetails.type} (${occupancyDetails.quantity} person${
+        occupancyDetails.quantity > 1 ? "s" : ""
+      })
 
 Payment Details:
-- Attempted Amount: ₹${calculatedAmounts.bookingAmount?.toLocaleString() || 'N/A'}
+- Attempted Amount: ₹${
+        calculatedAmounts.bookingAmount?.toLocaleString() || "N/A"
+      }
 - Payment Status: FAILED
 - Error: ${paymentData.error}
-- Attempt Time: ${new Date().toLocaleString('en-IN')}
+- Attempt Time: ${new Date().toLocaleString("en-IN")}
 
 Action Required:
 - Customer may retry payment
 - Follow up may be needed
       `.trim();
-      
-      body.append('message', message);
+
+      body.append("message", message);
     }
 
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body,
     });
 
     const data = await response.json();
-    
+
     if (!data.success) {
-      throw new Error(data.message || 'Email sending failed');
+      throw new Error(data.message || "Email sending failed");
     }
-    
+
     return data;
   };
 
@@ -177,19 +224,19 @@ Action Required:
     if (tripId && searchParams) {
       const extractedTripData = {
         tripId,
-        destination: searchParams.destination || '',
-        title: searchParams.title || '',
+        destination: searchParams.destination || "",
+        title: searchParams.title || "",
         price: parseFloat(searchParams.price) || 40000,
-        duration: searchParams.duration || '',
+        duration: searchParams.duration || "",
         capacity: parseInt(searchParams.capacity) || 30,
       };
-      
+
       setTripData(extractedTripData);
-      
+
       // Update base price from trip data
-      setOccupancyDetails(prev => ({
+      setOccupancyDetails((prev) => ({
         ...prev,
-        basePrice: extractedTripData.price
+        basePrice: extractedTripData.price,
       }));
     }
   }, [tripId, searchParams]);
@@ -200,7 +247,7 @@ Action Required:
     const quantity = occupancyDetails.quantity;
     const couponDiscount = appliedCoupon ? appliedCoupon.discount : 0;
     const giftCardDiscount = appliedGiftCard ? appliedGiftCard.amount : 0;
-    
+
     return {
       baseAmount,
       quantity,
@@ -230,17 +277,17 @@ Action Required:
 
     try {
       const paymentAmount = Math.round(calculatedAmounts.bookingAmount || 4410);
-      console.log('Payment Debug:', {
+      console.log("Payment Debug:", {
         bookingAmount: calculatedAmounts.bookingAmount,
         paymentAmount,
         calculatedAmounts,
-        paymentType
+        paymentType,
       });
-      
+
       // For now, skip order creation and proceed directly with payment
-      console.log('Proceeding with direct payment (no order creation)');
+      console.log("Proceeding with direct payment (no order creation)");
       let orderId = null;
-      
+
       // Uncomment below to enable order creation when API issues are resolved
       /*
       console.log('Creating Razorpay order with data:', {
@@ -288,7 +335,7 @@ Action Required:
         console.log('Proceeding with direct payment');
       }
       */
-      
+
       await initiateRazorpayPayment({
         amount: paymentAmount, // Original amount (will be converted to paisa in utility)
         orderId: orderId,
@@ -306,47 +353,76 @@ Action Required:
           capacity: tripData?.capacity,
         },
         onSuccess: async (paymentResponse) => {
-          console.log('Payment successful:', paymentResponse);
-          
+          console.log("Payment successful:", paymentResponse);
+
           // Send success email via Web3Forms
           try {
-            await sendPaymentConfirmationEmail(contactDetails, paymentResponse, 'success');
-            alert(`Payment successful for ${tripData?.title || 'Adventure Trip'}! Payment ID: ${paymentResponse.razorpay_payment_id}\n\nConfirmation email sent to ${contactDetails.email}`);
+            await sendPaymentConfirmationEmail(
+              contactDetails,
+              paymentResponse,
+              "success"
+            );
+            alert(
+              `Payment successful for ${
+                tripData?.title || "Adventure Trip"
+              }! Payment ID: ${
+                paymentResponse.razorpay_payment_id
+              }\n\nConfirmation email sent to ${contactDetails.email}`
+            );
           } catch (emailError) {
-            console.error('Failed to send confirmation email:', emailError);
-            alert(`Payment successful for ${tripData?.title || 'Adventure Trip'}! Payment ID: ${paymentResponse.razorpay_payment_id}\n\nNote: Could not send confirmation email.`);
+            console.error("Failed to send confirmation email:", emailError);
+            alert(
+              `Payment successful for ${
+                tripData?.title || "Adventure Trip"
+              }! Payment ID: ${
+                paymentResponse.razorpay_payment_id
+              }\n\nNote: Could not send confirmation email.`
+            );
           }
-          
+
           setIsProcessingPayment(false);
         },
         onFailure: async (error) => {
-          console.error('Payment failed:', error);
-          console.error('Failure details:', {
+          console.error("Payment failed:", error);
+          console.error("Failure details:", {
             errorType: error.error,
             message: error.message,
             code: error.code,
-            paymentId: error.razorpay_payment_id
+            paymentId: error.razorpay_payment_id,
           });
-          
+
           // Send failure email via Web3Forms
           try {
-            await sendPaymentConfirmationEmail(contactDetails, { error: error.message || error.error }, 'failure');
+            await sendPaymentConfirmationEmail(
+              contactDetails,
+              { error: error.message || error.error },
+              "failure"
+            );
           } catch (emailError) {
-            console.error('Failed to send failure notification email:', emailError);
+            console.error(
+              "Failed to send failure notification email:",
+              emailError
+            );
           }
-          
-          alert(`Payment failed: ${error.message || error.error || 'Unknown error'}`);
+
+          alert(
+            `Payment failed: ${error.message || error.error || "Unknown error"}`
+          );
           setIsProcessingPayment(false);
-        }
+        },
       });
     } catch (error) {
-      console.error('Error initiating payment:', error);
-      console.error('Error details:', {
+      console.error("Error initiating payment:", error);
+      console.error("Error details:", {
         message: error.message,
         stack: error.stack,
-        name: error.name
+        name: error.name,
       });
-      alert(`Failed to initiate payment: ${error.message || 'Unknown error'}. Please try again.`);
+      alert(
+        `Failed to initiate payment: ${
+          error.message || "Unknown error"
+        }. Please try again.`
+      );
       setIsProcessingPayment(false);
     }
   };
@@ -371,23 +447,25 @@ Action Required:
               {tripData.capacity && (
                 <>
                   <span className={styles.separator}>•</span>
-                  <span className={styles.capacity}>{tripData.capacity} Travellers</span>
+                  <span className={styles.capacity}>
+                    {tripData.capacity} Travellers
+                  </span>
                 </>
               )}
             </div>
           </div>
         )}
-        
+
         <div className={styles.mainLayout}>
           {/* Left Column - Booking Details */}
           <div className={styles.leftColumn}>
-            <Batches 
+            <Batches
               selectedBatch={selectedBatch}
               onBatchSelect={setSelectedBatch}
               tripData={tripData}
             />
-            
-            <Occupancy 
+
+            <Occupancy
               occupancyDetails={occupancyDetails}
               onOccupancyChange={setOccupancyDetails}
               tripData={tripData}
@@ -397,7 +475,7 @@ Action Required:
           {/* Right Column - Summary Panel */}
           <div className={styles.rightColumn}>
             <div className={styles.stickyPanel}>
-              <PricingSummary 
+              <PricingSummary
                 baseAmount={pricingData.baseAmount}
                 quantity={pricingData.quantity}
                 discountAmount={pricingData.discountAmount}
@@ -409,27 +487,36 @@ Action Required:
                 onPaymentTypeChange={setPaymentType}
                 selectedBatchInfo={selectedBatchInfo}
               />
-              
+
               {/* <CouponsOffers 
                 onCouponApply={handleCouponApply}
                 appliedCoupon={appliedCoupon}
                 compact={true}
               /> */}
-              
+
               {/* <GiftCard 
                 onGiftCardApply={handleGiftCardApply}
                 appliedGiftCard={appliedGiftCard}
                 compact={true}
               /> */}
-              
-              {(selectedBatch && occupancyDetails) && (
+
+              {selectedBatch && occupancyDetails && (
                 <div className={styles.finalCta}>
-                  <button 
+                  <button
                     className={styles.proceedToPaymentBtn}
                     onClick={handleProceedToPayment}
                     disabled={isProcessingPayment}
                   >
-                    {isProcessingPayment ? "Processing..." : `Pay ${paymentType === "full" ? "Full Amount" : "Booking Amount"} (₹${calculatedAmounts.bookingAmount?.toLocaleString() || '0'})`}
+                    {isProcessingPayment
+                      ? "Processing..."
+                      : `Pay ${
+                          paymentType === "full"
+                            ? "Full Amount"
+                            : "Booking Amount"
+                        } (₹${
+                          calculatedAmounts.bookingAmount?.toLocaleString() ||
+                          "0"
+                        })`}
                   </button>
                 </div>
               )}

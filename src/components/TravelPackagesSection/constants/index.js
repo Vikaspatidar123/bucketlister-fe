@@ -3487,7 +3487,6 @@ export const TRAVEL_PACKAGES_DATA = [
             image: vietnam10,
             hero_image: vietnam10,
           },
-          
         ],
         features: [
           "experience",
@@ -4714,7 +4713,7 @@ export const TRAVEL_PACKAGES_DATA = [
         price: "",
         originalPrice: "",
         discountAmount: "",
-        image:malaysia1 ,
+        image: malaysia1,
         other_images: [
           {
             id: 1,
@@ -5029,7 +5028,6 @@ export const TRAVEL_PACKAGES_DATA = [
             image: malaysia13,
             hero_image: malaysia13,
           },
-
         ],
         features: [
           "experience",
@@ -5787,13 +5785,13 @@ export const TRAVEL_PACKAGES_DATA = [
             image: northernLights7,
             hero_image: northernLights7,
           },
-        
+
           {
             id: 2,
             image: northernLights8,
             hero_image: northernLights8,
           },
-        
+
           {
             id: 3,
             image: northernLights9,
@@ -7961,7 +7959,6 @@ export const TRAVEL_PACKAGES_DATA = [
             image: ladakh8,
             hero_image: ladakh8,
           },
-        
         ],
         features: [
           "luxury",
@@ -9018,7 +9015,7 @@ export const TRAVEL_PACKAGES_DATA = [
             image: kerala9,
             hero_image: kerala9,
           },
-        
+
           {
             id: 2,
             image: kerala10,
@@ -9033,7 +9030,8 @@ export const TRAVEL_PACKAGES_DATA = [
             id: 4,
             image: kerala12,
             hero_image: kerala12,
-          },],
+          },
+        ],
         features: [
           "experience",
           "classic",

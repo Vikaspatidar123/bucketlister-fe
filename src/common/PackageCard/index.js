@@ -36,11 +36,11 @@ const PackageCard = ({ trip, onClick }) => {
     >
       <div className={styles.cardImage}>
         <img src={imageSrc} alt={trip.title} className={styles.packageImage} />
-        {trip.badge && trip.badge.text ? (
+        {/* {trip.badge && trip.badge.text ? (
           <div className={`${styles.badge} ${styles[trip.badge.type || ""] || ""}`}>
             {trip.badge.text}
           </div>
-        ) : null}
+        ) : null} */}
       </div>
 
       <div className={styles.cardBody}>
