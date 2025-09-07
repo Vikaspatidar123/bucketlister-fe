@@ -20,7 +20,7 @@ const PricingSummary = ({
   // Apply coupon discount
   const couponDiscount = appliedCoupon ? appliedCoupon.discount : 0;
   const totalDiscount = discountAmount + couponDiscount;
-  const discountedAmount = subtotal - totalDiscount;
+  const discountedAmount = Math.max(subtotal - totalDiscount, 0); // Ensure non-negative
   
   // Calculate fees
   const convenienceFeeRate = 0.02; // 2%
@@ -46,9 +46,9 @@ const PricingSummary = ({
   const bookingDiscount = paymentType === "slot" ? 500 : 0; // ₹500 off for booking amount
   const fullPaymentDiscount = paymentType === "full" ? Math.min(totalPackageAmount * 0.10, 1500) : 0; // Up to 10% off, max ₹1500
   
-  const discountedTotal = totalPackageAmount - bookingDiscount - fullPaymentDiscount;
-  const bookingAmount = paymentType === "full" ? discountedTotal : discountedTotal * 0.2; // Full amount or 20%
-  const remainingAmount = discountedTotal - bookingAmount;
+  const discountedTotal = Math.max(totalPackageAmount - bookingDiscount - fullPaymentDiscount, 0); // Ensure non-negative
+  const bookingAmount = Math.max(paymentType === "full" ? discountedTotal : discountedTotal * 0.2, 0); // Ensure non-negative
+  const remainingAmount = Math.max(discountedTotal - bookingAmount, 0); // Ensure non-negative
 
   const formatCurrency = (amount) => {
     return `₹${amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;

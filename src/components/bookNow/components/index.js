@@ -247,11 +247,15 @@ Action Required:
     const quantity = occupancyDetails.quantity;
     const couponDiscount = appliedCoupon ? appliedCoupon.discount : 0;
     const giftCardDiscount = appliedGiftCard ? appliedGiftCard.amount : 0;
-
+    const totalDiscount = couponDiscount + giftCardDiscount;
+    const totalPackageAmount = baseAmount * quantity;
+    const bookingAmount = Math.max(totalPackageAmount - totalDiscount, 0); // Payable after discount
     return {
       baseAmount,
       quantity,
-      discountAmount: couponDiscount + giftCardDiscount,
+      discountAmount: totalDiscount,
+      totalPackageAmount,
+      bookingAmount,
     };
   };
 
@@ -276,13 +280,7 @@ Action Required:
     setShowContactModal(false);
 
     try {
-      const paymentAmount = Math.round(calculatedAmounts.bookingAmount || 4410);
-      console.log("Payment Debug:", {
-        bookingAmount: calculatedAmounts.bookingAmount,
-        paymentAmount,
-        calculatedAmounts,
-        paymentType,
-      });
+      const paymentAmount = Math.max(Math.round(calculatedAmounts.bookingAmount || 4410), 0); // Ensure non-negative
 
       // For now, skip order creation and proceed directly with payment
       console.log("Proceeding with direct payment (no order creation)");

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './style.module.scss';
+import { getAssetUrlWithFallback } from '@/utils/cdn';
 
 const AboutUs = () => {
   return (
@@ -11,8 +12,7 @@ const AboutUs = () => {
         <div className={styles.content}>
           <div className={styles.container}>
             <h1 className={styles.mainHeading}>
-              <span className={styles.line1}>About</span>
-              <span className={styles.line2}>THE BUCKETLISTER</span>
+              <span className={styles.line1}>About Us</span>
             </h1>
           </div>
         </div>
@@ -43,23 +43,38 @@ const AboutUs = () => {
           </h2>
           <div className={styles.founderCard}>
             <div className={styles.founderImage}>
-              <img src="/assets/png/profile-1.jpg" alt="Founder" />
+              <img 
+                {...getAssetUrlWithFallback("/assets/png/profile-1.jpg")} 
+                alt="Founder" 
+              />
             </div>
             <div className={styles.founderContent}>
               <h3 className={styles.founderName}>Harsh Vira</h3>
               <p className={styles.founderTitle}>Founder & CEO</p>
               <div className={styles.socialIcons}>
                 <a href="#" className={styles.socialIcon}>
-                  <img src="/assets/svg/instagram.svg" alt="Instagram" />
+                  <img 
+                    {...getAssetUrlWithFallback("/assets/svg/instagram.svg")} 
+                    alt="Instagram" 
+                  />
                 </a>
                 <a href="#" className={styles.socialIcon}>
-                  <img src="/assets/svg/linkedin.svg" alt="LinkedIn" />
+                  <img 
+                    {...getAssetUrlWithFallback("/assets/svg/linkedin.svg")} 
+                    alt="LinkedIn" 
+                  />
                 </a>
                 <a href="#" className={styles.socialIcon}>
-                  <img src="/assets/svg/twitter.svg" alt="Twitter" />
+                  <img 
+                    {...getAssetUrlWithFallback("/assets/svg/twitter.svg")} 
+                    alt="Twitter" 
+                  />
                 </a>
                 <a href="#" className={styles.socialIcon}>
-                  <img src="/assets/svg/facebook.svg" alt="Facebook" />
+                  <img 
+                    {...getAssetUrlWithFallback("/assets/svg/facebook.svg")} 
+                    alt="Facebook" 
+                  />
                 </a>
               </div>
               <p className={styles.founderDescription}>
@@ -79,28 +94,40 @@ const AboutUs = () => {
           <div className={styles.teamGrid}>
             <div className={styles.teamMember}>
               <div className={styles.memberImage}>
-                <img src="/assets/png/profile.png" alt="Team Member" />
+                <img 
+                  {...getAssetUrlWithFallback("/assets/webp/rakshit.webp")} 
+                  alt="Rakshit Dedhia" 
+                />
               </div>
               <h4 className={styles.memberName}>Rakshit Dedhia</h4>
               <p className={styles.memberDesignation}>Travel Consultant</p>
             </div>
             <div className={styles.teamMember}>
               <div className={styles.memberImage}>
-                <img src="/assets/png/profile-1.jpg" alt="Team Member" />
+                <img 
+                  {...getAssetUrlWithFallback("/assets/webp/kerul.webp")} 
+                  alt="Kerul Shah Vira" 
+                />
               </div>
               <h4 className={styles.memberName}>Kerul Shah Vira</h4>
               <p className={styles.memberDesignation}>Operations Manager</p>
             </div>
             <div className={styles.teamMember}>
               <div className={styles.memberImage}>
-                <img src="/assets/png/profile.png" alt="Team Member" />
+                <img 
+                  {...getAssetUrlWithFallback("/assets/png/profile.png")} 
+                  alt="Shrey" 
+                />
               </div>
               <h4 className={styles.memberName}>Shrey</h4>
               <p className={styles.memberDesignation}>Customer Experience</p>
             </div>
             <div className={styles.teamMember}>
               <div className={styles.memberImage}>
-                <img src="/assets/png/profile-1.jpg" alt="Team Member" />
+                <img 
+                  {...getAssetUrlWithFallback("/assets/webp/dhaval.webp")} 
+                  alt="Dhaval" 
+                />
               </div>
               <h4 className={styles.memberName}>Dhaval</h4>
               <p className={styles.memberDesignation}>Tour Coordinator</p>
