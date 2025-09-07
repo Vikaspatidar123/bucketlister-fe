@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style.module.scss';
-import { getAssetUrlWithFallback } from '@/utils/cdn';
+import { getAssetUrl } from '@/utils/cdn';
 
 const AboutUs = () => {
   return (
@@ -44,7 +44,7 @@ const AboutUs = () => {
           <div className={styles.founderCard}>
             <div className={styles.founderImage}>
               <img 
-                {...getAssetUrlWithFallback("/assets/png/profile-1.jpg")} 
+                {...getAssetUrl("/assets/png/profile-1.jpg")} 
                 alt="Founder" 
               />
             </div>
@@ -54,25 +54,25 @@ const AboutUs = () => {
               <div className={styles.socialIcons}>
                 <a href="#" className={styles.socialIcon}>
                   <img 
-                    {...getAssetUrlWithFallback("/assets/svg/instagram.svg")} 
+                    {...getAssetUrl("/assets/svg/instagram.svg")} 
                     alt="Instagram" 
                   />
                 </a>
                 <a href="#" className={styles.socialIcon}>
                   <img 
-                    {...getAssetUrlWithFallback("/assets/svg/linkedin.svg")} 
+                    {...getAssetUrl("/assets/svg/linkedin.svg")} 
                     alt="LinkedIn" 
                   />
                 </a>
                 <a href="#" className={styles.socialIcon}>
                   <img 
-                    {...getAssetUrlWithFallback("/assets/svg/twitter.svg")} 
+                    {...getAssetUrl("/assets/svg/twitter.svg")} 
                     alt="Twitter" 
                   />
                 </a>
                 <a href="#" className={styles.socialIcon}>
                   <img 
-                    {...getAssetUrlWithFallback("/assets/svg/facebook.svg")} 
+                    {...getAssetUrl("/assets/svg/facebook.svg")} 
                     alt="Facebook" 
                   />
                 </a>
@@ -95,7 +95,7 @@ const AboutUs = () => {
             <div className={styles.teamMember}>
               <div className={styles.memberImage}>
                 <img 
-                  {...getAssetUrlWithFallback("/assets/webp/rakshit.webp")} 
+                  {...getAssetUrl("/assets/webp/rakshit.webp")} 
                   alt="Rakshit Dedhia" 
                 />
               </div>
@@ -105,7 +105,7 @@ const AboutUs = () => {
             <div className={styles.teamMember}>
               <div className={styles.memberImage}>
                 <img 
-                  {...getAssetUrlWithFallback("/assets/webp/kerul.webp")} 
+                  {...getAssetUrl("/assets/webp/kerul.webp")} 
                   alt="Kerul Shah Vira" 
                 />
               </div>
@@ -115,7 +115,7 @@ const AboutUs = () => {
             <div className={styles.teamMember}>
               <div className={styles.memberImage}>
                 <img 
-                  {...getAssetUrlWithFallback("/assets/png/profile.png")} 
+                  {...getAssetUrl("/assets/png/profile.png")} 
                   alt="Shrey" 
                 />
               </div>
@@ -125,7 +125,7 @@ const AboutUs = () => {
             <div className={styles.teamMember}>
               <div className={styles.memberImage}>
                 <img 
-                  {...getAssetUrlWithFallback("/assets/webp/dhaval.webp")} 
+                  {...getAssetUrl("/assets/webp/dhaval.webp")} 
                   alt="Dhaval" 
                 />
               </div>
