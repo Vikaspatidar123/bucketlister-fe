@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { HERO_DATA } from '../../constants';
 import { useHeroSearch } from '../../hooks/useHeroSearch';
@@ -9,6 +9,23 @@ import { FILTER_OPTIONS } from '@/components/TravelPackagesSection/constants';
 
 const SearchForm = ({ onSubmitted = null }) => {
   const router = useRouter();
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mql = window.matchMedia('(max-width: 768px)');
+    const update = () => setIsMobile(mql.matches);
+    update();
+    try {
+      mql.addEventListener('change', update);
+      return () => mql.removeEventListener('change', update);
+    } catch (_) {
+      // Safari fallback
+      window.addEventListener('resize', update);
+      return () => window.removeEventListener('resize', update);
+    }
+  }, []);
 
   const {
     searchData,
@@ -26,14 +43,19 @@ const SearchForm = ({ onSubmitted = null }) => {
       ? searchData.destination.trim()
       : (searchData.destination?.label || searchData.destination?.value || '').trim();
     const date = searchData.date?.value || '';
-    if (!rawDestination || !date) return;
+    const isDateRequired = !isMobile;
+    if (!rawDestination || (isDateRequired && !date)) return;
 
     // Try to normalize destination to a known option value
     const exact = destinationOptions.find(o => o.value.toLowerCase() === rawDestination.toLowerCase());
     const partial = exact ? null : destinationOptions.find(o => o.label.toLowerCase().includes(rawDestination.toLowerCase()));
     const destination = (exact || partial)?.value || rawDestination;
 
-    const url = `/?destination=${encodeURIComponent(destination)}&date=${encodeURIComponent(date)}#travel-packages`;
+    let url = `/?destination=${encodeURIComponent(destination)}`;
+    if (!isMobile && date) {
+      url += `&date=${encodeURIComponent(date)}`;
+    }
+    url += '#travel-packages';
     router.push(url);
 
     // Reset fields after triggering search
@@ -68,7 +90,7 @@ const SearchForm = ({ onSubmitted = null }) => {
             />
           </div>
           
-          <div className={styles.inputGroup}>
+          <div className={`${styles.inputGroup} ${styles.hideOnMobile}`}>
             <CustomSelect
               options={dateOptions}
               value={searchData.date}

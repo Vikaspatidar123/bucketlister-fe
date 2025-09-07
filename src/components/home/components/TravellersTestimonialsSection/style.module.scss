@@ -6,6 +6,7 @@
     max-width: 85vw;
     margin: 0 auto;
     // padding: 0 1rem;
+    position: relative; // anchor for overlay hints
   }
   .sectionTitle1 {
     text-align: start;
@@ -17,7 +18,7 @@
   .sectionTitle {
     text-align: center;
     font-family: sans-serif;
-    font-size: 2.5rem;
+    font-size: 1.9rem;
     font-weight: 700;
     margin-bottom: 3rem;
     line-height: 1.2;
@@ -45,6 +46,29 @@
     &::-webkit-scrollbar { /* WebKit */
       display: none;
       height: 0;
+    }
+
+    position: relative; // to anchor the arrow indicator
+
+    @media (max-width: 768px) {
+      &::after {
+        content: '→';
+        position: sticky;
+        right: 6px;
+        height: 25px;
+        top: -14px; // sit just above cards
+        z-index: 2;
+        font-size: 18px;
+        line-height: 1;
+        font-weight: 700;
+        color: #ef3447;
+        background: rgba(255, 255, 255, 0.74);
+        padding: 6px 10px;
+        border-radius: 100%; // rounded pill
+        box-shadow: 0 2px 8px rgba(16, 24, 40, 0.12);
+        pointer-events: none;
+        // animation: subtlePulse 2.4s ease-in-out infinite alternate; // slight shine
+      }
     }
     
   }
@@ -110,6 +134,12 @@
         font-weight: 400;
       }
     }
+  }
+  
+  // subtle pulse/shine animation for the sticky arrow pill
+  @keyframes subtlePulse {
+    0% { box-shadow: 0 2px 8px rgba(16, 24, 40, 0.12); opacity: 0.9; }
+    100% { box-shadow: 0 4px 12px rgba(239, 52, 71, 0.22); opacity: 1; }
   }
 }
 @media screen and (max-width: 992px) {

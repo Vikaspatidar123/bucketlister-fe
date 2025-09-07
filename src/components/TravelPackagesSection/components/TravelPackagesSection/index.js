@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { createPortal } from 'react-dom';
 import { useRouter, useSearchParams } from "next/navigation";
 import CustomSelect from "../../../../common/CustomSelect";
 import Tabs from "../../../../common/Tabs";
@@ -48,6 +49,28 @@ const TravelPackagesSection = ({
   } = useTravelPackages(selectedTripId, destinationName);
 
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
+  const [portalRoot, setPortalRoot] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setPortalRoot(document.body);
+    }
+  }, []);
+
+  // Lock background scroll when the mobile filters overlay is open
+  useEffect(() => {
+    if (!isMobileFiltersOpen) return;
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtmlOverflow = html.style.overflow;
+    const prevBodyOverflow = body.style.overflow;
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    return () => {
+      html.style.overflow = prevHtmlOverflow;
+      body.style.overflow = prevBodyOverflow;
+    };
+  }, [isMobileFiltersOpen]);
 
   // Apply filters from query params (destination, date)
   useEffect(() => {
@@ -213,8 +236,7 @@ const TravelPackagesSection = ({
   return (
     <section
       id="travel-packages"
-      className={`${styles.travelPackagesSection} ${destinationName ? styles.explorePage : ""
-        } ${listLayout ? styles.listLayout : ""}`}
+      className={`${styles.travelPackagesSection} ${destinationName ? styles.explorePage : ""} ${listLayout ? styles.listLayout : ""} ${isHomePage ? styles.homePage : ""}`}
     >
       <div
         className={`${styles.container} ${destinationName ? styles.explorePageContainer : ""
@@ -366,112 +388,109 @@ const TravelPackagesSection = ({
             </div>
 
             {/* Mobile Filters Overlay */}
-            <div
-              className={`${styles.mobileFiltersOverlay} ${isMobileFiltersOpen ? styles.open : ""
-                }`}
-              aria-hidden={!isMobileFiltersOpen}
-            >
+            {portalRoot && createPortal(
               <div
-                className={styles.overlayBackdrop}
-                onClick={() => setIsMobileFiltersOpen(false)}
-              />
-              <div
-                className={styles.overlayPanel}
-                role="dialog"
-                aria-modal="true"
+                className={`${styles.mobileFiltersOverlay} ${isMobileFiltersOpen ? styles.open : ""}`}
+                aria-hidden={!isMobileFiltersOpen}
               >
-                <div className={styles.overlayHeader}>
-                  <span className={styles.overlayTitle}>Filters</span>
-                  <button
-                    className={styles.closeButton}
-                    onClick={() => setIsMobileFiltersOpen(false)}
-                    aria-label="Close"
-                  >
-                    ×
-                  </button>
-                </div>
-                <div className={styles.overlayContent}>
-                  <CustomSelect
-                    options={FILTER_OPTIONS.destinations}
-                    value={filters.destinations}
-                    onChange={(value) =>
-                      handleFilterChange("destinations", value)
-                    }
-                    placeholder="Destinations"
-                    isMulti={true}
-                    isSearchable={true}
-                    className={styles.filterSelect}
-                  />
-
-                  <div
-                    ref={priceFilterRef}
-                    className={`${styles.priceFilterContainer} ${isPriceFilterOpen ? styles.open : ""
-                      }`}
-                  >
-                    <div
-                      className={styles.priceFilterHeader}
-                      onClick={togglePriceFilter}
+                <div
+                  className={styles.overlayBackdrop}
+                  onClick={() => setIsMobileFiltersOpen(false)}
+                />
+                <div
+                  className={styles.overlayPanel}
+                  role="dialog"
+                  aria-modal="true"
+                >
+                  <div className={styles.overlayHeader}>
+                    <span className={styles.overlayTitle}>Filters</span>
+                    <button
+                      className={styles.closeButton}
+                      onClick={() => setIsMobileFiltersOpen(false)}
+                      aria-label="Close"
                     >
-                      <span className={styles.priceFilterDisplay}>
-                        {formatPriceRange()}
-                      </span>
-                      <span
-                        className={`${styles.priceFilterArrow} ${isPriceFilterOpen ? styles.rotated : ""
-                          }`}
+                      ×
+                    </button>
+                  </div>
+                  <div className={styles.overlayContent}>
+                    <CustomSelect
+                      options={FILTER_OPTIONS.destinations}
+                      value={filters.destinations}
+                      onChange={(value) =>
+                        handleFilterChange("destinations", value)
+                      }
+                      placeholder="Destinations"
+                      isMulti={true}
+                      isSearchable={true}
+                      className={styles.filterSelect}
+                    />
+
+                    <div
+                      ref={priceFilterRef}
+                      className={`${styles.priceFilterContainer} ${isPriceFilterOpen ? styles.open : ""}`}
+                    >
+                      <div
+                        className={styles.priceFilterHeader}
+                        onClick={togglePriceFilter}
                       >
-                        ▼
-                      </span>
+                        <span className={styles.priceFilterDisplay}>
+                          {formatPriceRange()}
+                        </span>
+                        <span
+                          className={`${styles.priceFilterArrow} ${isPriceFilterOpen ? styles.rotated : ""}`}
+                        >
+                          ▼
+                        </span>
+                      </div>
+
+                      {isPriceFilterOpen && (
+                        <div className={styles.priceFilterDropdown} data-price-slider="true">
+                          <PriceRangeSlider
+                            min={0}
+                            max={maxPrice}
+                            step={1000}
+                            value={filters.priceRange}
+                            onChange={handlePriceRangeChange}
+                            currency="₹"
+                            showLabels={true}
+                            showValues={true}
+                            className={styles.priceSlider}
+                          />
+                        </div>
+                      )}
                     </div>
 
-                    {isPriceFilterOpen && (
-                      <div className={styles.priceFilterDropdown} data-price-slider="true">
-                        <PriceRangeSlider
-                          min={0}
-                          max={maxPrice}
-                          step={1000}
-                          value={filters.priceRange}
-                          onChange={handlePriceRangeChange}
-                          currency="₹"
-                          showLabels={true}
-                          showValues={true}
-                          className={styles.priceSlider}
-                        />
-                      </div>
-                    )}
+                    <CustomSelect
+                      options={FILTER_OPTIONS.features}
+                      value={filters.features}
+                      onChange={(value) => handleFilterChange("features", value)}
+                      placeholder="Features"
+                      isMulti={true}
+                      className={styles.filterSelect}
+                    />
+                    <CustomSelect
+                      options={FILTER_OPTIONS.destinationType}
+                      value={filters.destinationType}
+                      onChange={(value) =>
+                        handleFilterChange("destinationType", value)
+                      }
+                      placeholder="Destination Type"
+                      isMulti={false}
+                      className={styles.filterSelect}
+                    />
                   </div>
-
-                  <CustomSelect
-                    options={FILTER_OPTIONS.features}
-                    value={filters.features}
-                    onChange={(value) => handleFilterChange("features", value)}
-                    placeholder="Features"
-                    isMulti={true}
-                    className={styles.filterSelect}
-                  />
-                  <CustomSelect
-                    options={FILTER_OPTIONS.destinationType}
-                    value={filters.destinationType}
-                    onChange={(value) =>
-                      handleFilterChange("destinationType", value)
-                    }
-                    placeholder="Destination Type"
-                    isMulti={false}
-                    className={styles.filterSelect}
-                  />
-                </div>
-                <div className={styles.overlayFooter}>
-                  <div
-                  // className={styles.}
-                  // onClick={() => setIsMobileFiltersOpen(false)}
-                  >
-                    {/* Apply */}
+                  <div className={styles.overlayFooter}>
+                    <div>
+                      {/* Apply */}
+                    </div>
+                    <button className={styles.clearButton} onClick={clearFilters}>
+                      Clear filters
+                    </button>
                   </div>
-                  <button className={styles.clearButton} onClick={clearFilters}>
-                    Clear filters
-                  </button>
                 </div>
-              </div>
-            </div>
+              </div>,
+              portalRoot
+            )}
 
             {/* Date Selection Tabs */}
             <div className={styles.dateSection}>
