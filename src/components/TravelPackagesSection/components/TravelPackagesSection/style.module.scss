@@ -704,6 +704,8 @@
   gap: 24px;
   margin-bottom: 48px;
   max-width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 // List layout variant
@@ -1318,9 +1320,11 @@
     inset: 0;
     z-index: 3000;
     pointer-events: none;
+    visibility: hidden; // ensure hidden when closed
     
     &.open {
       pointer-events: auto;
+      visibility: visible;
     }
     
     .overlayBackdrop {
@@ -1345,7 +1349,7 @@
       border-top-left-radius: 16px;
       border-top-right-radius: 16px;
       box-shadow: 0 -8px 24px rgba(16, 24, 40, 0.18);
-      transform: translateY(100%);
+      transform: translateY(110%); // push fully offscreen when closed
       transition: transform 0.25s ease;
       max-height: 80vh;
       min-height: 40vh;
@@ -1387,6 +1391,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 10px;
       overflow: auto;
+      pointer-events: auto; // ensure content is interactive when open
     }
 
     .overlayFooter {

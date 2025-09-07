@@ -93,7 +93,6 @@ const HappyMomentsSection = () => {
     return panels;
   };
   const panels = buildPanels();
-console.log(moments,'moments');
 
   return (
     <section className={styles.happyMomentsSection}>
