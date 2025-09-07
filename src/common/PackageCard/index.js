@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import styles from "./style.module.scss";
+import { banner1 } from "@/assets/png";
 
 const getDurationText = (duration) => {
   if (!duration) return "";
@@ -28,7 +29,7 @@ const PackageCard = ({ trip, onClick }) => {
   if (!trip) return null;
 
   const imageSrc =
-    trip.image || trip.thumbnail_image || trip.hero_image || "/assets/png/banner1.jpg";
+    trip.image || trip.thumbnail_image || trip.hero_image || banner1;
 
   return (
     <div className={styles.packageCard} onClick={onClick} role="button" tabIndex={0}

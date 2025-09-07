@@ -14,6 +14,7 @@ import styles from "./style.module.scss";
 import PriceRangeSlider from "../../../../common/PriceRangeSlider";
 import Image from "next/image";
 import { filterIcon } from "@/assets/svg";
+import { banner1 } from "@/assets/png";
 
 const TravelPackagesSection = ({
   selectedTripId = null,
@@ -222,7 +223,7 @@ const TravelPackagesSection = ({
         {listLayout && (
           <div className={styles.listBanner}>
             <Image
-              src="/assets/png/banner1.jpg"
+              src={banner1}
               alt="Explore trips"
               fill
               priority
@@ -502,7 +503,7 @@ const TravelPackagesSection = ({
                     trip.image ||
                     trip.thumbnail_image ||
                     trip.hero_image ||
-                    "/assets/png/banner1.jpg"
+                    banner1
                   }
                   alt={trip.title}
                   className={styles.packageImage}

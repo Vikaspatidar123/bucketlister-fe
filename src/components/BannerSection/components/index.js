@@ -6,6 +6,7 @@ import { BANNER_DATA } from '../constants';
 import { TRAVEL_PACKAGES_DATA } from '@/components/TravelPackagesSection/constants';
 import SwiperCards from '@/common/swiper';
 import styles from './style.module.scss';
+import { banner1 } from '@/assets/png';
 
 const BannerSection = ({ 
   title = BANNER_DATA.title,
@@ -72,7 +73,7 @@ const BannerSection = ({
               name: trip.title ?? destination.destination_name,
               title: trip.title ?? destination.destination_name,
               price: typeof trip.price === 'number' ? `₹ ${trip.price.toLocaleString('en-IN')}` : (trip.price || ''),
-              image: trip.image || destination.thumbnail_image || destination.hero_image || '/assets/png/banner1.jpg',
+              image: trip.image || destination.thumbnail_image || destination.hero_image || banner1,
               duration: trip.duration ?? '',
               destinationId,
               tripId,
@@ -128,7 +129,7 @@ const BannerSection = ({
       <div className={styles.bannerContainer}>
         {!imageError && (
           <Image 
-            src="/assets/png/banner1.jpg" 
+            src={banner1}
             alt="Banner background" 
             className={styles.bannerImage}
             fill
