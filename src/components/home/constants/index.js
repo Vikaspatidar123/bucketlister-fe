@@ -1,3 +1,4 @@
+import { banner1 } from "@/assets/png";
 import { destinationIcon, instagramIcon, reviewIcon } from "@/assets/svg";
 import { bigGroupImage, smallGroupImage, soloImage } from "@/assets/webp";
 
@@ -535,25 +536,25 @@ export const DOMESTIC_BANNER_DATA = {
   carouselSlides: [
     {
       id: 1,
-      image: "/assets/png/banner1.jpg",
+      image: banner1,
       title: "Kerala Backwaters",
       subtitle: "Experience the Serene Beauty"
     },
     {
       id: 2,
-      image: "/assets/png/banner1.jpg",
+      image: banner1,
       title: "Goa Beaches",
       subtitle: "Sun, Sand & Sea Adventures"
     },
     {
       id: 3,
-      image: "/assets/png/banner1.jpg",
+      image: banner1,
       title: "Rajasthan Heritage",
       subtitle: "Discover Royal Traditions"
     },
     {
       id: 4,
-      image: "/assets/png/banner1.jpg",
+      image: banner1,
       title: "Himachal Mountains",
       subtitle: "Adventure in the Himalayas"
     }
@@ -565,26 +566,26 @@ export const DOMESTIC_DESTINATIONS = [
   {
     id: 1,
     name: "Sundarbans",
-    image: "/assets/png/banner1.jpg",
+    image: banner1,
     duration: "10D-9N",
     badge: "L"
   },
   {
     id: 2,
     name: "Kaziranga",
-    image: "/assets/png/banner1.jpg",
+    image: banner1,
     duration: "10D-9N"
   },
   {
     id: 3,
     name: "Pench",
-    image: "/assets/png/banner1.jpg",
+    image: banner1,
     duration: "10D-9N"
   },
   {
     id: 4,
     name: "Tadoba",
-    image: "/assets/png/banner1.jpg",
+    image: banner1,
     duration: "10D-9N"
   }
 ];

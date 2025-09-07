@@ -4,6 +4,7 @@ import { HERO_DATA } from '../../constants';
 import SearchForm from '../SearchForm';
 import styles from './style.module.scss';
 import { heroVideo } from '@/assets/mp4';
+import { banner1 } from '@/assets/png';
 
 const HeroSection = () => {
   const videoRef = useRef(null);
@@ -36,7 +37,7 @@ const HeroSection = () => {
           playsInline
           preload="auto"
           ref={videoRef}
-          poster="/assets/png/banner1.jpg"
+          poster={banner1}
         />
         <div className={styles.overlay} />
       </div>

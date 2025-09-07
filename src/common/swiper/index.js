@@ -6,12 +6,13 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 import styles from "./style.module.scss";
 import { andamanImage, coorgImage, himachalImage, kashmirImage, keralaImage, sikkimImage, thailandImage, uttarakhandImage } from "@/assets/svg";
+import { banner1 } from "@/assets/png";
 
 const defaultCards = [
   {
     title: "Leh Ladakh",
     price: "Starting Price Rs. 21,999/-",
-    image: "/assets/png/banner1.jpg",
+    image: banner1,
     // href: "/india-trips/leh-ladakh-tour-packages",
   },
   {
