@@ -38,6 +38,21 @@ const ContactForm = ({ onSuccess, submitLabel = 'Enquire Now' }) => {
         </div>
         
         <div className={styles.formGroup}>
+          <label htmlFor="email" className={styles.label}>Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your@email.com"
+            value={formData.email}
+            onChange={(e) => handleInputChange('email', e.target.value)}
+            className={`${styles.input} ${errors.email ? styles.error : ''}`}
+            required
+          />
+          {errors.email && <span className={styles.errorText}>{errors.email}</span>}
+        </div>
+        
+        <div className={styles.formGroup}>
           <label htmlFor="contactNumber" className={styles.label}>Contact Number</label>
           <input
             type="tel"

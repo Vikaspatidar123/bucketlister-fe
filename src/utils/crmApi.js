@@ -2,7 +2,9 @@ let accessToken = null;
 let csrfToken = null;
 let authExpiry = null;
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_CRM_API_BASE_URL || 'http://localhost:5000';
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  ? process.env.NEXT_PUBLIC_CRM_API_BASE_URL || 'http://localhost:5000'
+  : '';
 const API_EMAIL = process.env.NEXT_PUBLIC_CRM_API_EMAIL || 'romil@travyan.in';
 const API_PASSWORD = process.env.NEXT_PUBLIC_CRM_API_PASSWORD || 'testpass123';
 
@@ -23,21 +25,22 @@ export const crmApi = {
 
       if (response.ok) {
         const responseData = await response.json();
-        const cookies = response.headers.get('set-cookie');
         
-        if (cookies) {
-          authExpiry = Date.now() + (24 * 60 * 60 * 1000);
-          
-          const accessTokenMatch = cookies.match(/access_token_cookie=([^;]+)/);
-          const csrfMatch = cookies.match(/csrf_access_token=([^;]+)/);
-          
-          if (accessTokenMatch) {
-            accessToken = accessTokenMatch[1];
-          }
-          if (csrfMatch) {
-            csrfToken = csrfMatch[1];
+        // In browser environment with Next.js proxy, cookies are automatically set
+        // Extract CSRF token from response data if available, or from document.cookie
+        if (responseData.csrf_token) {
+          csrfToken = responseData.csrf_token;
+        } else if (typeof document !== 'undefined') {
+          // Extract from browser cookies as fallback
+          const cookieMatch = document.cookie.match(/csrf_access_token=([^;]+)/);
+          if (cookieMatch) {
+            csrfToken = cookieMatch[1];
           }
         }
+        
+        // Set auth expiry
+        authExpiry = Date.now() + (24 * 60 * 60 * 1000);
+        
         return { success: true };
       } else {
         throw new Error(`Login failed: ${response.status}`);
@@ -49,12 +52,21 @@ export const crmApi = {
   },
 
   async ensureAuthenticated() {
-    if (!accessToken || !csrfToken || (authExpiry && Date.now() > authExpiry)) {
+    if (!csrfToken || (authExpiry && Date.now() > authExpiry)) {
       const loginResult = await this.login();
       if (!loginResult.success) {
         throw new Error('Failed to authenticate with CRM');
       }
     }
+    
+    // Extract CSRF token from cookies if not already available
+    if (!csrfToken && typeof document !== 'undefined') {
+      const cookieMatch = document.cookie.match(/csrf_access_token=([^;]+)/);
+      if (cookieMatch) {
+        csrfToken = cookieMatch[1];
+      }
+    }
+    
     return { accessToken, csrfToken };
   },
 
@@ -62,7 +74,7 @@ export const crmApi = {
     try {
       const auth = await this.ensureAuthenticated();
 
-      const { firstName, lastName, email, phone, source = 'Website', notes = '' } = leadData;
+      const { firstName, lastName, phone, email='website@bucketlister.com', source = 'Website', notes = '' } = leadData;
       
       if (!firstName || !email || !phone) {
         throw new Error('Required fields missing: firstName, email, phone');
@@ -72,8 +84,7 @@ export const crmApi = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-CSRF-TOKEN': auth.csrfToken,
-          'Cookie': `access_token_cookie=${auth.accessToken}; csrf_access_token=${auth.csrfToken}`
+          'X-CSRF-TOKEN': auth.csrfToken || '',
         },
         credentials: 'include',
         body: JSON.stringify({

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./style.module.scss";
+import { crmApi } from '@/utils/crmApi';
 
 const EnquiryPopup = ({ 
   isOpen, 
@@ -12,6 +13,7 @@ const EnquiryPopup = ({
     fullName: "",
     name: "",
     phone: "",
+    email: "",
     destination: destinationName || tripTitle || "",
   });
   
@@ -89,6 +91,12 @@ const EnquiryPopup = ({
       newErrors.phone = "Please enter a valid Indian mobile number";
     }
     
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+    
     if (!formData.destination.trim()) {
       newErrors.destination = "Destination is required";
     }
@@ -97,22 +105,15 @@ const EnquiryPopup = ({
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
-    
-    setIsSubmitting(true);
-    
+  const submitToEmail = async () => {
     try {
       // Prepare form data for Web3Forms
       const body = new FormData();
       body.append('name', formData.fullName || formData.name);
+      body.append('email', formData.email);
       body.append('phone', formData.phone);
       body.append('destination', formData.destination);
-      body.append('access_key', 'c5ef9919-27cb-464e-bd82-1662fbd7989d');
+      body.append('access_key', process.env.WEB3FORMS_API_KEY);
       body.append('subject', 'New Travel Enquiry from Bucketlister Website');
       body.append('from_name', 'Bucketlister Website');
       
@@ -120,6 +121,7 @@ const EnquiryPopup = ({
       const message = `
 New Travel Enquiry Details:
 - Name: ${formData.name}
+- Email: ${formData.email}
 - Phone: ${formData.phone}
 - Interested Destination: ${formData.destination}
 - Enquiry Source: Trip Details Page Popup
@@ -132,17 +134,66 @@ New Travel Enquiry Details:
       });
 
       const data = await response.json();
+      return data && data.success;
+    } catch (error) {
+      console.error('Email submission error:', error);
+      return false;
+    }
+  };
 
-      if (data && data.success) {
+  const submitToCRM = async () => {
+    try {
+      const { firstName, lastName } = crmApi.parseFullName(formData.fullName || formData.name);
+      const formattedPhone = crmApi.formatPhoneNumber(formData.phone);
+      
+      const leadData = {
+        firstName,
+        lastName,
+        email: formData.email,
+        phone: formattedPhone,
+        source: 'Website',
+        notes: `Interested Destination: ${formData.destination}`
+      };
+
+      const result = await crmApi.createLead(leadData);
+      return result.success;
+    } catch (error) {
+      console.error('CRM submission error:', error);
+      return false;
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      // Submit to email first, then CRM
+      const emailResult = await submitToEmail();
+      const crmResult = await submitToCRM();
+
+      // Consider successful if either submission works
+      if (crmResult || emailResult) {
         // Show success state
         setIsSuccess(true);
         setErrors({});
         
+        // Log results for debugging
+        console.log('CRM Result:', crmResult);
+        console.log('Email Result:', emailResult);
+        
         // Auto-close popup after showing success message
         setTimeout(() => {
           setFormData({
+            fullName: "",
             name: "",
             phone: "",
+            email: "",
             destination: destinationName || tripTitle || "",
           });
           setIsSuccess(false);
@@ -150,8 +201,7 @@ New Travel Enquiry Details:
         }, 2000);
         
       } else {
-        const message = data && data.message ? data.message : 'Failed to submit enquiry';
-        setErrors({ submit: message });
+        setErrors({ submit: 'Failed to submit enquiry. Please try again or contact us directly.' });
       }
       
     } catch (error) {
@@ -239,6 +289,23 @@ New Travel Enquiry Details:
                   required
                 />
                 {errors.phone && <span className={styles.errorText}>{errors.phone}</span>}
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor="enquiry-email" className={styles.label}>
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="enquiry-email"
+                  name="email"
+                  placeholder="Enter your email address"
+                  value={formData.email}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
+                  className={`${styles.input} ${errors.email ? styles.error : ''}`}
+                  required
+                />
+                {errors.email && <span className={styles.errorText}>{errors.email}</span>}
               </div>
 
               <div className={styles.formGroup}>
