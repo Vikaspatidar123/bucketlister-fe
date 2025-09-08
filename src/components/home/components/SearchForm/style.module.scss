@@ -104,4 +104,11 @@
     
     &:disabled { background: #f3f4f6; color: #9ca3af; box-shadow: none; }
   }
+
+  /* Hide date select on mobile */
+  .hideOnMobile {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
 }

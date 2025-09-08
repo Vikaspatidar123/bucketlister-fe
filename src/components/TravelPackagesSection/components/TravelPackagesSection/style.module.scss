@@ -1162,6 +1162,13 @@
     }
   }
 
+  /* Hide load more on mobile for home page section only */
+  .homePage {
+    .loadMoreWrapper {
+      display: none !important;
+    }
+  }
+
   .sectionHeader {
     margin-bottom: 32px;
 
@@ -1355,6 +1362,7 @@
       min-height: 40vh;
       display: flex;
       flex-direction: column;
+      z-index: 3001; // ensure panel overlays within portal
     }
 
     &.open .overlayPanel {

@@ -9,6 +9,7 @@ import {
   twitterIcon,
   youtubeIcon
 } from "@/assets/svg";
+import { mapDestinationsByCategory } from "@/utils/travelData";
 
 export const FOOTER_SERVICES = [
   {
@@ -53,18 +54,12 @@ export const COMPANY_INFO = {
 };
 
 export const FOOTER_LINKS = {
-  international: [
-    { name: "Thailand", url: "/explore?destinationId=8" },
-    { name: "Vietnam", url: "/explore?destinationId=7" },
-    { name: "Europe", url: "/explore?destinationId=14" },
-    { name: "Japan", url: "/explore?destinationId=12" },
-  ],
-  popularUpcoming: [
-    { name: "Gokarna", url: "/explore?destinationId=4" },
-    { name: "Himachal", url: "/explore?destinationId=3" },
-    { name: "Kashmir", url: "/explore?destinationId=20" },
-    { name: "Ladakh", url: "/explore?destinationId=19" },
-  ],
+  international: mapDestinationsByCategory('international')
+    .map(({ label, href }) => ({ name: label, url: href }))
+    ,
+  popularUpcoming: mapDestinationsByCategory('domestic')
+    .map(({ label, href }) => ({ name: label, url: href }))
+    ,
   otherServices: [
     { name: "Corporate Trips", url: "/explore/list" },
     { name: "Itinerary Planning", url: "/explore/list" },

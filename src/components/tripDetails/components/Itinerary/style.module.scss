@@ -224,6 +224,7 @@
   padding: 10px;
   border-radius: 12px;
   border: 1px solid #c2ccd5;
+  overflow: hidden; // prevent accidental horizontal overflow
 }
 
 .dayRow {
@@ -260,9 +261,11 @@
 }
 
 .dayHeader {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
+  column-gap: 8px;
+  width: 100%;
 }
 
 .dayHeaderLeft {
@@ -293,6 +296,9 @@
   color: #02658f;
   font-weight: 700;
   cursor: pointer;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  justify-self: end;
 }
 
 .caret {
@@ -318,6 +324,24 @@
 @media (max-width: 768px) {
   .itinerary {
     width: 94vw;
+  }
+  .dayHeader {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 6px;
+  }
+  .dayHeaderLeft {
+    min-width: 0; // allow text truncation
+  }
+  .summaryPreview {
+    font-size: 13px;
+  }
+  .viewMore {
+    align-self: center;
+    justify-self: end;
+    padding: 4px 0;
+    font-size: 13px;
   }
   .routeChips {
     overflow-x: auto;

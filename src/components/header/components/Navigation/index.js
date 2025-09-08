@@ -27,6 +27,9 @@ const Navigation = () => {
         const isOpen = activeDropdown === item.label;
         const dropdownList = item.label === 'International' ? INTERNATIONAL_DESTINATIONS : item.label === 'Domestic' ? DOMESTIC_DESTINATIONS : item.label === 'More' ? MORE_LINKS : [];
 
+        // Skip rendering More option
+        if (item.label === 'More') return null;
+        
         return (
         <div
           key={item.label}

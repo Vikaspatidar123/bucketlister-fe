@@ -21,12 +21,13 @@
         list-style: none;
         padding: 0;
         margin: 0;
+        // no scroll; allow content to flow naturally
         
         li {
           margin-bottom: 0.5rem;
           
           .link {
-            color: #cbd5e1;
+            color: #e5eef6;
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.2s ease;
@@ -76,8 +77,8 @@
 @media (max-width: 768px) {
   .footerLinks {
     .linksContainer {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: repeat(3, 1fr); // keep single column on mobile for readability
+      gap: 1rem;
     }
     
     .bottomSection {
@@ -91,7 +92,7 @@
 @media (max-width: 480px) {
   .footerLinks {
     .linksContainer {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
