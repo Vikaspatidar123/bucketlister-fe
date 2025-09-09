@@ -1,9 +1,10 @@
 import { Suspense } from "react";
 import ReelsFeed from "@/components/reels/components";
+import TheBucketListeerLoader from "@/common/Loader";
 
 export default function ReelsPage() {
   return (
-    <Suspense fallback={<div style={{color:'#fff',background:'#000',height:'100vh'}}>Loading...</div>}>
+    <Suspense fallback={<TheBucketListeerLoader size="large" text="Loading amazing reels..." />}>
       <ReelsFeed />
     </Suspense>
   );

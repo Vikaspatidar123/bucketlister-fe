@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import ExplorePage from "@/components/explore/components";
 import SEO from "@/components/common/SEO";
 import { generateBreadcrumbSchema } from "@/utils/seo";
+import TheBucketListeerLoader from "@/common/Loader";
 
 export default function ExplorePageComponent() {
     const router = useRouter();
@@ -40,7 +41,7 @@ export default function ExplorePageComponent() {
                 url="/explore"
                 structuredData={structuredData}
             />
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<TheBucketListeerLoader size="medium" text="Exploring destinations..." />}>
                 <ExplorePage />
             </Suspense>
         </>

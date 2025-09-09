@@ -1,8 +1,21 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import SEO from "@/components/common/SEO";
+import TheBucketListeerLoader from "@/common/Loader";
 
 export default function BookNowPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Redirect to trip listing page after a brief delay
+    const timer = setTimeout(() => {
+      router.push('/explore/list');
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [router]);
+
   return (
     <>
       <SEO
@@ -11,11 +24,12 @@ export default function BookNowPage() {
         keywords={['book trip', 'travel booking', 'adventure booking', 'trip reservation', 'travel package booking']}
         url="/book-now"
       />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<TheBucketListeerLoader size="small" text="Loading..." />}>
         <div style={{ padding: '2rem', textAlign: 'center' }}>
-          <h1>Book Your Adventure Trip</h1>
-          <p>Please select a specific trip to book, or contact us for customized options.</p>
-          <p><Link href="/explore/list">Browse Available Trips</Link></p>
+          <TheBucketListeerLoader size="small" text="Redirecting to trip selection..." />
+          <p style={{ marginTop: '1rem' }}>
+            <Link href="/explore/list">Or click here to browse available trips</Link>
+          </p>
         </div>
       </Suspense>
     </>

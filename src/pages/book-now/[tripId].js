@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import BookNow from "@/components/bookNow/components";
 import SEO from "@/components/common/SEO";
 import { generateBreadcrumbSchema } from "@/utils/seo";
+import TheBucketListeerLoader from "@/common/Loader";
 
 export default function BookNowTripPage({ destination, trip, tripId }) {
   const router = useRouter();
@@ -56,8 +57,8 @@ export default function BookNowTripPage({ destination, trip, tripId }) {
         url={`/book-now/${tripId}`}
         structuredData={structuredData}
       />
-      <Suspense fallback={<div>Loading...</div>}>
-        <BookNow tripId={tripId} />
+      <Suspense fallback={<TheBucketListeerLoader size="medium" text="Preparing your booking..." />}>
+        <BookNow tripId={tripId} searchParams={router.query} />
       </Suspense>
     </>
   );

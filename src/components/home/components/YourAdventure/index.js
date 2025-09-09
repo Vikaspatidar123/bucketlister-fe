@@ -4,6 +4,7 @@ import { DOMESTIC_BANNER_DATA, DOMESTIC_DESTINATIONS, YOUR_ADVENTURE_DATA } from
 import styles from './style.module.scss';
 import BannerSection from '@/components/BannerSection/components';
 import Image from 'next/image';
+import { domesticBanner } from '@/assets/webp';
 
 const YourAdventureSection = () => {
   const handleExploreClick = () => {
@@ -56,6 +57,7 @@ const YourAdventureSection = () => {
           onExploreClick={handleExploreClick}
           onDestinationClick={handleDestinationClick}
           mobileHeading='Domestic Trips'
+          heroBanner={domesticBanner}
         />
       </div>
     </section>

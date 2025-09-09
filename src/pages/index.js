@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Home from "@/components/home/components";
 import SEO from "@/components/common/SEO";
 import { generateWebsiteSchema, generateOrganizationSchema } from "@/utils/seo";
+import TheBucketListeerLoader from "@/common/Loader";
 
 export default function HomePage() {
   const structuredData = [
@@ -18,7 +19,7 @@ export default function HomePage() {
         url="/"
         structuredData={structuredData}
       />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<TheBucketListeerLoader size="medium" text="Loading your adventure..." />}>
         <Home />
       </Suspense>
     </>

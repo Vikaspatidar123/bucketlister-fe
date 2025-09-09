@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 70px;
+  
 }
 
 // Main Banner
@@ -33,6 +34,7 @@
     border-radius: 20px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     z-index: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
   }
 
   .bannerOverlay {

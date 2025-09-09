@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import TravelPackagesSection from "@/components/TravelPackagesSection/components/TravelPackagesSection";
 import SEO from "@/components/common/SEO";
 import { generateBreadcrumbSchema } from "@/utils/seo";
+import TheBucketListeerLoader from "@/common/Loader";
 
 export default function ExploreListPage() {
   const router = useRouter();
@@ -64,7 +65,7 @@ export default function ExploreListPage() {
         url="/explore/list"
         structuredData={structuredData}
       />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<TheBucketListeerLoader size="medium" text="Discovering amazing destinations..." />}>
         <TravelPackagesSection isHomePage={false} listLayout={true} />
       </Suspense>
     </>

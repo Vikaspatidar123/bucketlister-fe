@@ -14,7 +14,7 @@ export const getAssetUrl = (assetPath) => {
   const cdnBaseUrl = process.env.NEXT_PUBLIC_CDN_BASE_URL;
   
   // Use local assets in development or if CDN URL is not configured
-  if (isDevelopment || !cdnBaseUrl) {
+  if (!isDevelopment || !cdnBaseUrl) {
     return assetPath;
   }
   

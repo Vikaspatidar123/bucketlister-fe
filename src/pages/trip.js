@@ -3,6 +3,7 @@ import Head from "next/head";
 import TripDetails from "@/components/tripDetails/components";
 import SEO from "@/components/common/SEO";
 import { generateTripSchema, generateBreadcrumbSchema } from "@/utils/seo";
+import TheBucketListeerLoader from "@/common/Loader";
 
 export default function TripPage({ destination, trip, tripId, destinationId }) {
   // Generate SEO data with server-side rendered data
@@ -70,7 +71,7 @@ export default function TripPage({ destination, trip, tripId, destinationId }) {
         image={trip?.images?.[0] || destination?.image}
         structuredData={structuredData.length > 0 ? structuredData : undefined}
       />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<TheBucketListeerLoader size="medium" text="Loading trip details..." />}>
         <TripDetails />
       </Suspense>
     </>

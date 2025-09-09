@@ -1,39 +1,52 @@
 .footerLinks {
   background: #02658F;
   color: white;
-  padding: 2rem;
+  padding: 3rem 2rem;
   
   .linksContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-bottom: 3rem;
+    max-width: 85vw;
+    margin-left: auto;
+    margin-right: auto;
     
     .linkColumn {
       .columnTitle {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin: 0 0 1rem 0;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin: 0 0 1.5rem 0;
         color: white;
+        text-align: left;
+        letter-spacing: 0.5px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 0.5rem;
       }
       
       .linkList {
         list-style: none;
         padding: 0;
         margin: 0;
-        // no scroll; allow content to flow naturally
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.3rem 1rem;
         
         li {
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.4rem;
           
           .link {
             color: #e5eef6;
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            display: block;
+            padding: 0.2rem 0;
+            line-height: 1.4;
             
             &:hover {
               color: white;
+              transform: translateX(4px);
             }
           }
         }
@@ -74,11 +87,51 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .footerLinks {
+    padding: 2.5rem 1.5rem;
+    
+    .linksContainer {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      
+      .linkColumn {
+        .linkList {
+          grid-template-columns: 1fr;
+          gap: 0.2rem;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .footerLinks {
+    padding: 2rem 1rem;
+    
     .linksContainer {
-      grid-template-columns: repeat(3, 1fr); // keep single column on mobile for readability
-      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      
+      .linkColumn {
+        .columnTitle {
+          font-size: 1.1rem;
+          margin-bottom: 1rem;
+        }
+        
+        .linkList {
+          grid-template-columns: 1fr;
+          gap: 0.2rem;
+          
+          li {
+            margin-bottom: 0.3rem;
+            
+            .link {
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
     }
     
     .bottomSection {

@@ -1,6 +1,7 @@
 "use client";
 import React, { useMemo, useState } from "react";
 import styles from "./style.module.scss";
+import Image from "next/image";
 
 const Gallery = ({ trip }) => {
   const images = useMemo(() => {
@@ -8,7 +9,8 @@ const Gallery = ({ trip }) => {
     const pickUrl = (item) => {
       if (!item) return null;
       if (typeof item === "string") return item;
-      if (typeof item === "object") return item.image || item.url || item.src || null;
+      if (typeof item === "object")
+        return item.image || item.url || item.src || null;
       return null;
     };
 
@@ -29,18 +31,32 @@ const Gallery = ({ trip }) => {
   return (
     <div className={styles.gallery}>
       <div className={styles.mainImageWrapper}>
-        <img src={images[selectedIndex]} alt={trip?.title || "Trip image"} className={styles.mainImage} />
+        <Image
+          src={images[selectedIndex]}
+          alt={trip?.title || "Trip image"}
+          className={styles.mainImage}
+          width={500}
+          height={500}
+        />
       </div>
       <div className={styles.thumbsScroller}>
         {images.map((src, idx) => (
           <button
             key={`${src}-${idx}`}
-            className={`${styles.thumb} ${idx === selectedIndex ? styles.active : ""}`}
+            className={`${styles.thumb} ${
+              idx === selectedIndex ? styles.active : ""
+            }`}
             onClick={() => setSelectedIndex(idx)}
             type="button"
             aria-label={`Select image ${idx + 1}`}
           >
-            <img src={src} alt={`thumb-${idx + 1}`} className={styles.thumbImg} />
+            <Image
+              src={src}
+              alt={`thumb-${idx + 1}`}
+              className={styles.thumbImg}
+              width={500}
+              height={500}
+            />
           </button>
         ))}
       </div>
