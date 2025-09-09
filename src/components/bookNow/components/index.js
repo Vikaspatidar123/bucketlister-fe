@@ -10,6 +10,7 @@ import ContactDetailsModal from "./ContactDetailsModal";
 import { initiateRazorpayPayment } from "@/utils/razorpay";
 import { TRAVEL_PACKAGES_DATA } from "@/components/TravelPackagesSection/constants";
 import { useRouter } from "next/router";
+import { crmApi } from '@/utils/crmApi';
 
 const BookNow = () => {
   
@@ -123,7 +124,7 @@ const BookNow = () => {
   ) => {
     const body = new FormData();
 
-    body.append("access_key", "c5ef9919-27cb-464e-bd82-1662fbd7989d");
+    body.append("access_key", process.env.WEB3FORMS_API_KEY);
     body.append("from_name", "Bucketlister Website");
 
     if (status === "success") {
@@ -353,13 +354,33 @@ Action Required:
         onSuccess: async (paymentResponse) => {
           console.log("Payment successful:", paymentResponse);
 
-          // Send success email via Web3Forms
+          // Send success email via Web3Forms first, then CRM
           try {
             await sendPaymentConfirmationEmail(
               contactDetails,
               paymentResponse,
               "success"
             );
+            
+            // Create CRM lead after successful payment and email
+            try {
+              const { firstName, lastName } = crmApi.parseFullName(contactDetails.name);
+              const formattedPhone = crmApi.formatPhoneNumber(contactDetails.phone);
+              
+              const leadData = {
+                firstName,
+                lastName,
+                email: contactDetails.email,
+                phone: formattedPhone,
+                source: 'Website',
+                notes: `Book Now Page || Trip: ${tripData?.title || "N/A"}\nDestination: ${tripData?.destination || "N/A"}\nPayment ID: ${paymentResponse.razorpay_payment_id}\nAmount: ₹${calculatedAmounts.bookingAmount?.toLocaleString() || "N/A"}`
+              };
+
+              await crmApi.createLead(leadData);
+            } catch (crmError) {
+              console.error("Failed to create CRM lead:", crmError);
+            }
+            
             alert(
               `Payment successful for ${
                 tripData?.title || "Adventure Trip"
@@ -389,13 +410,32 @@ Action Required:
             paymentId: error.razorpay_payment_id,
           });
 
-          // Send failure email via Web3Forms
+          // Send failure email via Web3Forms first, then CRM
           try {
             await sendPaymentConfirmationEmail(
               contactDetails,
               { error: error.message || error.error },
               "failure"
             );
+            
+            // Create CRM lead after failed payment and email
+            try {
+              const { firstName, lastName } = crmApi.parseFullName(contactDetails.name);
+              const formattedPhone = crmApi.formatPhoneNumber(contactDetails.phone);
+              
+              const leadData = {
+                firstName,
+                lastName,
+                email: contactDetails.email,
+                phone: formattedPhone,
+                source: 'Payment Failed - BookNow Page',
+                notes: `Trip: ${tripData?.title || "N/A"}\nDestination: ${tripData?.destination || "N/A"}\nPayment Error: ${error.message || error.error}\nAttempted Amount: ₹${calculatedAmounts.bookingAmount?.toLocaleString() || "N/A"}`
+              };
+
+              await crmApi.createLead(leadData);
+            } catch (crmError) {
+              console.error("Failed to create CRM lead:", crmError);
+            }
           } catch (emailError) {
             console.error(
               "Failed to send failure notification email:",

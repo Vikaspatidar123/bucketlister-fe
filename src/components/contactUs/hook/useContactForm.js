@@ -64,7 +64,7 @@ export const useContactForm = () => {
       body.append('contactNumber', formData.contactNumber);
       body.append('destination', formData.destination);
       body.append('comment', formData.comment || '');
-      body.append('access_key', 'c5ef9919-27cb-464e-bd82-1662fbd7989d');
+      body.append('access_key', process.env.WEB3FORMS_API_KEY);
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -89,7 +89,7 @@ export const useContactForm = () => {
         lastName,
         email: formData.email,
         phone: formattedPhone,
-        source: 'Contact Us Page',
+        source: 'Website',
         notes: `Destination: ${formData.destination}\nComment: ${formData.comment || 'None'}`
       };
 
@@ -118,11 +118,9 @@ export const useContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Submit to both CRM and email in parallel
-      const [crmResult, emailResult] = await Promise.all([
-        submitToCRM(),
-        submitToEmail()
-      ]);
+      // Submit to email first, then CRM
+      const emailResult = await submitToEmail();
+      const crmResult = await submitToCRM();
 
       // Consider successful if either submission works
       if (crmResult || emailResult) {

@@ -25,31 +25,44 @@ export default async function handler(req, res) {
 
     // Validate amount
     if (!amount || amount <= 0) {
-      return res.status(400).json({ error: 'Invalid amount provided' });
+      return res.status(400).json({
+        error: {
+          code: "BAD_REQUEST_ERROR",
+          description: "Invalid amount provided",
+          source: "business",
+          step: "payment_initiation",
+          reason: "input_validation_failed",
+          metadata: {},
+          field: "amount"
+        }
+      });
     }
 
     // Ensure amount is in paisa and is an integer
     const amountInPaisa = Math.round(amount);
     
     if (amountInPaisa < 100) {
-      return res.status(400).json({ error: 'Amount must be at least ₹1 (100 paisa)' });
+      return res.status(400).json({
+        error: {
+          code: "BAD_REQUEST_ERROR",
+          description: `The amount must be atleast ${currency} 1.00`,
+          source: "business",
+          step: "payment_initiation",
+          reason: "input_validation_failed",
+          metadata: {},
+          field: "amount"
+        }
+      });
     }
 
     // Create Razorpay order
     const order = await razorpay.orders.create({
-      amount: amountInPaisa, // Amount is already in paisa from frontend
+      amount: amountInPaisa,
       currency: currency,
-      receipt: `booking_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+      receipt: `receipt#${Date.now()}`,
       notes: {
-        customer_name: customerDetails?.name || '',
-        customer_email: customerDetails?.email || '',
-        customer_phone: customerDetails?.phone || '',
-        trip_id: bookingDetails?.tripId || '',
-        batch_id: bookingDetails?.batchId || '',
-        destination: bookingDetails?.destination || '',
-        occupancy_type: bookingDetails?.occupancyType || '',
-        quantity: bookingDetails?.quantity || 1,
-        booking_type: 'adventure_trip'
+        key1: customerDetails?.name || 'guest',
+        key2: bookingDetails?.destination || 'adventure_trip'
       }
     });
 
@@ -61,20 +74,40 @@ export default async function handler(req, res) {
     });
 
     return res.status(200).json({
-      id: order.id,
       amount: order.amount,
+      amount_due: order.amount,
+      amount_paid: 0,
+      attempts: 0,
+      created_at: order.created_at,
       currency: order.currency,
-      status: order.status,
-      receipt: order.receipt
+      entity: order.entity,
+      id: order.id,
+      notes: order.notes,
+      offer_id: order.offer_id,
+      receipt: order.receipt,
+      status: order.status
     });
 
   } catch (error) {
     console.error('Create order error:', error);
     
-    return res.status(500).json({ 
-      error: 'Failed to create order', 
-      message: error.message,
-      details: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    // Check if it's a Razorpay API error
+    if (error.statusCode && error.error) {
+      return res.status(error.statusCode).json({
+        error: error.error
+      });
+    }
+    
+    return res.status(500).json({
+      error: {
+        code: "SERVER_ERROR",
+        description: "Failed to create order",
+        source: "business",
+        step: "payment_initiation",
+        reason: "server_error",
+        metadata: {},
+        field: null
+      }
     });
   }
 }
