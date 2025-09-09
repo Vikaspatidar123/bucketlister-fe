@@ -2,36 +2,16 @@ let accessToken = null;
 let csrfToken = null;
 let authExpiry = null;
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_CRM_API_BASE_URL || 'http://localhost:5000';
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  ? process.env.NEXT_PUBLIC_CRM_API_BASE_URL || 'http://localhost:5000'
+  : 'http://localhost:5000';
 const API_EMAIL = process.env.NEXT_PUBLIC_CRM_API_EMAIL || 'romil@travyan.in';
 const API_PASSWORD = process.env.NEXT_PUBLIC_CRM_API_PASSWORD || 'testpass123';
 
 export const crmApi = {
-  // Helper method to get CSRF token from cookies manually
-  getCsrfFromCookies() {
-    if (typeof document === 'undefined') return null;
-    
-    const cookiePatterns = [
-      /csrf_access_token=([^;]+)/,
-      /csrf-token=([^;]+)/,
-      /CSRF-TOKEN=([^;]+)/,
-      /X-CSRF-Token=([^;]+)/
-    ];
-    
-    for (const pattern of cookiePatterns) {
-      const cookieMatch = document.cookie.match(pattern);
-      if (cookieMatch) {
-        return decodeURIComponent(cookieMatch[1]);
-      }
-    }
-    
-    return null;
-  },
-
-
   async login() {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/v1/auth/login`, {
+      const response = await fetch(`${API_BASE_URL}/api/v1/auth/token-login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,23 +24,11 @@ export const crmApi = {
       });
 
       if (response.ok) {
-        const responseData = await response.json();
-        console.log('Login response:', responseData);
-        
-        // Extract CSRF token from response - check various possible fields
-        csrfToken = responseData.csrf_token || 
-                   responseData.csrfToken || 
-                   responseData.data?.csrf_token ||
-                   responseData.data?.csrfToken ||
-                   null;
-        
-        // If not in response, extract from cookies immediately
-        if (!csrfToken) {
-          csrfToken = this.getCsrfFromCookies();
+        const responseData = await response.json();        
+        if (responseData.access_token) {
+          accessToken = responseData.access_token;
         }
-        
-        console.log('CSRF token after login:', csrfToken);
-        
+          
         // Set auth expiry
         authExpiry = Date.now() + (24 * 60 * 60 * 1000);
         
@@ -76,28 +44,18 @@ export const crmApi = {
   },
 
   async ensureAuthenticated() {
-    if (!csrfToken || (authExpiry && Date.now() > authExpiry)) {
+    if (!accessToken || (authExpiry && Date.now() > authExpiry)) {
       const loginResult = await this.login();
       if (!loginResult.success) {
         throw new Error('Failed to authenticate with CRM');
       }
     }
     
-    // Extract CSRF token from cookies if not already available
-    if (!csrfToken) {
-      csrfToken = this.getCsrfFromCookies();
-    }
-    
-    
-    console.log('Final CSRF token for request:', csrfToken);
-    return { accessToken, csrfToken };
+    return { accessToken };
   },
 
   async createLead(leadData) {
     try {
-      console.log('API Base URL:', API_BASE_URL);
-      console.log('Lead data received:', leadData);
-      
       const auth = await this.ensureAuthenticated();
 
       const { firstName, lastName, phone, email='website@bucketlister.com', source = 'Website', notes = '' } = leadData;
@@ -105,9 +63,6 @@ export const crmApi = {
       if (!firstName || !email || !phone) {
         throw new Error('Required fields missing: firstName, email, phone');
       }
-
-      console.log('Creating lead with CSRF token:', auth.csrfToken);
-      console.log('All cookies:', typeof document !== 'undefined' ? document.cookie : 'No document');
 
       const requestBody = {
         first_name: firstName,
@@ -120,16 +75,12 @@ export const crmApi = {
         notes: notes
       };
 
-      console.log('Lead request body:', requestBody);
-      console.log('Making request to:', `${API_BASE_URL}/api/v1/leads`);
-
       const response = await fetch(`${API_BASE_URL}/api/v1/leads`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-CSRF-TOKEN': auth.csrfToken || '',
+          'Authorization': `Bearer ${auth.accessToken || ''}`,
         },
-        credentials: 'include',
         body: JSON.stringify(requestBody)
       });
 
