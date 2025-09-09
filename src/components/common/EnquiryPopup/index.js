@@ -113,7 +113,7 @@ const EnquiryPopup = ({
       body.append('email', formData.email);
       body.append('phone', formData.phone);
       body.append('destination', formData.destination);
-      body.append('access_key', process.env.WEB3FORMS_API_KEY);
+      body.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY);
       body.append('subject', 'New Travel Enquiry from Bucketlister Website');
       body.append('from_name', 'Bucketlister Website');
       
