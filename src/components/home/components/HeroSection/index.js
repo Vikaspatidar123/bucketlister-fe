@@ -44,7 +44,7 @@ const HeroSection = () => {
           playsInline
           preload="auto"
           ref={videoRef}
-          poster={banner2}
+          poster={banner1}
         />
         <div className={styles.overlay} />
       </div>

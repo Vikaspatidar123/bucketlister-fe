@@ -117,11 +117,11 @@ const EnquiryPopup = ({
       newErrors.phone = "Please enter a valid Indian mobile number";
     }
     
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
-    }
+    // if (!formData.email.trim()) {
+    //   newErrors.email = "Email is required";
+    // } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    //   newErrors.email = "Please enter a valid email address";
+    // }
     
     if (!formData.destination.trim()) {
       newErrors.destination = "Destination is required";
@@ -242,6 +242,11 @@ New Travel Enquiry Details:
 
   const node = (
     <div className={`${styles.enquiryOverlay} ${isOpen ? styles.open : ""}`}>
+      <div 
+        className={styles.backdrop}
+        onClick={onClose}
+        aria-label="Close popup"
+      ></div>
       <div className={styles.overlayPanel}>
         <div className={styles.overlayHeader}>
           <h3 className={styles.overlayTitle}>Send Enquiry</h3>
@@ -268,7 +273,7 @@ New Travel Enquiry Details:
             <form onSubmit={handleSubmit}>
               <div className={styles.formGroup}>
                 <label htmlFor="enquiry-fullname" className={styles.label}>
-                  Full Name *
+                  First Name *
                 </label>
                 <input
                   type="text"
@@ -285,7 +290,7 @@ New Travel Enquiry Details:
 
               <div className={styles.formGroup}>
                 <label htmlFor="enquiry-name" className={styles.label}>
-                  Name *
+                  Last Name *
                 </label>
                 <input
                   type="text"
@@ -317,7 +322,7 @@ New Travel Enquiry Details:
                 {errors.phone && <span className={styles.errorText}>{errors.phone}</span>}
               </div>
 
-              <div className={styles.formGroup}>
+              {/* <div className={styles.formGroup}>
                 <label htmlFor="enquiry-email" className={styles.label}>
                   Email Address *
                 </label>
@@ -332,7 +337,7 @@ New Travel Enquiry Details:
                   required
                 />
                 {errors.email && <span className={styles.errorText}>{errors.email}</span>}
-              </div>
+              </div> */}
 
               <div className={styles.formGroup}>
                 <label htmlFor="enquiry-destination" className={styles.label}>

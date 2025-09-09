@@ -23,11 +23,11 @@ const Home = () => {
       <HeroSection />
       <StatsSection />
       <ExploreDestinations />
-      <AdvertiseBanner />
       <BannerSection
         category="international"
         mobileHeading="International Trips"
       />
+      <AdvertiseBanner />
       <TravelPackagesSection isHomePage={true} />
       <YourAdventureSection />
       <HappyMomentsSection />

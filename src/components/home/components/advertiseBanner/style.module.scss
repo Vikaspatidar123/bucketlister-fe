@@ -1,17 +1,29 @@
 .advertiseBanner {
   width: 84vw;
   height: 100%;
-  margin: 0 auto;
-  padding-bottom: 2.4rem;
+  margin: 180px auto 0px auto;
+  // padding-bottom: 2.4rem;
   .advertiseBannerImage {
     width: 100%;
     height: auto;
     border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.612);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.864);
+      transform: translateY(-2px);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
     // object-fit: cover;
   }
   @media (max-width: 768px) {
     display: none;
     width: 94vw;
     min-height: 289px;
+    margin: 0px auto 0px auto;
+
   }
 }
