@@ -28,29 +28,6 @@ export const crmApi = {
     return null;
   },
 
-  // Method to fetch CSRF token from server directly
-  async fetchCsrfToken() {
-    try {
-      const response = await fetch(`${API_BASE_URL}/api/v1/auth/csrf-token`, {
-        method: 'GET',
-        credentials: 'include'
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        if (data.csrf_token) {
-          csrfToken = data.csrf_token;
-          return csrfToken;
-        }
-      }
-      
-      // Fallback to cookie extraction
-      return this.getCsrfFromCookies();
-    } catch (error) {
-      console.error('Error fetching CSRF token:', error);
-      return this.getCsrfFromCookies();
-    }
-  },
 
   async login() {
     try {
@@ -70,25 +47,19 @@ export const crmApi = {
         const responseData = await response.json();
         console.log('Login response:', responseData);
         
-        // Extract CSRF token from response data
-        if (responseData.csrf_token) {
-          csrfToken = responseData.csrf_token;
-        } else if (responseData.data && responseData.data.csrf_token) {
-          csrfToken = responseData.data.csrf_token;
-        }
+        // Extract CSRF token from response - check various possible fields
+        csrfToken = responseData.csrf_token || 
+                   responseData.csrfToken || 
+                   responseData.data?.csrf_token ||
+                   responseData.data?.csrfToken ||
+                   null;
         
-        // Extract from response headers
-        const csrfFromHeaders = response.headers.get('X-CSRF-Token') || response.headers.get('csrf-token');
-        if (csrfFromHeaders) {
-          csrfToken = csrfFromHeaders;
-        }
-        
-        // Extract from browser cookies as fallback
+        // If not in response, extract from cookies immediately
         if (!csrfToken) {
           csrfToken = this.getCsrfFromCookies();
         }
         
-        console.log('Extracted CSRF token:', csrfToken);
+        console.log('CSRF token after login:', csrfToken);
         
         // Set auth expiry
         authExpiry = Date.now() + (24 * 60 * 60 * 1000);
@@ -117,10 +88,6 @@ export const crmApi = {
       csrfToken = this.getCsrfFromCookies();
     }
     
-    // If still no CSRF token, try to fetch it
-    if (!csrfToken) {
-      csrfToken = await this.fetchCsrfToken();
-    }
     
     console.log('Final CSRF token for request:', csrfToken);
     return { accessToken, csrfToken };
@@ -128,6 +95,9 @@ export const crmApi = {
 
   async createLead(leadData) {
     try {
+      console.log('API Base URL:', API_BASE_URL);
+      console.log('Lead data received:', leadData);
+      
       const auth = await this.ensureAuthenticated();
 
       const { firstName, lastName, phone, email='website@bucketlister.com', source = 'Website', notes = '' } = leadData;
@@ -137,6 +107,7 @@ export const crmApi = {
       }
 
       console.log('Creating lead with CSRF token:', auth.csrfToken);
+      console.log('All cookies:', typeof document !== 'undefined' ? document.cookie : 'No document');
 
       const requestBody = {
         first_name: firstName,
@@ -150,6 +121,7 @@ export const crmApi = {
       };
 
       console.log('Lead request body:', requestBody);
+      console.log('Making request to:', `${API_BASE_URL}/api/v1/leads`);
 
       const response = await fetch(`${API_BASE_URL}/api/v1/leads`, {
         method: 'POST',
@@ -161,6 +133,9 @@ export const crmApi = {
         body: JSON.stringify(requestBody)
       });
 
+      console.log('Response status:', response.status);
+      console.log('Response headers:', [...response.headers.entries()]);
+
       if (response.ok) {
         const result = await response.json();
         console.log('Lead created successfully:', result);
@@ -171,7 +146,8 @@ export const crmApi = {
           status: response.status,
           statusText: response.statusText,
           error: errorText,
-          csrfToken: auth.csrfToken
+          csrfToken: auth.csrfToken,
+          url: `${API_BASE_URL}/api/v1/leads`
         });
         throw new Error(`Create lead failed: ${response.status} - ${errorText}`);
       }
