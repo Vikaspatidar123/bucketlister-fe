@@ -33,7 +33,7 @@ export const getAssetUrlWithFallback = (assetPath) => {
   const cdnBaseUrl = process.env.NEXT_PUBLIC_CDN_BASE_URL;
   
   // In development or if no CDN configured, use local path directly
-  if (isDevelopment || !cdnBaseUrl) {
+  if (!isDevelopment || !cdnBaseUrl) {
     return {
       src: assetPath,
       onError: null
