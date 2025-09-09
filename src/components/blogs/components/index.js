@@ -3,6 +3,7 @@ import { BLOG_POSTS, BLOG_CATEGORIES, getBlogPostsByCategory } from '@/data/blog
 import styles from './style.module.scss';
 import Link from 'next/link';
 import Head from 'next/head';
+import Image from 'next/image';
 
 const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -111,7 +112,7 @@ const BlogsPage = () => {
               <div className={styles.featuredPost}>
                 <Link href={`/blogs/${BLOG_POSTS[0].slug}`} className={styles.featuredLink}>
                   <div className={styles.featuredImage}>
-                    <img src={BLOG_POSTS[0].featuredImage} alt={BLOG_POSTS[0].title} />
+                    <Image src={BLOG_POSTS[0].featuredImage} alt={BLOG_POSTS[0].title} width={500} height={500} />
                     {/* <div className={styles.featuredOverlay}>
                       <span className={styles.featuredCategory}>{BLOG_POSTS[0].category}</span>
                     </div> */}
@@ -141,7 +142,7 @@ const BlogsPage = () => {
                 .map(post => (
                 <Link key={post.id} href={`/blogs/${post.slug}`} className={styles.postCard}>
                   <div className={styles.postImage}>
-                    <img src={post.featuredImage} alt={post.title} />
+                    <Image src={post.featuredImage} alt={post.title} width={500} height={500} />
                     {/* <div className={styles.postOverlay}>
                       <span className={styles.postCategory}>{post.category}</span>
                     </div> */}

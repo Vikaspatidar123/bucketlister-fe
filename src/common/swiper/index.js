@@ -7,6 +7,7 @@ import "swiper/css/effect-cards";
 import styles from "./style.module.scss";
 import { andamanImage, coorgImage, himachalImage, kashmirImage, keralaImage, sikkimImage, thailandImage, uttarakhandImage } from "@/assets/svg";
 import { banner1 } from "@/assets/png";
+import Image from "next/image";
 
 const defaultCards = [
   {
@@ -104,13 +105,15 @@ const SwiperCards = ({ customData = null }) => {
         {cardsToShow.map((card, index) => (
           <SwiperSlide key={card.id || card.title || index} className={styles.cardSlide}>
             <a href={card.href || "#"} className={styles.cardLink}>
-              <img 
+              <Image
                 src={card.image} 
                 alt={card.title} 
                 className={styles.cardImage}
                 loading="lazy"
                 decoding="async"
                 style={{ contentVisibility: 'auto' }}
+                width={340}
+                height={424}
               />
               <div className={styles.cardOverlay}>
                 <h3 className={styles.cardTitle}>{card.title}</h3>

@@ -1,9 +1,22 @@
+import { thailandImage } from "@/assets/svg";
+import {
+  baliBanner,
+  cambodiaBanner,
+  europeBanner,
+  japanBanner,
+  meghalaya1,
+  meghalaya3,
+  meghalayaBanner,
+  safeSpaceImage,
+} from "@/assets/webp";
+
 export const BLOG_POSTS = [
   {
     id: 1,
     title: "Hidden Gems of Kyoto: Beyond the Tourist Trail",
     slug: "hidden-gems-kyoto-beyond-tourist-trail",
-    excerpt: "Discover the secret temples, traditional neighborhoods, and authentic experiences that most visitors to Kyoto never see.",
+    excerpt:
+      "Discover the secret temples, traditional neighborhoods, and authentic experiences that most visitors to Kyoto never see.",
     content: `
       Kyoto, the ancient capital of Japan, is renowned for its temples, gardens, and traditional culture. While most tourists flock to the famous Fushimi Inari Shrine and Kinkaku-ji, there's a whole other side of Kyoto waiting to be explored.
 
@@ -54,25 +67,33 @@ export const BLOG_POSTS = [
     readTime: "8 min read",
     category: "Destinations",
     tags: ["Japan", "Kyoto", "Temples", "Hidden Gems", "Culture"],
-    featuredImage: "/assets/webp/japan-optimized.webp",
+    featuredImage: japanBanner,
     images: [
       {
-        url: "/assets/webp/japan-optimized.webp",
+        url: japanBanner,
         caption: "Traditional temple in Kyoto during cherry blossom season",
-        section: "introduction"
-      }
+        section: "introduction",
+      },
     ],
     seo: {
-      metaTitle: "Hidden Gems of Kyoto: Secret Places Beyond Tourist Trail | THE BUCKETLISTER",
-      metaDescription: "Discover Kyoto's best-kept secrets including hidden temples, traditional neighborhoods, and authentic experiences away from the crowds.",
-      keywords: ["Kyoto hidden gems", "secret temples Kyoto", "off beaten path Japan", "authentic Kyoto experience"]
-    }
+      metaTitle:
+        "Hidden Gems of Kyoto: Secret Places Beyond Tourist Trail | THE BUCKETLISTER",
+      metaDescription:
+        "Discover Kyoto's best-kept secrets including hidden temples, traditional neighborhoods, and authentic experiences away from the crowds.",
+      keywords: [
+        "Kyoto hidden gems",
+        "secret temples Kyoto",
+        "off beaten path Japan",
+        "authentic Kyoto experience",
+      ],
+    },
   },
   {
     id: 2,
     title: "Bali's Secret Waterfalls: A Journey Through Paradise",
     slug: "bali-secret-waterfalls-paradise-journey",
-    excerpt: "Venture beyond the beaches to discover Bali's most spectacular hidden waterfalls, from jungle treks to sacred pools.",
+    excerpt:
+      "Venture beyond the beaches to discover Bali's most spectacular hidden waterfalls, from jungle treks to sacred pools.",
     content: `
       While Bali is famous for its beaches and rice terraces, the island's jungle interior hides some of the world's most spectacular waterfalls. These natural wonders offer a refreshing escape from the heat and crowds of the coast.
 
@@ -131,25 +152,33 @@ export const BLOG_POSTS = [
     readTime: "7 min read",
     category: "Adventure",
     tags: ["Bali", "Waterfalls", "Adventure", "Nature", "Indonesia"],
-    featuredImage: "/assets/webp/Bali-optimized.webp",
+    featuredImage: baliBanner,
     images: [
       {
-        url: "/assets/webp/Bali-optimized.webp",
+        url: baliBanner,
         caption: "Sekumpul Falls cascading through lush tropical forest",
-        section: "introduction"
-      }
+        section: "introduction",
+      },
     ],
     seo: {
-      metaTitle: "Bali's Secret Waterfalls: Hidden Paradise Adventure Guide | THE BUCKETLISTER",
-      metaDescription: "Discover Bali's most spectacular hidden waterfalls including Sekumpul, Munduk, and Nungnung. Complete adventure guide with tips and locations.",
-      keywords: ["Bali waterfalls", "hidden waterfalls Bali", "Sekumpul falls", "Bali adventure travel"]
-    }
+      metaTitle:
+        "Bali's Secret Waterfalls: Hidden Paradise Adventure Guide | THE BUCKETLISTER",
+      metaDescription:
+        "Discover Bali's most spectacular hidden waterfalls including Sekumpul, Munduk, and Nungnung. Complete adventure guide with tips and locations.",
+      keywords: [
+        "Bali waterfalls",
+        "hidden waterfalls Bali",
+        "Sekumpul falls",
+        "Bali adventure travel",
+      ],
+    },
   },
   {
     id: 3,
     title: "European Train Routes: Romance of Rail Travel",
     slug: "european-train-routes-romance-rail-travel",
-    excerpt: "Experience Europe's most scenic train journeys, from Swiss Alps to Scottish Highlands, and discover why rail travel is making a comeback.",
+    excerpt:
+      "Experience Europe's most scenic train journeys, from Swiss Alps to Scottish Highlands, and discover why rail travel is making a comeback.",
     content: `
       In an age of budget airlines and quick connections, train travel in Europe offers something increasingly rare: the journey itself as a destination. These scenic routes transform transportation into an experience, connecting not just cities but cultures, landscapes, and stories.
 
@@ -219,26 +248,41 @@ export const BLOG_POSTS = [
     publishDate: "2024-03-01",
     readTime: "9 min read",
     category: "Transportation",
-    tags: ["Europe", "Train Travel", "Scenic Routes", "Switzerland", "Scotland"],
-    featuredImage: "/assets/webp/europe-optimized.webp",
+    tags: [
+      "Europe",
+      "Train Travel",
+      "Scenic Routes",
+      "Switzerland",
+      "Scotland",
+    ],
+    featuredImage: europeBanner,
     images: [
       {
-        url: "/assets/webp/europe-optimized.webp",
-        caption: "Glacier Express crossing the famous Landwasser Viaduct in Switzerland",
-        section: "introduction"
-      }
+        url: europeBanner,
+        caption:
+          "Glacier Express crossing the famous Landwasser Viaduct in Switzerland",
+        section: "introduction",
+      },
     ],
     seo: {
-      metaTitle: "Best European Train Routes: Scenic Rail Travel Guide | THE BUCKETLISTER",
-      metaDescription: "Discover Europe's most beautiful train journeys including Glacier Express, West Highland Line, and Bergen Railway. Complete scenic rail travel guide.",
-      keywords: ["European train routes", "scenic train travel Europe", "Glacier Express", "best train journeys"]
-    }
+      metaTitle:
+        "Best European Train Routes: Scenic Rail Travel Guide | THE BUCKETLISTER",
+      metaDescription:
+        "Discover Europe's most beautiful train journeys including Glacier Express, West Highland Line, and Bergen Railway. Complete scenic rail travel guide.",
+      keywords: [
+        "European train routes",
+        "scenic train travel Europe",
+        "Glacier Express",
+        "best train journeys",
+      ],
+    },
   },
   {
     id: 4,
     title: "Sustainable Travel: How to Explore Responsibly",
     slug: "sustainable-travel-explore-responsibly",
-    excerpt: "Learn practical ways to minimize your environmental impact while traveling, from choosing eco-friendly accommodations to supporting local communities.",
+    excerpt:
+      "Learn practical ways to minimize your environmental impact while traveling, from choosing eco-friendly accommodations to supporting local communities.",
     content: `
       As travelers become more conscious of their environmental impact, sustainable travel practices are evolving from nice-to-have to essential. Here's how to explore the world while protecting it for future generations.
 
@@ -330,26 +374,41 @@ export const BLOG_POSTS = [
     publishDate: "2024-02-15",
     readTime: "10 min read",
     category: "Sustainable Travel",
-    tags: ["Sustainability", "Eco Travel", "Responsible Tourism", "Environment", "Community"],
-    featuredImage: "/assets/webp/safe-space.webp",
+    tags: [
+      "Sustainability",
+      "Eco Travel",
+      "Responsible Tourism",
+      "Environment",
+      "Community",
+    ],
+    featuredImage: safeSpaceImage,
     images: [
       {
-        url: "/assets/webp/safe-space.webp",
-        caption: "Sustainable travel means protecting the places we love to visit",
-        section: "introduction"
-      }
+        url: safeSpaceImage,
+        caption:
+          "Sustainable travel means protecting the places we love to visit",
+        section: "introduction",
+      },
     ],
     seo: {
-      metaTitle: "Sustainable Travel Guide: How to Travel Responsibly | THE BUCKETLISTER",
-      metaDescription: "Learn practical sustainable travel tips to minimize environmental impact while supporting local communities. Complete responsible tourism guide.",
-      keywords: ["sustainable travel", "eco-friendly travel", "responsible tourism", "green travel tips"]
-    }
+      metaTitle:
+        "Sustainable Travel Guide: How to Travel Responsibly | THE BUCKETLISTER",
+      metaDescription:
+        "Learn practical sustainable travel tips to minimize environmental impact while supporting local communities. Complete responsible tourism guide.",
+      keywords: [
+        "sustainable travel",
+        "eco-friendly travel",
+        "responsible tourism",
+        "green travel tips",
+      ],
+    },
   },
   {
     id: 5,
     title: "Thai Street Food Adventure: A Culinary Journey",
     slug: "thai-street-food-adventure-culinary-journey",
-    excerpt: "Dive into Thailand's vibrant street food culture, from Bangkok's bustling markets to hidden local gems that serve authentic flavors.",
+    excerpt:
+      "Dive into Thailand's vibrant street food culture, from Bangkok's bustling markets to hidden local gems that serve authentic flavors.",
     content: `
       Thailand's street food scene is legendary, offering some of the world's most flavorful and diverse culinary experiences. From bustling Bangkok markets to quiet village stalls, street food represents the heart of Thai culture and community.
 
@@ -437,26 +496,40 @@ export const BLOG_POSTS = [
     publishDate: "2024-01-20",
     readTime: "8 min read",
     category: "Food & Culture",
-    tags: ["Thailand", "Street Food", "Bangkok", "Culinary Travel", "Food Culture"],
-    featuredImage: "/assets/webp/thailand-optimized.webp",
+    tags: [
+      "Thailand",
+      "Street Food",
+      "Bangkok",
+      "Culinary Travel",
+      "Food Culture",
+    ],
+    featuredImage: thailandImage,
     images: [
       {
-        url: "/assets/webp/thailand-optimized.webp",
+        url: thailandImage,
         caption: "Vibrant street food scene in Bangkok's bustling markets",
-        section: "introduction"
-      }
+        section: "introduction",
+      },
     ],
     seo: {
-      metaTitle: "Thai Street Food Guide: Bangkok & Beyond Culinary Adventure | THE BUCKETLISTER",
-      metaDescription: "Explore Thailand's incredible street food scene from Bangkok markets to regional specialties. Complete guide to authentic Thai culinary experiences.",
-      keywords: ["Thai street food", "Bangkok food markets", "Thailand culinary travel", "authentic Thai food"]
-    }
+      metaTitle:
+        "Thai Street Food Guide: Bangkok & Beyond Culinary Adventure | THE BUCKETLISTER",
+      metaDescription:
+        "Explore Thailand's incredible street food scene from Bangkok markets to regional specialties. Complete guide to authentic Thai culinary experiences.",
+      keywords: [
+        "Thai street food",
+        "Bangkok food markets",
+        "Thailand culinary travel",
+        "authentic Thai food",
+      ],
+    },
   },
   {
     id: 6,
     title: "Cambodia Travel Guide: Temples, Culture & Hidden Gems",
     slug: "cambodia-travel-guide-temples-culture-hidden-gems",
-    excerpt: "Discover the enchanting kingdom of Cambodia with its magnificent temples, rich cultural heritage, and warm hospitality. From the iconic Angkor Wat to bustling Phnom Penh, explore everything this Southeast Asian gem has to offer.",
+    excerpt:
+      "Discover the enchanting kingdom of Cambodia with its magnificent temples, rich cultural heritage, and warm hospitality. From the iconic Angkor Wat to bustling Phnom Penh, explore everything this Southeast Asian gem has to offer.",
     content: `
       Cambodia is a captivating destination that offers travelers an incredible blend of ancient history, vibrant culture, and natural beauty. From magnificent temples to bustling markets, this Southeast Asian gem promises unforgettable experiences for every type of traveler.
 
@@ -581,26 +654,45 @@ export const BLOG_POSTS = [
     publishDate: "2024-03-20",
     readTime: "4 min read",
     category: "Destinations",
-    tags: ["Cambodia", "Southeast Asia", "Temples", "Angkor Wat", "Travel Guide"],
-    featuredImage: "/assets/webp/cambodia-optimized.webp",
+    tags: [
+      "Cambodia",
+      "Southeast Asia",
+      "Temples",
+      "Angkor Wat",
+      "Travel Guide",
+    ],
+    featuredImage: cambodiaBanner,
     images: [
       {
-        url: "/assets/webp/cambodia-optimized.webp",
-        caption: "Beautiful scenes from Cambodia showcasing ancient temples and cultural heritage",
-        section: "content"
-      }
+        url: cambodiaBanner,
+        caption:
+          "Beautiful scenes from Cambodia showcasing ancient temples and cultural heritage",
+        section: "content",
+      },
     ],
     seo: {
-      metaTitle: "Cambodia Travel Guide: Temples, Culture & Hidden Gems | THE BUCKETLISTER",
-      metaDescription: "Discover the enchanting kingdom of Cambodia with its magnificent temples, rich cultural heritage, and warm hospitality. From the iconic Angkor Wat to bustling Phnom Penh, explore everything this Southeast Asian gem has to offer.",
-      keywords: ["Cambodia travel", "Angkor Wat", "Phnom Penh", "Siem Reap", "Southeast Asia", "Khmer temples", "Cambodia guide", "travel tips"]
-    }
+      metaTitle:
+        "Cambodia Travel Guide: Temples, Culture & Hidden Gems | THE BUCKETLISTER",
+      metaDescription:
+        "Discover the enchanting kingdom of Cambodia with its magnificent temples, rich cultural heritage, and warm hospitality. From the iconic Angkor Wat to bustling Phnom Penh, explore everything this Southeast Asian gem has to offer.",
+      keywords: [
+        "Cambodia travel",
+        "Angkor Wat",
+        "Phnom Penh",
+        "Siem Reap",
+        "Southeast Asia",
+        "Khmer temples",
+        "Cambodia guide",
+        "travel tips",
+      ],
+    },
   },
   {
     id: 7,
     title: "Best Things to Do in Meghalaya: Northeast India's Hidden Paradise",
     slug: "best-things-to-do-meghalaya-northeast-india-paradise",
-    excerpt: "Discover Meghalaya's incredible beauty from the wettest places on Earth to Asia's cleanest village. Explore living root bridges, singing villages, crystal-clear rivers, and unique tribal culture in Northeast India's most enchanting state.",
+    excerpt:
+      "Discover Meghalaya's incredible beauty from the wettest places on Earth to Asia's cleanest village. Explore living root bridges, singing villages, crystal-clear rivers, and unique tribal culture in Northeast India's most enchanting state.",
     content: `
       Nestled in Northeast India, Meghalaya is truly a land of clouds that offers travelers an extraordinary blend of natural beauty, unique culture, and thrilling adventures. Known as the "Scotland of the East," this enchanting state captivates visitors with its rolling hills, cascading waterfalls, living root bridges, and warm tribal hospitality.
 
@@ -830,55 +922,101 @@ export const BLOG_POSTS = [
     publishDate: "2024-03-22",
     readTime: "6 min read",
     category: "Destinations",
-    tags: ["Meghalaya", "Northeast India", "Living Root Bridges", "Cherrapunji", "Shillong", "Tribal Culture"],
-    featuredImage: "/assets/webp/meghalaya-banner.webp",
+    tags: [
+      "Meghalaya",
+      "Northeast India",
+      "Living Root Bridges",
+      "Cherrapunji",
+      "Shillong",
+      "Tribal Culture",
+    ],
+    featuredImage: meghalayaBanner,
     images: [
       {
-        url: "/assets/webp/meghalaya_1.webp",
-        caption: "Living root bridges showcase Meghalaya's incredible bioengineering",
-        section: "introduction"
+        url: meghalayaBanner,
+        caption:
+          "Living root bridges showcase Meghalaya's incredible bioengineering",
+        section: "introduction",
       },
       {
-        url: "/assets/webp/meghalaya_3.webp",
-        caption: "Crystal clear waters of Dawki River where boats appear to float on air",
-        section: "dawki"
+        url: meghalaya1,
+        caption:
+          "Crystal clear waters of Dawki River where boats appear to float on air",
+        section: "dawki",
       },
       {
-        url: "/assets/webp/meghalaya_5.webp",
+        url: meghalaya3,
         caption: "Magnificent waterfalls of Cherrapunji during monsoon season",
-        section: "cherrapunji"
-      }
+        section: "cherrapunji",
+      },
     ],
     seo: {
-      metaTitle: "Best Things to Do in Meghalaya: Northeast India's Hidden Paradise | THE BUCKETLISTER",
-      metaDescription: "Discover Meghalaya's incredible beauty from the wettest places on Earth to Asia's cleanest village. Explore living root bridges, singing villages, crystal-clear rivers, and unique tribal culture in Northeast India's most enchanting state.",
-      keywords: ["Meghalaya travel", "Northeast India", "living root bridges", "Cherrapunji", "Shillong", "Mawlynnong", "cleanest village", "tribal culture", "monsoon destinations"]
-    }
-  }
+      metaTitle:
+        "Best Things to Do in Meghalaya: Northeast India's Hidden Paradise | THE BUCKETLISTER",
+      metaDescription:
+        "Discover Meghalaya's incredible beauty from the wettest places on Earth to Asia's cleanest village. Explore living root bridges, singing villages, crystal-clear rivers, and unique tribal culture in Northeast India's most enchanting state.",
+      keywords: [
+        "Meghalaya travel",
+        "Northeast India",
+        "living root bridges",
+        "Cherrapunji",
+        "Shillong",
+        "Mawlynnong",
+        "cleanest village",
+        "tribal culture",
+        "monsoon destinations",
+      ],
+    },
+  },
 ];
 
 export const BLOG_CATEGORIES = [
   { id: "all", name: "All Posts", count: BLOG_POSTS.length },
-  { id: "destinations", name: "Destinations", count: BLOG_POSTS.filter(post => post.category === "Destinations").length },
-  { id: "adventure", name: "Adventure", count: BLOG_POSTS.filter(post => post.category === "Adventure").length },
-  { id: "transportation", name: "Transportation", count: BLOG_POSTS.filter(post => post.category === "Transportation").length },
-  { id: "sustainable-travel", name: "Sustainable Travel", count: BLOG_POSTS.filter(post => post.category === "Sustainable Travel").length },
-  { id: "food-culture", name: "Food & Culture", count: BLOG_POSTS.filter(post => post.category === "Food & Culture").length }
+  {
+    id: "destinations",
+    name: "Destinations",
+    count: BLOG_POSTS.filter((post) => post.category === "Destinations").length,
+  },
+  {
+    id: "adventure",
+    name: "Adventure",
+    count: BLOG_POSTS.filter((post) => post.category === "Adventure").length,
+  },
+  {
+    id: "transportation",
+    name: "Transportation",
+    count: BLOG_POSTS.filter((post) => post.category === "Transportation")
+      .length,
+  },
+  {
+    id: "sustainable-travel",
+    name: "Sustainable Travel",
+    count: BLOG_POSTS.filter((post) => post.category === "Sustainable Travel")
+      .length,
+  },
+  {
+    id: "food-culture",
+    name: "Food & Culture",
+    count: BLOG_POSTS.filter((post) => post.category === "Food & Culture")
+      .length,
+  },
 ];
 
 export const getBlogPostBySlug = (slug) => {
-  return BLOG_POSTS.find(post => post.slug === slug);
+  return BLOG_POSTS.find((post) => post.slug === slug);
 };
 
 export const getBlogPostsByCategory = (category) => {
   if (category === "all") return BLOG_POSTS;
-  return BLOG_POSTS.filter(post => post.category.toLowerCase().replace(/\s+/g, '-') === category);
+  return BLOG_POSTS.filter(
+    (post) => post.category.toLowerCase().replace(/\s+/g, "-") === category
+  );
 };
 
 export const getRelatedPosts = (currentPostId, category, limit = 3) => {
-  return BLOG_POSTS
-    .filter(post => post.id !== currentPostId && post.category === category)
-    .slice(0, limit);
+  return BLOG_POSTS.filter(
+    (post) => post.id !== currentPostId && post.category === category
+  ).slice(0, limit);
 };
 
 export const getFeaturedPosts = (limit = 3) => {

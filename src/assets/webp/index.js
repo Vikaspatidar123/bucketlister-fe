@@ -25,12 +25,22 @@ const switzerlandBanner = getAssetUrl(
 );
 const japanBanner = getAssetUrl("/assets/webp/japan-optimized.webp");
 const hampiBanner = getAssetUrl("/assets/webp/Hampi-optimized.webp");
-const baliBanner = getAssetUrl("/assets/webp/bali-optimized.webp");
+const baliBanner = getAssetUrl("/assets/webp/Bali-optimized.webp");
 const kazakhstanBanner = getAssetUrl("/assets/webp/kazakastan.webp");
 const rajasthanBanner = getAssetUrl("/assets/webp/rajasthan.webp");
 
+const banner2 = getAssetUrl("/assets/webp/banner2.webp");
+const banner3 = getAssetUrl("/assets/webp/banner3.webp");
+const internationalBanner = getAssetUrl(
+  "/assets/webp/international-banner.webp"
+);
+const domesticBanner = getAssetUrl("/assets/webp/domestic-banner.webp");
+
+const rakshit = getAssetUrl("/assets/webp/rakshit.webp");
+const kerul = getAssetUrl("/assets/webp/kerul.webp");
+const dhaval = getAssetUrl("/assets/webp/dhaval.webp");
 //public import images
-const andaman1 =getAssetUrl( "/assets/webp/andaman/andamn1.webp") ;
+const andaman1 = getAssetUrl("/assets/webp/andaman/andamn1.webp");
 const andaman2 = getAssetUrl("/assets/webp/andaman/andamn2.webp");
 const andaman3 = getAssetUrl("/assets/webp/andaman/andamn3.webp");
 const andaman4 = getAssetUrl("/assets/webp/andaman/andamn4.webp");
@@ -68,21 +78,21 @@ const arunachal19 = getAssetUrl("/assets/webp/arunachal/arunachal19.webp");
 const arunachal20 = getAssetUrl("/assets/webp/arunachal/arunachal20.webp");
 
 const himachal1 = getAssetUrl("/assets/webp/himachal/himachal1.webp");
-  const himachal2 = getAssetUrl("/assets/webp/himachal/himachal2.webp");
+const himachal2 = getAssetUrl("/assets/webp/himachal/himachal2.webp");
 const himachal3 = getAssetUrl("/assets/webp/himachal/himachal3.webp");
 const himachal4 = getAssetUrl("/assets/webp/himachal/himachal4.webp");
 const himachal5 = getAssetUrl("/assets/webp/himachal/himachal5.webp");
 const himachal6 = getAssetUrl("/assets/webp/himachal/himachal6.webp");
 const himachal7 = getAssetUrl("/assets/webp/himachal/himachal7.webp");
 const himachal8 = getAssetUrl("/assets/webp/himachal/himachal8.webp");
-const himachal9 = getAssetUrl("/assets/webp/himachal/himachal9.webp") ;
+const himachal9 = getAssetUrl("/assets/webp/himachal/himachal9.webp");
 const himachal10 = getAssetUrl("/assets/webp/himachal/himachal10.webp");
 const himachal11 = getAssetUrl("/assets/webp/himachal/himachal11.webp");
 const himachal12 = getAssetUrl("/assets/webp/himachal/himachal12.webp");
 const himachal13 = getAssetUrl("/assets/webp/himachal/himachal13.webp");
 const himachal14 = getAssetUrl("/assets/webp/himachal/himachal14.webp");
 const himachal15 = getAssetUrl("/assets/webp/himachal/himachal15.webp");
-const himachal16 = getAssetUrl("/assets/webp/himachal/himachal16.webp") ;
+const himachal16 = getAssetUrl("/assets/webp/himachal/himachal16.webp");
 const himachal17 = getAssetUrl("/assets/webp/himachal/himachal17.webp");
 const himachal18 = getAssetUrl("/assets/webp/himachal/himachal18.webp");
 const himachal19 = getAssetUrl("/assets/webp/himachal/himachal19.webp");
@@ -119,7 +129,7 @@ const kerala6 = getAssetUrl("/assets/webp/Kerala/kerala6.webp");
 const kerala7 = getAssetUrl("/assets/webp/Kerala/kerala7.webp");
 const kerala8 = getAssetUrl("/assets/webp/Kerala/kerala8.webp");
 const kerala9 = getAssetUrl("/assets/webp/Kerala/kerala9.webp");
-const kerala10 =getAssetUrl( "/assets/webp/Kerala/kerala10.webp");
+const kerala10 = getAssetUrl("/assets/webp/Kerala/kerala10.webp");
 const kerala11 = getAssetUrl("/assets/webp/Kerala/kerala11.webp");
 const kerala12 = getAssetUrl("/assets/webp/Kerala/kerala12.webp");
 
@@ -154,10 +164,18 @@ const meghalaya5 = getAssetUrl("/assets/webp/Meghalaya/meghalaya5.webp");
 const meghalaya6 = getAssetUrl("/assets/webp/Meghalaya/meghalaya6.webp");
 const meghalaya7 = getAssetUrl("/assets/webp/Meghalaya/meghalaya7.webp");
 
-const offbeatHimachal1 = getAssetUrl("/assets/webp/Offbeat-Himachal/ofbeat-himachal1.webp");
-const offbeatHimachal2 = getAssetUrl("/assets/webp/Offbeat-Himachal/ofbeat-himachal2.webp");
-const offbeatHimachal3 = getAssetUrl("/assets/webp/Offbeat-Himachal/ofbeat-himachal3.webp");
-const offbeatHimachal4 = getAssetUrl("/assets/webp/Offbeat-Himachal/ofbeat-himachal4.webp");
+const offbeatHimachal1 = getAssetUrl(
+  "/assets/webp/Offbeat-Himachal/ofbeat-himachal1.webp"
+);
+const offbeatHimachal2 = getAssetUrl(
+  "/assets/webp/Offbeat-Himachal/ofbeat-himachal2.webp"
+);
+const offbeatHimachal3 = getAssetUrl(
+  "/assets/webp/Offbeat-Himachal/ofbeat-himachal3.webp"
+);
+const offbeatHimachal4 = getAssetUrl(
+  "/assets/webp/Offbeat-Himachal/ofbeat-himachal4.webp"
+);
 
 const rajasthan1 = getAssetUrl("/assets/webp/Rajasthan/rajasthan1.webp");
 const rajasthan2 = getAssetUrl("/assets/webp/Rajasthan/rajasthan2.webp");
@@ -180,7 +198,7 @@ const sikkim8 = getAssetUrl("/assets/webp/Sikkim/sikkim8.webp");
 const sikkim9 = getAssetUrl("/assets/webp/Sikkim/sikkim9.webp");
 const sikkim10 = getAssetUrl("/assets/webp/Sikkim/sikkim10.webp");
 const sikkim11 = getAssetUrl("/assets/webp/Sikkim/sikkim11.webp");
-const sikkim12 = getAssetUrl("/assets/webp/Sikkim/sikkim12.webp")   ;
+const sikkim12 = getAssetUrl("/assets/webp/Sikkim/sikkim12.webp");
 const sikkim13 = getAssetUrl("/assets/webp/Sikkim/sikkim13.webp");
 const sikkim14 = getAssetUrl("/assets/webp/Sikkim/sikkim14.webp");
 const sikkim15 = getAssetUrl("/assets/webp/Sikkim/sikkim15.webp");
@@ -191,24 +209,60 @@ const spiti3 = getAssetUrl("/assets/webp/Spiti-chandratal/spiti3.webp");
 const spiti4 = getAssetUrl("/assets/webp/Spiti-chandratal/spiti4.webp");
 const spiti5 = getAssetUrl("/assets/webp/Spiti-chandratal/spiti5.webp");
 
-const winterSpiti1 =getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti1.webp");
-const winterSpiti2 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti2.webp");
-const winterSpiti3 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti3.webp");
-const winterSpiti4 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti4.webp");
-const winterSpiti5 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti5.webp");
-const winterSpiti6 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti6.webp");
-const winterSpiti7 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti7.webp");
-const winterSpiti8 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti8.webp");
-const winterSpiti9 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti9.webp");
-const winterSpiti10 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti10.webp");
-const winterSpiti11 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti11.webp");
-const winterSpiti12 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti12.webp");
-const winterSpiti13 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti13.webp")  ;
-const winterSpiti14 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti14.webp");
-const winterSpiti15 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti15.webp");
-const winterSpiti16 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti16.webp");
-const winterSpiti17 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti17.webp");
-const winterSpiti18 = getAssetUrl("/assets/webp/Winter-Spiti/winter-spiti18.webp");
+const winterSpiti1 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti1.webp"
+);
+const winterSpiti2 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti2.webp"
+);
+const winterSpiti3 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti3.webp"
+);
+const winterSpiti4 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti4.webp"
+);
+const winterSpiti5 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti5.webp"
+);
+const winterSpiti6 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti6.webp"
+);
+const winterSpiti7 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti7.webp"
+);
+const winterSpiti8 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti8.webp"
+);
+const winterSpiti9 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti9.webp"
+);
+const winterSpiti10 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti10.webp"
+);
+const winterSpiti11 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti11.webp"
+);
+const winterSpiti12 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti12.webp"
+);
+const winterSpiti13 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti13.webp"
+);
+const winterSpiti14 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti14.webp"
+);
+const winterSpiti15 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti15.webp"
+);
+const winterSpiti16 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti16.webp"
+);
+const winterSpiti17 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti17.webp"
+);
+const winterSpiti18 = getAssetUrl(
+  "/assets/webp/Winter-Spiti/winter-spiti18.webp"
+);
 
 const coorg1 = getAssetUrl("/assets/webp/Coorg/coorg1.webp");
 const coorg2 = getAssetUrl("/assets/webp/Coorg/coorg2.webp");
@@ -237,226 +291,252 @@ const hampi12 = getAssetUrl("/assets/webp/Hampi/hampi12.webp");
 const hampi13 = getAssetUrl("/assets/webp/Hampi/hampi13.webp");
 const hampi14 = getAssetUrl("/assets/webp/Hampi/hampi14.webp");
 const hampi15 = getAssetUrl("/assets/webp/Hampi/hampi15.webp");
-const hampi16 =  getAssetUrl("/assets/webp/Hampi/hampi16.webp");
-const hampi17 =  getAssetUrl("/assets/webp/Hampi/hampi17.webp");
-const hampi18 =  getAssetUrl("/assets/webp/Hampi/hampi18.webp");
-const hampi19 =  getAssetUrl("/assets/webp/Hampi/hampi19.webp");
-const hampi20 =  getAssetUrl("/assets/webp/Hampi/hampi20.webp");
-const hampi21 =  getAssetUrl("/assets/webp/Hampi/hampi21.webp");
-const hampi22 =  getAssetUrl("/assets/webp/Hampi/hampi22.webp");
-const hampi23 =  getAssetUrl("/assets/webp/Hampi/hampi23.webp");
-const hampi24 =  getAssetUrl("/assets/webp/Hampi/hampi24.webp");
-const hampi25 =  getAssetUrl("/assets/webp/Hampi/hampi25.webp");
-const hampi26 =  getAssetUrl("/assets/webp/Hampi/hampi26.webp");
-const hampi27 =  getAssetUrl("/assets/webp/Hampi/hampi27.webp");
-const hampi28 =  getAssetUrl("/assets/webp/Hampi/hampi28.webp");
+const hampi16 = getAssetUrl("/assets/webp/Hampi/hampi16.webp");
+const hampi17 = getAssetUrl("/assets/webp/Hampi/hampi17.webp");
+const hampi18 = getAssetUrl("/assets/webp/Hampi/hampi18.webp");
+const hampi19 = getAssetUrl("/assets/webp/Hampi/hampi19.webp");
+const hampi20 = getAssetUrl("/assets/webp/Hampi/hampi20.webp");
+const hampi21 = getAssetUrl("/assets/webp/Hampi/hampi21.webp");
+const hampi22 = getAssetUrl("/assets/webp/Hampi/hampi22.webp");
+const hampi23 = getAssetUrl("/assets/webp/Hampi/hampi23.webp");
+const hampi24 = getAssetUrl("/assets/webp/Hampi/hampi24.webp");
+const hampi25 = getAssetUrl("/assets/webp/Hampi/hampi25.webp");
+const hampi26 = getAssetUrl("/assets/webp/Hampi/hampi26.webp");
+const hampi27 = getAssetUrl("/assets/webp/Hampi/hampi27.webp");
+const hampi28 = getAssetUrl("/assets/webp/Hampi/hampi28.webp");
 
-const almaty2 = getAssetUrl( "/assets/webp/Almaty/almaty2.webp");
-const almaty1 = getAssetUrl( "/assets/webp/Almaty/almaty1.webp");
-const almaty3 = getAssetUrl( "/assets/webp/Almaty/almaty3.webp");
-const almaty4 = getAssetUrl( "/assets/webp/Almaty/almaty4.webp");
-const almaty5 = getAssetUrl( "/assets/webp/Almaty/almaty5.webp");
-const almaty6 = getAssetUrl( "/assets/webp/Almaty/almaty6.webp");
-const almaty7 = getAssetUrl( "/assets/webp/Almaty/almaty7.webp");
-const almaty8 = getAssetUrl( "/assets/webp/Almaty/almaty8.webp");
-const almaty9 = getAssetUrl( "/assets/webp/Almaty/almaty9.webp");
-const almaty10 = getAssetUrl( "assets/webp/Almaty/almaty10.webp");
-const almaty11 = getAssetUrl( "/assets/webp/Almaty/almaty11.webp");
-const almaty12 = getAssetUrl( "/assets/webp/Almaty/almaty12.webp");
-const almaty13 = getAssetUrl( "/assets/webp/Almaty/almaty13.webp");
-const almaty14 = getAssetUrl( "/assets/webp/Almaty/almaty14.webp");
-const almaty15 = getAssetUrl( "/assets/webp/Almaty/almaty15.webp");
-const almaty16 = getAssetUrl( "/assets/webp/Almaty/almaty16.webp");
-const almaty17 = getAssetUrl( "/assets/webp/Almaty/almaty17.webp");
-const almaty18 = getAssetUrl( "/assets/webp/Almaty/almaty18.webp");
-const almaty19 = getAssetUrl( "/assets/webp/Almaty/almaty19.webp");
-const almaty20 = getAssetUrl( "/assets/webp/Almaty/almaty20.webp");
-const almaty21 = getAssetUrl( "/assets/webp/Almaty/almaty21.webp");
-const almaty22 = getAssetUrl( "/assets/webp/Almaty/almaty22.webp");
+const almaty2 = getAssetUrl("/assets/webp/Almaty/almaty2.webp");
+const almaty1 = getAssetUrl("/assets/webp/Almaty/almaty1.webp");
+const almaty3 = getAssetUrl("/assets/webp/Almaty/almaty3.webp");
+const almaty4 = getAssetUrl("/assets/webp/Almaty/almaty4.webp");
+const almaty5 = getAssetUrl("/assets/webp/Almaty/almaty5.webp");
+const almaty6 = getAssetUrl("/assets/webp/Almaty/almaty6.webp");
+const almaty7 = getAssetUrl("/assets/webp/Almaty/almaty7.webp");
+const almaty8 = getAssetUrl("/assets/webp/Almaty/almaty8.webp");
+const almaty9 = getAssetUrl("/assets/webp/Almaty/almaty9.webp");
+const almaty10 = getAssetUrl("assets/webp/Almaty/almaty10.webp");
+const almaty11 = getAssetUrl("/assets/webp/Almaty/almaty11.webp");
+const almaty12 = getAssetUrl("/assets/webp/Almaty/almaty12.webp");
+const almaty13 = getAssetUrl("/assets/webp/Almaty/almaty13.webp");
+const almaty14 = getAssetUrl("/assets/webp/Almaty/almaty14.webp");
+const almaty15 = getAssetUrl("/assets/webp/Almaty/almaty15.webp");
+const almaty16 = getAssetUrl("/assets/webp/Almaty/almaty16.webp");
+const almaty17 = getAssetUrl("/assets/webp/Almaty/almaty17.webp");
+const almaty18 = getAssetUrl("/assets/webp/Almaty/almaty18.webp");
+const almaty19 = getAssetUrl("/assets/webp/Almaty/almaty19.webp");
+const almaty20 = getAssetUrl("/assets/webp/Almaty/almaty20.webp");
+const almaty21 = getAssetUrl("/assets/webp/Almaty/almaty21.webp");
+const almaty22 = getAssetUrl("/assets/webp/Almaty/almaty22.webp");
 
-const bali1 =  getAssetUrl("/assets/webp/Bali/bali1.webp");
-const bali2 =  getAssetUrl("/assets/webp/Bali/bali2.webp");
-const bali3 =  getAssetUrl("/assets/webp/Bali/bali3.webp");
-const bali4 =  getAssetUrl("/assets/webp/Bali/bali4.webp");
-const bali5 =  getAssetUrl("/assets/webp/Bali/bali5.webp");
-const bali6 =  getAssetUrl("/assets/webp/Bali/bali6.webp");
-const bali7 =  getAssetUrl("/assets/webp/Bali/bali7.webp");
-const bali8 =  getAssetUrl("/assets/webp/Bali/bali8.webp");
-const bali9 =  getAssetUrl("/assets/webp/Bali/bali9.webp");
-const bali10 =  getAssetUrl("/assets/webp/Bali/bali10.webp");
-const bali11 =  getAssetUrl("/assets/webp/Bali/bali11.webp");
-const bali12 =  getAssetUrl("/assets/webp/Bali/bali12.webp");
-const bali13 =  getAssetUrl("/assets/webp/Bali/bali13.webp");
+const bali1 = getAssetUrl("/assets/webp/Bali/bali1.webp");
+const bali2 = getAssetUrl("/assets/webp/Bali/bali2.webp");
+const bali3 = getAssetUrl("/assets/webp/Bali/bali3.webp");
+const bali4 = getAssetUrl("/assets/webp/Bali/bali4.webp");
+const bali5 = getAssetUrl("/assets/webp/Bali/bali5.webp");
+const bali6 = getAssetUrl("/assets/webp/Bali/bali6.webp");
+const bali7 = getAssetUrl("/assets/webp/Bali/bali7.webp");
+const bali8 = getAssetUrl("/assets/webp/Bali/bali8.webp");
+const bali9 = getAssetUrl("/assets/webp/Bali/bali9.webp");
+const bali10 = getAssetUrl("/assets/webp/Bali/bali10.webp");
+const bali11 = getAssetUrl("/assets/webp/Bali/bali11.webp");
+const bali12 = getAssetUrl("/assets/webp/Bali/bali12.webp");
+const bali13 = getAssetUrl("/assets/webp/Bali/bali13.webp");
 
-const cambodia1 =  getAssetUrl( "/assets/webp/Cambodia/cambodia1.webp");
-const cambodia2 =  getAssetUrl("/assets/webp/Cambodia/cambodia2.webp");
-const cambodia3 =  getAssetUrl("/assets/webp/Cambodia/cambodia3.webp");
-const cambodia4 =  getAssetUrl("/assets/webp/Cambodia/cambodia4.webp");
-const cambodia5 =  getAssetUrl("/assets/webp/Cambodia/cambodia5.webp");
-const cambodia6 =  getAssetUrl("/assets/webp/Cambodia/cambodia6.webp");
-const cambodia7 =  getAssetUrl("/assets/webp/Cambodia/cambodia7.webp");
-const cambodia8 =  getAssetUrl("/assets/webp/Cambodia/cambodia8.webp");
-const cambodia9 =  getAssetUrl("/assets/webp/Cambodia/cambodia9.webp");
+const cambodia1 = getAssetUrl("/assets/webp/Cambodia/cambodia1.webp");
+const cambodia2 = getAssetUrl("/assets/webp/Cambodia/cambodia2.webp");
+const cambodia3 = getAssetUrl("/assets/webp/Cambodia/cambodia3.webp");
+const cambodia4 = getAssetUrl("/assets/webp/Cambodia/cambodia4.webp");
+const cambodia5 = getAssetUrl("/assets/webp/Cambodia/cambodia5.webp");
+const cambodia6 = getAssetUrl("/assets/webp/Cambodia/cambodia6.webp");
+const cambodia7 = getAssetUrl("/assets/webp/Cambodia/cambodia7.webp");
+const cambodia8 = getAssetUrl("/assets/webp/Cambodia/cambodia8.webp");
+const cambodia9 = getAssetUrl("/assets/webp/Cambodia/cambodia9.webp");
 
-const dubai1 =  getAssetUrl("/assets/webp/Dubai/dubai1.webp");
-const dubai2 =  getAssetUrl("/assets/webp/Dubai/dubai2.webp");
-const dubai3 =  getAssetUrl("/assets/webp/Dubai/dubai3.webp");
-const dubai4 =  getAssetUrl("/assets/webp/Dubai/dubai4.webp");
-const dubai5 =  getAssetUrl("/assets/webp/Dubai/dubai5.webp");
-const dubai6 =  getAssetUrl("/assets/webp/Dubai/dubai6.webp");
-const dubai7 =  getAssetUrl("/assets/webp/Dubai/dubai7.webp");
-const dubai8 =  getAssetUrl("/assets/webp/Dubai/dubai8.webp");
-const dubai9 =  getAssetUrl("/assets/webp/Dubai/dubai9.webp");
-const dubai10 = getAssetUrl( "/assets/webp/Dubai/dubai10.webp");
-const dubai11 = getAssetUrl( "/assets/webp/Dubai/dubai11.webp");
+const dubai1 = getAssetUrl("/assets/webp/Dubai/dubai1.webp");
+const dubai2 = getAssetUrl("/assets/webp/Dubai/dubai2.webp");
+const dubai3 = getAssetUrl("/assets/webp/Dubai/dubai3.webp");
+const dubai4 = getAssetUrl("/assets/webp/Dubai/dubai4.webp");
+const dubai5 = getAssetUrl("/assets/webp/Dubai/dubai5.webp");
+const dubai6 = getAssetUrl("/assets/webp/Dubai/dubai6.webp");
+const dubai7 = getAssetUrl("/assets/webp/Dubai/dubai7.webp");
+const dubai8 = getAssetUrl("/assets/webp/Dubai/dubai8.webp");
+const dubai9 = getAssetUrl("/assets/webp/Dubai/dubai9.webp");
+const dubai10 = getAssetUrl("/assets/webp/Dubai/dubai10.webp");
+const dubai11 = getAssetUrl("/assets/webp/Dubai/dubai11.webp");
 
-const europe1 = getAssetUrl( "/assets/webp/Europe/europe1.webp");
-const europe2 = getAssetUrl( "/assets/webp/Europe/europe2.webp");
-const europe3 = getAssetUrl( "/assets/webp/Europe/europe3.webp");
-const europe4 = getAssetUrl( "/assets/webp/Europe/europe4.webp");
-const europe5 = getAssetUrl( "/assets/webp/Europe/europe5.webp");
-const europe6 = getAssetUrl( "/assets/webp/Europe/europe6.webp");
-const europe7 = getAssetUrl( "/assets/webp/Europe/europe7.webp");
-const europe8 = getAssetUrl( "/assets/webp/Europe/europe8.webp");
-const europe9 = getAssetUrl( "/assets/webp/Europe/europe9.webp");
-const europe10 =  getAssetUrl("/assets/webp/Europe/europe10.webp");
-const europe11 =  getAssetUrl("/assets/webp/Europe/europe11.webp");
-const europe12 =  getAssetUrl("/assets/webp/Europe/europe12.webp");
-const europe13 =  getAssetUrl("/assets/webp/Europe/europe13.webp");
-const europe14 =  getAssetUrl("/assets/webp/Europe/europe14.webp");
-const europe15 =  getAssetUrl("/assets/webp/Europe/europe15.webp");
+const europe1 = getAssetUrl("/assets/webp/Europe/europe1.webp");
+const europe2 = getAssetUrl("/assets/webp/Europe/europe2.webp");
+const europe3 = getAssetUrl("/assets/webp/Europe/europe3.webp");
+const europe4 = getAssetUrl("/assets/webp/Europe/europe4.webp");
+const europe5 = getAssetUrl("/assets/webp/Europe/europe5.webp");
+const europe6 = getAssetUrl("/assets/webp/Europe/europe6.webp");
+const europe7 = getAssetUrl("/assets/webp/Europe/europe7.webp");
+const europe8 = getAssetUrl("/assets/webp/Europe/europe8.webp");
+const europe9 = getAssetUrl("/assets/webp/Europe/europe9.webp");
+const europe10 = getAssetUrl("/assets/webp/Europe/europe10.webp");
+const europe11 = getAssetUrl("/assets/webp/Europe/europe11.webp");
+const europe12 = getAssetUrl("/assets/webp/Europe/europe12.webp");
+const europe13 = getAssetUrl("/assets/webp/Europe/europe13.webp");
+const europe14 = getAssetUrl("/assets/webp/Europe/europe14.webp");
+const europe15 = getAssetUrl("/assets/webp/Europe/europe15.webp");
 
-const france1 =  getAssetUrl("/assets/webp/France/france1.webp");
-const france2 =  getAssetUrl("/assets/webp/France/france2.webp");
-const france3 =  getAssetUrl("/assets/webp/France/france3.webp");
-const france4 =  getAssetUrl("/assets/webp/France/france4.webp");
-const france5 =  getAssetUrl("/assets/webp/France/france5.webp");
-const france6 =  getAssetUrl("/assets/webp/France/france6.webp");
-const france7 =  getAssetUrl("/assets/webp/France/france7.webp");
-const france8 =  getAssetUrl("/assets/webp/France/france8.webp");
-const france9 =  getAssetUrl("/assets/webp/France/france9.webp");
-const france10 = getAssetUrl( "/assets/webp/France/france10.webp");
-const france11 = getAssetUrl( "/assets/webp/France/france11.webp");
-const france12 = getAssetUrl( "/assets/webp/France/france12.webp");
-const france13 = getAssetUrl( "/assets/webp/France/france13.webp");
+const france1 = getAssetUrl("/assets/webp/France/france1.webp");
+const france2 = getAssetUrl("/assets/webp/France/france2.webp");
+const france3 = getAssetUrl("/assets/webp/France/france3.webp");
+const france4 = getAssetUrl("/assets/webp/France/france4.webp");
+const france5 = getAssetUrl("/assets/webp/France/france5.webp");
+const france6 = getAssetUrl("/assets/webp/France/france6.webp");
+const france7 = getAssetUrl("/assets/webp/France/france7.webp");
+const france8 = getAssetUrl("/assets/webp/France/france8.webp");
+const france9 = getAssetUrl("/assets/webp/France/france9.webp");
+const france10 = getAssetUrl("/assets/webp/France/france10.webp");
+const france11 = getAssetUrl("/assets/webp/France/france11.webp");
+const france12 = getAssetUrl("/assets/webp/France/france12.webp");
+const france13 = getAssetUrl("/assets/webp/France/france13.webp");
 
-const georgia1 =  getAssetUrl("/assets/webp/Georgia/georgia1.webp");
-const georgia2 =  getAssetUrl("/assets/webp/Georgia/georgia2.webp");
-const georgia3 =  getAssetUrl("/assets/webp/Georgia/georgia3.webp");
-const georgia4 =  getAssetUrl("/assets/webp/Georgia/georgia4.webp");
-const georgia5 =  getAssetUrl("/assets/webp/Georgia/georgia5.webp");
-const georgia6 =  getAssetUrl("/assets/webp/Georgia/georgia6.webp");
-const georgia7 =  getAssetUrl("/assets/webp/Georgia/georgia7.webp");
-const georgia8 =  getAssetUrl("/assets/webp/Georgia/georgia8.webp");
-const georgia9 =  getAssetUrl("/assets/webp/Georgia/georgia9.webp");
-const georgia10 =  getAssetUrl("/assets/webp/Georgia/georgia10.webp");
-const georgia11 =  getAssetUrl("/assets/webp/Georgia/georgia11.webp");
-const georgia12 =  getAssetUrl("/assets/webp/Georgia/georgia12.webp");
+const georgia1 = getAssetUrl("/assets/webp/Georgia/georgia1.webp");
+const georgia2 = getAssetUrl("/assets/webp/Georgia/georgia2.webp");
+const georgia3 = getAssetUrl("/assets/webp/Georgia/georgia3.webp");
+const georgia4 = getAssetUrl("/assets/webp/Georgia/georgia4.webp");
+const georgia5 = getAssetUrl("/assets/webp/Georgia/georgia5.webp");
+const georgia6 = getAssetUrl("/assets/webp/Georgia/georgia6.webp");
+const georgia7 = getAssetUrl("/assets/webp/Georgia/georgia7.webp");
+const georgia8 = getAssetUrl("/assets/webp/Georgia/georgia8.webp");
+const georgia9 = getAssetUrl("/assets/webp/Georgia/georgia9.webp");
+const georgia10 = getAssetUrl("/assets/webp/Georgia/georgia10.webp");
+const georgia11 = getAssetUrl("/assets/webp/Georgia/georgia11.webp");
+const georgia12 = getAssetUrl("/assets/webp/Georgia/georgia12.webp");
 
-const japan1 = getAssetUrl( "/assets/webp/Japan/japan1.webp");
-const japan2 = getAssetUrl( "/assets/webp/Japan/japan2.webp");
-const japan3 = getAssetUrl( "/assets/webp/Japan/japan3.webp");
-const japan4 = getAssetUrl( "/assets/webp/Japan/japan4.webp");
-const japan5 = getAssetUrl( "/assets/webp/Japan/japan5.webp");
-const japan6 = getAssetUrl( "/assets/webp/Japan/japan6.webp");
-const japan7 = getAssetUrl( "/assets/webp/Japan/japan7.webp");
-const japan8 = getAssetUrl( "/assets/webp/Japan/japan8.webp");
-const japan9 = getAssetUrl( "/assets/webp/Japan/japan9.webp");
-const japan10 =getAssetUrl("/assets/webp/Japan/japan10.webp");
+const japan1 = getAssetUrl("/assets/webp/Japan/japan1.webp");
+const japan2 = getAssetUrl("/assets/webp/Japan/japan2.webp");
+const japan3 = getAssetUrl("/assets/webp/Japan/japan3.webp");
+const japan4 = getAssetUrl("/assets/webp/Japan/japan4.webp");
+const japan5 = getAssetUrl("/assets/webp/Japan/japan5.webp");
+const japan6 = getAssetUrl("/assets/webp/Japan/japan6.webp");
+const japan7 = getAssetUrl("/assets/webp/Japan/japan7.webp");
+const japan8 = getAssetUrl("/assets/webp/Japan/japan8.webp");
+const japan9 = getAssetUrl("/assets/webp/Japan/japan9.webp");
+const japan10 = getAssetUrl("/assets/webp/Japan/japan10.webp");
 
-const malaysia1 =  getAssetUrl("/assets/webp/Malaysia/malaysia1.webp");
-const malaysia2 =  getAssetUrl("/assets/webp/Malaysia/malaysia2.webp");
-const malaysia3 =  getAssetUrl("/assets/webp/Malaysia/malaysia3.webp");
-const malaysia4 =  getAssetUrl("/assets/webp/Malaysia/malaysia4.webp");
-const malaysia5 =  getAssetUrl("/assets/webp/Malaysia/malaysia5.webp");
-const malaysia6 =  getAssetUrl("/assets/webp/Malaysia/malaysia6.webp");
-const malaysia7 =  getAssetUrl("/assets/webp/Malaysia/malaysia7.webp");
-const malaysia8 =  getAssetUrl("/assets/webp/Malaysia/malaysia8.webp");
-const malaysia9 =  getAssetUrl("/assets/webp/Malaysia/malaysia9.webp");
-const malaysia10 = getAssetUrl( "/assets/webp/Malaysia/malaysia10.webp");
-const malaysia11 = getAssetUrl( "/assets/webp/Malaysia/malaysia11.webp");
-const malaysia12 = getAssetUrl( "/assets/webp/Malaysia/malaysia12.webp");
-const malaysia13 = getAssetUrl( "/assets/webp/Malaysia/malaysia13.webp");
+const malaysia1 = getAssetUrl("/assets/webp/Malaysia/malaysia1.webp");
+const malaysia2 = getAssetUrl("/assets/webp/Malaysia/malaysia2.webp");
+const malaysia3 = getAssetUrl("/assets/webp/Malaysia/malaysia3.webp");
+const malaysia4 = getAssetUrl("/assets/webp/Malaysia/malaysia4.webp");
+const malaysia5 = getAssetUrl("/assets/webp/Malaysia/malaysia5.webp");
+const malaysia6 = getAssetUrl("/assets/webp/Malaysia/malaysia6.webp");
+const malaysia7 = getAssetUrl("/assets/webp/Malaysia/malaysia7.webp");
+const malaysia8 = getAssetUrl("/assets/webp/Malaysia/malaysia8.webp");
+const malaysia9 = getAssetUrl("/assets/webp/Malaysia/malaysia9.webp");
+const malaysia10 = getAssetUrl("/assets/webp/Malaysia/malaysia10.webp");
+const malaysia11 = getAssetUrl("/assets/webp/Malaysia/malaysia11.webp");
+const malaysia12 = getAssetUrl("/assets/webp/Malaysia/malaysia12.webp");
+const malaysia13 = getAssetUrl("/assets/webp/Malaysia/malaysia13.webp");
 
-const maldives1 = getAssetUrl( "/assets/webp/Maldives/maldives1.webp");
-const maldives2 = getAssetUrl( "/assets/webp/Maldives/maldives2.webp");
-const maldives3 = getAssetUrl( "/assets/webp/Maldives/maldives3.webp");
-const maldives4 = getAssetUrl( "/assets/webp/Maldives/maldives4.webp");
-const maldives5 = getAssetUrl( "/assets/webp/Maldives/maldives5.webp");
-const maldives6 = getAssetUrl( "/assets/webp/Maldives/maldives6.webp");
-const maldives7 = getAssetUrl( "/assets/webp/Maldives/maldives7.webp");
-const maldives8 = getAssetUrl( "/assets/webp/Maldives/maldives8.webp");
-const maldives9 = getAssetUrl( "/assets/webp/Maldives/maldives9.webp");
+const maldives1 = getAssetUrl("/assets/webp/Maldives/maldives1.webp");
+const maldives2 = getAssetUrl("/assets/webp/Maldives/maldives2.webp");
+const maldives3 = getAssetUrl("/assets/webp/Maldives/maldives3.webp");
+const maldives4 = getAssetUrl("/assets/webp/Maldives/maldives4.webp");
+const maldives5 = getAssetUrl("/assets/webp/Maldives/maldives5.webp");
+const maldives6 = getAssetUrl("/assets/webp/Maldives/maldives6.webp");
+const maldives7 = getAssetUrl("/assets/webp/Maldives/maldives7.webp");
+const maldives8 = getAssetUrl("/assets/webp/Maldives/maldives8.webp");
+const maldives9 = getAssetUrl("/assets/webp/Maldives/maldives9.webp");
 
-const northernLights1 = getAssetUrl( "/assets/webp/Northern-Lights/northern-lights1.webp");
-const northernLights2 = getAssetUrl( "/assets/webp/Northern-Lights/northern-lights2.webp");
-const northernLights3 = getAssetUrl( "/assets/webp/Northern-Lights/northern-lights3.webp");
-const northernLights4 = getAssetUrl( "/assets/webp/Northern-Lights/northern-lights4.webp");
-const northernLights5 = getAssetUrl( "/assets/webp/Northern-Lights/northern-lights5.webp");
-const northernLights6 = getAssetUrl( "/assets/webp/Northern-Lights/northern-lights6.webp");
-const northernLights7 = getAssetUrl( "/assets/webp/Northern-Lights/northern-lights7.webp");
-const northernLights8 = getAssetUrl( "/assets/webp/Northern-Lights/northern-lights8.webp");
-const northernLights9 = getAssetUrl( "/assets/webp/Northern-Lights/northern-lights9.webp");
+const northernLights1 = getAssetUrl(
+  "/assets/webp/Northern-Lights/northern-lights1.webp"
+);
+const northernLights2 = getAssetUrl(
+  "/assets/webp/Northern-Lights/northern-lights2.webp"
+);
+const northernLights3 = getAssetUrl(
+  "/assets/webp/Northern-Lights/northern-lights3.webp"
+);
+const northernLights4 = getAssetUrl(
+  "/assets/webp/Northern-Lights/northern-lights4.webp"
+);
+const northernLights5 = getAssetUrl(
+  "/assets/webp/Northern-Lights/northern-lights5.webp"
+);
+const northernLights6 = getAssetUrl(
+  "/assets/webp/Northern-Lights/northern-lights6.webp"
+);
+const northernLights7 = getAssetUrl(
+  "/assets/webp/Northern-Lights/northern-lights7.webp"
+);
+const northernLights8 = getAssetUrl(
+  "/assets/webp/Northern-Lights/northern-lights8.webp"
+);
+const northernLights9 = getAssetUrl(
+  "/assets/webp/Northern-Lights/northern-lights9.webp"
+);
 
-const singapore1 = getAssetUrl( "/assets/webp/Singapore/singapore1.webp");
-const singapore2 = getAssetUrl( "/assets/webp/Singapore/singapore2.webp");
-const singapore3 = getAssetUrl( "/assets/webp/Singapore/singapore3.webp");
-const singapore4 = getAssetUrl( "/assets/webp/Singapore/singapore4.webp");
-const singapore5 = getAssetUrl( "/assets/webp/Singapore/singapore5.webp");
-const singapore6 = getAssetUrl( "/assets/webp/Singapore/singapore6.webp");
-const singapore7 = getAssetUrl( "/assets/webp/Singapore/singapore7.webp");
+const singapore1 = getAssetUrl("/assets/webp/Singapore/singapore1.webp");
+const singapore2 = getAssetUrl("/assets/webp/Singapore/singapore2.webp");
+const singapore3 = getAssetUrl("/assets/webp/Singapore/singapore3.webp");
+const singapore4 = getAssetUrl("/assets/webp/Singapore/singapore4.webp");
+const singapore5 = getAssetUrl("/assets/webp/Singapore/singapore5.webp");
+const singapore6 = getAssetUrl("/assets/webp/Singapore/singapore6.webp");
+const singapore7 = getAssetUrl("/assets/webp/Singapore/singapore7.webp");
 
-const sriLanka1 = getAssetUrl( "/assets/webp/Sri-lanka/sri-lanka1.webp");
-const sriLanka2 = getAssetUrl( "/assets/webp/Sri-lanka/sri-lanka2.webp");
-const sriLanka3 = getAssetUrl( "/assets/webp/Sri-lanka/sri-lanka3.webp");
-const sriLanka4 = getAssetUrl( "/assets/webp/Sri-lanka/sri-lanka4.webp");
-const sriLanka5 = getAssetUrl( "/assets/webp/Sri-lanka/sri-lanka5.webp");
-const sriLanka6 = getAssetUrl( "/assets/webp/Sri-lanka/sri-lanka6.webp");
-const sriLanka7 = getAssetUrl( "/assets/webp/Sri-lanka/sri-lanka7.webp");
-const sriLanka8 = getAssetUrl( "/assets/webp/Sri-lanka/sri-lanka8.webp");
-const sriLanka9 = getAssetUrl( "/assets/webp/Sri-lanka/sri-lanka9.webp");
-const sriLanka10 =  getAssetUrl("/assets/webp/Sri-lanka/sri-lanka10.webp");
-const sriLanka11 =  getAssetUrl("/assets/webp/Sri-lanka/sri-lanka11.webp");
-const sriLanka12 =  getAssetUrl("/assets/webp/Sri-lanka/sri-lanka12.webp");
+const sriLanka1 = getAssetUrl("/assets/webp/Sri-lanka/sri-lanka1.webp");
+const sriLanka2 = getAssetUrl("/assets/webp/Sri-lanka/sri-lanka2.webp");
+const sriLanka3 = getAssetUrl("/assets/webp/Sri-lanka/sri-lanka3.webp");
+const sriLanka4 = getAssetUrl("/assets/webp/Sri-lanka/sri-lanka4.webp");
+const sriLanka5 = getAssetUrl("/assets/webp/Sri-lanka/sri-lanka5.webp");
+const sriLanka6 = getAssetUrl("/assets/webp/Sri-lanka/sri-lanka6.webp");
+const sriLanka7 = getAssetUrl("/assets/webp/Sri-lanka/sri-lanka7.webp");
+const sriLanka8 = getAssetUrl("/assets/webp/Sri-lanka/sri-lanka8.webp");
+const sriLanka9 = getAssetUrl("/assets/webp/Sri-lanka/sri-lanka9.webp");
+const sriLanka10 = getAssetUrl("/assets/webp/Sri-lanka/sri-lanka10.webp");
+const sriLanka11 = getAssetUrl("/assets/webp/Sri-lanka/sri-lanka11.webp");
+const sriLanka12 = getAssetUrl("/assets/webp/Sri-lanka/sri-lanka12.webp");
 
-const switzerland2 = getAssetUrl( "/assets/webp/Switzerland/switzerland2.webp");
-const switzerland3 = getAssetUrl( "/assets/webp/Switzerland/switzerland3.webp");
-const switzerland1 = getAssetUrl( "/assets/webp/Switzerland/switzerland1.webp");
-const switzerland4 = getAssetUrl( "/assets/webp/Switzerland/switzerland4.webp");
-const switzerland5 = getAssetUrl( "/assets/webp/Switzerland/switzerland5.webp");
-const switzerland6 = getAssetUrl( "/assets/webp/Switzerland/switzerland6.webp");
-const switzerland7 = getAssetUrl( "/assets/webp/Switzerland/switzerland7.webp");
-const switzerland8 = getAssetUrl( "/assets/webp/Switzerland/switzerland8.webp");
-const switzerland9 = getAssetUrl( "/assets/webp/Switzerland/switzerland9.webp");
-const switzerland10 = getAssetUrl( "/assets/webp/Switzerland/switzerland10.webp");
-const switzerland11 = getAssetUrl( "/assets/webp/Switzerland/switzerland11.webp");
-const switzerland12 = getAssetUrl( "/assets/webp/Switzerland/switzerland12.webp");
-const switzerland13 = getAssetUrl( "/assets/webp/Switzerland/switzerland13.webp");
+const switzerland2 = getAssetUrl("/assets/webp/Switzerland/switzerland2.webp");
+const switzerland3 = getAssetUrl("/assets/webp/Switzerland/switzerland3.webp");
+const switzerland1 = getAssetUrl("/assets/webp/Switzerland/switzerland1.webp");
+const switzerland4 = getAssetUrl("/assets/webp/Switzerland/switzerland4.webp");
+const switzerland5 = getAssetUrl("/assets/webp/Switzerland/switzerland5.webp");
+const switzerland6 = getAssetUrl("/assets/webp/Switzerland/switzerland6.webp");
+const switzerland7 = getAssetUrl("/assets/webp/Switzerland/switzerland7.webp");
+const switzerland8 = getAssetUrl("/assets/webp/Switzerland/switzerland8.webp");
+const switzerland9 = getAssetUrl("/assets/webp/Switzerland/switzerland9.webp");
+const switzerland10 = getAssetUrl(
+  "/assets/webp/Switzerland/switzerland10.webp"
+);
+const switzerland11 = getAssetUrl(
+  "/assets/webp/Switzerland/switzerland11.webp"
+);
+const switzerland12 = getAssetUrl(
+  "/assets/webp/Switzerland/switzerland12.webp"
+);
+const switzerland13 = getAssetUrl(
+  "/assets/webp/Switzerland/switzerland13.webp"
+);
 
-const thailand1 = getAssetUrl( "/assets/webp/Thailand/thailand1.webp");
-const thailand2 = getAssetUrl( "/assets/webp/Thailand/thailand2.webp");
-const thailand3 = getAssetUrl( "/assets/webp/Thailand/thailand3.webp");
-const thailand4 = getAssetUrl( "/assets/webp/Thailand/thailand4.webp");
-const thailand5 = getAssetUrl( "/assets/webp/Thailand/thailand5.webp");
-const thailand6 = getAssetUrl( "/assets/webp/Thailand/thailand6.webp");
-const thailand7 = getAssetUrl( "/assets/webp/Thailand/thailand7.webp");
-const thailand8 = getAssetUrl( "/assets/webp/Thailand/thailand8.webp");
-const thailand9 = getAssetUrl( "/assets/webp/Thailand/thailand9.webp");
-const thailand10 = getAssetUrl( "/assets/webp/Thailand/thailand10.webp");
-const thailand11 = getAssetUrl( "/assets/webp/Thailand/thailand11.webp");
-const thailand12 = getAssetUrl( "/assets/webp/Thailand/thailand12.webp");
-const thailand13 = getAssetUrl( "/assets/webp/Thailand/thailand13.webp");
-const thailand14 = getAssetUrl( "/assets/webp/Thailand/thailand14.webp");
+const thailand1 = getAssetUrl("/assets/webp/Thailand/thailand1.webp");
+const thailand2 = getAssetUrl("/assets/webp/Thailand/thailand2.webp");
+const thailand3 = getAssetUrl("/assets/webp/Thailand/thailand3.webp");
+const thailand4 = getAssetUrl("/assets/webp/Thailand/thailand4.webp");
+const thailand5 = getAssetUrl("/assets/webp/Thailand/thailand5.webp");
+const thailand6 = getAssetUrl("/assets/webp/Thailand/thailand6.webp");
+const thailand7 = getAssetUrl("/assets/webp/Thailand/thailand7.webp");
+const thailand8 = getAssetUrl("/assets/webp/Thailand/thailand8.webp");
+const thailand9 = getAssetUrl("/assets/webp/Thailand/thailand9.webp");
+const thailand10 = getAssetUrl("/assets/webp/Thailand/thailand10.webp");
+const thailand11 = getAssetUrl("/assets/webp/Thailand/thailand11.webp");
+const thailand12 = getAssetUrl("/assets/webp/Thailand/thailand12.webp");
+const thailand13 = getAssetUrl("/assets/webp/Thailand/thailand13.webp");
+const thailand14 = getAssetUrl("/assets/webp/Thailand/thailand14.webp");
 
-const vietnam1 = getAssetUrl( "/assets/webp/Vietnam/vietnam1.webp");
-const vietnam2 = getAssetUrl( "/assets/webp/Vietnam/vietnam2.webp");
-const vietnam3 = getAssetUrl( "/assets/webp/Vietnam/vietnam3.webp");
-const vietnam4 = getAssetUrl( "/assets/webp/Vietnam/vietnam4.webp");
-const vietnam5 = getAssetUrl( "/assets/webp/Vietnam/vietnam5.webp");
-const vietnam6 = getAssetUrl( "/assets/webp/Vietnam/vietnam6.webp");
-const vietnam7 = getAssetUrl( "/assets/webp/Vietnam/vietnam7.webp");
-const vietnam8 = getAssetUrl( "/assets/webp/Vietnam/vietnam8.webp");
-const vietnam9 = getAssetUrl( "/assets/webp/Vietnam/vietnam9.webp");
+const vietnam1 = getAssetUrl("/assets/webp/Vietnam/vietnam1.webp");
+const vietnam2 = getAssetUrl("/assets/webp/Vietnam/vietnam2.webp");
+const vietnam3 = getAssetUrl("/assets/webp/Vietnam/vietnam3.webp");
+const vietnam4 = getAssetUrl("/assets/webp/Vietnam/vietnam4.webp");
+const vietnam5 = getAssetUrl("/assets/webp/Vietnam/vietnam5.webp");
+const vietnam6 = getAssetUrl("/assets/webp/Vietnam/vietnam6.webp");
+const vietnam7 = getAssetUrl("/assets/webp/Vietnam/vietnam7.webp");
+const vietnam8 = getAssetUrl("/assets/webp/Vietnam/vietnam8.webp");
+const vietnam9 = getAssetUrl("/assets/webp/Vietnam/vietnam9.webp");
 const vietnam10 = getAssetUrl("/assets/webp/Vietnam/vietnam10.webp");
 
 export {
@@ -482,6 +562,13 @@ export {
   baliBanner,
   kazakhstanBanner,
   rajasthanBanner,
+  banner2,
+  banner3,
+  internationalBanner,
+  domesticBanner,
+  rakshit,
+  kerul,
+  dhaval,
   andaman1,
   andaman2,
   andaman3,

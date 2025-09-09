@@ -16,13 +16,13 @@
 }
 
 .title {
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 800;
   line-height: 1.2;
   font-family: Montserrat Alternates;
   font-weight: 700;
   font-style: Bold;
-  font-size: 32px;
+  font-size: 24px;
   line-height: 110.00000000000001%;
   letter-spacing: 0%;
 }
@@ -45,9 +45,15 @@
   font-family: Montserrat Alternates;
   font-weight: 700;
   font-style: Bold;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 72%;
   letter-spacing: 0%;
+}
+
+.perPerson {
+  font-size: 14px;
+  font-weight: 500;
+  // color: #64748b;
 }
 
 @media (max-width: 768px) {

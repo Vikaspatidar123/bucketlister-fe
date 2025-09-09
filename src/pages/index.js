@@ -1,9 +1,10 @@
 import { Suspense } from "react";
 import Home from "@/components/home/components";
+import TheBucketListeerLoader from "@/common/Loader";
 
 export default function HomePage() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<TheBucketListeerLoader size="medium" text="Loading your adventure..." />}>
       <Home />
     </Suspense>
   );

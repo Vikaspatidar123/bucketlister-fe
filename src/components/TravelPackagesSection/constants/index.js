@@ -430,6 +430,7 @@ import {
   vietnam9,
   vietnam10,
 } from "@/assets/webp";
+import { getDynamicMonthOptions } from "@/utils/dateutils";
 
 // Travel Packages Data for the new section
 export const TRAVEL_PACKAGES_DATA = [
@@ -12274,16 +12275,5 @@ export const FILTER_OPTIONS = {
 // Date tabs for filtering
 export const DATE_TABS = [
   { id: "all", label: "All" },
-  { id: "jun25", label: "Jun 25" },
-  { id: "jul25", label: "Jul 25" },
-  { id: "aug25", label: "Aug 25" },
-  { id: "sep25", label: "Sep 25" },
-  { id: "oct25", label: "Oct 25" },
-  { id: "nov25", label: "Nov 25" },
-  { id: "dec25", label: "Dec 25" },
-  { id: "jan26", label: "Jan 26" },
-  { id: "feb26", label: "Feb 26" },
-  { id: "mar26", label: "Mar 26" },
-  { id: "apr26", label: "Apr 26" },
-  { id: "may26", label: "May 26" },
+  ...getDynamicMonthOptions(),
 ];

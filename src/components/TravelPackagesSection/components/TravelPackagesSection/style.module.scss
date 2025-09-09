@@ -700,8 +700,8 @@
 
 .packagesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
   margin-bottom: 48px;
   max-width: 100%;
   position: relative;
@@ -738,6 +738,9 @@
     border-radius: 0;
     overflow: hidden;
     margin: 0 0 16px 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 
     .bannerImage {
       object-fit: cover;
@@ -746,24 +749,44 @@
 
   @media (max-width: 768px) {
     .listBanner {
-      height: 70vh
+      height: 70vh;
+    }
+    
+    .listHeadingWrap {
+      bottom: 25px;
+      padding: 10px 20px;
+    }
+    
+    .listHeading {
+      font-size: 20px;
     }
   }
 
   .listHeadingWrap {
-    margin: 0 0 12px 0;
-    padding: 0 2px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
     text-align: center;
+    // background: rgba(0, 0, 0, 0.5);
+    padding: 12px 24px;
+    border-radius: 8px;
+    // backdrop-filter: blur(4px);
   }
 
   .listHeading {
     font-size: 22px;
     font-weight: 800;
-    color: #1a1a1a;
+    color: #ffffff;
     margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   .packagesGrid {
+    // Desktop/list view: make cards wider and fewer per row for better readability
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    gap: 24px;
     @media (max-width: 768px) {
       display: flex;
       flex-direction: column;
@@ -778,6 +801,9 @@
       flex: 0 0 auto;
       max-width: 100%;
       scroll-snap-align: unset;
+      &:hover {
+        transform: scale(1);
+      }
     }
   }
 }
@@ -787,18 +813,21 @@
   border-radius: 16px;
   overflow: hidden;
   // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   cursor: pointer;
   width: 100%;
 
   // New visual baseline
   background: #fff;
-  box-shadow: 0 6px 24px rgba(16, 24, 40, 0.06);
+  box-shadow: 0 2px 7px rgba(16, 24, 40, 0.329);
+  border: 1px solid rgba(16, 24, 40, 0.06);
 
   &:hover {
     // transform: translateY(-8px);
     // box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
     transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(16, 24, 40, 0.247);
+    border-color: rgba(16, 24, 40, 0.12);
   }
 
   .cardImage {
@@ -892,7 +921,7 @@
     position: relative;
     margin-top: -16px; // overlap beneath the curved edge
     background: #fff;
-    padding: 1px 16px 0 16px;
+    padding: 8px 16px 0 16px;
     // border-bottom-left-radius: 16px;
     // border-bottom-right-radius: 16px;
     display: flex;

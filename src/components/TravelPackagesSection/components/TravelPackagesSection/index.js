@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { createPortal } from 'react-dom';
+import { createPortal } from "react-dom";
 import { useRouter, useSearchParams } from "next/navigation";
 import CustomSelect from "../../../../common/CustomSelect";
 import Tabs from "../../../../common/Tabs";
@@ -16,6 +16,7 @@ import PriceRangeSlider from "../../../../common/PriceRangeSlider";
 import Image from "next/image";
 import { filterIcon } from "@/assets/svg";
 import { banner1 } from "@/assets/png";
+import { banner3 } from "@/assets/webp";
 
 const TravelPackagesSection = ({
   selectedTripId = null,
@@ -50,9 +51,10 @@ const TravelPackagesSection = ({
 
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
   const [portalRoot, setPortalRoot] = useState(null);
+  const [unknownDestinationQuery, setUnknownDestinationQuery] = useState(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setPortalRoot(document.body);
     }
   }, []);
@@ -64,8 +66,8 @@ const TravelPackagesSection = ({
     const body = document.body;
     const prevHtmlOverflow = html.style.overflow;
     const prevBodyOverflow = body.style.overflow;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
     return () => {
       html.style.overflow = prevHtmlOverflow;
       body.style.overflow = prevBodyOverflow;
@@ -84,12 +86,16 @@ const TravelPackagesSection = ({
       );
       if (option) {
         handleFilterChange("destinations", [option]);
+        setUnknownDestinationQuery(null);
+      } else {
+        setUnknownDestinationQuery(String(destination));
       }
     }
 
     if (date) {
       const raw = String(date).trim().toLowerCase();
-      const exists = (id) => Array.isArray(DATE_TABS) && DATE_TABS.some(t => t.id === id);
+      const exists = (id) =>
+        Array.isArray(DATE_TABS) && DATE_TABS.some((t) => t.id === id);
       const month3 = raw.slice(0, 3);
 
       let normalized = raw;
@@ -101,13 +107,17 @@ const TravelPackagesSection = ({
 
       // If only month given -> pick the first matching tab id (e.g., "dec" -> "dec25")
       if (/^[a-z]{3}$/.test(normalized)) {
-        const firstMatch = DATE_TABS.find(t => String(t.id).startsWith(month3));
+        const firstMatch = DATE_TABS.find((t) =>
+          String(t.id).startsWith(month3)
+        );
         if (firstMatch) normalized = firstMatch.id;
       }
 
       // If monYY format but not present, try to fallback to first tab with same month
       if (/^[a-z]{3}\d{2}$/.test(normalized) && !exists(normalized)) {
-        const firstMatch = DATE_TABS.find(t => String(t.id).startsWith(month3));
+        const firstMatch = DATE_TABS.find((t) =>
+          String(t.id).startsWith(month3)
+        );
         if (firstMatch) normalized = firstMatch.id;
       }
 
@@ -115,6 +125,11 @@ const TravelPackagesSection = ({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
+  const handleClearAll = () => {
+    clearFilters();
+    setUnknownDestinationQuery(null);
+    router.push("/explore/list");
+  };
 
   const handleTripClick = (trip) => {
     const destination = TRAVEL_PACKAGES_DATA.find(
@@ -145,7 +160,7 @@ const TravelPackagesSection = ({
       if (Number.isFinite(days) && Number.isFinite(nights)) {
         return `${nights} nights / ${days} days`;
       }
-    } catch (e) { }
+    } catch (e) {}
     return duration;
   };
 
@@ -170,25 +185,36 @@ const TravelPackagesSection = ({
     if (Array.isArray(trip?.batches) && trip.batches.length > 0) {
       const allStartDates = [];
       const monthMap = {
-        'January': 'Jan', 'February': 'Feb', 'March': 'Mar', 'April': 'Apr', 
-        'May': 'May', 'June': 'Jun', 'July': 'Jul', 'August': 'Aug', 
-        'September': 'Sep', 'October': 'Oct', 'November': 'Nov', 'December': 'Dec'
+        January: "Jan",
+        February: "Feb",
+        March: "Mar",
+        April: "Apr",
+        May: "May",
+        June: "Jun",
+        July: "Jul",
+        August: "Aug",
+        September: "Sep",
+        October: "Oct",
+        November: "Nov",
+        December: "Dec",
       };
 
       // Extract all start dates from batches
       for (const batch of trip.batches) {
-        if (!batch || typeof batch !== 'object') continue;
-        
+        if (!batch || typeof batch !== "object") continue;
+
         for (const [monthName, dateRanges] of Object.entries(batch)) {
           if (!Array.isArray(dateRanges)) continue;
-          
+
           const monthAbbr = monthMap[monthName] || monthName.slice(0, 3);
-          
+
           for (const dateRange of dateRanges) {
             try {
               const [startDateStr] = String(dateRange).split(/\s*-\s*/);
-              const [day, month, year] = startDateStr.split('/').map(s => s.trim());
-              
+              const [day, month, year] = startDateStr
+                .split("/")
+                .map((s) => s.trim());
+
               if (day && month && year) {
                 allStartDates.push(`${monthAbbr} ${parseInt(day)}`);
               }
@@ -203,61 +229,86 @@ const TravelPackagesSection = ({
         const maxShow = 4;
         const shown = allStartDates.slice(0, maxShow);
         const extra = Math.max(0, allStartDates.length - maxShow);
-        
-        return shown.join(', ') + (extra > 0 ? `, +${extra}more` : '');
+
+        return shown.join(", ") + (extra > 0 ? `, +${extra}more` : "");
       }
     }
-    
+
     // Fallback to availableDates (legacy)
     if (Array.isArray(trip?.availableDates) && trip.availableDates.length > 0) {
       const shown = trip.availableDates.slice(0, 4).map((code) => {
-        const mon = (code || '').replace(/\d+/g, '').toLowerCase();
-        const yr = (code || '').replace(/\D+/g, '');
-        const map = { jan: 'Jan', feb: 'Feb', mar: 'Mar', apr: 'Apr', may: 'May', jun: 'Jun', jul: 'Jul', aug: 'Aug', sep: 'Sep', oct: 'Oct', nov: 'Nov', dec: 'Dec' };
+        const mon = (code || "").replace(/\d+/g, "").toLowerCase();
+        const yr = (code || "").replace(/\D+/g, "");
+        const map = {
+          jan: "Jan",
+          feb: "Feb",
+          mar: "Mar",
+          apr: "Apr",
+          may: "May",
+          jun: "Jun",
+          jul: "Jul",
+          aug: "Aug",
+          sep: "Sep",
+          oct: "Oct",
+          nov: "Nov",
+          dec: "Dec",
+        };
         return `${map[mon] || mon}${yr}`;
       });
       const extra = Math.max(0, trip.availableDates.length - 4);
-      return shown.join(', ') + (extra > 0 ? `, +${extra}more` : '');
+      return shown.join(", ") + (extra > 0 ? `, +${extra}more` : "");
     }
-    
-    return 'Customizable Dates';
+
+    return "Customizable Dates";
   };
 
   // Check if any filters are active
   const hasActiveFilters = () => {
-    const hasDestinations = Array.isArray(filters.destinations) && filters.destinations.length > 0;
-    const hasFeatures = Array.isArray(filters.features) && filters.features.length > 0;
-    const hasDestinationType = !!(filters.destinationType && (filters.destinationType.value || filters.destinationType.label));
-    const hasPriceFilter = Array.isArray(filters.priceRange) && (filters.priceRange[0] > 0 || filters.priceRange[1] < maxPrice);
+    const hasDestinations =
+      Array.isArray(filters.destinations) && filters.destinations.length > 0;
+    const hasFeatures =
+      Array.isArray(filters.features) && filters.features.length > 0;
+    const hasDestinationType = !!(
+      filters.destinationType &&
+      (filters.destinationType.value || filters.destinationType.label)
+    );
+    const hasPriceFilter =
+      Array.isArray(filters.priceRange) &&
+      (filters.priceRange[0] > 0 || filters.priceRange[1] < maxPrice);
 
-    return hasDestinations || hasFeatures || hasDestinationType || hasPriceFilter;
+    return (
+      hasDestinations || hasFeatures || hasDestinationType || hasPriceFilter
+    );
   };
 
   return (
     <section
       id="travel-packages"
-      className={`${styles.travelPackagesSection} ${destinationName ? styles.explorePage : ""} ${listLayout ? styles.listLayout : ""} ${isHomePage ? styles.homePage : ""}`}
+      className={`${styles.travelPackagesSection} ${
+        destinationName ? styles.explorePage : ""
+      } ${listLayout ? styles.listLayout : ""} ${
+        isHomePage ? styles.homePage : ""
+      }`}
     >
       <div
-        className={`${styles.container} ${destinationName ? styles.explorePageContainer : ""
-          }`}
+        className={`${styles.container} ${
+          destinationName ? styles.explorePageContainer : ""
+        }`}
       >
         {listLayout && (
           <div className={styles.listBanner}>
             <Image
-              src={banner1}
+              src={banner3}
               alt="Explore trips"
               fill
               priority
               sizes="100vw"
               className={styles.bannerImage}
+              loading="eager"
             />
-          </div>
-        )}
-
-        {listLayout && (
-          <div className={styles.listHeadingWrap}>
-            <h2 className={styles.listHeading}>Upcoming Trips</h2>
+            <div className={styles.listHeadingWrap}>
+              <h2 className={styles.listHeading}>Upcoming Trips</h2>
+            </div>
           </div>
         )}
         {/* Section Title - Only show on homepage */}
@@ -289,7 +340,9 @@ const TravelPackagesSection = ({
                   className={styles.mobileDateTabs}
                 />
                 <button
-                  className={`${styles.mobileFilterButton} ${hasActiveFilters() ? styles.hasActiveFilters : ''}`}
+                  className={`${styles.mobileFilterButton} ${
+                    hasActiveFilters() ? styles.hasActiveFilters : ""
+                  }`}
                   onClick={() => setIsMobileFiltersOpen(true)}
                 >
                   <span className={styles.filterIcon}>
@@ -300,7 +353,9 @@ const TravelPackagesSection = ({
                       height={24}
                     />
                   </span>
-                  {hasActiveFilters() && <span className={styles.filterDot}></span>}
+                  {hasActiveFilters() && (
+                    <span className={styles.filterDot}></span>
+                  )}
                 </button>
               </div>
             </div>
@@ -321,8 +376,9 @@ const TravelPackagesSection = ({
                 {/* Collapsible Price Range Filter */}
                 <div
                   ref={priceFilterRef}
-                  className={`${styles.priceFilterContainer} ${isPriceFilterOpen ? styles.open : ""
-                    }`}
+                  className={`${styles.priceFilterContainer} ${
+                    isPriceFilterOpen ? styles.open : ""
+                  }`}
                 >
                   <div
                     className={styles.priceFilterHeader}
@@ -332,15 +388,19 @@ const TravelPackagesSection = ({
                       {formatPriceRange()}
                     </span>
                     <span
-                      className={`${styles.priceFilterArrow} ${isPriceFilterOpen ? styles.rotated : ""
-                        }`}
+                      className={`${styles.priceFilterArrow} ${
+                        isPriceFilterOpen ? styles.rotated : ""
+                      }`}
                     >
                       ▼
                     </span>
                   </div>
 
                   {isPriceFilterOpen && (
-                    <div className={styles.priceFilterDropdown} data-price-slider="true">
+                    <div
+                      className={styles.priceFilterDropdown}
+                      data-price-slider="true"
+                    >
                       <PriceRangeSlider
                         min={0}
                         max={maxPrice}
@@ -388,109 +448,122 @@ const TravelPackagesSection = ({
             </div>
 
             {/* Mobile Filters Overlay */}
-            {portalRoot && createPortal(
-              <div
-                className={`${styles.mobileFiltersOverlay} ${isMobileFiltersOpen ? styles.open : ""}`}
-                aria-hidden={!isMobileFiltersOpen}
-              >
+            {portalRoot &&
+              createPortal(
                 <div
-                  className={styles.overlayBackdrop}
-                  onClick={() => setIsMobileFiltersOpen(false)}
-                />
-                <div
-                  className={styles.overlayPanel}
-                  role="dialog"
-                  aria-modal="true"
+                  className={`${styles.mobileFiltersOverlay} ${
+                    isMobileFiltersOpen ? styles.open : ""
+                  }`}
+                  aria-hidden={!isMobileFiltersOpen}
                 >
-                  <div className={styles.overlayHeader}>
-                    <span className={styles.overlayTitle}>Filters</span>
-                    <button
-                      className={styles.closeButton}
-                      onClick={() => setIsMobileFiltersOpen(false)}
-                      aria-label="Close"
-                    >
-                      ×
-                    </button>
-                  </div>
-                  <div className={styles.overlayContent}>
-                    <CustomSelect
-                      options={FILTER_OPTIONS.destinations}
-                      value={filters.destinations}
-                      onChange={(value) =>
-                        handleFilterChange("destinations", value)
-                      }
-                      placeholder="Destinations"
-                      isMulti={true}
-                      isSearchable={true}
-                      className={styles.filterSelect}
-                    />
-
-                    <div
-                      ref={priceFilterRef}
-                      className={`${styles.priceFilterContainer} ${isPriceFilterOpen ? styles.open : ""}`}
-                    >
-                      <div
-                        className={styles.priceFilterHeader}
-                        onClick={togglePriceFilter}
+                  <div
+                    className={styles.overlayBackdrop}
+                    onClick={() => setIsMobileFiltersOpen(false)}
+                  />
+                  <div
+                    className={styles.overlayPanel}
+                    role="dialog"
+                    aria-modal="true"
+                  >
+                    <div className={styles.overlayHeader}>
+                      <span className={styles.overlayTitle}>Filters</span>
+                      <button
+                        className={styles.closeButton}
+                        onClick={() => setIsMobileFiltersOpen(false)}
+                        aria-label="Close"
                       >
-                        <span className={styles.priceFilterDisplay}>
-                          {formatPriceRange()}
-                        </span>
-                        <span
-                          className={`${styles.priceFilterArrow} ${isPriceFilterOpen ? styles.rotated : ""}`}
+                        ×
+                      </button>
+                    </div>
+                    <div className={styles.overlayContent}>
+                      <CustomSelect
+                        options={FILTER_OPTIONS.destinations}
+                        value={filters.destinations}
+                        onChange={(value) =>
+                          handleFilterChange("destinations", value)
+                        }
+                        placeholder="Destinations"
+                        isMulti={true}
+                        isSearchable={true}
+                        className={styles.filterSelect}
+                      />
+
+                      <div
+                        ref={priceFilterRef}
+                        className={`${styles.priceFilterContainer} ${
+                          isPriceFilterOpen ? styles.open : ""
+                        }`}
+                      >
+                        <div
+                          className={styles.priceFilterHeader}
+                          onClick={togglePriceFilter}
                         >
-                          ▼
-                        </span>
+                          <span className={styles.priceFilterDisplay}>
+                            {formatPriceRange()}
+                          </span>
+                          <span
+                            className={`${styles.priceFilterArrow} ${
+                              isPriceFilterOpen ? styles.rotated : ""
+                            }`}
+                          >
+                            ▼
+                          </span>
+                        </div>
+
+                        {isPriceFilterOpen && (
+                          <div
+                            className={styles.priceFilterDropdown}
+                            data-price-slider="true"
+                          >
+                            <PriceRangeSlider
+                              min={0}
+                              max={maxPrice}
+                              step={1000}
+                              value={filters.priceRange}
+                              onChange={handlePriceRangeChange}
+                              currency="₹"
+                              showLabels={true}
+                              showValues={true}
+                              className={styles.priceSlider}
+                            />
+                          </div>
+                        )}
                       </div>
 
-                      {isPriceFilterOpen && (
-                        <div className={styles.priceFilterDropdown} data-price-slider="true">
-                          <PriceRangeSlider
-                            min={0}
-                            max={maxPrice}
-                            step={1000}
-                            value={filters.priceRange}
-                            onChange={handlePriceRangeChange}
-                            currency="₹"
-                            showLabels={true}
-                            showValues={true}
-                            className={styles.priceSlider}
-                          />
-                        </div>
-                      )}
+                      <CustomSelect
+                        options={FILTER_OPTIONS.features}
+                        value={filters.features}
+                        onChange={(value) =>
+                          handleFilterChange("features", value)
+                        }
+                        placeholder="Features"
+                        isMulti={true}
+                        className={styles.filterSelect}
+                      />
+                      <CustomSelect
+                        options={FILTER_OPTIONS.destinationType}
+                        value={filters.destinationType}
+                        onChange={(value) =>
+                          handleFilterChange("destinationType", value)
+                        }
+                        placeholder="Destination Type"
+                        isMulti={false}
+                        className={styles.filterSelect}
+                      />
                     </div>
-
-                    <CustomSelect
-                      options={FILTER_OPTIONS.features}
-                      value={filters.features}
-                      onChange={(value) => handleFilterChange("features", value)}
-                      placeholder="Features"
-                      isMulti={true}
-                      className={styles.filterSelect}
-                    />
-                    <CustomSelect
-                      options={FILTER_OPTIONS.destinationType}
-                      value={filters.destinationType}
-                      onChange={(value) =>
-                        handleFilterChange("destinationType", value)
-                      }
-                      placeholder="Destination Type"
-                      isMulti={false}
-                      className={styles.filterSelect}
-                    />
-                  </div>
-                  <div className={styles.overlayFooter}>
-                    <div>
-                      {/* Apply */}
+                    <div className={styles.overlayFooter}>
+                      <div>{/* Apply */}</div>
+                      <button
+                        className={styles.clearButton}
+                        onClick={clearFilters}
+                      >
+                        Clear filters
+                      </button>
                     </div>
-                    <button className={styles.clearButton} onClick={clearFilters}>
-                      Clear filters
-                    </button>
                   </div>
-                </div>
-              </div>,
-              portalRoot
-            )}
+                </div>,
+                portalRoot
+              )}
 
             {/* Date Selection Tabs */}
             <div className={styles.dateSection}>
@@ -508,76 +581,114 @@ const TravelPackagesSection = ({
             </div>
           </>
         )}
-        {/* Travel Package Cards Grid */}
-        <div className={styles.packagesGrid}>
-          {displayedData.map((trip) => (
+        {/* Travel Package Cards Grid or Empty State */}
+        {unknownDestinationQuery != null || displayedData.length === 0 ? (
+          <div className={styles.packagesGrid}>
             <div
-              key={trip.tripId}
-              className={styles.packageCard}
-              onClick={() => handleTripClick(trip)}
+              style={{ width: "100%", textAlign: "center", padding: "40px 0" }}
             >
-              <div className={styles.cardImage}>
-                <img
-                  src={
-                    trip.image ||
-                    trip.thumbnail_image ||
-                    trip.hero_image ||
-                    banner1
-                  }
-                  alt={trip.title}
-                  className={styles.packageImage}
-                />
-
-                {/* {trip.badge && (
-                  <div className={`${styles.badge} ${styles[trip.badge.type]}`}>
-                    {trip.badge.text}
-                  </div>
-                )} */}
-              </div>
-
-              <div className={styles.cardBody}>
-                <div className={styles.metaRow}>
-                  <span className={styles.metaIcon}>⏳</span>
-                  <span className={styles.metaDuration}>
-                    {getDurationText(trip.duration)}
-                  </span>
-                </div>
-                <h3 className={styles.cardTitle}>{trip.title}</h3>
-
-                {hasBatches(trip) && (
-                  <div className={styles.priceRow}>
-                    <span className={styles.currentPrice}>
-                      ₹{typeof trip.price === 'number' ? trip.price.toLocaleString('en-IN') : trip.price}
-                    </span>
-                    {trip.originalPrice && (
-                      <span className={styles.oldPrice}>
-                        ₹{typeof trip.originalPrice === 'number' ? trip.originalPrice.toLocaleString('en-IN') : trip.originalPrice}
-                      </span>
-                    )}
-                    {trip.discountAmount && (
-                      <span className={styles.discount}>
-                        ₹{typeof trip.discountAmount === 'number' ? trip.discountAmount.toLocaleString('en-IN') : trip.discountAmount} Off
-                      </span>
-                    )}
-                  </div>
-                )}
-
-                <div className={styles.footerRow}>{getDatesFooter(trip)}</div>
-              </div>
+              <h3 style={{ marginBottom: "8px" }}>
+                {unknownDestinationQuery != null
+                  ? `No trips found for "${unknownDestinationQuery}"`
+                  : destinationName
+                  ? `No trips found for ${destinationName}`
+                  : "No trips found"}
+              </h3>
+              <p style={{ marginBottom: "16px", color: "#666" }}>
+                Try changing or clearing filters.
+              </p>
+              <button className={styles.clearButton} onClick={handleClearAll}>
+                Clear filters
+              </button>
             </div>
-          ))}
-        </div>
-
-        {/* Load More Button - Only show when not showing a specific trip or destination */}
-        {!selectedTripId && !destinationName && hasMoreItems && (
-          <div className={styles.loadMoreWrapper}>
-            <button
-              className={styles.loadMoreButton}
-              onClick={handleLoadMore}
-            >
-              Load More
-            </button>
           </div>
+        ) : (
+          <>
+            <div className={styles.packagesGrid}>
+              {displayedData.map((trip) => (
+                <div
+                  key={trip.tripId}
+                  className={styles.packageCard}
+                  onClick={() => handleTripClick(trip)}
+                >
+                  <div className={styles.cardImage}>
+                    <Image
+                      src={
+                        trip.image ||
+                        trip.thumbnail_image ||
+                        trip.hero_image ||
+                        banner1
+                      }
+                      alt={trip.title}
+                      className={styles.packageImage}
+                      width={500}
+                      height={500}
+                    />
+
+                    {/* {trip.badge && (
+                      <div className={`${styles.badge} ${styles[trip.badge.type]}`}>
+                        {trip.badge.text}
+                      </div>
+                    )} */}
+                  </div>
+
+                  <div className={styles.cardBody}>
+                    <div className={styles.metaRow}>
+                      <span className={styles.metaIcon}>⏳</span>
+                      <span className={styles.metaDuration}>
+                        {getDurationText(trip.duration)}
+                      </span>
+                    </div>
+                    <h3 className={styles.cardTitle}>{trip.title}</h3>
+
+                    {hasBatches(trip) && (
+                      <div className={styles.priceRow}>
+                        <span className={styles.currentPrice}>
+                          ₹
+                          {typeof trip.price === "number"
+                            ? trip.price.toLocaleString("en-IN")
+                            : trip.price}
+                        </span>
+                        {trip.originalPrice && (
+                          <span className={styles.oldPrice}>
+                            ₹
+                            {typeof trip.originalPrice === "number"
+                              ? trip.originalPrice.toLocaleString("en-IN")
+                              : trip.originalPrice}
+                          </span>
+                        )}
+                        {trip.discountAmount && (
+                          <span className={styles.discount}>
+                            ₹
+                            {typeof trip.discountAmount === "number"
+                              ? trip.discountAmount.toLocaleString("en-IN")
+                              : trip.discountAmount}{" "}
+                            Off
+                          </span>
+                        )}
+                      </div>
+                    )}
+
+                    <div className={styles.footerRow}>
+                      {getDatesFooter(trip)}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Load More Button - Only show when not showing a specific trip or destination */}
+            {!selectedTripId && !destinationName && hasMoreItems && (
+              <div className={styles.loadMoreWrapper}>
+                <button
+                  className={styles.loadMoreButton}
+                  onClick={handleLoadMore}
+                >
+                  Load More
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </section>

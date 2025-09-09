@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './style.module.scss';
 import { TRAVEL_PACKAGES_DATA } from '@/components/TravelPackagesSection/constants';
+import Image from 'next/image';
 
 const HappyMomentsSection = () => {
   // Configurable: how many random images to show per destination
@@ -105,10 +106,12 @@ const HappyMomentsSection = () => {
               <div key={idx} className={panel.type === 'full' ? styles.panelFull : styles.panelGrid}>
                 {panel.type === 'full' ? (
                   <div className={styles.imageContainer}>
-                    <img
+                    <Image
                       src={panel.items[0].image}
                       alt={panel.items[0].alt}
                       className={styles.momentImage}
+                      width={500}
+                      height={500}
                     />
                   </div>
                 ) : (
@@ -116,10 +119,12 @@ const HappyMomentsSection = () => {
                     {panel.items.map((moment) => (
                       <div key={moment.id} className={styles.centerCard}>
                         <div className={styles.imageContainer}>
-                          <img
+                          <Image
                             src={moment.image}
                             alt={moment.alt}
                             className={styles.momentImage}
+                            width={500}
+                            height={500}
                           />
                         </div>
                       </div>

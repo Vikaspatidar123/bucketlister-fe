@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect } from "react";
 import { useRouter } from "next/router";
 import BookNow from "@/components/bookNow/components";
+import TheBucketListeerLoader from "@/common/Loader";
 
 export default function BookNowPage() {
   const router = useRouter();
@@ -12,7 +13,7 @@ export default function BookNowPage() {
   }, [router]);
 
   return (
-    <Suspense fallback={<div>Redirecting...</div>}>
+    <Suspense fallback={<TheBucketListeerLoader size="small" text="Redirecting..." />}>
       <div>Redirecting to trip selection...</div>
     </Suspense>
   );

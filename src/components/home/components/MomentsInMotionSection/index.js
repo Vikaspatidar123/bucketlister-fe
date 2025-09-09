@@ -1,7 +1,11 @@
 import { reel1, reel2, reel3, reel4, reel5 } from "@/assets/mp4";
 import styles from "./style.module.scss";
+import { useState, useRef, useEffect } from "react";
 
 const MomentsInMotionSection = () => {
+  const [mutedStates, setMutedStates] = useState({});
+  const videoRefs = useRef([]);
+
   const moments = [
     // {
     //   id: 1,
@@ -38,6 +42,45 @@ const MomentsInMotionSection = () => {
   // Duplicate moments for seamless infinite scroll
   const duplicatedMoments = [...moments, ...moments];
 
+  const toggleSound = (index) => {
+    setMutedStates((prev) => {
+      const newStates = {};
+      
+      // If the clicked video is currently muted, unmute it and mute all others
+      if (prev[index] !== false) {
+        // Unmute the clicked video
+        newStates[index] = false;
+        // Mute all other videos
+        duplicatedMoments.forEach((_, idx) => {
+          if (idx !== index) {
+            newStates[idx] = true;
+          }
+        });
+      } else {
+        // If the clicked video is already unmuted, mute it
+        newStates[index] = true;
+      }
+      
+      return newStates;
+    });
+  };
+
+  const setRefAt = (index) => (el) => {
+    if (el) {
+      el.dataset.index = String(index);
+    }
+    videoRefs.current[index] = el;
+  };
+
+  // Update individual videos when their mute state changes
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (video) {
+        video.muted = mutedStates[index] !== false; // Default to true (muted) if not set
+      }
+    });
+  }, [mutedStates]);
+
   return (
     <section className={styles.momentsInMotionSection}>
       <div className={styles.container}>
@@ -49,14 +92,22 @@ const MomentsInMotionSection = () => {
               <div key={`${moment.id}-${index}`} className={styles.momentCard}>
                 <div className={styles.imageContainer}>
                   <video
+                    ref={setRefAt(index)}
                     src={moment.image}
                     autoPlay
                     loop
-                    muted
+                    muted={mutedStates[index] !== false}
                     playsInline
                     alt={moment.alt}
                     className={styles.momentImage}
                   />
+                  <button 
+                    className={styles.soundBtn} 
+                    onClick={() => toggleSound(index)} 
+                    aria-label={mutedStates[index] !== false ? "Unmute" : "Mute"}
+                  >
+                    {mutedStates[index] !== false ? "🔇" : "🔊"}
+                  </button>
                   <div className={styles.overlay}>
                     <div className={styles.boatView}>
                       <div className={styles.boatBow}></div>

@@ -1,7 +1,39 @@
 "use client";
 import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import styles from "./style.module.scss";
 import { crmApi } from '@/utils/crmApi';
+
+const isBrowser = typeof window !== "undefined" && typeof document !== "undefined";
+
+const lockBodyScroll = (shouldLock) => {
+  if (!isBrowser) return;
+  const html = document.documentElement;
+  if (shouldLock) {
+    const scrollBarWidth = window.innerWidth - html.clientWidth;
+    html.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    if (scrollBarWidth > 0) {
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
+    }
+  } else {
+    html.style.overflow = "";
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
+  }
+};
+
+const ensurePortalContainer = (containerId) => {
+  if (!isBrowser) return null;
+  const targetId = containerId || "modal-root";
+  let container = document.getElementById(targetId);
+  if (!container) {
+    container = document.createElement("div");
+    container.setAttribute("id", targetId);
+    document.body.appendChild(container);
+  }
+  return container;
+};
 
 const EnquiryPopup = ({ 
   isOpen, 
@@ -9,6 +41,13 @@ const EnquiryPopup = ({
   destinationName = "",
   tripTitle = "" 
 }) => {
+  const portalContainerRef = React.useRef(null);
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    portalContainerRef.current = ensurePortalContainer("modal-root");
+    setMounted(true);
+  }, []);
   const [formData, setFormData] = useState({
     fullName: "",
     name: "",
@@ -23,21 +62,8 @@ const EnquiryPopup = ({
 
   // Handle body scroll lock when popup is open
   React.useEffect(() => {
-    if (isOpen) {
-      // Prevent body scroll
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = '0px'; // Prevent layout shift
-    } else {
-      // Restore body scroll
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
-    }
-
-    // Cleanup on unmount
-    return () => {
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
-    };
+    lockBodyScroll(isOpen);
+    return () => lockBodyScroll(false);
   }, [isOpen]);
 
   // Handle ESC key to close popup
@@ -212,9 +238,9 @@ New Travel Enquiry Details:
     }
   };
 
-  if (!isOpen) return null;
+  if (!mounted || !isOpen || !portalContainerRef.current) return null;
 
-  return (
+  const node = (
     <div className={`${styles.enquiryOverlay} ${isOpen ? styles.open : ""}`}>
       <div className={styles.overlayPanel}>
         <div className={styles.overlayHeader}>
@@ -344,6 +370,8 @@ New Travel Enquiry Details:
       </div>
     </div>
   );
+
+  return ReactDOM.createPortal(node, portalContainerRef.current);
 };
 
 export default EnquiryPopup;

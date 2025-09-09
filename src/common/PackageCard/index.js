@@ -2,6 +2,7 @@
 import React from "react";
 import styles from "./style.module.scss";
 import { banner1 } from "@/assets/png";
+import Image from "next/image";
 
 const getDurationText = (duration) => {
   if (!duration) return "";
@@ -36,7 +37,7 @@ const PackageCard = ({ trip, onClick }) => {
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick && onClick(); } }}
     >
       <div className={styles.cardImage}>
-        <img src={imageSrc} alt={trip.title} className={styles.packageImage} />
+        <Image src={imageSrc} alt={trip.title} className={styles.packageImage} width={736} height={920} />
         {/* {trip.badge && trip.badge.text ? (
           <div className={`${styles.badge} ${styles[trip.badge.type || ""] || ""}`}>
             {trip.badge.text}

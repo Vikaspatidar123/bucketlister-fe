@@ -7,6 +7,7 @@ import { TRAVEL_PACKAGES_DATA } from '@/components/TravelPackagesSection/constan
 import SwiperCards from '@/common/swiper';
 import styles from './style.module.scss';
 import { banner1 } from '@/assets/png';
+import { internationalBanner } from '@/assets/webp';
 
 const BannerSection = ({ 
   title = BANNER_DATA.title,
@@ -17,7 +18,8 @@ const BannerSection = ({
   mobileHeading = "International", // Dynamic mobile heading
   mobileSwiperData = null, // Custom swiper data for mobile
   onExploreClick,
-  onDestinationClick
+  onDestinationClick,
+  heroBanner = internationalBanner,
 }) => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -129,7 +131,7 @@ const BannerSection = ({
       <div className={styles.bannerContainer}>
         {!imageError && (
           <Image 
-            src={banner1}
+            src={heroBanner}
             alt="Banner background" 
             className={styles.bannerImage}
             fill
