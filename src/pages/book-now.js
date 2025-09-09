@@ -1,19 +1,23 @@
-import React, { Suspense, useEffect } from "react";
-import { useRouter } from "next/router";
-import BookNow from "@/components/bookNow/components";
+import React, { Suspense } from "react";
+import Link from "next/link";
+import SEO from "@/components/common/SEO";
 
 export default function BookNowPage() {
-  const router = useRouter();
-
-  useEffect(() => {
-    // Redirect to a generic trip ID or show a trip selection page
-    // For now, let's redirect to a default trip
-    router.replace("/book-now/default");
-  }, [router]);
-
   return (
-    <Suspense fallback={<div>Redirecting...</div>}>
-      <div>Redirecting to trip selection...</div>
-    </Suspense>
+    <>
+      <SEO
+        title="Book Your Adventure Trip"
+        description="Book your perfect adventure trip with THE BUCKETLISTER. Secure your spot on curated travel experiences with expert guides."
+        keywords={['book trip', 'travel booking', 'adventure booking', 'trip reservation', 'travel package booking']}
+        url="/book-now"
+      />
+      <Suspense fallback={<div>Loading...</div>}>
+        <div style={{ padding: '2rem', textAlign: 'center' }}>
+          <h1>Book Your Adventure Trip</h1>
+          <p>Please select a specific trip to book, or contact us for customized options.</p>
+          <p><Link href="/explore/list">Browse Available Trips</Link></p>
+        </div>
+      </Suspense>
+    </>
   );
 }

@@ -1,10 +1,20 @@
 import React from 'react'
-import CancellationPolicy from '@/components/CancellationPolicy/components'
+import CancellationPolicyPage from '@/components/CancellationPolicy/components'
+import SEO from '@/components/common/SEO'
 
-const cancellationPolicy = () => {
+const CancellationPolicyPageComponent = () => {
   return (
-    <CancellationPolicy/>
+    <>
+      <SEO
+        title="Cancellation Policy"
+        description="Learn about THE BUCKETLISTER's cancellation and refund policy for travel bookings. Understand our terms for trip cancellations."
+        keywords={['cancellation policy', 'refund policy', 'booking cancellation', 'travel cancellation', 'trip cancellation']}
+        url="/cancellation-policy"
+        noIndex={true}
+      />
+      <CancellationPolicyPage />
+    </>
   )
 }
 
-export default cancellationPolicy;
+export default CancellationPolicyPageComponent;
