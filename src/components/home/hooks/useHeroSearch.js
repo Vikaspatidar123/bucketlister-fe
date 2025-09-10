@@ -10,6 +10,8 @@ export const useHeroSearch = () => {
   const [isSearching, setIsSearching] = useState(false);
 
   const handleInputChange = (name, value) => {
+    console.log(name, value);
+    
     setSearchData((prev) => ({
       ...prev,
       [name]: value,
@@ -17,7 +19,7 @@ export const useHeroSearch = () => {
   };
 
   const handleSubmit = async () => {
-    if (!searchData.destination.trim() || !searchData.date.trim()) {
+    if (!searchData.destination.trim() || !searchData.date) {
       return;
     }
 

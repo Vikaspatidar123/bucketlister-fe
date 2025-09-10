@@ -43,6 +43,20 @@ const SearchForm = ({ onSubmitted = null }) => {
     []
   );
 
+  // Function to convert date to month+year format (e.g., "2024-10-15" -> "oct24")
+  const formatDateToMonthYear = (dateString) => {
+    if (!dateString) return "";
+    
+    const date = new Date(dateString);
+    const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 
+                   'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+    
+    const month = months[date.getMonth()];
+    const year = date.getFullYear().toString().slice(-2); // Get last 2 digits of year
+    
+    return `${month}${year}`;
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
     const rawDestination =
@@ -53,7 +67,7 @@ const SearchForm = ({ onSubmitted = null }) => {
             searchData.destination?.value ||
             ""
           ).trim();
-    const date = searchData.date?.value || "";
+    const date = searchData.date || "";
     const isDateRequired = !isMobile;
     if (!rawDestination || (isDateRequired && !date)) return;
 
@@ -70,8 +84,10 @@ const SearchForm = ({ onSubmitted = null }) => {
 
     let url = `/explore/list?destination=${encodeURIComponent(destination)}`;
     if (!isMobile && date) {
-      url += `&date=${encodeURIComponent(date)}`;
-    }
+      // Convert date to month+year format
+      const formattedDate = formatDateToMonthYear(date);
+      url += `&date=${encodeURIComponent(formattedDate)}`;
+    }   
     router.push(url);
 
     // Reset fields after triggering search
@@ -106,20 +122,58 @@ const SearchForm = ({ onSubmitted = null }) => {
           </div>
 
           <div className={`${styles.inputGroup} ${styles.hideOnMobile}`}>
-            <CustomSelect
+            {/* <CustomSelect
               options={dateOptions}
               value={searchData.date}
               onChange={(opt) => handleInputChange("date", opt)}
               placeholder={HERO_DATA.searchForm.date.placeholder}
               isSearchable={false}
               className={styles.selectLikeInput}
-            />
+            /> */}
+             <div style={{ position: 'relative', width: '100%' }}>
+               <input
+                 type="date"
+                 id="date"
+                 name="date"
+                 placeholder={HERO_DATA.searchForm.date.placeholder}
+                 value={searchData.date || ""}
+                 onChange={(e) => {
+                   const selectedDate = e.target.value;
+                   const formattedDate = formatDateToMonthYear(selectedDate);
+                   console.log("Date selected:", selectedDate);
+                   console.log("Formatted date (month+year):", formattedDate);
+                   handleInputChange("date", selectedDate);
+                 }}
+                 className={styles.input}
+                 required
+               />
+               {/* {searchData.date && (
+                 <div style={{ 
+                   position: 'absolute', 
+                   top: '100%', 
+                   left: 0, 
+                   right: 0, 
+                   background: '#f0f0f0', 
+                   padding: '4px 8px', 
+                   fontSize: '12px', 
+                   color: '#666',
+                   borderRadius: '0 0 8px 8px',
+                   textAlign: 'center'
+                 }}>
+                   Will search for: {formatDateToMonthYear(searchData.date)}
+                 </div>
+               )} */}
+             </div>
           </div>
 
           <button
             type="submit"
             className={styles.searchButton}
             disabled={isSearching}
+            onClick={() => {
+              console.log("Search button clicked");
+              console.log("Current search data:", searchData);
+            }}
           >
             {isSearching ? "Searching..." : HERO_DATA.searchForm.searchButton}
           </button>

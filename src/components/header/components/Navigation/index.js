@@ -27,8 +27,7 @@ const Navigation = () => {
         const isOpen = activeDropdown === item.label;
         const dropdownList = item.label === 'International' ? INTERNATIONAL_DESTINATIONS : item.label === 'Domestic' ? DOMESTIC_DESTINATIONS : item.label === 'More' ? MORE_LINKS : [];
 
-        // Skip rendering More option
-        if (item.label === 'More') return null;
+        // More option is now included in desktop navigation
         
         return (
         <div
@@ -36,7 +35,7 @@ const Navigation = () => {
           className={styles.navItem}
           onMouseEnter={() => hasDropdown && openDropdown(item.label)}
         >
-          {(hasDropdown && (item.label === 'International' || item.label === 'Domestic')) ? (
+          {(hasDropdown && (item.label === 'International' || item.label === 'Domestic' || item.label === 'More')) ? (
             <span className={`${styles.navLink} ${item.isHighlighted ? styles.highlighted : ""}`}>
               {item.label}
             </span>

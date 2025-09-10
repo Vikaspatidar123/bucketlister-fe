@@ -10334,7 +10334,7 @@ export const TRAVEL_PACKAGES_DATA = [
   },
   {
     destination_id: 25,
-    destination_name: "Andaman & Nicobar Islands",
+    destination_name: "Andaman & Nicobar",
     category: "domestic",
     destination_description:
       "The Andaman and Nicobar Islands are a stunning archipelago in the Bay of Bengal, a slice of paradise with pristine white-sand beaches, turquoise waters, and lush tropical rainforests. Famous for their world-class coral reefs and vibrant marine life, they are a haven for scuba diving, snorkeling, and relaxation.\n\nKey highlights include:\n- **Havelock Island (Swaraj Dweep)** - The most popular island, home to the world-famous Radhanagar Beach.\n- **Neil Island (Shaheed Dweep)** - A quieter island with a relaxed vibe and beautiful beaches like Bharatpur and Laxmanpur.\n- **Port Blair** - The capital city and gateway to the islands, rich with history including the infamous Cellular Jail.\n- **Scuba Diving & Snorkeling** - Explore the incredible underwater world and vibrant coral reefs.\n- **Radhanagar Beach** - Consistently ranked among the best beaches in Asia for its stunning beauty and sunsets.",

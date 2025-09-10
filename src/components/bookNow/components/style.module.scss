@@ -21,7 +21,7 @@
   border-radius: 12px;
   margin-bottom: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
+  border: 1px solid #bec5cb;
   flex-shrink: 0;
 }
 
@@ -48,6 +48,10 @@
   font-weight: 600;
   color: #ef3447;
   font-size: 16px;
+  background: rgba(239, 52, 71, 0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(239, 52, 71, 0.2);
 }
 
 .duration,
@@ -321,7 +325,7 @@
     padding: 16px 20px;
     font-weight: 700;
     border-radius: 8px;
-    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+    // background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
     
     &:hover:not(:disabled) {
       background: linear-gradient(135deg, #1f2937 0%, #111827 100%);

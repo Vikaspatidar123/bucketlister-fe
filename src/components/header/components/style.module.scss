@@ -136,7 +136,7 @@
 .domesticWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr; // Domestic | Weekend
-  column-gap: 24px;
+  column-gap: 2px;
   row-gap: 8px;
   align-items: start;
 }

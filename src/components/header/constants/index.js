@@ -58,7 +58,7 @@ export const DOMESTIC_WEEKEND_GETAWAYS = {
 
 // More dropdown links
 export const MORE_LINKS = [
-  // { label: "Blogs", href: "/blogs" },
+  { label: "Blogs", href: "/blogs" },
   { label: "About us", href: "/about" },
   // { label: "Refer a friend", href: "/refer" },
   // { label: "Careers", href: "/careers" },

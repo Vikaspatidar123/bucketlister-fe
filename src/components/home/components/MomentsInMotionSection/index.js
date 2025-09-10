@@ -39,8 +39,8 @@ const MomentsInMotionSection = () => {
     },
   ];
 
-  // Duplicate moments for seamless infinite scroll
-  const duplicatedMoments = [...moments, ...moments];
+  // Duplicate moments multiple times for truly seamless infinite scroll
+  const duplicatedMoments = [...moments, ...moments, ...moments];
 
   const toggleSound = (index) => {
     setMutedStates((prev) => {

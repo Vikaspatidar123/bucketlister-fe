@@ -296,20 +296,26 @@ const TravelPackagesSection = ({
         }`}
       >
         {listLayout && (
-          <div className={styles.listBanner}>
-            <Image
-              src={banner3}
-              alt="Explore trips"
-              fill
-              priority
-              sizes="100vw"
-              className={styles.bannerImage}
-              loading="eager"
-            />
-            <div className={styles.listHeadingWrap}>
-              <h2 className={styles.listHeading}>Upcoming Trips</h2>
+          <>
+            <div className={styles.listBanner}>
+              <Image
+                src={banner3}
+                alt="Explore trips"
+                fill
+                priority
+                sizes="100vw"
+                className={styles.bannerImage}
+                loading="eager"
+              />
+              <div className={styles.listHeadingWrap}>
+                <h2 className={styles.listHeading}>Upcoming Trips</h2>
+              </div>
             </div>
-          </div>
+            {/* Centered heading below banner */}
+            <div className={styles.centeredHeadingWrap}>
+              <h2 className={styles.centeredHeading}>Upcoming Trips</h2>
+            </div>
+          </>
         )}
         {/* Section Title - Only show on homepage */}
         {isHomePage && (

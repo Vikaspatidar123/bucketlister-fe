@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./style.module.scss";
 
 const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, subtitle, hideAmount = false }) => {
@@ -10,6 +10,23 @@ const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, 
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '0px';
+    } else {
+      document.body.style.overflow = 'unset';
+      document.body.style.paddingRight = '0px';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.body.style.paddingRight = '0px';
+    };
+  }, [isOpen]);
 
   const validateForm = () => {
     const newErrors = {};
