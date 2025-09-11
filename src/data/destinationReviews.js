@@ -393,7 +393,7 @@ export const DESTINATION_REVIEWS = {
     }
   ],
 
-  "Kazakhstan (Almaty)": [
+  "Almaty(Kazakhstan)": [
     {
       name: "Pradeep Singh",
       rating: 4,
@@ -554,7 +554,7 @@ export const DESTINATION_REVIEWS = {
     }
   ],
 
-  "Andaman & Nicobar Islands": [
+  "Andaman": [
     {
       name: "Rajeev Pandey",
       rating: 5,

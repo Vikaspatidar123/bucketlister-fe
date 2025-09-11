@@ -78,7 +78,7 @@ const TripHeader = ({ title, price, hasBatches = true }) => {
               lineHeight: '72%'
             }}>
               {formatPrice(price)}
-              <span style={{ fontSize: '14px', fontWeight: '500' }}> per person</span>
+              <span className={styles.perPerson}></span>
             </div>
           </div>
         )}

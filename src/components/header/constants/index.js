@@ -21,7 +21,7 @@ export const NAVIGATION_ITEMS = [
   //   isHighlighted: true,
   // },
   {
-    label: "Christmas & New Year",
+    label: "New Year Trips",
     hasDropdown: false,
     href: "/explore/list?date=dec",
     isHighlighted: true,

@@ -34,7 +34,7 @@ const PricingSummary = ({
   const isInternational = tripData?.destination && ![
     'Meghalaya', 'Spiti Valley', 'Himachal', 'Gokarna', 'Hampi', 'Coorg', 
     'Ladakh', 'Kashmir', 'Kerala', 'Arunachal Pradesh', 'Sikkim', 'Rajasthan', 
-    'Andaman & Nicobar Islands'
+    'Andaman'
   ].includes(tripData.destination);
   
   const tcsRate = 0.021;

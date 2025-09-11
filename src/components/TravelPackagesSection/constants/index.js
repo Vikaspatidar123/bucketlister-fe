@@ -7510,7 +7510,7 @@ export const TRAVEL_PACKAGES_DATA = [
   },
   {
     destination_id: 18,
-    destination_name: "Kazakhstan (Almaty)",
+    destination_name: "Almaty(Kazakhstan)",
     category: "international",
     destination_description:
       "Almaty, the former capital of Kazakhstan, is a city of stunning natural beauty and Soviet-era charm, nestled at the foothills of the majestic Tian Shan mountains. This vibrant cultural hub offers a unique blend of nomadic traditions, modern city life, and breathtaking alpine landscapes just a short drive away.\n\nKey highlights include:\n- **Big Almaty Lake** - A surreal, turquoise alpine lake surrounded by snow-capped peaks.\n- **Charyn Canyon** - Often compared to the Grand Canyon, with its dramatic 'Valley of Castles'.\n- **Shymbulak Ski Resort** - Ride the gondola for panoramic views, whether in snowy winter or green summer.\n- **Kolsai and Kaindy Lakes** - A pair of stunning mountain lakes, with Kaindy famous for its submerged forest.\n- **Zenkov Cathedral** - A remarkable wooden cathedral built entirely without nails.\n\nDiscover a destination off the beaten path, where epic landscapes, warm hospitality, and a fascinating history await.",
