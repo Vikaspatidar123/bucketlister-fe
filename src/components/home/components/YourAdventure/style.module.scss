@@ -80,7 +80,7 @@
     transition: all 0.3s ease;
 
     @media (max-width: 480px) {
-      padding: 1rem;
+      padding: 0rem 1rem;
       gap: 1rem;
     }
 
@@ -233,7 +233,7 @@
 
 @media (max-width: 480px) {
   .yourAdventureSection {
-    padding: 40px 0;
+    padding: 10px 0;
   }
 
   .headerSection {
@@ -241,7 +241,7 @@
   }
 
   .travelTypesSection {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
 
   .bannerWrapper {

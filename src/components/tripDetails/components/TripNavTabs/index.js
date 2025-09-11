@@ -5,6 +5,7 @@ import { shareIcon } from "@/assets/svg";
 
 const DEFAULT_TABS = [
   { id: "overview", label: "Overview" },
+  { id: "batches", label: "Batches" },
   { id: "itinerary", label: "Itinerary" },
   { id: "included", label: "What's Included" },
   { id: "gallery", label: "Gallery" },
@@ -23,8 +24,15 @@ const TripNavTabs = ({
     setActive(id);
     if (typeof onTabChange === "function") onTabChange(id);
     // Smooth scroll to target section if present
+    let targetId = id;
+    
+    // If batches tab is clicked, scroll to itinerary section
+    if (id === "batches") {
+      targetId = "itinerary";
+    }
+    
     const el =
-      document.getElementById(`trip-${id}`) || document.getElementById(id);
+      document.getElementById(`trip-${targetId}`) || document.getElementById(targetId);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }

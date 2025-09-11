@@ -9,7 +9,7 @@ import Image from "next/image";
 import jsPDF from "jspdf";
 import TripDatesCard from "../TripDatesCard";
 
-const RouteChips = ({ route = [], onChipClick, getChipRef }) => {
+const RouteChips = ({ route = [], onChipClick, getChipRef, selectedIndex }) => {
   if (!Array.isArray(route) || route.length === 0) return null;
   return (
     <div className={styles.routeChips}>
@@ -17,7 +17,9 @@ const RouteChips = ({ route = [], onChipClick, getChipRef }) => {
         <button
           key={`${stop}-${i}`}
           type="button"
-          className={styles.chip}
+          className={`${styles.chip} ${
+            selectedIndex === i ? styles.chipActive : ""
+          }`}
           onClick={() => onChipClick && onChipClick(i)}
           ref={(el) => getChipRef && getChipRef(i, el)}
         >
@@ -105,39 +107,42 @@ const Itinerary = ({ destination, trip }) => {
     return Array.isArray(trip?.route) ? trip.route : [];
   }, [trip]);
 
-  // Measure chip widths to render dynamic timeline segments above
-  const chipElementsRef = useRef([]);
-  const [segmentWidths, setSegmentWidths] = useState([]);
+  // Measure chips container to align timeline exactly
+  const chipContainerRef = useRef(null);
+  const [timelineStyle, setTimelineStyle] = useState({});
 
-  const setChipRef = (idx, el) => {
-    chipElementsRef.current[idx] = el;
-  };
+  const updateTimelineAlignment = () => {
+    if (chipContainerRef.current) {
+      const containerRect = chipContainerRef.current.getBoundingClientRect();
+      const parentRect =
+        chipContainerRef.current.parentElement.getBoundingClientRect();
 
-  const recalcWidths = () => {
-    const widths = route.map((_, idx) => {
-      const el = chipElementsRef.current[idx];
-      if (!el) return 80;
-      const rectWidth = el.getBoundingClientRect().width;
-      const cs = window.getComputedStyle(el);
-      const borderRight = parseFloat(cs.borderRightWidth || "0") || 0;
-      const adjust = borderRight + 4; // leave a small gap before divider
-      return Math.max(8, rectWidth - adjust);
-    });
-    setSegmentWidths(widths);
+      // Calculate the exact position and width of the chips container
+      const leftOffset = containerRect.left - parentRect.left;
+      const rightOffset = parentRect.right - containerRect.right;
+
+      setTimelineStyle({
+        marginLeft: `${leftOffset}px`,
+        marginRight: `${rightOffset}px`,
+        width: `${containerRect.width}px`,
+      });
+    }
   };
 
   useEffect(() => {
-    recalcWidths();
+    updateTimelineAlignment();
     const handle = () => {
-      window.requestAnimationFrame(recalcWidths);
+      window.requestAnimationFrame(updateTimelineAlignment);
     };
     window.addEventListener("resize", handle, { passive: true });
-    return () => window.removeEventListener("resize", handle, { passive: true });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () =>
+      window.removeEventListener("resize", handle, { passive: true });
   }, [route]);
 
+  // Dummy function for setChipRef (not used anymore but required by RouteChips)
+  const setChipRef = () => {};
+
   const [openIndex, setOpenIndex] = React.useState(null);
-  const TAIL_GAP_PX = 36; // extra right gap to mirror chips' right padding
 
   const handleChipClick = (idx) => {
     setOpenIndex(idx);
@@ -255,37 +260,31 @@ const Itinerary = ({ destination, trip }) => {
         </button> */}
       </div>
 
-      <div className={styles.subHeader}>
-        {/* <div className={styles.subHeaderLabel}>Upcoming Trips</div> */}
-        <div className={styles.timelineDynamic}>
-          {segmentWidths.map((w, idx) => (
-            <div
-              key={`seg-${idx}`}
-              className={styles.segment}
-              style={{ width: w }}
-            >
-              <span className={styles.segmentDot} />
-              <span className={styles.segmentLabel}>{`Day ${idx + 1}`}</span>
-              <span className={styles.segmentLine} />
-              {idx === segmentWidths.length - 1 && (
+      <div className={styles.timelineContainer}>
+        <div className={styles.subHeader}>
+          {/* <div className={styles.subHeaderLabel}>Upcoming Trips</div> */}
+          <div className={styles.timelineDynamic} style={timelineStyle}>
+            {days.map((day, idx) => (
+              <div key={`seg-${idx}`} className={styles.segment}>
                 <span className={styles.segmentDot} />
-              )}
-            </div>
-          ))}
-          {segmentWidths.length > 0 && (
-            <span
-              className={styles.segmentTailLine}
-              style={{ width: TAIL_GAP_PX }}
-            />
-          )}
+                <span className={styles.segmentLabel}>{`Day ${day.day}`}</span>
+                {/* {idx < days.length - 1 && ( */}
+                  <span className={styles.segmentLine} />
+                {/* )} */}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div ref={chipContainerRef}>
+          <RouteChips
+            route={route}
+            onChipClick={handleChipClick}
+            getChipRef={setChipRef}
+            selectedIndex={openIndex}
+          />
         </div>
       </div>
-
-      <RouteChips
-        route={route}
-        onChipClick={handleChipClick}
-        getChipRef={setChipRef}
-      />
 
       <div className={styles.startEnd}>
         Start and End from {destination?.baseCity || "Mumbai"}

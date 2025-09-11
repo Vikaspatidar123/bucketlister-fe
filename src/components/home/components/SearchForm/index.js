@@ -68,8 +68,9 @@ const SearchForm = ({ onSubmitted = null }) => {
             ""
           ).trim();
     const date = searchData.date || "";
-    const isDateRequired = !isMobile;
-    if (!rawDestination || (isDateRequired && !date)) return;
+    
+    // Make both fields optional - user can search with either destination or date
+    if (!rawDestination && !date) return;
 
     // Try to normalize destination to a known option value
     const exact = destinationOptions.find(
@@ -82,11 +83,21 @@ const SearchForm = ({ onSubmitted = null }) => {
         );
     const destination = (exact || partial)?.value || rawDestination;
 
-    let url = `/explore/list?destination=${encodeURIComponent(destination)}`;
+    let url = `/explore/list`;
+    const params = [];
+    
+    if (rawDestination) {
+      params.push(`destination=${encodeURIComponent(destination)}`);
+    }
+    
     if (!isMobile && date) {
       // Convert date to month+year format
       const formattedDate = formatDateToMonthYear(date);
-      url += `&date=${encodeURIComponent(formattedDate)}`;
+      params.push(`date=${encodeURIComponent(formattedDate)}`);
+    }
+    
+    if (params.length > 0) {
+      url += `?${params.join('&')}`;
     }   
     router.push(url);
 
@@ -117,7 +128,7 @@ const SearchForm = ({ onSubmitted = null }) => {
               }
               onChange={(e) => handleInputChange("destination", e.target.value)}
               className={styles.input}
-              required
+              // required
             />
           </div>
 
@@ -145,7 +156,7 @@ const SearchForm = ({ onSubmitted = null }) => {
                    handleInputChange("date", selectedDate);
                  }}
                  className={styles.input}
-                 required
+                //  required
                />
                {/* {searchData.date && (
                  <div style={{ 

@@ -19,7 +19,8 @@ export const useHeroSearch = () => {
   };
 
   const handleSubmit = async () => {
-    if (!searchData.destination.trim() || !searchData.date) {
+    // Make both fields optional - user can search with either destination or date
+    if (!searchData.destination.trim() && !searchData.date) {
       return;
     }
 

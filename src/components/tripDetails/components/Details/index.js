@@ -62,14 +62,19 @@ const Details = ({ destination, trip }) => {
       {(destination?.destination_description || destination?.description) && (
         <div className={styles.section}>
           <div className={styles.description}>
-            <ReadMoreText 
-              text={destination?.destination_description || destination?.description}
+            <ReadMoreText
+              text={
+                destination?.destination_description || destination?.description
+              }
               maxLength={180}
-              modalTitle={`About ${destination?.destination_name || 'Destination'}`}
+              modalTitle={`About ${
+                destination?.destination_name || "Destination"
+              }`}
             />
           </div>
         </div>
       )}
+      <div className={styles.breaker}></div>
       {Array.isArray(trip?.route) && trip.route.length > 0 && (
         <div className={styles.section}>
           {/* <h2 className={styles.sectionTitle}>Route</h2> */}
@@ -141,15 +146,23 @@ const Details = ({ destination, trip }) => {
       </div> */}
 
       <div className={styles.ctaRow}>
-        <button 
+        <button
           className={`${styles.btn} ${styles.secondary}`}
           onClick={() => setIsEnquiryPopupOpen(true)}
         >
           Enquire
         </button>
         {Array.isArray(trip?.batches) && trip.batches.length > 0 && (
-          <Link 
-            href={`/book-now/${trip?.tripId || destination?.destination_id}?destination=${encodeURIComponent(destination?.destination_name || '')}&title=${encodeURIComponent(trip?.title || '')}&price=${trip?.price || ''}&duration=${encodeURIComponent(trip?.duration || '')}&capacity=${trip?.capacity || ''}`}
+          <Link
+            href={`/book-now/${
+              trip?.tripId || destination?.destination_id
+            }?destination=${encodeURIComponent(
+              destination?.destination_name || ""
+            )}&title=${encodeURIComponent(trip?.title || "")}&price=${
+              trip?.price || ""
+            }&duration=${encodeURIComponent(trip?.duration || "")}&capacity=${
+              trip?.capacity || ""
+            }`}
             className={`${styles.btn} ${styles.primary} ${styles.linkBtn}`}
           >
             Book Tour

@@ -272,12 +272,16 @@ const TravelPackagesSection = ({
       filters.destinationType &&
       (filters.destinationType.value || filters.destinationType.label)
     );
+    const hasTourType = !!(
+      filters.tourType &&
+      (filters.tourType.value || filters.tourType.label)
+    );
     const hasPriceFilter =
       Array.isArray(filters.priceRange) &&
       (filters.priceRange[0] > 0 || filters.priceRange[1] < maxPrice);
 
     return (
-      hasDestinations || hasFeatures || hasDestinationType || hasPriceFilter
+      hasDestinations || hasFeatures || hasDestinationType || hasTourType || hasPriceFilter
     );
   };
 
@@ -308,12 +312,12 @@ const TravelPackagesSection = ({
                 loading="eager"
               />
               <div className={styles.listHeadingWrap}>
-                <h2 className={styles.listHeading}>Upcoming Trips</h2>
+                <h2 className={styles.listHeading}>Group Trips</h2>
               </div>
             </div>
             {/* Centered heading below banner */}
             <div className={styles.centeredHeadingWrap}>
-              <h2 className={styles.centeredHeading}>Upcoming Trips</h2>
+              <h2 className={styles.centeredHeading}>Upcoming community trip</h2>
             </div>
           </>
         )}
@@ -426,7 +430,7 @@ const TravelPackagesSection = ({
                   options={FILTER_OPTIONS.features}
                   value={filters.features}
                   onChange={(value) => handleFilterChange("features", value)}
-                  placeholder="Features"
+                  placeholder="Travel Vibe"
                   isMulti={true}
                   className={styles.filterSelect}
                 />
@@ -437,6 +441,16 @@ const TravelPackagesSection = ({
                     handleFilterChange("destinationType", value)
                   }
                   placeholder="Destination Type"
+                  isMulti={false}
+                  className={styles.filterSelect}
+                />
+                <CustomSelect
+                  options={FILTER_OPTIONS.tourType}
+                  value={filters.tourType}
+                  onChange={(value) =>
+                    handleFilterChange("tourType", value)
+                  }
+                  placeholder="Tour Type"
                   isMulti={false}
                   className={styles.filterSelect}
                 />
@@ -542,7 +556,7 @@ const TravelPackagesSection = ({
                         onChange={(value) =>
                           handleFilterChange("features", value)
                         }
-                        placeholder="Features"
+                        placeholder="Travel Vibe"
                         isMulti={true}
                         className={styles.filterSelect}
                       />
@@ -553,6 +567,16 @@ const TravelPackagesSection = ({
                           handleFilterChange("destinationType", value)
                         }
                         placeholder="Destination Type"
+                        isMulti={false}
+                        className={styles.filterSelect}
+                      />
+                      <CustomSelect
+                        options={FILTER_OPTIONS.tourType}
+                        value={filters.tourType}
+                        onChange={(value) =>
+                          handleFilterChange("tourType", value)
+                        }
+                        placeholder="Tour Type"
                         isMulti={false}
                         className={styles.filterSelect}
                       />

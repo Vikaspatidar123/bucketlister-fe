@@ -57,6 +57,7 @@ const ExplorePage = () => {
               </div>
             </div>
           </section>
+          <div className={styles.breaker}></div>
           <TravelPackagesSection
             destinationName={destinationData.destination_name}
           />

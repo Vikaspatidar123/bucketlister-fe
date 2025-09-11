@@ -16,6 +16,13 @@
   align-items: center;
   gap: 10px;
 }
+.timelineContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
 
 .title {
   font-size: 20px;
@@ -39,11 +46,11 @@
 }
 
 .subHeader {
-  display: flex;
-  align-items: start;
-  gap: 16px;
-  margin-bottom: 10px;
-  flex-direction: column;
+  // display: flex;
+  // align-items: start;
+  // gap: 16px;
+  // margin-bottom: 10px;
+  // flex-direction: column;
 }
 
 .subHeaderLabel {
@@ -54,13 +61,8 @@
   display: flex;
   align-items: center;
   gap: 0;
-  padding-right: 20px; // extra space on the right as requested
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  touch-action: pan-x;
+  overflow: hidden; // prevent overflow
+  position: relative;
 
   // Hide on mobile
   @media (max-width: 768px) {
@@ -73,12 +75,14 @@
 }
 
 .segment {
-  display: inline-grid;
-  grid-template-columns: auto auto 1fr auto; // dot, label, line, optional end dot
+  display: flex;
   align-items: center;
   gap: 6px;
-  margin-right: 2px; // slight gap to account for chip divider
-  flex: 0 0 auto; // do not shrink so container can overflow horizontally
+  flex: 1; // equal width for all segments
+  min-width: 0; // allow shrinking
+  justify-content: center;
+  position: relative;
+  overflow: hidden; // prevent content overflow
 }
 
 .segmentDot {
@@ -91,7 +95,7 @@
 .segmentLabel {
   font-size: 12px;
   opacity: 0.7;
-  margin-right: 6px;
+  // margin-right: 6px;
 }
 
 .segmentLine {
@@ -99,17 +103,11 @@
   height: 4px;
   background: #02658f;
   border-radius: 2px;
-  width: 100%; // consume remaining width so the whole segment fits chip width
-  min-width: 12px;
+  flex: 1; // take remaining space
+  min-width: 20px;
 }
 
-.segmentTailLine {
-  display: inline-block;
-  height: 4px;
-  background: #02658f;
-  border-radius: 2px;
-  margin-left: 6px; // gap after last dot
-}
+/* Removed segmentTailLine - no longer needed */
 
 .routeChips {
   display: flex;
@@ -160,32 +158,60 @@
   
   // Keep chips neutral on interaction (no selected color)
   &:hover {
-    background: #fff;
+    background: #ef344765;
     color: inherit;
     transform: none;
     box-shadow: none;
+    border-color: #d1d5db;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background: rgba(239, 52, 71, 0.1);
+    // border: 2px solid #ef3447;
+    // transform: scale3d(1, 1.1, 1.1);
   }
   &:focus-visible {
-    background: #fff;
+    background: #ef3447;
     color: inherit;
     transform: none;
     box-shadow: none;
     outline: none;
   }
   &:focus {
-    background: #fff;
+    background: #ef3447;
     color: inherit;
     transform: none;
     box-shadow: none;
     outline: none;
   }
   &:active {
-    background: #fff;
+    background: #ef3447;
     color: inherit;
     transform: none;
     box-shadow: none;
   }
   -webkit-tap-highlight-color: transparent;
+}
+
+.chipActive {
+  background: #ef3447 !important;
+  color: #fff !important;
+  border-color: #ef3447 !important;
+  
+  &:hover {
+    background: #ef3447 !important;
+    color: #fff !important;
+  }
+  &:focus-visible {
+    background: #ef3447 !important;
+    color: #fff !important;
+  }
+  &:focus {
+    background: #ef3447 !important;
+    color: #fff !important;
+  }
+  &:active {
+    background: #ef3447 !important;
+    color: #fff !important;
+  }
 }
 
 .chip:first-child {

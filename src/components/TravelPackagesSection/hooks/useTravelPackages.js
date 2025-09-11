@@ -154,7 +154,8 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     priceRange: [0, /** dynamic */ 0],
     dates: null,
     features: [],
-    destinationType: null
+    destinationType: null,
+    tourType: { value: 'group', label: 'Group Trips' }
   });
 
   // Initialize price range upper bound once maxPrice is known
@@ -268,6 +269,21 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
         }
       }
 
+      // Filter by tour type
+      if (filters.tourType && filters.tourType.value) {
+        if (filters.tourType.value === 'group') {
+          // Group trips - trips with batches (scheduled group departures)
+          if (!trip.batches || trip.batches.length === 0) {
+            return false;
+          }
+        } else if (filters.tourType.value === 'customised') {
+          // Customised trips - trips without batches (customizable)
+          if (trip.batches && trip.batches.length > 0) {
+            return false;
+          }
+        }
+      }
+
       // Filter by features
       if (filters.features.length > 0) {
         if (!trip.features || !filters.features.some(feature => 
@@ -372,7 +388,8 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
       priceRange: [0, maxPrice],
       dates: null,
       features: [],
-      destinationType: null
+      destinationType: null,
+      tourType: null
     });
     setCurrentPage(1);
     setItemsToShow(4); // Reset to show only 4 items when clearing filters

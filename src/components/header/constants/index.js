@@ -10,7 +10,7 @@ export const NAVIGATION_ITEMS = [
     href: "/domestic",
   },
   {
-    label: "Upcoming Trips",
+    label: "Group Trips",
     hasDropdown: false,
     href: "/explore/list",
   },
