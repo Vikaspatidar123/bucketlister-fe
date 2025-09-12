@@ -29,7 +29,7 @@ const ContactForm = ({ onSuccess, submitLabel = 'Send Message' }) => {
             type="text"
             id="name"
             name="name"
-            placeholder="Full Name"
+            placeholder=" Full Name"
             value={formData.name}
             onChange={(e) => handleInputChange('name', e.target.value)}
             className={`${styles.input} ${errors.name ? styles.error : ''}`}
@@ -44,7 +44,7 @@ const ContactForm = ({ onSuccess, submitLabel = 'Send Message' }) => {
             type="tel"
             id="contactNumber"
             name="contactNumber"
-            placeholder="Where can we call you?"
+            placeholder=" Enter your contact number"
             value={formData.contactNumber}
             onChange={(e) => handleInputChange('contactNumber', e.target.value)}
             className={`${styles.input} ${errors.contactNumber ? styles.error : ''}`}
@@ -59,7 +59,7 @@ const ContactForm = ({ onSuccess, submitLabel = 'Send Message' }) => {
             type="text"
             id="destination"
             name="destination"
-            placeholder="Where do you want to travel?"
+            placeholder=" Where do you want to travel?"
             value={formData.destination}
             onChange={(e) => handleInputChange('destination', e.target.value)}
             className={`${styles.input} ${errors.destination ? styles.error : ''}`}

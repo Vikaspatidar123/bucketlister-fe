@@ -28,7 +28,7 @@ const ContactForm = ({ onSuccess, submitLabel = 'Enquire Now' }) => {
             type="text"
             id="name"
             name="name"
-            placeholder="Full Name"
+            placeholder=" Full Name"
             value={formData.name}
             onChange={(e) => handleInputChange('name', e.target.value)}
             className={`${styles.input} ${errors.name ? styles.error : ''}`}
@@ -43,7 +43,7 @@ const ContactForm = ({ onSuccess, submitLabel = 'Enquire Now' }) => {
             type="tel"
             id="contactNumber"
             name="contactNumber"
-            placeholder="Where can we call you?"
+            placeholder=" Enter Contact Number?"
             value={formData.contactNumber}
             onChange={(e) => handleInputChange('contactNumber', e.target.value)}
             className={`${styles.input} ${errors.contactNumber ? styles.error : ''}`}
@@ -53,11 +53,11 @@ const ContactForm = ({ onSuccess, submitLabel = 'Enquire Now' }) => {
         </div>
         
         <div className={styles.formGroup}>
-          <label htmlFor="comment" className={styles.label}>Any Comment? (optional)</label>
+          <label htmlFor="comment" className={styles.label}>Any Comment?(Optional)</label>
           <textarea
             id="comment"
             name="comment"
-            placeholder="help us get to you with what you want"
+            placeholder=" Enter Comments"
             value={formData.comment}
             onChange={(e) => handleInputChange('comment', e.target.value)}
             className={styles.textarea}
