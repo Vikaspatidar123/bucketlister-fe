@@ -5,7 +5,6 @@ import { crmApi } from '@/utils/crmApi';
 export const useFooter = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     contactNumber: '',
     comment: ''
   });
@@ -18,12 +17,6 @@ export const useFooter = () => {
 
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
     }
 
     if (!formData.contactNumber.trim()) {
@@ -55,7 +48,7 @@ export const useFooter = () => {
     try {
       const body = new FormData();
       body.append('name', formData.name);
-      body.append('email', formData.email);
+      body.append('email', 'website@bucketlister.in');
       body.append('contactNumber', formData.contactNumber);
       body.append('comment', formData.comment || '');
       body.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY);
@@ -81,7 +74,6 @@ export const useFooter = () => {
       const leadData = {
         firstName,
         lastName,
-        email: formData.email,
         phone: formattedPhone,
         source: 'Website',
         notes: `Comment: ${formData.comment || 'None'}`
@@ -120,7 +112,6 @@ export const useFooter = () => {
       if (crmResult || emailResult) {
         setFormData({
           name: '',
-          email: '',
           contactNumber: '',
           comment: ''
         });
@@ -153,7 +144,6 @@ export const useFooter = () => {
   const resetForm = () => {
     setFormData({
       name: '',
-      email: '',
       contactNumber: '',
       comment: ''
     });

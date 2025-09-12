@@ -140,7 +140,7 @@ PAYMENT SUCCESSFUL - Booking Confirmation
 
 Customer Details:
 - Name: ${contactDetails.name}
-- Email: ${contactDetails.email}
+- Email: website@bucketlister.in
 - Phone: ${contactDetails.phone}
 
 Trip Details:
@@ -179,7 +179,7 @@ PAYMENT FAILED - Booking Attempt
 
 Customer Details:
 - Name: ${contactDetails.name}
-- Email: ${contactDetails.email}
+- Email: website@bucketlister.in
 - Phone: ${contactDetails.phone}
 
 Trip Details:
@@ -370,7 +370,6 @@ Action Required:
               const leadData = {
                 firstName,
                 lastName,
-                email: contactDetails.email,
                 phone: formattedPhone,
                 source: 'Website',
                 notes: `Book Now Page || Trip: ${tripData?.title || "N/A"}\nDestination: ${tripData?.destination || "N/A"}\nPayment ID: ${paymentResponse.razorpay_payment_id}\nAmount: ₹${calculatedAmounts.bookingAmount?.toLocaleString() || "N/A"}`
@@ -386,7 +385,7 @@ Action Required:
                 tripData?.title || "Adventure Trip"
               }! Payment ID: ${
                 paymentResponse.razorpay_payment_id
-              }\n\nConfirmation email sent to ${contactDetails.email}`
+              }\n\nConfirmation email sent to website@bucketlister.in`
             );
           } catch (emailError) {
             console.error("Failed to send confirmation email:", emailError);
@@ -426,7 +425,6 @@ Action Required:
               const leadData = {
                 firstName,
                 lastName,
-                email: contactDetails.email,
                 phone: formattedPhone,
                 source: 'Payment Failed - BookNow Page',
                 notes: `Trip: ${tripData?.title || "N/A"}\nDestination: ${tripData?.destination || "N/A"}\nPayment Error: ${error.message || error.error}\nAttempted Amount: ₹${calculatedAmounts.bookingAmount?.toLocaleString() || "N/A"}`

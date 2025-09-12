@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="Curated Travel Experiences & Adventures"
+        title="The Bucketlister | Stop Dreaming, Start Living"
         description="Discover curated travel experiences with THE BUCKETLISTER. From Himalayan treks to international adventures, find your perfect trip with small groups and expert guides."
         keywords={['travel packages', 'adventure trips', 'himalayan treks', 'international tours', 'small group travel', 'curated experiences', 'travel agency india', 'adventure travel', 'trekking tours', 'vacation packages']}
         url="/"

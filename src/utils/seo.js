@@ -9,7 +9,7 @@ export const DEFAULT_SEO = {
     'bucket list adventures', 'coorg tour packages', 'gokarna tour packages', 'hampi tour packages', 'kashmir tour packages',
     'uttarakhand tour packages', 'arunachal pradesh tour packages', 'andaman tour packages'
   ],
-  siteUrl: 'https://thebucketlister.com',
+  siteUrl: 'https://thebucketlister.in',
   siteName: 'THE BUCKETLISTER',
   twitterHandle: '@thebucketlister',
   image: '/assets/png/logo.png',

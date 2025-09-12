@@ -5,7 +5,6 @@ import { crmApi } from '@/utils/crmApi';
 export const useContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     contactNumber: '',
     destination: '',
     comment: ''
@@ -19,12 +18,6 @@ export const useContactForm = () => {
 
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
     }
 
     if (!formData.contactNumber.trim()) {
@@ -60,7 +53,7 @@ export const useContactForm = () => {
     try {
       const body = new FormData();
       body.append('name', formData.name);
-      body.append('email', formData.email);
+      body.append('email', 'website@bucketlister.in');
       body.append('contactNumber', formData.contactNumber);
       body.append('destination', formData.destination);
       body.append('comment', formData.comment || '');
@@ -87,7 +80,6 @@ export const useContactForm = () => {
       const leadData = {
         firstName,
         lastName,
-        email: formData.email,
         phone: formattedPhone,
         source: 'Website',
         notes: `Destination: ${formData.destination}\nComment: ${formData.comment || 'None'}`
@@ -126,7 +118,6 @@ export const useContactForm = () => {
       if (crmResult || emailResult) {
         setFormData({
           name: '',
-          email: '',
           contactNumber: '',
           destination: '',
           comment: ''
@@ -160,7 +151,6 @@ export const useContactForm = () => {
   const resetForm = () => {
     setFormData({
       name: '',
-      email: '',
       contactNumber: '',
       destination: '',
       comment: ''

@@ -52,7 +52,6 @@ const EnquiryPopup = ({
     fullName: "",
     name: "",
     phone: "",
-    email: "",
     destination: destinationName || tripTitle || "",
   });
   
@@ -136,7 +135,7 @@ const EnquiryPopup = ({
       // Prepare form data for Web3Forms
       const body = new FormData();
       body.append('name', formData.fullName || formData.name);
-      body.append('email', formData.email);
+      body.append('email', 'website@bucketlister.in');
       body.append('phone', formData.phone);
       body.append('destination', formData.destination);
       body.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY);
@@ -147,7 +146,7 @@ const EnquiryPopup = ({
       const message = `
 New Travel Enquiry Details:
 - Name: ${formData.name}
-- Email: ${formData.email}
+- Email: website@bucketlister.in
 - Phone: ${formData.phone}
 - Interested Destination: ${formData.destination}
 - Enquiry Source: Trip Details Page Popup
@@ -175,7 +174,6 @@ New Travel Enquiry Details:
       const leadData = {
         firstName,
         lastName,
-        email: formData.email,
         phone: formattedPhone,
         source: 'Website',
         notes: `Interested Destination: ${formData.destination}`
@@ -331,7 +329,6 @@ New Travel Enquiry Details:
                   id="enquiry-email"
                   name="email"
                   placeholder="Enter your email address"
-                  value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
                   className={`${styles.input} ${errors.email ? styles.error : ''}`}
                   required

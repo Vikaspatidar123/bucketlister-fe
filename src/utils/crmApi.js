@@ -58,7 +58,7 @@ export const crmApi = {
     try {
       const auth = await this.ensureAuthenticated();
 
-      const { firstName, lastName, phone, email='website@bucketlister.com', source = 'Website', notes = '' } = leadData;
+      const { firstName, lastName, phone, email='website@bucketlister.in', source = 'Website', notes = '' } = leadData;
       
       if (!firstName || !email || !phone) {
         throw new Error('Required fields missing: firstName, email, phone');

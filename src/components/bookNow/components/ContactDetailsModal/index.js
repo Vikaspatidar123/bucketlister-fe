@@ -5,7 +5,6 @@ import styles from "./style.module.scss";
 const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, subtitle, hideAmount = false }) => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
   });
   const [errors, setErrors] = useState({});
@@ -38,13 +37,6 @@ const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, 
       newErrors.name = "Please enter your full name";
     }
     
-    // Email validation
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
-    }
-    
     // Phone validation
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
@@ -68,7 +60,6 @@ const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, 
     try {
       await onSubmit({
         name: formData.name.trim(),
-        email: formData.email.trim(),
         phone: formData.phone.trim(),
       });
     } catch (error) {
@@ -140,22 +131,6 @@ const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, 
               disabled={isSubmitting}
             />
             {errors.name && <span className={styles.errorText}>{errors.name}</span>}
-          </div>
-
-          <div className={styles.formGroup}>
-            <label htmlFor="email" className={styles.label}>
-              Email Address <span className={styles.required}>*</span>
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={formData.email}
-              onChange={(e) => handleInputChange("email", e.target.value)}
-              className={`${styles.input} ${errors.email ? styles.error : ""}`}
-              placeholder="Enter your email address"
-              disabled={isSubmitting}
-            />
-            {errors.email && <span className={styles.errorText}>{errors.email}</span>}
           </div>
 
           <div className={styles.formGroup}>
