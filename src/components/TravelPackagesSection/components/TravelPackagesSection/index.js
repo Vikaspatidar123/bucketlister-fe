@@ -79,6 +79,7 @@ const TravelPackagesSection = ({
     if (!searchParams) return;
     const destination = searchParams.get("destination");
     const date = searchParams.get("date");
+    const tourType = searchParams.get("tourType");
 
     if (destination) {
       const option = FILTER_OPTIONS.destinations.find(
@@ -122,6 +123,16 @@ const TravelPackagesSection = ({
       }
 
       setActiveDateTab(normalized);
+    }
+
+    if (tourType) {
+      const rawTourType = String(tourType).trim().toLowerCase();
+      const option = FILTER_OPTIONS.tourType.find(
+        (o) => String(o.value).toLowerCase() === rawTourType
+      );
+      if (option) {
+        handleFilterChange("tourType", option);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);

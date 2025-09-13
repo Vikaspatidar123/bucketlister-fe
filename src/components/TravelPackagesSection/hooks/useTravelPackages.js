@@ -155,7 +155,7 @@ export const useTravelPackages = (selectedTripId = null, destinationName = null)
     dates: null,
     features: [],
     destinationType: null,
-    tourType: { value: 'group', label: 'Group Trips' }
+    tourType: null
   });
 
   // Initialize price range upper bound once maxPrice is known
