@@ -45,12 +45,13 @@ const EnquiryPopup = ({
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
-    portalContainerRef.current = ensurePortalContainer("modal-root");
-    setMounted(true);
+    if (isBrowser) {
+      portalContainerRef.current = ensurePortalContainer("modal-root");
+      setMounted(true);
+    }
   }, []);
   const [formData, setFormData] = useState({
     fullName: "",
-    name: "",
     phone: "",
     destination: destinationName || tripTitle || "",
   });
@@ -61,12 +62,16 @@ const EnquiryPopup = ({
 
   // Handle body scroll lock when popup is open
   React.useEffect(() => {
-    lockBodyScroll(isOpen);
-    return () => lockBodyScroll(false);
+    if (isBrowser) {
+      lockBodyScroll(isOpen);
+      return () => lockBodyScroll(false);
+    }
   }, [isOpen]);
 
   // Handle ESC key to close popup
   React.useEffect(() => {
+    if (!isBrowser) return;
+    
     const handleEscape = (e) => {
       if (e.key === 'Escape' && isOpen) {
         onClose();
@@ -106,10 +111,6 @@ const EnquiryPopup = ({
       newErrors.fullName = "Please enter your full name";
     }
     
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-    }
-    
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
     } else if (!/^[6-9]\d{9}$/.test(formData.phone.replace(/\s+/g, ""))) {
@@ -134,7 +135,7 @@ const EnquiryPopup = ({
     try {
       // Prepare form data for Web3Forms
       const body = new FormData();
-      body.append('name', formData.fullName || formData.name);
+      body.append('name', formData.fullName);
       body.append('email', 'website@bucketlister.in');
       body.append('phone', formData.phone);
       body.append('destination', formData.destination);
@@ -145,7 +146,7 @@ const EnquiryPopup = ({
       // Add additional context in the message
       const message = `
 New Travel Enquiry Details:
-- Name: ${formData.name}
+- Name: ${formData.fullName}
 - Email: website@bucketlister.in
 - Phone: ${formData.phone}
 - Interested Destination: ${formData.destination}
@@ -168,7 +169,7 @@ New Travel Enquiry Details:
 
   const submitToCRM = async () => {
     try {
-      const { firstName, lastName } = crmApi.parseFullName(formData.fullName || formData.name);
+      const { firstName, lastName } = crmApi.parseFullName(formData.fullName);
       const formattedPhone = crmApi.formatPhoneNumber(formData.phone);
       
       const leadData = {
@@ -215,9 +216,7 @@ New Travel Enquiry Details:
         setTimeout(() => {
           setFormData({
             fullName: "",
-            name: "",
             phone: "",
-            email: "",
             destination: destinationName || tripTitle || "",
           });
           setIsSuccess(false);
@@ -237,6 +236,8 @@ New Travel Enquiry Details:
   };
 
   if (!mounted || !isOpen || !portalContainerRef.current) return null;
+  
+  if (!isBrowser) return null;
 
   const node = (
     <div className={`${styles.enquiryOverlay} ${isOpen ? styles.open : ""}`}>
@@ -271,7 +272,7 @@ New Travel Enquiry Details:
             <form onSubmit={handleSubmit}>
               <div className={styles.formGroup}>
                 <label htmlFor="enquiry-fullname" className={styles.label}>
-                  First Name *
+                  Full Name *
                 </label>
                 <input
                   type="text"
@@ -286,22 +287,6 @@ New Travel Enquiry Details:
                 {errors.fullName && <span className={styles.errorText}>{errors.fullName}</span>}
               </div>
 
-              <div className={styles.formGroup}>
-                <label htmlFor="enquiry-name" className={styles.label}>
-                  Last Name *
-                </label>
-                <input
-                  type="text"
-                  id="enquiry-name"
-                  name="name"
-                  placeholder="Enter your name"
-                  value={formData.name}
-                  onChange={(e) => handleInputChange('name', e.target.value)}
-                  className={`${styles.input} ${errors.name ? styles.error : ''}`}
-                  required
-                />
-                {errors.name && <span className={styles.errorText}>{errors.name}</span>}
-              </div>
 
               <div className={styles.formGroup}>
                 <label htmlFor="enquiry-phone" className={styles.label}>
