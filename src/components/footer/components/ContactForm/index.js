@@ -77,6 +77,24 @@ const ContactForm = ({ onSuccess, submitLabel = "Enquire Now" }) => {
           </div>
 
           <div className={styles.formGroup}>
+            <label htmlFor="email" className={styles.label}>
+              Email Address <span className={styles.optional}>(optional)</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder=" Enter your email address"
+              value={formData.email}
+              onChange={(e) => handleInputChange("email", e.target.value)}
+              className={`${styles.input} ${errors.email ? styles.error : ""}`}
+            />
+            {errors.email && (
+              <span className={styles.errorText}>{errors.email}</span>
+            )}
+          </div>
+
+          <div className={styles.formGroup}>
             <label htmlFor="comment" className={styles.label}>
               Any Comment?(Optional)
             </label>

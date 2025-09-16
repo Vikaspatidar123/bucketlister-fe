@@ -6,6 +6,7 @@ export const useFooter = () => {
   const [formData, setFormData] = useState({
     name: "",
     contactNumber: "",
+    email: "",
     comment: "",
   });
 
@@ -23,6 +24,14 @@ export const useFooter = () => {
       newErrors.contactNumber = "Contact number is required";
     } else if (!/^[0-9+\-\s()]+$/.test(formData.contactNumber)) {
       newErrors.contactNumber = "Please enter a valid contact number";
+    }
+
+    // Email validation (optional)
+    if (
+      formData.email.trim() &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())
+    ) {
+      newErrors.email = "Please enter a valid email address";
     }
 
     setErrors(newErrors);
@@ -75,6 +84,7 @@ export const useFooter = () => {
         firstName,
         lastName,
         phone: formattedPhone,
+        email: formData.email.trim() || "",
         source: "Website",
         notes: `Comment: ${formData.comment || "None"}`,
       };
@@ -113,6 +123,7 @@ export const useFooter = () => {
         setFormData({
           name: "",
           contactNumber: "",
+          email: "",
           comment: "",
         });
         setErrors({});
@@ -146,6 +157,7 @@ export const useFooter = () => {
     setFormData({
       name: "",
       contactNumber: "",
+      email: "",
       comment: "",
     });
     setErrors({});
