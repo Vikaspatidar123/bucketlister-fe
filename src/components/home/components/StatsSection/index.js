@@ -1,7 +1,7 @@
-import React from 'react';
-import { STATS_DATA } from '../../constants';
-import styles from './style.module.scss';
-import Image from 'next/image';
+import React from "react";
+import { STATS_DATA } from "../../constants";
+import styles from "./style.module.scss";
+import Image from "next/image";
 
 const StatsSection = () => {
   return (
@@ -23,7 +23,12 @@ const StatsSection = () => {
               {STATS_DATA.map((stat) => (
                 <div key={`m1-${stat.id}`} className={styles.statItem}>
                   <div className={styles.statIcon}>
-                    <Image src={stat.icon} alt={stat.text} width={40} height={40} />
+                    <Image
+                      src={stat.icon}
+                      alt={stat.text}
+                      width={40}
+                      height={40}
+                    />
                   </div>
                   <div className={styles.statText}>{stat.text}</div>
                 </div>
@@ -33,7 +38,12 @@ const StatsSection = () => {
               {STATS_DATA.map((stat) => (
                 <div key={`m2-${stat.id}`} className={styles.statItem}>
                   <div className={styles.statIcon}>
-                    <Image src={stat.icon} alt={stat.text} width={40} height={40} />
+                    <Image
+                      src={stat.icon}
+                      alt={stat.text}
+                      width={40}
+                      height={40}
+                    />
                   </div>
                   <div className={styles.statText}>{stat.text}</div>
                 </div>

@@ -1009,13 +1009,13 @@ export const getBlogPostBySlug = (slug) => {
 export const getBlogPostsByCategory = (category) => {
   if (category === "all") return BLOG_POSTS;
   return BLOG_POSTS.filter(
-    (post) => post.category.toLowerCase().replace(/\s+/g, "-") === category
+    (post) => post.category.toLowerCase().replace(/\s+/g, "-") === category,
   );
 };
 
 export const getRelatedPosts = (currentPostId, category, limit = 3) => {
   return BLOG_POSTS.filter(
-    (post) => post.id !== currentPostId && post.category === category
+    (post) => post.id !== currentPostId && post.category === category,
   ).slice(0, limit);
 };
 

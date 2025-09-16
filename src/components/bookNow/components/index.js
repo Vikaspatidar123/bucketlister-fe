@@ -10,10 +10,9 @@ import ContactDetailsModal from "./ContactDetailsModal";
 import { initiateRazorpayPayment } from "@/utils/razorpay";
 import { TRAVEL_PACKAGES_DATA } from "@/components/TravelPackagesSection/constants";
 import { useRouter } from "next/router";
-import { crmApi } from '@/utils/crmApi';
+import { crmApi } from "@/utils/crmApi";
 
 const BookNow = () => {
-  
   const params = useRouter();
   const tripId = params.query.tripId;
   const searchParams = params.query;
@@ -39,7 +38,7 @@ const BookNow = () => {
     for (const destination of TRAVEL_PACKAGES_DATA) {
       if (destination.trips) {
         const trip = destination.trips.find(
-          (t) => t.tripId.toString() === tripData.tripId.toString()
+          (t) => t.tripId.toString() === tripData.tripId.toString(),
         );
         if (trip && trip.batches) {
           // Process batches to find the selected one
@@ -78,7 +77,7 @@ const BookNow = () => {
                         Object.keys(monthMap).find(
                           (key) =>
                             monthMap[key] ===
-                            Object.keys(monthMap)[parseInt(startMonth) - 1]
+                            Object.keys(monthMap)[parseInt(startMonth) - 1],
                         ) || monthName;
                       const startMonthAbbr =
                         monthMap[startMonthName] || startMonthName.slice(0, 3);
@@ -87,13 +86,13 @@ const BookNow = () => {
                         Object.keys(monthMap).find(
                           (key) =>
                             monthMap[key] ===
-                            Object.keys(monthMap)[parseInt(endMonth) - 1]
+                            Object.keys(monthMap)[parseInt(endMonth) - 1],
                         ) || monthName;
                       const endMonthAbbr =
                         monthMap[endMonthName] || endMonthName.slice(0, 3);
 
                       formattedRange = `${startMonthAbbr} ${parseInt(
-                        startDay
+                        startDay,
                       )} - ${endMonthAbbr} ${parseInt(endDay)}`;
                     }
 
@@ -120,7 +119,7 @@ const BookNow = () => {
   const sendPaymentConfirmationEmail = async (
     contactDetails,
     paymentData,
-    status
+    status,
   ) => {
     const body = new FormData();
 
@@ -132,16 +131,16 @@ const BookNow = () => {
         "subject",
         `Payment Confirmation - ${tripData?.title || "Booking"} - ${
           paymentData.razorpay_payment_id
-        }`
+        }`,
       );
 
       const message = `
 PAYMENT SUCCESSFUL - Booking Confirmation
 
 Customer Details:
-- Name: ${contactDetails.name}
-- Email: website@bucketlister.in
-- Phone: ${contactDetails.phone}
+- Name: ${contactDetails?.name}
+- Email: ${contactDetails?.email}
+- Phone: ${contactDetails?.phone}
 
 Trip Details:
 - Trip: ${tripData?.title || "N/A"}
@@ -171,16 +170,16 @@ Next Steps:
     } else {
       body.append(
         "subject",
-        `Payment Failed - ${tripData?.title || "Booking Attempt"}`
+        `Payment Failed - ${tripData?.title || "Booking Attempt"}`,
       );
 
       const message = `
 PAYMENT FAILED - Booking Attempt
 
 Customer Details:
-- Name: ${contactDetails.name}
-- Email: website@bucketlister.in
-- Phone: ${contactDetails.phone}
+- Name: ${contactDetails?.name}
+- Email: ${contactDetails?.email}
+- Phone: ${contactDetails?.phone}
 
 Trip Details:
 - Trip: ${tripData?.title || "N/A"}
@@ -281,7 +280,10 @@ Action Required:
     setShowContactModal(false);
 
     try {
-      const paymentAmount = Math.max(Math.round(calculatedAmounts.bookingAmount || 4410), 0); // Ensure non-negative
+      const paymentAmount = Math.max(
+        Math.round(calculatedAmounts.bookingAmount || 4410),
+        0,
+      ); // Ensure non-negative
 
       // For now, skip order creation and proceed directly with payment
       console.log("Proceeding with direct payment (no order creation)");
@@ -359,33 +361,38 @@ Action Required:
             await sendPaymentConfirmationEmail(
               contactDetails,
               paymentResponse,
-              "success"
+              "success",
             );
-            
+
             // Create CRM lead after successful payment and email
             try {
-              const { firstName, lastName } = crmApi.parseFullName(contactDetails.name);
-              const formattedPhone = crmApi.formatPhoneNumber(contactDetails.phone);
-              
+              const { firstName, lastName } = crmApi.parseFullName(
+                contactDetails.name,
+              );
+              const formattedPhone = crmApi.formatPhoneNumber(
+                contactDetails.phone,
+              );
+
               const leadData = {
                 firstName,
                 lastName,
                 phone: formattedPhone,
-                source: 'Website',
-                notes: `Book Now Page || Trip: ${tripData?.title || "N/A"}\nDestination: ${tripData?.destination || "N/A"}\nPayment ID: ${paymentResponse.razorpay_payment_id}\nAmount: ₹${calculatedAmounts.bookingAmount?.toLocaleString() || "N/A"}`
+                email: contactDetails.email.trim() || "",
+                source: "Website",
+                notes: `Book Now Page || Trip: ${tripData?.title || "N/A"}\nDestination: ${tripData?.destination || "N/A"}\nPayment ID: ${paymentResponse.razorpay_payment_id}\nAmount: ₹${calculatedAmounts.bookingAmount?.toLocaleString() || "N/A"}`,
               };
 
               await crmApi.createLead(leadData);
             } catch (crmError) {
               console.error("Failed to create CRM lead:", crmError);
             }
-            
+
             alert(
               `Payment successful for ${
                 tripData?.title || "Adventure Trip"
               }! Payment ID: ${
                 paymentResponse.razorpay_payment_id
-              }\n\nConfirmation email sent to website@bucketlister.in`
+              }\n\nConfirmation email sent to website@bucketlister.in`,
             );
           } catch (emailError) {
             console.error("Failed to send confirmation email:", emailError);
@@ -394,7 +401,7 @@ Action Required:
                 tripData?.title || "Adventure Trip"
               }! Payment ID: ${
                 paymentResponse.razorpay_payment_id
-              }\n\nNote: Could not send confirmation email.`
+              }\n\nNote: Could not send confirmation email.`,
             );
           }
 
@@ -414,20 +421,25 @@ Action Required:
             await sendPaymentConfirmationEmail(
               contactDetails,
               { error: error.message || error.error },
-              "failure"
+              "failure",
             );
-            
+
             // Create CRM lead after failed payment and email
             try {
-              const { firstName, lastName } = crmApi.parseFullName(contactDetails.name);
-              const formattedPhone = crmApi.formatPhoneNumber(contactDetails.phone);
-              
+              const { firstName, lastName } = crmApi.parseFullName(
+                contactDetails.name,
+              );
+              const formattedPhone = crmApi.formatPhoneNumber(
+                contactDetails.phone,
+              );
+
               const leadData = {
                 firstName,
                 lastName,
                 phone: formattedPhone,
-                source: 'Payment Failed - BookNow Page',
-                notes: `Trip: ${tripData?.title || "N/A"}\nDestination: ${tripData?.destination || "N/A"}\nPayment Error: ${error.message || error.error}\nAttempted Amount: ₹${calculatedAmounts.bookingAmount?.toLocaleString() || "N/A"}`
+                email: contactDetails.email.trim() || "",
+                source: "Payment Failed - BookNow Page",
+                notes: `Trip: ${tripData?.title || "N/A"}\nDestination: ${tripData?.destination || "N/A"}\nPayment Error: ${error.message || error.error}\nAttempted Amount: ₹${calculatedAmounts.bookingAmount?.toLocaleString() || "N/A"}`,
               };
 
               await crmApi.createLead(leadData);
@@ -437,12 +449,12 @@ Action Required:
           } catch (emailError) {
             console.error(
               "Failed to send failure notification email:",
-              emailError
+              emailError,
             );
           }
 
           alert(
-            `Payment failed: ${error.message || error.error || "Unknown error"}`
+            `Payment failed: ${error.message || error.error || "Unknown error"}`,
           );
           setIsProcessingPayment(false);
         },
@@ -457,7 +469,7 @@ Action Required:
       alert(
         `Failed to initiate payment: ${
           error.message || "Unknown error"
-        }. Please try again.`
+        }. Please try again.`,
       );
       setIsProcessingPayment(false);
     }

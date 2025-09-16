@@ -9,7 +9,8 @@ export default function TripPage({ destination, trip, tripId, destinationId }) {
   // Generate SEO data with server-side rendered data
   const getSEOTitle = () => {
     if (trip?.title) return trip.title;
-    if (destination?.destination_name) return `${destination.destination_name} Trip`;
+    if (destination?.destination_name)
+      return `${destination.destination_name} Trip`;
     return "Adventure Trip Details";
   };
 
@@ -22,39 +23,49 @@ export default function TripPage({ destination, trip, tripId, destinationId }) {
   };
 
   const getSEOKeywords = () => {
-    const baseKeywords = ['trip', 'travel package', 'adventure', 'tour', 'booking'];
+    const baseKeywords = [
+      "trip",
+      "travel package",
+      "adventure",
+      "tour",
+      "booking",
+    ];
     const keywords = [...baseKeywords];
-    
+
     if (destination?.destination_name) {
       keywords.unshift(destination.destination_name.toLowerCase());
     }
     if (trip?.tags && Array.isArray(trip.tags)) {
       keywords.push(...trip.tags);
     }
-    
+
     return keywords.filter(Boolean);
   };
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Explore', url: '/explore' },
-    { name: destination?.destination_name || 'Trip', url: '#' }
+    { name: "Home", url: "/" },
+    { name: "Explore", url: "/explore" },
+    { name: destination?.destination_name || "Trip", url: "#" },
   ];
 
   const structuredData = [];
-  
+
   if (trip && destination) {
-    structuredData.push(generateTripSchema({
-      title: trip.title || `${destination.destination_name} Trip`,
-      description: trip.description || `Explore ${destination.destination_name} with THE BUCKETLISTER`,
-      price: trip.price,
-      startDate: trip.startDate,
-      endDate: trip.endDate,
-      duration: trip.duration,
-      images: trip.images,
-      itinerary: trip.itinerary,
-      id: tripId
-    }));
+    structuredData.push(
+      generateTripSchema({
+        title: trip.title || `${destination.destination_name} Trip`,
+        description:
+          trip.description ||
+          `Explore ${destination.destination_name} with THE BUCKETLISTER`,
+        price: trip.price,
+        startDate: trip.startDate,
+        endDate: trip.endDate,
+        duration: trip.duration,
+        images: trip.images,
+        itinerary: trip.itinerary,
+        id: tripId,
+      }),
+    );
   }
 
   if (breadcrumbs.length > 0) {
@@ -67,11 +78,18 @@ export default function TripPage({ destination, trip, tripId, destinationId }) {
         title={getSEOTitle()}
         description={getSEODescription()}
         keywords={getSEOKeywords()}
-        url={`/trip?id=${tripId || ''}&destinationId=${destinationId || ''}`}
+        url={`/trip?id=${tripId || ""}&destinationId=${destinationId || ""}`}
         image={trip?.images?.[0] || destination?.image}
         structuredData={structuredData.length > 0 ? structuredData : undefined}
       />
-      <Suspense fallback={<TheBucketListeerLoader size="medium" text="Loading trip details..." />}>
+      <Suspense
+        fallback={
+          <TheBucketListeerLoader
+            size="medium"
+            text="Loading trip details..."
+          />
+        }
+      >
         <TripDetails />
       </Suspense>
     </>
@@ -80,10 +98,12 @@ export default function TripPage({ destination, trip, tripId, destinationId }) {
 
 export async function getServerSideProps(context) {
   const { id: tripId, destinationId } = context.query;
-  
+
   // Import the data on server-side
-  const { TRAVEL_PACKAGES_DATA } = await import('@/components/TravelPackagesSection/constants');
-  
+  const { TRAVEL_PACKAGES_DATA } = await import(
+    "@/components/TravelPackagesSection/constants"
+  );
+
   let destination = null;
   let trip = null;
 
@@ -94,7 +114,7 @@ export async function getServerSideProps(context) {
   if (Number.isFinite(parsedDestinationId) && Number.isFinite(parsedTripId)) {
     // Find destination
     destination = TRAVEL_PACKAGES_DATA.find(
-      (d) => d.destination_id === parsedDestinationId
+      (d) => d.destination_id === parsedDestinationId,
     );
 
     // Find trip within destination

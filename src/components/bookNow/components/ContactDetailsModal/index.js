@@ -2,10 +2,19 @@
 import React, { useState, useEffect } from "react";
 import styles from "./style.module.scss";
 
-const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, subtitle, hideAmount = false }) => {
+const ContactDetailsModal = ({
+  isOpen,
+  onClose,
+  onSubmit,
+  bookingAmount,
+  title,
+  subtitle,
+  hideAmount = false,
+}) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    email: "",
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -13,54 +22,63 @@ const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, 
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = '0px';
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = "0px";
     } else {
-      document.body.style.overflow = 'unset';
-      document.body.style.paddingRight = '0px';
+      document.body.style.overflow = "unset";
+      document.body.style.paddingRight = "0px";
     }
 
     // Cleanup on unmount
     return () => {
-      document.body.style.overflow = 'unset';
-      document.body.style.paddingRight = '0px';
+      document.body.style.overflow = "unset";
+      document.body.style.paddingRight = "0px";
     };
   }, [isOpen]);
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     // Name validation
     if (!formData.name.trim()) {
       newErrors.name = "Full name is required";
     } else if (formData.name.trim().length < 2) {
       newErrors.name = "Please enter your full name";
     }
-    
+
     // Phone validation
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
-    } else if (!/^[6-9]\d{9}$/.test(formData.phone.replace(/\s+/g, ''))) {
+    } else if (!/^[6-9]\d{9}$/.test(formData.phone.replace(/\s+/g, ""))) {
       newErrors.phone = "Please enter a valid 10-digit Indian phone number";
     }
-    
+
+    // Email validation (optional)
+    if (
+      formData.email.trim() &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())
+    ) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     try {
       await onSubmit({
         name: formData.name.trim(),
         phone: formData.phone.trim(),
+        email: formData.email.trim(),
       });
     } catch (error) {
       console.error("Error submitting contact details:", error);
@@ -70,22 +88,22 @@ const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, 
   };
 
   const handleInputChange = (field, value) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
-    
+
     // Clear error when user starts typing
     if (errors[field]) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        [field]: ""
+        [field]: "",
       }));
     }
   };
 
   const formatCurrency = (amount) => {
-    return `₹${amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    return `₹${amount.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   };
 
   if (!isOpen) return null;
@@ -95,17 +113,22 @@ const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, 
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeader}>
           <h2 className={styles.modalTitle}>{title || "Contact Details"}</h2>
-          <button className={styles.closeBtn} onClick={onClose}>×</button>
+          <button className={styles.closeBtn} onClick={onClose}>
+            ×
+          </button>
         </div>
-        
+
         {!hideAmount && bookingAmount && (
           <div className={styles.paymentInfo}>
             <div className={styles.paymentAmount}>
               <span className={styles.paymentLabel}>Booking Amount:</span>
-              <span className={styles.amount}>{formatCurrency(bookingAmount)}</span>
+              <span className={styles.amount}>
+                {formatCurrency(bookingAmount)}
+              </span>
             </div>
             <p className={styles.paymentNote}>
-              You&apos;re paying the booking amount now. The remaining amount will be collected later.
+              You&apos;re paying the booking amount now. The remaining amount
+              will be collected later.
             </p>
           </div>
         )}
@@ -130,7 +153,9 @@ const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, 
               placeholder="Enter your full name"
               disabled={isSubmitting}
             />
-            {errors.name && <span className={styles.errorText}>{errors.name}</span>}
+            {errors.name && (
+              <span className={styles.errorText}>{errors.name}</span>
+            )}
           </div>
 
           <div className={styles.formGroup}>
@@ -147,24 +172,48 @@ const ContactDetailsModal = ({ isOpen, onClose, onSubmit, bookingAmount, title, 
               maxLength={10}
               disabled={isSubmitting}
             />
-            {errors.phone && <span className={styles.errorText}>{errors.phone}</span>}
+            {errors.phone && (
+              <span className={styles.errorText}>{errors.phone}</span>
+            )}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="email" className={styles.label}>
+              Email Address <span className={styles.optional}>(optional)</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={formData.email}
+              onChange={(e) => handleInputChange("email", e.target.value)}
+              className={`${styles.input} ${errors.email ? styles.error : ""}`}
+              placeholder="Enter your email address"
+              disabled={isSubmitting}
+            />
+            {errors.email && (
+              <span className={styles.errorText}>{errors.email}</span>
+            )}
           </div>
 
           <div className={styles.modalActions}>
-            <button 
-              type="button" 
-              className={styles.cancelBtn} 
+            <button
+              type="button"
+              className={styles.cancelBtn}
               onClick={onClose}
               disabled={isSubmitting}
             >
               Cancel
             </button>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className={styles.proceedBtn}
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Processing..." : (hideAmount ? "Continue" : "Proceed to Payment")}
+              {isSubmitting
+                ? "Processing..."
+                : hideAmount
+                  ? "Continue"
+                  : "Proceed to Payment"}
             </button>
           </div>
         </form>

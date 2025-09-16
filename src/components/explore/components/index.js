@@ -14,7 +14,6 @@ const ExplorePage = () => {
   const destinationIdParam = searchParams.get("destinationId");
   let destinationData = null;
 
-
   if (!destinationData && destinationIdParam) {
     const idNum = parseInt(destinationIdParam);
     const found = TRAVEL_PACKAGES_DATA.find((d) => d.destination_id === idNum);
@@ -49,8 +48,11 @@ const ExplorePage = () => {
                 About {destinationData.destination_name}
               </p>
               <div className={styles.destinationDescription}>
-                <ReadMoreText 
-                  text={destinationData.destination_description || destinationData.description}
+                <ReadMoreText
+                  text={
+                    destinationData.destination_description ||
+                    destinationData.description
+                  }
                   maxLength={200}
                   modalTitle={`About ${destinationData.destination_name}`}
                 />

@@ -12,19 +12,19 @@
   padding: 8px 16px;
   // border: 2px solid #e1e5e9;
   border-radius: 8px;
-  background: #F4F4F4;
+  background: #f4f4f4;
   cursor: pointer;
   transition: all 0.2s ease;
   min-height: 36px;
   color: #333;
 
   &:hover {
-    background: #EF3447;
+    background: #ef3447;
     color: white;
   }
 
   &.open {
-    background: #EF3447;
+    background: #ef3447;
     color: white;
     // box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
   }
@@ -38,7 +38,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  
 }
 
 .arrow {
@@ -84,7 +83,7 @@
 
 .searchContainer {
   padding: 12px 16px;
-  border-bottom: 1px solid #EF3447;
+  border-bottom: 1px solid #ef3447;
 }
 
 .searchInput {
@@ -97,7 +96,7 @@
   transition: border-color 0.2s ease;
 
   &:focus {
-    border-color: #EF3447;
+    border-color: #ef3447;
   }
 }
 
@@ -113,7 +112,7 @@
   display: inline-flex;
   align-items: center;
   background: #ef344738;
-  color: #EF3447;
+  color: #ef3447;
   padding: 4px 8px;
   border-radius: 16px;
   font-size: 12px;
@@ -123,7 +122,7 @@
 .removeTag {
   background: none;
   border: none;
-  color: #EF3447;
+  color: #ef3447;
   margin-left: 4px;
   cursor: pointer;
   font-size: 14px;
@@ -166,7 +165,7 @@
 
   &.selected {
     background-color: #ef344738;
-    color: #EF3447;
+    color: #ef3447;
   }
 }
 
@@ -174,7 +173,7 @@
   margin-right: 12px;
   width: 16px;
   height: 16px;
-  accent-color: #EF3447;
+  accent-color: #ef3447;
 }
 
 .optionLabel {

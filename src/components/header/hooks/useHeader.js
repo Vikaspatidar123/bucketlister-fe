@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState } from "react";
 
 export const useHeader = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -24,6 +24,6 @@ export const useHeader = () => {
     activeDropdown,
     toggleDropdown,
     openDropdown,
-    closeAllDropdowns
+    closeAllDropdowns,
   };
 };

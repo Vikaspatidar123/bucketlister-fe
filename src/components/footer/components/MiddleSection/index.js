@@ -1,6 +1,6 @@
-import React from 'react';
-import CompanyInfo from '../CompanyInfo';
-import styles from './style.module.scss';
+import React from "react";
+import CompanyInfo from "../CompanyInfo";
+import styles from "./style.module.scss";
 
 const MiddleSection = () => {
   return (

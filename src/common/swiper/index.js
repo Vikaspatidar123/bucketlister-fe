@@ -5,7 +5,16 @@ import { EffectCards } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import styles from "./style.module.scss";
-import { andamanImage, coorgImage, himachalImage, kashmirImage, keralaImage, sikkimImage, thailandImage, uttarakhandImage } from "@/assets/svg";
+import {
+  andamanImage,
+  coorgImage,
+  himachalImage,
+  kashmirImage,
+  keralaImage,
+  sikkimImage,
+  thailandImage,
+  uttarakhandImage,
+} from "@/assets/svg";
 import { banner1 } from "@/assets/png";
 import Image from "next/image";
 
@@ -103,15 +112,18 @@ const SwiperCards = ({ customData = null }) => {
         shortSwipes={true}
       >
         {cardsToShow.map((card, index) => (
-          <SwiperSlide key={card.id || card.title || index} className={styles.cardSlide}>
+          <SwiperSlide
+            key={card.id || card.title || index}
+            className={styles.cardSlide}
+          >
             <a href={card.href || "#"} className={styles.cardLink}>
               <Image
-                src={card.image} 
-                alt={card.title} 
+                src={card.image}
+                alt={card.title}
                 className={styles.cardImage}
                 loading="lazy"
                 decoding="async"
-                style={{ contentVisibility: 'auto' }}
+                style={{ contentVisibility: "auto" }}
                 width={340}
                 height={424}
               />

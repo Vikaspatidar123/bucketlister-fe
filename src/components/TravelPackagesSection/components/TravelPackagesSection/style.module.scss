@@ -76,7 +76,7 @@
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
-    
+
     &:hover {
       color: #02658f;
       transform: translateY(-1px);
@@ -102,16 +102,14 @@
     }
   }
 
-  
-
   // Mobile responsive styles
   @media (max-width: 768px) {
     margin-bottom: 30px;
-    
+
     .titleRow {
       gap: 16px;
     }
-    
+
     h2 {
       font-size: 2rem;
       line-height: 1.3;
@@ -120,7 +118,7 @@
     .showMoreButton {
       padding: 6px 10px;
       font-size: 13px;
-      
+
       .arrowIcon {
         width: 20px;
         height: 20px;
@@ -131,12 +129,12 @@
 
   @media (max-width: 480px) {
     margin-bottom: 25px;
-    
+
     .titleRow {
       gap: 12px;
       flex-direction: row;
     }
-    
+
     h2 {
       font-size: 1.75rem;
       line-height: 1.4;
@@ -145,7 +143,7 @@
     .showMoreButton {
       padding: 6px 10px;
       font-size: 16px;
-      
+
       .arrowIcon {
         width: 22px;
         height: 22px;
@@ -156,7 +154,7 @@
 
   @media (max-width: 360px) {
     margin-bottom: 20px;
-    
+
     h2 {
       font-size: 1.5rem;
       line-height: 1.4;
@@ -352,15 +350,15 @@
       min-height: 120px;
       pointer-events: auto;
       isolation: isolate;
-      
+
       // Prevent dropdown from closing when interacting with slider
       .priceSlider {
         pointer-events: auto;
-        
+
         :global(.priceRangeSlider) {
           pointer-events: auto;
           user-select: none;
-          
+
           // Prevent event bubbling that could close the dropdown
           * {
             pointer-events: auto;
@@ -544,7 +542,7 @@
 // Mobile-only filter trigger bar (hidden by default)
 .mobileFilterBar {
   display: none;
-  
+
   .mobileTopRow {
     display: flex;
     justify-content: space-between;
@@ -552,13 +550,13 @@
     gap: 12px;
     margin-bottom: 12px;
   }
-  
+
   .mobileDateTabs {
     flex: 1;
-    
+
     :global(.tabsContainer) {
       gap: 6px;
-      
+
       .tab {
         padding: 6px 12px;
         min-height: 32px;
@@ -566,7 +564,7 @@
       }
     }
   }
-  
+
   .mobileFilterButton {
     background: #d6253710;
     color: #fff;
@@ -582,7 +580,7 @@
     justify-content: center;
     border: 1px solid #02658f;
     position: relative;
-    
+
     .filterIcon {
       font-size: 16px;
     }
@@ -603,8 +601,6 @@
       border-color: #ef3447;
     }
   }
-  
-
 }
 
 // Mobile filters overlay shell (hidden by default)
@@ -751,13 +747,13 @@
     .listBanner {
       height: 70vh;
     }
-    
+
     .listHeadingWrap {
       bottom: 25px;
       left: 20px; // Keep left positioning on mobile too
       padding: 10px 20px;
     }
-    
+
     .listHeading {
       font-size: 2.5rem;
     }
@@ -799,9 +795,9 @@
     font-family: serif;
     letter-spacing: 0.5px;
     position: relative;
-    
+
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -10px;
       left: 50%;
@@ -847,7 +843,10 @@
   border-radius: 16px;
   overflow: hidden;
   // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
   cursor: pointer;
   width: 100%;
 
@@ -1094,18 +1093,18 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(239, 52, 71, 0.3);
-  
+
   &:hover {
     background: #dc2626;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(239, 52, 71, 0.4);
   }
-  
+
   &:active {
     transform: translateY(0);
     box-shadow: 0 2px 8px rgba(239, 52, 71, 0.3);
   }
-  
+
   &:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(239, 52, 71, 0.2);
@@ -1373,7 +1372,7 @@
     padding: 16px 0;
     margin: 8px 0 4px 0;
   }
-  
+
   // Hide desktop date section on mobile
   .dateSection {
     display: none;
@@ -1391,12 +1390,12 @@
     z-index: 3000;
     pointer-events: none;
     visibility: hidden; // ensure hidden when closed
-    
+
     &.open {
       pointer-events: auto;
       visibility: visible;
     }
-    
+
     .overlayBackdrop {
       position: absolute;
       inset: 0;
@@ -1404,11 +1403,11 @@
       opacity: 0;
       transition: opacity 0.2s ease;
     }
-    
+
     &.open .overlayBackdrop {
       opacity: 1;
     }
-    
+
     .overlayPanel {
       // border: 3px solid red;
       position: absolute;
@@ -1562,10 +1561,16 @@
   }
 
   /* On mobile we use the bottom sheet overlay, not the inline filterBar */
-  .mobileFiltersOverlay .overlayContent .priceFilterContainer .priceFilterDisplay{
+  .mobileFiltersOverlay
+    .overlayContent
+    .priceFilterContainer
+    .priceFilterDisplay {
     font-size: 12px;
   }
-  .mobileFiltersOverlay .overlayContent .priceFilterContainer .priceFilterArrow{
+  .mobileFiltersOverlay
+    .overlayContent
+    .priceFilterContainer
+    .priceFilterArrow {
     font-size: 12px;
     margin-left: 10px;
   }
@@ -1590,7 +1595,7 @@
       background: #ef3447;
       z-index: 1001;
     }
-    
+
     .priceFilterHeader {
       padding: 12px 16px;
       min-height: 40px;
@@ -1601,13 +1606,13 @@
       border-radius: 8px;
       width: 100%;
       white-space: nowrap;
-      
+
       &:hover {
         // background: #ef3447;
         color: white;
       }
     }
-    
+
     .priceFilterDropdown {
       position: fixed; // Fixed positioning for full-width overlay
       top: auto;
@@ -1627,56 +1632,56 @@
       min-height: 200px;
       pointer-events: auto;
       isolation: isolate;
-      
+
       // Position the dropdown above the button
       bottom: 100%;
       margin-bottom: 8px;
-      
+
       .priceSlider {
         width: 100%;
-        
+
         :global(.priceRangeSlider) {
           width: 100%;
-          
+
           .labels {
             margin-bottom: 20px;
-            
+
             .label {
               font-size: 16px;
               font-weight: 600;
               color: #333;
             }
-            
+
             .values {
               font-size: 14px;
               background: rgba(239, 52, 71, 0.1);
-              color: #EF3447;
+              color: #ef3447;
               padding: 8px 16px;
               border-radius: 20px;
               border: 1px solid rgba(239, 52, 71, 0.2);
             }
           }
-          
+
           .sliderContainer {
             padding: 20px 0;
           }
-          
+
           .sliderTrack {
             height: 8px;
             background: #e1e5e9;
             border-radius: 4px;
           }
-          
+
           .sliderThumb {
             width: 24px;
             height: 24px;
-            border: 3px solid #EF3447;
+            border: 3px solid #ef3447;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
           }
-          
+
           .rangeLabels {
             margin-top: 16px;
-            
+
             .rangeLabel {
               font-size: 14px;
               color: #666;
@@ -1687,8 +1692,6 @@
       }
     }
   }
-
-  
 
   .packagesGrid {
     display: flex;
@@ -1791,7 +1794,7 @@
       padding: 8px;
     }
   }
-  .clearButton{
+  .clearButton {
     background: none;
     border: none;
     color: #6c757d;

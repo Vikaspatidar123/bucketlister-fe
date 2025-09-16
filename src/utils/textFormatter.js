@@ -9,40 +9,40 @@
  * @returns {string} - HTML formatted text
  */
 export const formatText = (text) => {
-  if (!text || typeof text !== 'string') return '';
+  if (!text || typeof text !== "string") return "";
 
   let formatted = text;
 
   // Convert double line breaks to paragraph breaks
-  formatted = formatted.replace(/\n\s*\n/g, '</p><p>');
-  
+  formatted = formatted.replace(/\n\s*\n/g, "</p><p>");
+
   // Wrap in paragraph tags if we have paragraph breaks
-  if (formatted.includes('</p><p>')) {
+  if (formatted.includes("</p><p>")) {
     formatted = `<p>${formatted}</p>`;
   }
 
   // Convert single line breaks to <br> tags (but not if already in paragraph tags)
-  if (!formatted.includes('<p>')) {
-    formatted = formatted.replace(/\n/g, '<br>');
+  if (!formatted.includes("<p>")) {
+    formatted = formatted.replace(/\n/g, "<br>");
   }
 
   // Bold text: **text** -> <strong>text</strong>
-  formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  formatted = formatted.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
 
   // Underline text: __text__ -> <u>text</u>
-  formatted = formatted.replace(/__(.*?)__/g, '<u>$1</u>');
+  formatted = formatted.replace(/__(.*?)__/g, "<u>$1</u>");
 
   // Bullet points: - item -> <li>item</li>
   // Handle multiple bullet points in sequence
-  formatted = formatted.replace(/^- (.+)$/gm, '<li>$1</li>');
-  
+  formatted = formatted.replace(/^- (.+)$/gm, "<li>$1</li>");
+
   // Wrap consecutive <li> elements in <ul> tags
   formatted = formatted.replace(/(<li>.*?<\/li>\s*)+/gs, (match) => {
     return `<ul>${match}</ul>`;
   });
 
   // Clean up any empty paragraphs
-  formatted = formatted.replace(/<p>\s*<\/p>/g, '');
+  formatted = formatted.replace(/<p>\s*<\/p>/g, "");
 
   return formatted;
 };
@@ -53,14 +53,14 @@ export const formatText = (text) => {
  * @returns {string} - Plain text
  */
 export const stripHtml = (html) => {
-  if (!html || typeof html !== 'string') return '';
-  
+  if (!html || typeof html !== "string") return "";
+
   return html
-    .replace(/<[^>]*>/g, '') // Remove HTML tags
-    .replace(/&nbsp;/g, ' ') // Replace non-breaking spaces
-    .replace(/&amp;/g, '&') // Replace HTML entities
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
+    .replace(/<[^>]*>/g, "") // Remove HTML tags
+    .replace(/&nbsp;/g, " ") // Replace non-breaking spaces
+    .replace(/&amp;/g, "&") // Replace HTML entities
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"')
     .trim();
 };
@@ -72,23 +72,23 @@ export const stripHtml = (html) => {
  * @returns {string} - Truncated text
  */
 export const truncateText = (text, maxLength = 150) => {
-  if (!text || typeof text !== 'string') return '';
-  
+  if (!text || typeof text !== "string") return "";
+
   const plainText = stripHtml(text);
-  
+
   if (plainText.length <= maxLength) {
     return plainText;
   }
-  
+
   // Find the last complete word within the limit
   const truncated = plainText.substring(0, maxLength);
-  const lastSpace = truncated.lastIndexOf(' ');
-  
+  const lastSpace = truncated.lastIndexOf(" ");
+
   if (lastSpace > 0) {
-    return truncated.substring(0, lastSpace) + '...';
+    return truncated.substring(0, lastSpace) + "...";
   }
-  
-  return truncated + '...';
+
+  return truncated + "...";
 };
 
 /**
@@ -98,8 +98,8 @@ export const truncateText = (text, maxLength = 150) => {
  * @returns {boolean} - Whether text needs truncation
  */
 export const needsTruncation = (text, maxLength = 150) => {
-  if (!text || typeof text !== 'string') return false;
-  
+  if (!text || typeof text !== "string") return false;
+
   const plainText = stripHtml(text);
   return plainText.length > maxLength;
 };

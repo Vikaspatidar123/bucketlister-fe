@@ -9,7 +9,7 @@ const Logo = () => {
   const router = useRouter();
 
   const handleLogoClick = () => {
-    router.push('/');
+    router.push("/");
   };
 
   return (

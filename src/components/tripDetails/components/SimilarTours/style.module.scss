@@ -34,7 +34,7 @@
 }
 
 .card:hover {
-//   transform: translateY(-2px);
+  //   transform: translateY(-2px);
 }
 
 .imageWrap {
@@ -75,6 +75,6 @@
 }
 
 /* Hide scrollbar on WebKit while keeping scroll */
-.scroller::-webkit-scrollbar { display: none; }
-
-
+.scroller::-webkit-scrollbar {
+  display: none;
+}

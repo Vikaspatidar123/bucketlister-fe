@@ -40,20 +40,32 @@ const SearchForm = ({ onSubmitted = null }) => {
         value: tab.id,
         label: tab.label,
       })),
-    []
+    [],
   );
 
   // Function to convert date to month+year format (e.g., "2024-10-15" -> "oct24")
   const formatDateToMonthYear = (dateString) => {
     if (!dateString) return "";
-    
+
     const date = new Date(dateString);
-    const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 
-                   'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-    
+    const months = [
+      "jan",
+      "feb",
+      "mar",
+      "apr",
+      "may",
+      "jun",
+      "jul",
+      "aug",
+      "sep",
+      "oct",
+      "nov",
+      "dec",
+    ];
+
     const month = months[date.getMonth()];
     const year = date.getFullYear().toString().slice(-2); // Get last 2 digits of year
-    
+
     return `${month}${year}`;
   };
 
@@ -68,37 +80,37 @@ const SearchForm = ({ onSubmitted = null }) => {
             ""
           ).trim();
     const date = searchData.date || "";
-    
+
     // Make both fields optional - user can search with either destination or date
     if (!rawDestination && !date) return;
 
     // Try to normalize destination to a known option value
     const exact = destinationOptions.find(
-      (o) => o.value.toLowerCase() === rawDestination.toLowerCase()
+      (o) => o.value.toLowerCase() === rawDestination.toLowerCase(),
     );
     const partial = exact
       ? null
       : destinationOptions.find((o) =>
-          o.label.toLowerCase().includes(rawDestination.toLowerCase())
+          o.label.toLowerCase().includes(rawDestination.toLowerCase()),
         );
     const destination = (exact || partial)?.value || rawDestination;
 
     let url = `/explore/list`;
     const params = [];
-    
+
     if (rawDestination) {
       params.push(`destination=${encodeURIComponent(destination)}`);
     }
-    
+
     if (!isMobile && date) {
       // Convert date to month+year format
       const formattedDate = formatDateToMonthYear(date);
       params.push(`date=${encodeURIComponent(formattedDate)}`);
     }
-    
+
     if (params.length > 0) {
-      url += `?${params.join('&')}`;
-    }   
+      url += `?${params.join("&")}`;
+    }
     router.push(url);
 
     // Reset fields after triggering search
@@ -141,24 +153,24 @@ const SearchForm = ({ onSubmitted = null }) => {
               isSearchable={false}
               className={styles.selectLikeInput}
             /> */}
-             <div style={{ position: 'relative', width: '100%' }}>
-               <input
-                 type="date"
-                 id="date"
-                 name="date"
-                 placeholder={HERO_DATA.searchForm.date.placeholder}
-                 value={searchData.date || ""}
-                 onChange={(e) => {
-                   const selectedDate = e.target.value;
-                   const formattedDate = formatDateToMonthYear(selectedDate);
-                   console.log("Date selected:", selectedDate);
-                   console.log("Formatted date (month+year):", formattedDate);
-                   handleInputChange("date", selectedDate);
-                 }}
-                 className={styles.input}
+            <div style={{ position: "relative", width: "100%" }}>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                placeholder={HERO_DATA.searchForm.date.placeholder}
+                value={searchData.date || ""}
+                onChange={(e) => {
+                  const selectedDate = e.target.value;
+                  const formattedDate = formatDateToMonthYear(selectedDate);
+                  console.log("Date selected:", selectedDate);
+                  console.log("Formatted date (month+year):", formattedDate);
+                  handleInputChange("date", selectedDate);
+                }}
+                className={styles.input}
                 //  required
-               />
-               {/* {searchData.date && (
+              />
+              {/* {searchData.date && (
                  <div style={{ 
                    position: 'absolute', 
                    top: '100%', 
@@ -174,7 +186,7 @@ const SearchForm = ({ onSubmitted = null }) => {
                    Will search for: {formatDateToMonthYear(searchData.date)}
                  </div>
                )} */}
-             </div>
+            </div>
           </div>
 
           <button

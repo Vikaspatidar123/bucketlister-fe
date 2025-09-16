@@ -33,11 +33,26 @@ const PackageCard = ({ trip, onClick }) => {
     trip.image || trip.thumbnail_image || trip.hero_image || banner1;
 
   return (
-    <div className={styles.packageCard} onClick={onClick} role="button" tabIndex={0}
-      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick && onClick(); } }}
+    <div
+      className={styles.packageCard}
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick && onClick();
+        }
+      }}
     >
       <div className={styles.cardImage}>
-        <Image src={imageSrc} alt={trip.title} className={styles.packageImage} width={736} height={920} />
+        <Image
+          src={imageSrc}
+          alt={trip.title}
+          className={styles.packageImage}
+          width={736}
+          height={920}
+        />
         {/* {trip.badge && trip.badge.text ? (
           <div className={`${styles.badge} ${styles[trip.badge.type || ""] || ""}`}>
             {trip.badge.text}
@@ -48,7 +63,9 @@ const PackageCard = ({ trip, onClick }) => {
       <div className={styles.cardBody}>
         <div className={styles.metaRow}>
           <span className={styles.metaIcon}>⏳</span>
-          <span className={styles.metaDuration}>{getDurationText(trip.duration)}</span>
+          <span className={styles.metaDuration}>
+            {getDurationText(trip.duration)}
+          </span>
         </div>
         <h3 className={styles.cardTitle}>{trip.title}</h3>
 
@@ -69,5 +86,3 @@ const PackageCard = ({ trip, onClick }) => {
 };
 
 export default PackageCard;
-
-

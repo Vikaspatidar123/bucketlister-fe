@@ -19,7 +19,7 @@ export const useTripDetails = (destinationId, tripId) => {
     }
 
     const dest = TRAVEL_PACKAGES_DATA.find(
-      (d) => d.destination_id === parsedDestinationId
+      (d) => d.destination_id === parsedDestinationId,
     );
     if (!dest) return { destination: null, trip: null };
 
@@ -32,5 +32,3 @@ export const useTripDetails = (destinationId, tripId) => {
 
   return { destination, trip };
 };
-
-

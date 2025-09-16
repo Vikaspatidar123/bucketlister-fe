@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
 :root {
   --background: #ffffff;
@@ -60,7 +60,9 @@ a {
   contain: layout style;
 }
 
-button, a, [role="button"] {
+button,
+a,
+[role="button"] {
   touch-action: manipulation;
 }
 
@@ -88,7 +90,9 @@ img {
 }
 
 /* Container queries optimization */
-main, section, article {
+main,
+section,
+article {
   contain: layout style;
 }
 
@@ -101,10 +105,10 @@ main, section, article {
   body[data-page="reels"] {
     padding-top: 0 !important;
   }
-  
+
   /* Mobile-specific performance optimizations */
   .swiper-container {
-    -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }

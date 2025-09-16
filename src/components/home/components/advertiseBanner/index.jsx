@@ -12,26 +12,26 @@ import { useRouter } from "next/navigation";
 
 const AdvertiseBanner = () => {
   const router = useRouter();
-  
+
   const bannerData = [
     {
       id: 1,
       image: advertiseBanner,
       alt: "Advertise Banner 1",
-      link: "/explore?destinationId=1"
+      link: "/explore?destinationId=1",
     },
     {
       id: 2,
       image: advertiseBanner,
-      alt: "Advertise Banner 2", 
-      link: "/explore?destinationId=1"
+      alt: "Advertise Banner 2",
+      link: "/explore?destinationId=1",
     },
     {
       id: 3,
       image: advertiseBanner,
       alt: "Advertise Banner 3",
-      link: "/explore?destinationId=1"
-    }
+      link: "/explore?destinationId=1",
+    },
   ];
 
   const handleClick = (link) => {

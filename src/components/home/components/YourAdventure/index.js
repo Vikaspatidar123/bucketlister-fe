@@ -1,19 +1,23 @@
 "use client";
-import React from 'react';
-import { DOMESTIC_BANNER_DATA, DOMESTIC_DESTINATIONS, YOUR_ADVENTURE_DATA } from '../../constants';
-import styles from './style.module.scss';
-import BannerSection from '@/components/BannerSection/components';
-import Image from 'next/image';
-import { domesticBanner } from '@/assets/webp';
+import React from "react";
+import {
+  DOMESTIC_BANNER_DATA,
+  DOMESTIC_DESTINATIONS,
+  YOUR_ADVENTURE_DATA,
+} from "../../constants";
+import styles from "./style.module.scss";
+import BannerSection from "@/components/BannerSection/components";
+import Image from "next/image";
+import { domesticBanner } from "@/assets/webp";
 
 const YourAdventureSection = () => {
   const handleExploreClick = () => {
-    console.log('Explore Domestic Trips clicked');
+    console.log("Explore Domestic Trips clicked");
     // Add your navigation logic here
   };
 
   const handleDestinationClick = (destination) => {
-    console.log('Destination clicked:', destination);
+    console.log("Destination clicked:", destination);
     // Add your destination navigation logic here
   };
 
@@ -34,7 +38,13 @@ const YourAdventureSection = () => {
             {YOUR_ADVENTURE_DATA.travelTypes.map((type) => (
               <div key={type.id} className={styles.travelTypeCard}>
                 {/* <div className={styles.iconWapper}> */}
-                  <Image src={type.icon} alt={type.title} className={styles.icon} width={96} height={96} />
+                <Image
+                  src={type.icon}
+                  alt={type.title}
+                  className={styles.icon}
+                  width={96}
+                  height={96}
+                />
                 {/* </div> */}
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{type.title}</h3>
@@ -56,7 +66,7 @@ const YourAdventureSection = () => {
           category="domestic"
           onExploreClick={handleExploreClick}
           onDestinationClick={handleDestinationClick}
-          mobileHeading='Domestic Trips'
+          mobileHeading="Domestic Trips"
           heroBanner={domesticBanner}
         />
       </div>

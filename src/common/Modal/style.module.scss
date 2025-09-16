@@ -11,8 +11,12 @@
   overscroll-behavior: contain; /* prevent scroll chaining to body */
 }
 
-.overlayEnter { opacity: 1; }
-.overlayExit { opacity: 0; }
+.overlayEnter {
+  opacity: 1;
+}
+.overlayExit {
+  opacity: 0;
+}
 
 .dialog {
   position: relative;
@@ -24,7 +28,9 @@
   overflow: auto;
   transform: translateY(12px) scale(0.98);
   opacity: 0.98;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
   scrollbar-width: none;
 }
 
@@ -39,10 +45,18 @@
 }
 
 /* Sizes */
-.sm { max-width: 420px; }
-.md { max-width: 640px; }
-.lg { max-width: 840px; }
-.xl { max-width: 1040px; }
+.sm {
+  max-width: 420px;
+}
+.md {
+  max-width: 640px;
+}
+.lg {
+  max-width: 840px;
+}
+.xl {
+  max-width: 1040px;
+}
 
 .content {
   display: flex;
@@ -76,7 +90,10 @@
   border-radius: 8px;
 }
 
-.closeButton:hover { background: #f3f4f6; color: #111827; }
+.closeButton:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
 
 .body {
   padding: 16px 18px;
@@ -91,7 +108,8 @@
 }
 
 @media (max-width: 640px) {
-  .dialog { margin: 0 12px; max-height: 90vh; }
+  .dialog {
+    margin: 0 12px;
+    max-height: 90vh;
+  }
 }
-
-

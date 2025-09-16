@@ -145,7 +145,7 @@
 
   &.error {
     border-color: #dc3545;
-    
+
     &:focus {
       border-color: #dc3545;
       box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
@@ -176,7 +176,8 @@
   border-top: 1px solid #e9ecef;
 }
 
-.cancelBtn, .proceedBtn {
+.cancelBtn,
+.proceedBtn {
   padding: 12px 24px;
   border-radius: 8px;
   font-size: 16px;
@@ -219,7 +220,7 @@
     padding: 12px;
     align-items: flex-end;
   }
-  
+
   .modalContent {
     max-height: 95vh;
     width: 100%;
@@ -227,7 +228,7 @@
     border-radius: 16px 16px 0 0;
     animation: modalSlideUp 0.3s ease-out;
   }
-  
+
   @keyframes modalSlideUp {
     from {
       opacity: 0;
@@ -238,7 +239,7 @@
       transform: translateY(0);
     }
   }
-  
+
   .modalHeader {
     padding: 20px 20px 16px;
     position: sticky;
@@ -246,64 +247,64 @@
     background: white;
     z-index: 1;
   }
-  
+
   .modalTitle {
     font-size: 22px;
   }
-  
+
   .paymentInfo {
     padding: 16px 20px;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   }
-  
+
   .paymentAmount {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
   }
-  
+
   .paymentLabel {
     font-size: 15px;
   }
-  
+
   .amount {
     font-size: 22px;
     font-weight: 800;
   }
-  
+
   .paymentNote {
     font-size: 13px;
     line-height: 1.5;
   }
-  
+
   .form {
     padding: 20px;
     max-height: 60vh;
     overflow-y: auto;
   }
-  
+
   .formGroup {
     margin-bottom: 18px;
   }
-  
+
   .label {
     font-size: 15px;
     margin-bottom: 8px;
   }
-  
+
   .input {
     padding: 14px 16px;
     font-size: 16px;
     border-radius: 10px;
     border: 2px solid #e2e8f0;
-    
+
     &:focus {
       border-color: #3b82f6;
       box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
     }
   }
-  
+
   .modalActions {
     flex-direction: column;
     gap: 12px;
@@ -315,18 +316,19 @@
     background: white;
     border-top: 1px solid #e2e8f0;
   }
-  
-  .cancelBtn, .proceedBtn {
+
+  .cancelBtn,
+  .proceedBtn {
     width: 100%;
     padding: 16px;
     font-size: 16px;
     font-weight: 700;
     border-radius: 10px;
   }
-  
+
   .proceedBtn {
     background: linear-gradient(135deg, #ef3447 0%, #dc2626 100%);
-    
+
     &:hover:not(:disabled) {
       background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
       transform: translateY(-1px);
@@ -339,47 +341,48 @@
   .modalOverlay {
     padding: 8px;
   }
-  
+
   .modalContent {
     max-height: 98vh;
     border-radius: 12px 12px 0 0;
   }
-  
+
   .modalHeader {
     padding: 16px 16px 12px;
   }
-  
+
   .modalTitle {
     font-size: 20px;
   }
-  
+
   .paymentInfo {
     padding: 14px 16px;
   }
-  
+
   .form {
     padding: 16px;
     max-height: 55vh;
   }
-  
+
   .formGroup {
     margin-bottom: 16px;
   }
-  
+
   .input {
     padding: 12px 14px;
     font-size: 16px;
   }
-  
+
   .amount {
     font-size: 20px;
   }
-  
+
   .modalActions {
     padding: 16px;
   }
-  
-  .cancelBtn, .proceedBtn {
+
+  .cancelBtn,
+  .proceedBtn {
     padding: 14px;
   }
 }

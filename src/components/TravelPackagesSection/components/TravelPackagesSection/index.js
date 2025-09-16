@@ -83,7 +83,7 @@ const TravelPackagesSection = ({
 
     if (destination) {
       const option = FILTER_OPTIONS.destinations.find(
-        (o) => o.value === destination
+        (o) => o.value === destination,
       );
       if (option) {
         handleFilterChange("destinations", [option]);
@@ -109,7 +109,7 @@ const TravelPackagesSection = ({
       // If only month given -> pick the first matching tab id (e.g., "dec" -> "dec25")
       if (/^[a-z]{3}$/.test(normalized)) {
         const firstMatch = DATE_TABS.find((t) =>
-          String(t.id).startsWith(month3)
+          String(t.id).startsWith(month3),
         );
         if (firstMatch) normalized = firstMatch.id;
       }
@@ -117,7 +117,7 @@ const TravelPackagesSection = ({
       // If monYY format but not present, try to fallback to first tab with same month
       if (/^[a-z]{3}\d{2}$/.test(normalized) && !exists(normalized)) {
         const firstMatch = DATE_TABS.find((t) =>
-          String(t.id).startsWith(month3)
+          String(t.id).startsWith(month3),
         );
         if (firstMatch) normalized = firstMatch.id;
       }
@@ -128,7 +128,7 @@ const TravelPackagesSection = ({
     if (tourType) {
       const rawTourType = String(tourType).trim().toLowerCase();
       const option = FILTER_OPTIONS.tourType.find(
-        (o) => String(o.value).toLowerCase() === rawTourType
+        (o) => String(o.value).toLowerCase() === rawTourType,
       );
       if (option) {
         handleFilterChange("tourType", option);
@@ -144,11 +144,11 @@ const TravelPackagesSection = ({
 
   const handleTripClick = (trip) => {
     const destination = TRAVEL_PACKAGES_DATA.find(
-      (dest) => dest.trips && dest.trips.some((t) => t.tripId === trip.tripId)
+      (dest) => dest.trips && dest.trips.some((t) => t.tripId === trip.tripId),
     );
     if (destination) {
       router.push(
-        `/trip?destinationId=${destination.destination_id}&tripId=${trip.tripId}`
+        `/trip?destinationId=${destination.destination_id}&tripId=${trip.tripId}`,
       );
     }
   };
@@ -292,7 +292,11 @@ const TravelPackagesSection = ({
       (filters.priceRange[0] > 0 || filters.priceRange[1] < maxPrice);
 
     return (
-      hasDestinations || hasFeatures || hasDestinationType || hasTourType || hasPriceFilter
+      hasDestinations ||
+      hasFeatures ||
+      hasDestinationType ||
+      hasTourType ||
+      hasPriceFilter
     );
   };
 
@@ -328,7 +332,9 @@ const TravelPackagesSection = ({
             </div>
             {/* Centered heading below banner */}
             <div className={styles.centeredHeadingWrap}>
-              <h2 className={styles.centeredHeading}>Upcoming community trip</h2>
+              <h2 className={styles.centeredHeading}>
+                Upcoming community trip
+              </h2>
             </div>
           </>
         )}
@@ -458,9 +464,7 @@ const TravelPackagesSection = ({
                 <CustomSelect
                   options={FILTER_OPTIONS.tourType}
                   value={filters.tourType}
-                  onChange={(value) =>
-                    handleFilterChange("tourType", value)
-                  }
+                  onChange={(value) => handleFilterChange("tourType", value)}
                   placeholder="Tour Type"
                   isMulti={false}
                   className={styles.filterSelect}
@@ -603,7 +607,7 @@ const TravelPackagesSection = ({
                     </div>
                   </div>
                 </div>,
-                portalRoot
+                portalRoot,
               )}
 
             {/* Date Selection Tabs */}
@@ -632,8 +636,8 @@ const TravelPackagesSection = ({
                 {unknownDestinationQuery != null
                   ? `No trips found for "${unknownDestinationQuery}"`
                   : destinationName
-                  ? `No trips found for ${destinationName}`
-                  : "No trips found"}
+                    ? `No trips found for ${destinationName}`
+                    : "No trips found"}
               </h3>
               <p style={{ marginBottom: "16px", color: "#666" }}>
                 Try changing or clearing filters.

@@ -39,13 +39,13 @@ const BlogPostPage = ({ post }) => {
               className={styles.sectionHeading}
             >
               {line.replace("## ", "")}
-            </h2>
+            </h2>,
           );
         } else if (line.trim() && !line.startsWith("#")) {
           sectionContent.push(
             <p key={`p-${index}-${lineIndex}`} className={styles.paragraph}>
               {line.trim()}
-            </p>
+            </p>,
           );
         }
       });
@@ -62,7 +62,7 @@ const BlogPostPage = ({ post }) => {
               height={500}
             />
             <p className={styles.imageCaption}>{post.images[0].caption}</p>
-          </div>
+          </div>,
         );
       }
 

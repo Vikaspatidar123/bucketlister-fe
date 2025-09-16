@@ -47,12 +47,18 @@ const Inclusions = ({ trip }) => {
                   type="button"
                 >
                   {open ? "View Less" : "View More"}
-                  <span className={`${styles.caret} ${open ? styles.caretUp : ""}`}>▾</span>
+                  <span
+                    className={`${styles.caret} ${open ? styles.caretUp : ""}`}
+                  >
+                    ▾
+                  </span>
                 </button>
               </div>
             )}
             renderContent={() => (
-              <div className={styles.moreText}>Additional inclusions will be provided on request.</div>
+              <div className={styles.moreText}>
+                Additional inclusions will be provided on request.
+              </div>
             )}
           />
         </div>
@@ -74,12 +80,18 @@ const Inclusions = ({ trip }) => {
                   type="button"
                 >
                   {open ? "View Less" : "View More"}
-                  <span className={`${styles.caret} ${open ? styles.caretUp : ""}`}>▾</span>
+                  <span
+                    className={`${styles.caret} ${open ? styles.caretUp : ""}`}
+                  >
+                    ▾
+                  </span>
                 </button>
               </div>
             )}
             renderContent={() => (
-              <div className={styles.moreText}>Detailed exclusions are available in the final invoice.</div>
+              <div className={styles.moreText}>
+                Detailed exclusions are available in the final invoice.
+              </div>
             )}
           />
         </div>
@@ -89,6 +101,3 @@ const Inclusions = ({ trip }) => {
 };
 
 export default Inclusions;
-
-
-

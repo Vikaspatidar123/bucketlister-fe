@@ -1,7 +1,7 @@
-import React from 'react';
-import styles from './style.module.scss';
-import { TRAVEL_PACKAGES_DATA } from '@/components/TravelPackagesSection/constants';
-import Image from 'next/image';
+import React from "react";
+import styles from "./style.module.scss";
+import { TRAVEL_PACKAGES_DATA } from "@/components/TravelPackagesSection/constants";
+import Image from "next/image";
 
 const HappyMomentsSection = () => {
   // Configurable: how many random images to show per destination
@@ -21,7 +21,7 @@ const HappyMomentsSection = () => {
   };
 
   const isValidPhoto = (src) => {
-    if (typeof src !== 'string') return false;
+    if (typeof src !== "string") return false;
     if (/\.svg(\?|$)/i.test(src)) return false;
     return /(\.webp|\.jpg|\.jpeg|\.png)(\?|$)/i.test(src);
   };
@@ -50,14 +50,19 @@ const HappyMomentsSection = () => {
         }
 
         // Destination-level fallbacks
-        if (destination?.thumbnail_image) imageCandidates.push(destination.thumbnail_image);
-        if (destination?.hero_image) imageCandidates.push(destination.hero_image);
+        if (destination?.thumbnail_image)
+          imageCandidates.push(destination.thumbnail_image);
+        if (destination?.hero_image)
+          imageCandidates.push(destination.hero_image);
 
         const uniqueCandidates = Array.from(new Set(imageCandidates))
           .filter((src) => isValidPhoto(src))
           .filter((src) => !usedImages.has(src));
 
-        const selected = pickRandomItems(uniqueCandidates, RANDOM_IMAGES_PER_DESTINATION);
+        const selected = pickRandomItems(
+          uniqueCandidates,
+          RANDOM_IMAGES_PER_DESTINATION,
+        );
 
         selected.forEach((img, idx) => {
           items.push({
@@ -81,13 +86,13 @@ const HappyMomentsSection = () => {
     while (index < moments.length) {
       // Full height panel uses one item
       if (index < moments.length) {
-        panels.push({ type: 'full', items: [moments[index]] });
+        panels.push({ type: "full", items: [moments[index]] });
         index += 1;
       }
       // Grid panel uses next 4 items (or fewer if not enough)
       if (index < moments.length) {
         const gridItems = moments.slice(index, index + 4);
-        panels.push({ type: 'grid', items: gridItems });
+        panels.push({ type: "grid", items: gridItems });
         index += gridItems.length;
       }
     }
@@ -99,12 +104,17 @@ const HappyMomentsSection = () => {
     <section className={styles.happyMomentsSection}>
       <div className={styles.container}>
         <h2 className={styles.sectionTitle}>Happy Moments</h2>
-        
+
         <div className={styles.momentsScroller}>
           <div className={styles.momentsRow}>
             {panels.map((panel, idx) => (
-              <div key={idx} className={panel.type === 'full' ? styles.panelFull : styles.panelGrid}>
-                {panel.type === 'full' ? (
+              <div
+                key={idx}
+                className={
+                  panel.type === "full" ? styles.panelFull : styles.panelGrid
+                }
+              >
+                {panel.type === "full" ? (
                   <div className={styles.imageContainer}>
                     <Image
                       src={panel.items[0].image}
@@ -115,7 +125,7 @@ const HappyMomentsSection = () => {
                     />
                   </div>
                 ) : (
-                  <div className={styles.centerGrid}> 
+                  <div className={styles.centerGrid}>
                     {panel.items.map((moment) => (
                       <div key={moment.id} className={styles.centerCard}>
                         <div className={styles.imageContainer}>
@@ -130,7 +140,9 @@ const HappyMomentsSection = () => {
                       </div>
                     ))}
                     {/* Fill empty cells if fewer than 4 to keep layout stable */}
-                    {Array.from({ length: Math.max(0, 4 - panel.items.length) }).map((_, i2) => (
+                    {Array.from({
+                      length: Math.max(0, 4 - panel.items.length),
+                    }).map((_, i2) => (
                       <div key={`ph-${i2}`} className={styles.centerCard} />
                     ))}
                   </div>

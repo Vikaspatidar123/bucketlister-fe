@@ -4,7 +4,11 @@ import TheBucketListeerLoader from "@/common/Loader";
 
 export default function ReelsPage() {
   return (
-    <Suspense fallback={<TheBucketListeerLoader size="large" text="Loading amazing reels..." />}>
+    <Suspense
+      fallback={
+        <TheBucketListeerLoader size="large" text="Loading amazing reels..." />
+      }
+    >
       <ReelsFeed />
     </Suspense>
   );

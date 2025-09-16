@@ -29,7 +29,7 @@ const Occupancy = ({ occupancyDetails, onOccupancyChange, tripData }) => {
     if (newQuantity >= 1 && newQuantity <= 10) {
       onOccupancyChange({
         ...occupancyDetails,
-        quantity: newQuantity
+        quantity: newQuantity,
       });
     }
   };
@@ -38,13 +38,13 @@ const Occupancy = ({ occupancyDetails, onOccupancyChange, tripData }) => {
     const baseTripPrice = tripData?.price || 40000;
     const pricing = {
       "Triple Occupancy": { basePrice: baseTripPrice },
-      "Double Occupancy": { basePrice: baseTripPrice + 2500 } // Add INR 2,500 for double occupancy
+      "Double Occupancy": { basePrice: baseTripPrice + 2500 }, // Add INR 2,500 for double occupancy
     };
-    
+
     onOccupancyChange({
       ...occupancyDetails,
       type: newType,
-      basePrice: pricing[newType].basePrice
+      basePrice: pricing[newType].basePrice,
     });
   };
 
@@ -67,26 +67,29 @@ const Occupancy = ({ occupancyDetails, onOccupancyChange, tripData }) => {
         />
       </div>
 
-
       <div className={styles.pricingSection}>
         <div className={styles.pricingCard}>
           <div className={styles.pricingLeft}>
             <div className={styles.occupancyLabel}>Occupancy</div>
             <div className={styles.occupancyType}>{activeOccupancy}</div>
           </div>
-          
+
           <div className={styles.pricingCenter}>
             <div className={styles.priceLabel}>Price</div>
             <div className={styles.priceContainer}>
-              <span className={styles.originalPrice}>₹ {currentPricing.originalPrice.toLocaleString()}</span>
-              <span className={styles.currentPrice}>₹ {currentPricing.currentPrice.toLocaleString()}</span>
+              <span className={styles.originalPrice}>
+                ₹ {currentPricing.originalPrice.toLocaleString()}
+              </span>
+              <span className={styles.currentPrice}>
+                ₹ {currentPricing.currentPrice.toLocaleString()}
+              </span>
             </div>
           </div>
-          
+
           <div className={styles.pricingRight}>
             <div className={styles.quantityLabel}>Qty.</div>
             <div className={styles.quantityControls}>
-              <button 
+              <button
                 className={styles.quantityBtn}
                 onClick={() => handleQuantityChange(-1)}
                 disabled={quantity <= 1}
@@ -94,7 +97,7 @@ const Occupancy = ({ occupancyDetails, onOccupancyChange, tripData }) => {
                 −
               </button>
               <span className={styles.quantity}>{quantity}</span>
-              <button 
+              <button
                 className={styles.quantityBtn}
                 onClick={() => handleQuantityChange(1)}
                 disabled={quantity >= 10}

@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: center;
   overflow: visible;
-  background-color: #02658F;
-  
+  background-color: #02658f;
+
   .backgroundImage {
     position: absolute;
     top: 0;
@@ -24,45 +24,54 @@
     object-fit: cover;
     z-index: 1;
   }
-  
+
   .overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-      linear-gradient(89.63deg, rgba(0, 0, 0, 0) 0.31%, rgba(0, 0, 0, 0.5) 99.69%),
-      linear-gradient(180deg, rgba(2, 101, 143, 0) 50%, rgba(2, 101, 143, 0.3) 75%, #02658F 100%);
+    background:
+      linear-gradient(
+        89.63deg,
+        rgba(0, 0, 0, 0) 0.31%,
+        rgba(0, 0, 0, 0.5) 99.69%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(2, 101, 143, 0) 50%,
+        rgba(2, 101, 143, 0.3) 75%,
+        #02658f 100%
+      );
     z-index: 2;
-    
+
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
       height: 40px;
-      background: linear-gradient(to bottom, transparent, #02658F);
+      background: linear-gradient(to bottom, transparent, #02658f);
       z-index: 3;
     }
   }
-  
+
   .content {
     position: relative;
     z-index: 3;
     width: 100%;
     text-align: center;
     padding: 2rem;
-    
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
     }
-    
+
     .headingSection {
       margin-bottom: 3rem;
-      
+
       .mainHeading {
         font-size: clamp(2.5rem, 5vw, 4.5rem);
         font-weight: 700;
@@ -70,19 +79,19 @@
         margin: 0;
         line-height: 1.2;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        
+
         .line1 {
           display: block;
           margin-bottom: 0.5rem;
         }
-        
+
         .line2 {
           display: block;
           font-weight: 800;
         }
       }
     }
-    
+
     .searchSection {
       margin-top: 2rem;
     }
@@ -91,28 +100,38 @@
 
 @media (max-width: 1024px) {
   .heroSection {
-    .content { padding: 1.5rem; }
-    .content .container { max-width: 92%; }
+    .content {
+      padding: 1.5rem;
+    }
+    .content .container {
+      max-width: 92%;
+    }
   }
 }
 
 @media (max-width: 768px) {
   .heroSection {
     min-height: 60vh;
-    
-    .backgroundImage { background-position: center top; }
-    
+
+    .backgroundImage {
+      background-position: center top;
+    }
+
     .content {
       padding: 1rem;
       margin-bottom: -2px;
-      
+
       .headingSection {
         margin-bottom: 1.25rem;
-        
-        .mainHeading { line-height: 1.25; }
+
+        .mainHeading {
+          line-height: 1.25;
+        }
       }
-      
-      .searchSection { display: none; }
+
+      .searchSection {
+        display: none;
+      }
     }
   }
 }

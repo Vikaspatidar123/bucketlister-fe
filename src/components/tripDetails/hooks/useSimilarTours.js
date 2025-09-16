@@ -8,10 +8,15 @@ const computeSimilarityScore = (a, b, destinationA, destinationB) => {
   let score = 0;
 
   // Same destination gets high weight
-  if (destinationA?.destination_id === destinationB?.destination_id) score += 50;
+  if (destinationA?.destination_id === destinationB?.destination_id)
+    score += 50;
 
   // Same top-level category (domestic/international/weekend)
-  if (destinationA?.category && destinationA.category === destinationB?.category) score += 15;
+  if (
+    destinationA?.category &&
+    destinationA.category === destinationB?.category
+  )
+    score += 15;
 
   // Shared features overlap
   const aFeatures = Array.isArray(a?.features) ? a.features : [];
@@ -45,15 +50,20 @@ const computeSimilarityScore = (a, b, destinationA, destinationB) => {
   return score;
 };
 
-export const useSimilarTours = (currentDestinationId, currentTripId, limit = 16) => {
+export const useSimilarTours = (
+  currentDestinationId,
+  currentTripId,
+  limit = 16,
+) => {
   return useMemo(() => {
     if (currentTripId == null) return [];
 
     // Locate current destination and trip
     const destination = TRAVEL_PACKAGES_DATA.find(
-      (d) => d.destination_id === currentDestinationId
+      (d) => d.destination_id === currentDestinationId,
     );
-    const trip = destination?.trips?.find((t) => t.tripId === currentTripId) || null;
+    const trip =
+      destination?.trips?.find((t) => t.tripId === currentTripId) || null;
     if (!trip) return [];
 
     // Build candidate pool of all trips across destinations
@@ -87,5 +97,3 @@ export const useSimilarTours = (currentDestinationId, currentTripId, limit = 16)
     return scored;
   }, [currentDestinationId, currentTripId, limit]);
 };
-
-

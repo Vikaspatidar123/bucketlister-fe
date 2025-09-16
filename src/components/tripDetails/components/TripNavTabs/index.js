@@ -25,14 +25,15 @@ const TripNavTabs = ({
     if (typeof onTabChange === "function") onTabChange(id);
     // Smooth scroll to target section if present
     let targetId = id;
-    
+
     // If batches tab is clicked, scroll to itinerary section
     if (id === "batches") {
       targetId = "itinerary";
     }
-    
+
     const el =
-      document.getElementById(`trip-${targetId}`) || document.getElementById(targetId);
+      document.getElementById(`trip-${targetId}`) ||
+      document.getElementById(targetId);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }

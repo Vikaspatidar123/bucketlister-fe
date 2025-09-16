@@ -68,6 +68,7 @@ The `/explore` route contains the international tours section with:
 ## 🧭 Navigation
 
 Updated navigation includes:
+
 - **International** → `/explore` (International tours)
 - **Domestic** → `/domestic` (Domestic tours)
 - **Upcoming Tours** → `/upcoming-tours`
@@ -84,11 +85,13 @@ Updated navigation includes:
 ## 🚀 Getting Started
 
 1. Install dependencies:
+
    ```bash
    npm install
    ```
 
 2. Run the development server:
+
    ```bash
    npm run dev
    ```

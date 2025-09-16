@@ -152,10 +152,14 @@
   justify-content: center;
   flex: 0 0 auto;
   min-width: 120px; // ensure larger, consistent visual width
-  transition: background-color 160ms ease, color 160ms ease,
-    box-shadow 160ms ease, transform 160ms ease, border-color 160ms ease;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease,
+    border-color 160ms ease;
   will-change: transform;
-  
+
   // Keep chips neutral on interaction (no selected color)
   &:hover {
     background: #ef344765;
@@ -195,7 +199,7 @@
   background: #ef3447 !important;
   color: #fff !important;
   border-color: #ef3447 !important;
-  
+
   &:hover {
     background: #ef3447 !important;
     color: #fff !important;

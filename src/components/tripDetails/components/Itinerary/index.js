@@ -269,7 +269,7 @@ const Itinerary = ({ destination, trip }) => {
                 <span className={styles.segmentDot} />
                 <span className={styles.segmentLabel}>{`Day ${day.day}`}</span>
                 {/* {idx < days.length - 1 && ( */}
-                  <span className={styles.segmentLine} />
+                <span className={styles.segmentLine} />
                 {/* )} */}
               </div>
             ))}

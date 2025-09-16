@@ -10,7 +10,7 @@ export default function BookNowPage() {
   useEffect(() => {
     // Redirect to trip listing page after a brief delay
     const timer = setTimeout(() => {
-      router.push('/explore/list');
+      router.push("/explore/list");
     }, 2000);
 
     return () => clearTimeout(timer);
@@ -21,14 +21,27 @@ export default function BookNowPage() {
       <SEO
         title="Book Your Adventure Trip"
         description="Book your perfect adventure trip with THE BUCKETLISTER. Secure your spot on curated travel experiences with expert guides."
-        keywords={['book trip', 'travel booking', 'adventure booking', 'trip reservation', 'travel package booking']}
+        keywords={[
+          "book trip",
+          "travel booking",
+          "adventure booking",
+          "trip reservation",
+          "travel package booking",
+        ]}
         url="/book-now"
       />
-      <Suspense fallback={<TheBucketListeerLoader size="small" text="Loading..." />}>
-        <div style={{ padding: '2rem', textAlign: 'center' }}>
-          <TheBucketListeerLoader size="small" text="Redirecting to trip selection..." />
-          <p style={{ marginTop: '1rem' }}>
-            <Link href="/explore/list">Or click here to browse available trips</Link>
+      <Suspense
+        fallback={<TheBucketListeerLoader size="small" text="Loading..." />}
+      >
+        <div style={{ padding: "2rem", textAlign: "center" }}>
+          <TheBucketListeerLoader
+            size="small"
+            text="Redirecting to trip selection..."
+          />
+          <p style={{ marginTop: "1rem" }}>
+            <Link href="/explore/list">
+              Or click here to browse available trips
+            </Link>
           </p>
         </div>
       </Suspense>

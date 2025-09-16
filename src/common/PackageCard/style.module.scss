@@ -65,10 +65,22 @@
       letter-spacing: 0.5px;
       z-index: 3;
 
-      &.new { background: #28a745; color: white; }
-      &.luxe { background: #ffc107; color: #1a1a1a; }
-      &.nature { background: #20c997; color: white; }
-      &.featured { background: #dc3545; color: white; }
+      &.new {
+        background: #28a745;
+        color: white;
+      }
+      &.luxe {
+        background: #ffc107;
+        color: #1a1a1a;
+      }
+      &.nature {
+        background: #20c997;
+        color: white;
+      }
+      &.featured {
+        background: #dc3545;
+        color: white;
+      }
     }
   }
 
@@ -126,9 +138,22 @@
     align-items: baseline;
     gap: 10px;
 
-    .currentPrice { font-size: 15px; font-weight: 600; color: #111827; }
-    .oldPrice { font-size: 15px; color: #111827; text-decoration: line-through; font-weight: 600; }
-    .discount { font-size: 15px; color: #e11d48; font-weight: 600; }
+    .currentPrice {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111827;
+    }
+    .oldPrice {
+      font-size: 15px;
+      color: #111827;
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+    .discount {
+      font-size: 15px;
+      color: #e11d48;
+      font-weight: 600;
+    }
   }
 
   .footerRow {
@@ -143,5 +168,3 @@
     border-bottom-right-radius: 16px;
   }
 }
-
-

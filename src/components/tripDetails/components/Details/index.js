@@ -40,7 +40,7 @@ const Details = ({ destination, trip }) => {
       (defaultDays && defaultNights
         ? `${defaultNights} nights in Hotels, ${Math.max(
             0,
-            defaultDays - defaultNights
+            defaultDays - defaultNights,
           )} nights in Bungalow`
         : "Comfort stays included");
     meta.meals =
@@ -157,7 +157,7 @@ const Details = ({ destination, trip }) => {
             href={`/book-now/${
               trip?.tripId || destination?.destination_id
             }?destination=${encodeURIComponent(
-              destination?.destination_name || ""
+              destination?.destination_name || "",
             )}&title=${encodeURIComponent(trip?.title || "")}&price=${
               trip?.price || ""
             }&duration=${encodeURIComponent(trip?.duration || "")}&capacity=${

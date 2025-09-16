@@ -14,7 +14,9 @@ const Batches = ({ selectedBatch, onBatchSelect, tripData }) => {
     // Find the trip across all destinations
     for (const destination of TRAVEL_PACKAGES_DATA) {
       if (destination.trips) {
-        const trip = destination.trips.find(t => t.tripId.toString() === tripData.tripId.toString());
+        const trip = destination.trips.find(
+          (t) => t.tripId.toString() === tripData.tripId.toString(),
+        );
         if (trip) {
           return { ...trip, destination: destination.destination_name };
         }
@@ -25,14 +27,27 @@ const Batches = ({ selectedBatch, onBatchSelect, tripData }) => {
 
   // Process batches from trip data
   const batches = useMemo(() => {
-    if (!tripDetails?.batches || !Array.isArray(tripDetails.batches) || tripDetails.batches.length === 0) {
+    if (
+      !tripDetails?.batches ||
+      !Array.isArray(tripDetails.batches) ||
+      tripDetails.batches.length === 0
+    ) {
       return [];
     }
 
     const monthMap = {
-      'January': 'Jan', 'February': 'Feb', 'March': 'Mar', 'April': 'Apr',
-      'May': 'May', 'June': 'Jun', 'July': 'Jul', 'August': 'Aug',
-      'September': 'Sep', 'October': 'Oct', 'November': 'Nov', 'December': 'Dec'
+      January: "Jan",
+      February: "Feb",
+      March: "Mar",
+      April: "Apr",
+      May: "May",
+      June: "Jun",
+      July: "Jul",
+      August: "Aug",
+      September: "Sep",
+      October: "Oct",
+      November: "Nov",
+      December: "Dec",
     };
 
     let batchId = 1;
@@ -43,41 +58,49 @@ const Batches = ({ selectedBatch, onBatchSelect, tripData }) => {
         if (Array.isArray(dateRanges)) {
           dateRanges.forEach((dateRange) => {
             const monthAbbr = monthMap[monthName] || monthName.slice(0, 3);
-            
+
             // Format the date range for display (e.g., "25/12 - 01/01" -> "Dec 25 - Jan 1")
             let formattedRange = dateRange;
-            
-            if (dateRange.includes(' - ')) {
-              const [startDate, endDate] = dateRange.split(' - ');
-              
+
+            if (dateRange.includes(" - ")) {
+              const [startDate, endDate] = dateRange.split(" - ");
+
               // Parse start date
-              const [startDay, startMonth] = startDate.split('/');
-              const startMonthName = Object.keys(monthMap).find(key => 
-                monthMap[key] === Object.keys(monthMap)[parseInt(startMonth) - 1]
-              ) || monthName;
-              const startMonthAbbr = monthMap[startMonthName] || startMonthName.slice(0, 3);
-              
-              // Parse end date  
-              const [endDay, endMonth] = endDate.split('/');
-              const endMonthName = Object.keys(monthMap).find(key => 
-                monthMap[key] === Object.keys(monthMap)[parseInt(endMonth) - 1]
-              ) || monthName;
-              const endMonthAbbr = monthMap[endMonthName] || endMonthName.slice(0, 3);
-              
+              const [startDay, startMonth] = startDate.split("/");
+              const startMonthName =
+                Object.keys(monthMap).find(
+                  (key) =>
+                    monthMap[key] ===
+                    Object.keys(monthMap)[parseInt(startMonth) - 1],
+                ) || monthName;
+              const startMonthAbbr =
+                monthMap[startMonthName] || startMonthName.slice(0, 3);
+
+              // Parse end date
+              const [endDay, endMonth] = endDate.split("/");
+              const endMonthName =
+                Object.keys(monthMap).find(
+                  (key) =>
+                    monthMap[key] ===
+                    Object.keys(monthMap)[parseInt(endMonth) - 1],
+                ) || monthName;
+              const endMonthAbbr =
+                monthMap[endMonthName] || endMonthName.slice(0, 3);
+
               formattedRange = `${startMonthAbbr} ${parseInt(startDay)} - ${endMonthAbbr} ${parseInt(endDay)}`;
-            } else if (dateRange.includes('/')) {
+            } else if (dateRange.includes("/")) {
               // Single date format
-              const [day, month] = dateRange.split('/');
+              const [day, month] = dateRange.split("/");
               formattedRange = `${monthAbbr} ${parseInt(day)}`;
             }
-            
+
             processedBatches.push({
               id: batchId++,
               dateRange: formattedRange,
               status: "Available",
               month: monthAbbr,
               originalMonth: monthName,
-              originalRange: dateRange
+              originalRange: dateRange,
             });
           });
         }
@@ -89,10 +112,10 @@ const Batches = ({ selectedBatch, onBatchSelect, tripData }) => {
 
   // Generate month filters based on available batches
   const monthFilters = useMemo(() => {
-    const availableMonths = [...new Set(batches.map(batch => batch.month))];
+    const availableMonths = [...new Set(batches.map((batch) => batch.month))];
     const filters = [];
-    
-    availableMonths.forEach(month => {
+
+    availableMonths.forEach((month) => {
       filters.push({ id: month, label: month });
     });
 
@@ -106,9 +129,10 @@ const Batches = ({ selectedBatch, onBatchSelect, tripData }) => {
     }
   }, [monthFilters, activeFilter]);
 
-  const filteredBatches = !activeFilter || activeFilter === "All" 
-    ? batches 
-    : batches.filter(batch => batch.month === activeFilter);
+  const filteredBatches =
+    !activeFilter || activeFilter === "All"
+      ? batches
+      : batches.filter((batch) => batch.month === activeFilter);
 
   const handleBatchSelect = (batchId) => {
     onBatchSelect(batchId);
@@ -160,11 +184,13 @@ const Batches = ({ selectedBatch, onBatchSelect, tripData }) => {
           ))
         ) : (
           <div className={styles.noBatchesMessage}>
-            <p>No upcoming batches for this trip. Send us an enquiry to customize your trip on your preferred dates.</p>
+            <p>
+              No upcoming batches for this trip. Send us an enquiry to customize
+              your trip on your preferred dates.
+            </p>
           </div>
         )}
       </div>
-
     </div>
   );
 };

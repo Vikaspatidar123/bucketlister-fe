@@ -1,7 +1,7 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { Range } from 'react-range';
-import styles from './style.module.scss';
+import React, { useState, useEffect } from "react";
+import { Range } from "react-range";
+import styles from "./style.module.scss";
 
 const PriceRangeSlider = ({
   min = 0,
@@ -14,7 +14,7 @@ const PriceRangeSlider = ({
   showLabels = true,
   showValues = true,
   currency = "₹",
-  formatValue = null
+  formatValue = null,
 }) => {
   const [localValue, setLocalValue] = useState(value);
 
@@ -37,8 +37,8 @@ const PriceRangeSlider = ({
   };
 
   return (
-    <div 
-      className={`${styles.priceRangeSlider} ${className} ${disabled ? styles.disabled : ''}`}
+    <div
+      className={`${styles.priceRangeSlider} ${className} ${disabled ? styles.disabled : ""}`}
       data-price-slider="true"
       onClick={(e) => e.stopPropagation()}
       onMouseDown={(e) => e.stopPropagation()}
@@ -49,12 +49,13 @@ const PriceRangeSlider = ({
           <span className={styles.label}>Price Range</span>
           {showValues && (
             <span className={styles.values}>
-              {formatDisplayValue(localValue[0])} - {formatDisplayValue(localValue[1])}
+              {formatDisplayValue(localValue[0])} -{" "}
+              {formatDisplayValue(localValue[1])}
             </span>
           )}
         </div>
       )}
-      
+
       <div className={styles.sliderContainer}>
         <Range
           step={step}
@@ -69,22 +70,22 @@ const PriceRangeSlider = ({
               className={styles.sliderTrack}
               style={{
                 ...props.style,
-                height: '6px',
-                width: '100%',
-                backgroundColor: '#e1e5e9',
-                borderRadius: '3px',
-                position: 'relative'
+                height: "6px",
+                width: "100%",
+                backgroundColor: "#e1e5e9",
+                borderRadius: "3px",
+                position: "relative",
               }}
             >
               <div
                 className={styles.sliderTrackFill}
                 style={{
-                  position: 'absolute',
-                  height: '100%',
+                  position: "absolute",
+                  height: "100%",
                   width: `${((localValue[1] - localValue[0]) / (max - min)) * 100}%`,
                   left: `${((localValue[0] - min) / (max - min)) * 100}%`,
-                  backgroundColor: '#EF3447',
-                  borderRadius: '3px'
+                  backgroundColor: "#EF3447",
+                  borderRadius: "3px",
                 }}
               />
               {children}
@@ -96,19 +97,19 @@ const PriceRangeSlider = ({
               className={`${styles.sliderThumb} ${index === 0 ? styles.minThumb : styles.maxThumb}`}
               style={{
                 ...props.style,
-                height: '20px',
-                width: '20px',
-                backgroundColor: 'white',
-                border: '3px solid #EF3447',
-                borderRadius: '50%',
-                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
-                cursor: 'grab',
-                outline: 'none'
+                height: "20px",
+                width: "20px",
+                backgroundColor: "white",
+                border: "3px solid #EF3447",
+                borderRadius: "50%",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
+                cursor: "grab",
+                outline: "none",
               }}
             />
           )}
         />
-        
+
         <div className={styles.rangeLabels}>
           <span className={styles.rangeLabel}>{formatDisplayValue(min)}</span>
           <span className={styles.rangeLabel}>{formatDisplayValue(max)}</span>

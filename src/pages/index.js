@@ -7,7 +7,7 @@ import TheBucketListeerLoader from "@/common/Loader";
 export default function HomePage() {
   const structuredData = [
     generateWebsiteSchema(),
-    generateOrganizationSchema()
+    generateOrganizationSchema(),
   ];
 
   return (
@@ -15,11 +15,29 @@ export default function HomePage() {
       <SEO
         title="The Bucketlister | Stop Dreaming, Start Living"
         description="Discover curated travel experiences with THE BUCKETLISTER. From Himalayan treks to international adventures, find your perfect trip with small groups and expert guides."
-        keywords={['travel packages', 'adventure trips', 'himalayan treks', 'international tours', 'small group travel', 'curated experiences', 'travel agency india', 'adventure travel', 'trekking tours', 'vacation packages']}
+        keywords={[
+          "travel packages",
+          "adventure trips",
+          "himalayan treks",
+          "international tours",
+          "small group travel",
+          "curated experiences",
+          "travel agency india",
+          "adventure travel",
+          "trekking tours",
+          "vacation packages",
+        ]}
         url="/"
         structuredData={structuredData}
       />
-      <Suspense fallback={<TheBucketListeerLoader size="medium" text="Loading your adventure..." />}>
+      <Suspense
+        fallback={
+          <TheBucketListeerLoader
+            size="medium"
+            text="Loading your adventure..."
+          />
+        }
+      >
         <Home />
       </Suspense>
     </>

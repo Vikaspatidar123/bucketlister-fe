@@ -30,7 +30,6 @@
   margin-bottom: 20px;
 }
 
-
 .pricingSection {
   margin-bottom: 16px;
 }
@@ -44,20 +43,24 @@
   border: 1px solid #e93737e3;
   border-radius: 10px;
   background: #f8f9fa;
-   &:hover {
+  &:hover {
     box-shadow: 0 2px 8px rgba(145, 143, 143, 0.566);
     background: rgba(227, 222, 223, 0.362);
     border: 1px solid #ef3447;
-   }
+  }
 }
 
-.pricingLeft, .pricingCenter, .pricingRight {
+.pricingLeft,
+.pricingCenter,
+.pricingRight {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.occupancyLabel, .priceLabel, .quantityLabel {
+.occupancyLabel,
+.priceLabel,
+.quantityLabel {
   font-size: 14px;
   color: #6c757d;
   font-weight: 500;
@@ -149,25 +152,27 @@
   .occupancyContainer {
     padding: 20px;
   }
-  
+
   .title {
     font-size: 20px;
   }
-  
+
   .pricingCard {
     grid-template-columns: 1fr;
     gap: 15px;
     text-align: center;
   }
-  
-  .pricingLeft, .pricingCenter, .pricingRight {
+
+  .pricingLeft,
+  .pricingCenter,
+  .pricingRight {
     align-items: center;
   }
-  
+
   .quantityControls {
     justify-content: center;
   }
-  
+
   .totalSection {
     text-align: center;
   }

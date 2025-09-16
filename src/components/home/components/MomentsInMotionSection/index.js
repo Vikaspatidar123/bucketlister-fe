@@ -45,7 +45,7 @@ const MomentsInMotionSection = () => {
   const toggleSound = (index) => {
     setMutedStates((prev) => {
       const newStates = {};
-      
+
       // If the clicked video is currently muted, unmute it and mute all others
       if (prev[index] !== false) {
         // Unmute the clicked video
@@ -60,7 +60,7 @@ const MomentsInMotionSection = () => {
         // If the clicked video is already unmuted, mute it
         newStates[index] = true;
       }
-      
+
       return newStates;
     });
   };
@@ -101,10 +101,12 @@ const MomentsInMotionSection = () => {
                     alt={moment.alt}
                     className={styles.momentImage}
                   />
-                  <button 
-                    className={styles.soundBtn} 
-                    onClick={() => toggleSound(index)} 
-                    aria-label={mutedStates[index] !== false ? "Unmute" : "Mute"}
+                  <button
+                    className={styles.soundBtn}
+                    onClick={() => toggleSound(index)}
+                    aria-label={
+                      mutedStates[index] !== false ? "Unmute" : "Mute"
+                    }
                   >
                     {mutedStates[index] !== false ? "🔇" : "🔊"}
                   </button>

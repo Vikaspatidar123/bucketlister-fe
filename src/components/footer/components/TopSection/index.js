@@ -1,7 +1,7 @@
-import React from 'react';
-import ServicesSection from '../ServicesSection';
-import ContactForm from '../ContactForm';
-import styles from './style.module.scss';
+import React from "react";
+import ServicesSection from "../ServicesSection";
+import ContactForm from "../ContactForm";
+import styles from "./style.module.scss";
 
 const TopSection = () => {
   return (

@@ -4,12 +4,12 @@ import Modal from "../Modal";
 import { formatText } from "@/utils/textFormatter";
 import styles from "./style.module.scss";
 
-const DescriptionModal = ({ 
-  isOpen, 
-  onClose, 
-  title = "Description", 
+const DescriptionModal = ({
+  isOpen,
+  onClose,
+  title = "Description",
   content,
-  ...modalProps 
+  ...modalProps
 }) => {
   if (!content) return null;
 
@@ -26,7 +26,7 @@ const DescriptionModal = ({
       {...modalProps}
     >
       <div className={styles.descriptionBody}>
-        <div 
+        <div
           className={styles.formattedText}
           dangerouslySetInnerHTML={{ __html: formattedContent }}
         />

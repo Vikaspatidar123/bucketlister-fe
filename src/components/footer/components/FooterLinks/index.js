@@ -1,17 +1,19 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import { mapDestinationsByCategory } from '@/utils/travelData';
-import styles from './style.module.scss';
+"use client";
+import React, { useState, useEffect } from "react";
+import { mapDestinationsByCategory } from "@/utils/travelData";
+import styles from "./style.module.scss";
 
 const FooterLinks = () => {
   const [footerLinks, setFooterLinks] = useState(null);
 
   useEffect(() => {
-    const international = mapDestinationsByCategory('international')
-      .map(({ label, href }) => ({ name: label, url: href }));
-    
-    const popularUpcoming = mapDestinationsByCategory('domestic')
-      .map(({ label, href }) => ({ name: label, url: href }));
+    const international = mapDestinationsByCategory("international").map(
+      ({ label, href }) => ({ name: label, url: href }),
+    );
+
+    const popularUpcoming = mapDestinationsByCategory("domestic").map(
+      ({ label, href }) => ({ name: label, url: href }),
+    );
 
     const otherServices = [
       { name: "Corporate Trips", url: "/explore/list" },
@@ -33,7 +35,7 @@ const FooterLinks = () => {
       international,
       popularUpcoming,
       otherServices,
-      quickLinks
+      quickLinks,
     });
   }, []);
 
@@ -75,46 +77,54 @@ const FooterLinks = () => {
           <ul className={styles.linkList}>
             {footerLinks.international.map((link, index) => (
               <li key={index}>
-                <a href={link.url} className={styles.link}>{link.name}</a>
+                <a href={link.url} className={styles.link}>
+                  {link.name}
+                </a>
               </li>
             ))}
           </ul>
         </div>
-        
+
         <div className={styles.linkColumn}>
           <h3 className={styles.columnTitle}>Popular Upcoming</h3>
           <ul className={styles.linkList}>
             {footerLinks.popularUpcoming.map((link, index) => (
               <li key={index}>
-                <a href={link.url} className={styles.link}>{link.name}</a>
+                <a href={link.url} className={styles.link}>
+                  {link.name}
+                </a>
               </li>
             ))}
           </ul>
         </div>
-        
+
         <div className={styles.linkColumn}>
           <h3 className={styles.columnTitle}>Other Services</h3>
           <ul className={styles.linkList}>
             {footerLinks.otherServices.map((link, index) => (
               <li key={index}>
-                <a href={link.url} className={styles.link}>{link.name}</a>
+                <a href={link.url} className={styles.link}>
+                  {link.name}
+                </a>
               </li>
             ))}
           </ul>
         </div>
-        
+
         <div className={styles.linkColumn}>
           <h3 className={styles.columnTitle}>Quick Links</h3>
           <ul className={styles.linkList}>
             {footerLinks.quickLinks.map((link, index) => (
               <li key={index}>
-                <a href={link.url} className={styles.link}>{link.name}</a>
+                <a href={link.url} className={styles.link}>
+                  {link.name}
+                </a>
               </li>
             ))}
           </ul>
         </div>
       </div>
-      
+
       <div className={styles.bottomSection}>
         <div className={styles.copyright}>
           <p>The Bucketlister @ 2021. All rights reserved.</p>

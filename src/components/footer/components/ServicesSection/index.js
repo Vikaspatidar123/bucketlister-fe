@@ -1,7 +1,7 @@
-import React from 'react';
-import { FOOTER_SERVICES } from '../../constants';
-import styles from './style.module.scss';
-import Image from 'next/image';
+import React from "react";
+import { FOOTER_SERVICES } from "../../constants";
+import styles from "./style.module.scss";
+import Image from "next/image";
 
 const ServicesSection = () => {
   return (
@@ -11,7 +11,12 @@ const ServicesSection = () => {
         {FOOTER_SERVICES.map((service) => (
           <div key={service.id} className={styles.serviceItem}>
             <div className={styles.serviceIcon}>
-              <Image src={service.icon} alt={service.title} width={40} height={40} />
+              <Image
+                src={service.icon}
+                alt={service.title}
+                width={40}
+                height={40}
+              />
             </div>
             <div className={styles.serviceContent}>
               <h3 className={styles.serviceTitle}>{service.title}</h3>

@@ -23,7 +23,7 @@ const Accordion = ({
         setUncontrolledOpen(next);
       }
     },
-    [isControlled, onOpenChange]
+    [isControlled, onOpenChange],
   );
 
   const toggle = useCallback(() => setOpen(!open), [open, setOpen]);
@@ -31,11 +31,15 @@ const Accordion = ({
   return (
     <div className={`${styles.accordion} ${className}`}>
       <div className={styles.header} onClick={toggle}>
-        {typeof renderHeader === "function" ? renderHeader({ open, toggle }) : null}
+        {typeof renderHeader === "function"
+          ? renderHeader({ open, toggle })
+          : null}
       </div>
       {open && (
         <div className={styles.content}>
-          {typeof renderContent === "function" ? renderContent({ open, toggle }) : null}
+          {typeof renderContent === "function"
+            ? renderContent({ open, toggle })
+            : null}
         </div>
       )}
     </div>
@@ -43,5 +47,3 @@ const Accordion = ({
 };
 
 export default Accordion;
-
-

@@ -9,5 +9,3 @@ export const useReels = () => {
 
   return { reels };
 };
-
-

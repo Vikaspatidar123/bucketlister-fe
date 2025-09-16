@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "./style.module.scss";
-import { getHomePageTestimonials, getDestinationReviews } from "@/data/destinationReviews";
+import {
+  getHomePageTestimonials,
+  getDestinationReviews,
+} from "@/data/destinationReviews";
 
 const TravellersTestimonialsSection = ({
   reviews = null,
@@ -13,8 +16,8 @@ const TravellersTestimonialsSection = ({
     if (reviews && Array.isArray(reviews) && reviews.length > 0) {
       testimonials = reviews.map((review, index) => ({
         id: index + 1,
-        text: review.description || '',
-        name: review.name || 'Anonymous',
+        text: review.description || "",
+        name: review.name || "Anonymous",
         location: `${destinationName || "Destination"} (${review.rating || 5}★)`,
       }));
     } else if (destinationName) {
@@ -23,8 +26,8 @@ const TravellersTestimonialsSection = ({
       if (Array.isArray(destReviews)) {
         testimonials = destReviews.map((review, index) => ({
           id: index + 1,
-          text: review.description || '',
-          name: review.name || 'Anonymous',
+          text: review.description || "",
+          name: review.name || "Anonymous",
           location: `${destinationName} (${review.rating || 5}★)`,
         }));
       }
@@ -34,14 +37,14 @@ const TravellersTestimonialsSection = ({
       if (Array.isArray(homeReviews)) {
         testimonials = homeReviews.map((review, index) => ({
           id: index + 1,
-          text: review.description || '',
-          name: review.name || 'Anonymous',
-          location: `${review.location || 'Travel'} (${review.rating || 5}★)`,
+          text: review.description || "",
+          name: review.name || "Anonymous",
+          location: `${review.location || "Travel"} (${review.rating || 5}★)`,
         }));
       }
     }
   } catch (error) {
-    console.error('Error loading testimonials:', error);
+    console.error("Error loading testimonials:", error);
     testimonials = [];
   }
 

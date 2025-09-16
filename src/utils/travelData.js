@@ -9,7 +9,7 @@ export const mapDestinationsByCategory = (category) =>
   (Array.isArray(TRAVEL_PACKAGES_DATA) ? TRAVEL_PACKAGES_DATA : [])
     .filter(
       (d) =>
-        String(d?.category).toLowerCase() === String(category).toLowerCase()
+        String(d?.category).toLowerCase() === String(category).toLowerCase(),
     )
     .map((d) => ({
       label: d.destination_name,

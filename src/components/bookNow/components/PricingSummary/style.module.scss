@@ -5,7 +5,7 @@
   box-shadow: 0 4px 16px rgba(16, 24, 40, 0.08);
   margin-bottom: 16px;
   border: 1px solid #d1d5dc;
-  
+
   &.compact {
     padding: 16px;
     margin-bottom: 0;
@@ -59,7 +59,7 @@
   font-size: 11px;
   font-weight: 400;
   color: #495057;
-  background: #F4F4F4;
+  background: #f4f4f4;
   padding: 2px 6px;
   border-radius: 4px;
   width: fit-content;
@@ -115,13 +115,13 @@
   border-radius: 6px;
   margin: 4px 0;
   border: 1px solid #dbeafe;
-  
+
   .label {
     font-weight: 500;
     color: #1e40af;
     font-size: 13px;
   }
-  
+
   .value {
     font-weight: 600;
     color: #1e40af;
@@ -133,7 +133,7 @@
   border-top: 2px solid #e5e7eb;
   padding-top: 12px;
   margin-top: 8px;
-  
+
   .label {
     font-weight: 700;
     font-size: 15px;
@@ -141,7 +141,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
-  
+
   .value {
     font-weight: 700;
     font-size: 15px;
@@ -154,13 +154,13 @@
   border-top: 1px solid #e5e7eb;
   padding-top: 8px;
   margin-top: 4px;
-  
+
   .label {
     font-weight: 600;
     font-size: 14px;
     color: #1f2937;
   }
-  
+
   .value {
     font-weight: 600;
     font-size: 14px;
@@ -174,12 +174,12 @@
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     margin-bottom: 0;
-    
+
     &.compact {
       padding: 14px;
     }
   }
-  
+
   .header {
     flex-direction: row;
     justify-content: space-between;
@@ -187,78 +187,78 @@
     margin-bottom: 14px;
     padding-bottom: 10px;
   }
-  
+
   .title {
     font-size: 18px;
     font-weight: 700;
   }
-  
+
   .totalAmount {
     font-size: 20px;
     font-weight: 800;
   }
-  
+
   .compact .title {
     font-size: 16px;
   }
-  
+
   .compact .totalAmount {
     font-size: 18px;
   }
-  
+
   .breakdown {
     gap: 8px;
   }
-  
+
   .breakdownRow {
     padding: 6px 0;
     border-bottom: 1px solid #f1f5f9;
-    
+
     &:last-child {
       border-bottom: none;
     }
   }
-  
+
   .label {
     font-size: 14px;
     font-weight: 500;
   }
-  
+
   .sublabel {
     font-size: 13px;
     padding-left: 12px;
     color: #64748b;
   }
-  
+
   .value {
     font-size: 14px;
     font-weight: 600;
     min-width: 70px;
   }
-  
+
   .bookingRow {
     background: #f0f9ff;
     border: 1px solid #bae6fd;
     padding: 8px;
     margin: 6px 0;
-    
+
     .label {
       color: #0369a1;
       font-weight: 600;
     }
-    
+
     .value {
       color: #0369a1;
       font-weight: 700;
     }
   }
-  
+
   .subtotalRow,
   .finalRow {
     border-top: 2px solid #e2e8f0;
     padding-top: 10px;
     margin-top: 8px;
-    
+
     .label,
     .value {
       font-size: 15px;
@@ -290,12 +290,11 @@
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     // transform: translateY(-2px);
     transform: scale3d(1, 1.1, 1.1);
-
   }
 
   &.selected {
     border-color: #495057;
-    background: #F4F4F4;
+    background: #f4f4f4;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
 }
@@ -347,12 +346,14 @@
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s, visibility 0.2s;
+  transition:
+    opacity 0.2s,
+    visibility 0.2s;
   z-index: 1000;
   margin-bottom: 8px;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 100%;
     left: 50%;
@@ -367,31 +368,29 @@
   visibility: visible;
 }
 
-
 @media (max-width: 768px) {
   .paymentCards {
     flex-direction: row;
     gap: 6px;
   }
-  
+
   .paymentCard {
     padding: 12px 14px;
   }
-  
+
   .cardHeader h3 {
     font-size: 15px;
   }
-  
+
   .discount {
     font-size: 11px;
   }
-  
+
   .cardContent .amount {
     font-size: 18px;
   }
-  
+
   .cardContent .note {
     font-size: 11px;
   }
-  
 }

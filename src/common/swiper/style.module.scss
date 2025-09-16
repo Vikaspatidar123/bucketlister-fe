@@ -38,7 +38,11 @@
   bottom: 0;
   padding: 16px;
   color: #fff;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 90%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.65) 90%
+  );
 }
 
 .cardTitle {
@@ -58,8 +62,10 @@
     width: 90vw;
     max-width: 75vw;
   }
-  .cardTitle { font-size: 20px; }
-  .cardSubtitle { font-size: 13px; }
+  .cardTitle {
+    font-size: 20px;
+  }
+  .cardSubtitle {
+    font-size: 13px;
+  }
 }
-
-

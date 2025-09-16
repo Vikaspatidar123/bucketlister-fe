@@ -2,13 +2,13 @@
   // padding: 4rem 0;
   // background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   overflow: hidden;
-  
+
   .container {
     // max-width: 1400px;
     margin: 0 auto;
     padding: 0 1rem;
   }
-  
+
   .sectionTitle {
     text-align: center;
     font-family: serif;
@@ -18,9 +18,9 @@
     margin-bottom: 3rem;
     letter-spacing: 0.5px;
     position: relative;
-    
+
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -10px;
       left: 50%;
@@ -31,7 +31,7 @@
       border-radius: 2px;
     }
   }
-  
+
   .momentsRow {
     display: flex;
     justify-content: center;
@@ -40,21 +40,21 @@
     padding: 2rem 0;
     overflow: hidden;
     position: relative;
-    
+
     .scrollingContainer {
       display: flex;
       gap: 0; // Remove gap to prevent blank spaces
       animation: scrollHorizontally 20s linear infinite;
       width: max-content;
-      
+
       &:hover {
         animation-play-state: paused;
       }
     }
-    
+
     // Gap is now handled by margin-right on individual cards
   }
-  
+
   .momentCard {
     width: 240px;
     height: 400px;
@@ -65,39 +65,39 @@
     transition: all 0.3s ease;
     flex-shrink: 0;
     margin-right: 1.5rem; // Add margin between cards
-    
+
     &:hover {
       transform: translateY(-8px) scale(1.05);
       box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
       z-index: 10;
     }
-    
+
     @media (max-width: 1200px) {
       width: 180px;
       height: 270px;
       margin-right: 1rem;
     }
-    
+
     @media (max-width: 768px) {
       width: 160px;
       height: 240px;
       margin-right: 0.75rem;
     }
   }
-  
+
   .imageContainer {
     width: 100%;
     height: 100%;
     position: relative;
     overflow: hidden;
-    
+
     .momentImage {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
     }
-    
+
     .soundBtn {
       position: absolute;
       right: 8px;
@@ -116,17 +116,17 @@
       cursor: pointer;
       transition: all 0.2s ease;
       backdrop-filter: blur(4px);
-      
+
       &:hover {
         background: rgba(0, 0, 0, 0.8);
         transform: scale(1.1);
       }
-      
+
       &:active {
         transform: scale(0.95);
       }
     }
-    
+
     .overlay {
       position: absolute;
       top: 0;
@@ -143,7 +143,7 @@
       pointer-events: none;
     }
   }
-  
+
   // Horizontal Scrolling Animation - Seamless infinite loop
   @keyframes scrollHorizontally {
     0% {
@@ -153,12 +153,12 @@
       transform: translateX(-33.333%); // Since we have 3 copies, move by 1/3
     }
   }
-  
+
   // Motion Indicator
   .motionIndicator {
     text-align: center;
     margin-top: 2rem;
-    
+
     .motionText {
       font-size: 1.1rem;
       color: #6c757d;
@@ -166,12 +166,12 @@
       font-weight: 500;
       font-family: sans-serif;
     }
-    
+
     .motionDots {
       display: flex;
       justify-content: center;
       gap: 0.5rem;
-      
+
       .dot {
         width: 8px;
         height: 8px;
@@ -181,9 +181,10 @@
       }
     }
   }
-  
+
   @keyframes pulseMotion {
-    0%, 100% {
+    0%,
+    100% {
       transform: scale(1);
       opacity: 0.7;
     }
@@ -192,12 +193,12 @@
       opacity: 1;
     }
   }
-  
+
   // Enhanced hover effects
   .momentCard:hover .momentImage {
     transform: scale(1.1);
   }
-  
+
   .momentCard:hover .overlay {
     background: linear-gradient(
       to bottom,
@@ -207,10 +208,10 @@
       rgba(0, 0, 0, 0.15) 100%
     );
   }
-  
+
   // Continuous motion effect
   .momentCard::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
@@ -225,34 +226,34 @@
     transition: left 0.5s ease;
     z-index: 2;
   }
-  
+
   .momentCard:hover::before {
     left: 100%;
   }
-  
+
   // Responsive adjustments
   @media (max-width: 1024px) {
     .momentsRow {
       gap: 1rem;
     }
-    
+
     .momentCard {
       width: 160px;
       height: 240px;
     }
   }
-  
+
   @media (max-width: 768px) {
     .sectionTitle {
       font-size: 2rem;
     }
-    
+
     .momentsRow {
       gap: 0.75rem;
       flex-wrap: wrap;
       justify-content: center;
     }
-    
+
     .momentCard {
       width: 140px;
       height: 210px;

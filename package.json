@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format:fix": "npx prettier --write ."
   },
   "dependencies": {
     "embla-carousel-react": "^8.6.0",

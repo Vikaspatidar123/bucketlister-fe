@@ -25,7 +25,7 @@ const TripDatesCard = ({ trip, destination }) => {
   const [isEnquiryPopupOpen, setIsEnquiryPopupOpen] = React.useState(false);
   const monthOptions = React.useMemo(
     () => buildMonthOptions(trip?.batches),
-    [trip]
+    [trip],
   );
 
   React.useEffect(() => {
@@ -37,7 +37,7 @@ const TripDatesCard = ({ trip, destination }) => {
   const datesForMonth = React.useMemo(() => {
     if (!selectedMonth || !trip?.batches) return [];
     const entry = trip.batches.find(
-      (o) => Object.keys(o)[0] === selectedMonth.value
+      (o) => Object.keys(o)[0] === selectedMonth.value,
     );
     const arr = entry ? entry[selectedMonth.value] : [];
     if (!Array.isArray(arr)) return [];
@@ -129,21 +129,20 @@ const TripDatesCard = ({ trip, destination }) => {
         ))}
         {(!datesForMonth || datesForMonth.length === 0) && (
           <div className={styles.noDates}>
-            {!trip?.batches || trip.batches.length === 0 
+            {!trip?.batches || trip.batches.length === 0
               ? "No upcoming batches for this trip. Send us an enquiry to customize your trip on your preferred dates."
-              : "Select a month to view dates"
-            }
+              : "Select a month to view dates"}
           </div>
         )}
       </div>
 
-      <button 
+      <button
         className={styles.primaryBtn}
         onClick={() => setIsEnquiryPopupOpen(true)}
       >
         Send Enquiry
       </button>
-      
+
       <EnquiryPopup
         isOpen={isEnquiryPopupOpen}
         onClose={() => setIsEnquiryPopupOpen(false)}

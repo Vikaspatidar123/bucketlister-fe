@@ -2,9 +2,10 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import styles from "./style.module.scss";
-import { crmApi } from '@/utils/crmApi';
+import { crmApi } from "@/utils/crmApi";
 
-const isBrowser = typeof window !== "undefined" && typeof document !== "undefined";
+const isBrowser =
+  typeof window !== "undefined" && typeof document !== "undefined";
 
 const lockBodyScroll = (shouldLock) => {
   if (!isBrowser) return;
@@ -35,11 +36,11 @@ const ensurePortalContainer = (containerId) => {
   return container;
 };
 
-const EnquiryPopup = ({ 
-  isOpen, 
-  onClose, 
+const EnquiryPopup = ({
+  isOpen,
+  onClose,
   destinationName = "",
-  tripTitle = "" 
+  tripTitle = "",
 }) => {
   const portalContainerRef = React.useRef(null);
   const [mounted, setMounted] = React.useState(false);
@@ -53,9 +54,10 @@ const EnquiryPopup = ({
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
+    email: "",
     destination: destinationName || tripTitle || "",
   });
-  
+
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -71,62 +73,64 @@ const EnquiryPopup = ({
   // Handle ESC key to close popup
   React.useEffect(() => {
     if (!isBrowser) return;
-    
+
     const handleEscape = (e) => {
-      if (e.key === 'Escape' && isOpen) {
+      if (e.key === "Escape" && isOpen) {
         onClose();
       }
     };
 
     if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
+      document.addEventListener("keydown", handleEscape);
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener("keydown", handleEscape);
     };
   }, [isOpen, onClose]);
 
   const handleInputChange = (field, value) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
-    
+
     // Clear error when user starts typing
     if (errors[field]) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        [field]: ""
+        [field]: "",
       }));
     }
   };
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.fullName.trim()) {
       newErrors.fullName = "Full name is required";
     } else if (formData.fullName.trim().length < 2) {
       newErrors.fullName = "Please enter your full name";
     }
-    
+
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
     } else if (!/^[6-9]\d{9}$/.test(formData.phone.replace(/\s+/g, ""))) {
       newErrors.phone = "Please enter a valid Indian mobile number";
     }
-    
-    // if (!formData.email.trim()) {
-    //   newErrors.email = "Email is required";
-    // } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-    //   newErrors.email = "Please enter a valid email address";
-    // }
-    
+
+    // Email validation (optional)
+    if (
+      formData.email.trim() &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())
+    ) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
     if (!formData.destination.trim()) {
       newErrors.destination = "Destination is required";
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -135,34 +139,34 @@ const EnquiryPopup = ({
     try {
       // Prepare form data for Web3Forms
       const body = new FormData();
-      body.append('name', formData.fullName);
-      body.append('email', 'website@bucketlister.in');
-      body.append('phone', formData.phone);
-      body.append('destination', formData.destination);
-      body.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY);
-      body.append('subject', 'New Travel Enquiry from Bucketlister Website');
-      body.append('from_name', 'Bucketlister Website');
-      
+      body.append("name", formData.fullName);
+      body.append("email", formData.email);
+      body.append("phone", formData.phone);
+      body.append("destination", formData.destination);
+      body.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY);
+      body.append("subject", "New Travel Enquiry from Bucketlister Website");
+      body.append("from_name", "Bucketlister Website");
+
       // Add additional context in the message
       const message = `
 New Travel Enquiry Details:
 - Name: ${formData.fullName}
-- Email: website@bucketlister.in
+- Email: ${formData.email}
 - Phone: ${formData.phone}
 - Interested Destination: ${formData.destination}
 - Enquiry Source: Trip Details Page Popup
       `.trim();
-      body.append('message', message);
+      body.append("message", message);
 
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body,
       });
 
       const data = await response.json();
       return data && data.success;
     } catch (error) {
-      console.error('Email submission error:', error);
+      console.error("Email submission error:", error);
       return false;
     }
   };
@@ -171,32 +175,33 @@ New Travel Enquiry Details:
     try {
       const { firstName, lastName } = crmApi.parseFullName(formData.fullName);
       const formattedPhone = crmApi.formatPhoneNumber(formData.phone);
-      
+
       const leadData = {
         firstName,
         lastName,
         phone: formattedPhone,
-        source: 'Website',
-        notes: `Interested Destination: ${formData.destination}`
+        email: formData.email.trim() || "",
+        source: "Website",
+        notes: `Interested Destination: ${formData.destination}`,
       };
 
       const result = await crmApi.createLead(leadData);
       return result.success;
     } catch (error) {
-      console.error('CRM submission error:', error);
+      console.error("CRM submission error:", error);
       return false;
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     try {
       // Submit to email first, then CRM
       const emailResult = await submitToEmail();
@@ -207,41 +212,45 @@ New Travel Enquiry Details:
         // Show success state
         setIsSuccess(true);
         setErrors({});
-        
+
         // Log results for debugging
-        console.log('CRM Result:', crmResult);
-        console.log('Email Result:', emailResult);
-        
+        console.log("CRM Result:", crmResult);
+        console.log("Email Result:", emailResult);
+
         // Auto-close popup after showing success message
         setTimeout(() => {
           setFormData({
             fullName: "",
             phone: "",
+            email: "",
             destination: destinationName || tripTitle || "",
           });
           setIsSuccess(false);
           onClose();
         }, 2000);
-        
       } else {
-        setErrors({ submit: 'Failed to submit enquiry. Please try again or contact us directly.' });
+        setErrors({
+          submit:
+            "Failed to submit enquiry. Please try again or contact us directly.",
+        });
       }
-      
     } catch (error) {
-      console.error('Enquiry submission error:', error);
-      setErrors({ submit: "Network error. Please check your connection and try again." });
+      console.error("Enquiry submission error:", error);
+      setErrors({
+        submit: "Network error. Please check your connection and try again.",
+      });
     } finally {
       setIsSubmitting(false);
     }
   };
 
   if (!mounted || !isOpen || !portalContainerRef.current) return null;
-  
+
   if (!isBrowser) return null;
 
   const node = (
     <div className={`${styles.enquiryOverlay} ${isOpen ? styles.open : ""}`}>
-      <div 
+      <div
         className={styles.backdrop}
         onClick={onClose}
         aria-label="Close popup"
@@ -249,7 +258,7 @@ New Travel Enquiry Details:
       <div className={styles.overlayPanel}>
         <div className={styles.overlayHeader}>
           <h3 className={styles.overlayTitle}>Send Enquiry</h3>
-          <button 
+          <button
             className={styles.closeButton}
             onClick={onClose}
             aria-label="Close"
@@ -258,14 +267,17 @@ New Travel Enquiry Details:
             ×
           </button>
         </div>
-        
+
         <div className={styles.overlayContent}>
           {isSuccess ? (
             <div className={styles.successMessage}>
               <div className={styles.successIcon}>✓</div>
-              <h3 className={styles.successTitle}>Enquiry Sent Successfully!</h3>
+              <h3 className={styles.successTitle}>
+                Enquiry Sent Successfully!
+              </h3>
               <p className={styles.successText}>
-                Thank you for your interest. We&apos;ll get back to you within 24 hours with the best travel options.
+                Thank you for your interest. We&apos;ll get back to you within
+                24 hours with the best travel options.
               </p>
             </div>
           ) : (
@@ -280,13 +292,16 @@ New Travel Enquiry Details:
                   name="fullName"
                   placeholder="Enter your full name"
                   value={formData.fullName}
-                  onChange={(e) => handleInputChange('fullName', e.target.value)}
-                  className={`${styles.input} ${errors.fullName ? styles.error : ''}`}
+                  onChange={(e) =>
+                    handleInputChange("fullName", e.target.value)
+                  }
+                  className={`${styles.input} ${errors.fullName ? styles.error : ""}`}
                   required
                 />
-                {errors.fullName && <span className={styles.errorText}>{errors.fullName}</span>}
+                {errors.fullName && (
+                  <span className={styles.errorText}>{errors.fullName}</span>
+                )}
               </div>
-
 
               <div className={styles.formGroup}>
                 <label htmlFor="enquiry-phone" className={styles.label}>
@@ -298,28 +313,33 @@ New Travel Enquiry Details:
                   name="phone"
                   placeholder="Enter your mobile number"
                   value={formData.phone}
-                  onChange={(e) => handleInputChange('phone', e.target.value)}
-                  className={`${styles.input} ${errors.phone ? styles.error : ''}`}
+                  onChange={(e) => handleInputChange("phone", e.target.value)}
+                  className={`${styles.input} ${errors.phone ? styles.error : ""}`}
                   required
                 />
-                {errors.phone && <span className={styles.errorText}>{errors.phone}</span>}
+                {errors.phone && (
+                  <span className={styles.errorText}>{errors.phone}</span>
+                )}
               </div>
 
-              {/* <div className={styles.formGroup}>
+              <div className={styles.formGroup}>
                 <label htmlFor="enquiry-email" className={styles.label}>
-                  Email Address *
+                  Email Address{" "}
+                  <span className={styles.optional}>(optional)</span>
                 </label>
                 <input
                   type="email"
                   id="enquiry-email"
                   name="email"
                   placeholder="Enter your email address"
-                  onChange={(e) => handleInputChange('email', e.target.value)}
-                  className={`${styles.input} ${errors.email ? styles.error : ''}`}
-                  required
+                  value={formData.email}
+                  onChange={(e) => handleInputChange("email", e.target.value)}
+                  className={`${styles.input} ${errors.email ? styles.error : ""}`}
                 />
-                {errors.email && <span className={styles.errorText}>{errors.email}</span>}
-              </div> */}
+                {errors.email && (
+                  <span className={styles.errorText}>{errors.email}</span>
+                )}
+              </div>
 
               <div className={styles.formGroup}>
                 <label htmlFor="enquiry-destination" className={styles.label}>
@@ -331,11 +351,15 @@ New Travel Enquiry Details:
                   name="destination"
                   placeholder="Where would you like to go?"
                   value={formData.destination}
-                  onChange={(e) => handleInputChange('destination', e.target.value)}
-                  className={`${styles.input} ${errors.destination ? styles.error : ''}`}
+                  onChange={(e) =>
+                    handleInputChange("destination", e.target.value)
+                  }
+                  className={`${styles.input} ${errors.destination ? styles.error : ""}`}
                   required
                 />
-                {errors.destination && <span className={styles.errorText}>{errors.destination}</span>}
+                {errors.destination && (
+                  <span className={styles.errorText}>{errors.destination}</span>
+                )}
               </div>
 
               {errors.submit && (
@@ -343,12 +367,12 @@ New Travel Enquiry Details:
               )}
 
               <div className={styles.formActions}>
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className={styles.submitButton}
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Enquiry'}
+                  {isSubmitting ? "Sending..." : "Send Enquiry"}
                 </button>
               </div>
             </form>

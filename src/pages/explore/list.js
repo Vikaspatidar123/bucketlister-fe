@@ -8,7 +8,7 @@ import TheBucketListeerLoader from "@/common/Loader";
 export default function ExploreListPage() {
   const router = useRouter();
   const { date, category, search } = router.query;
-  
+
   // Generate dynamic title based on query parameters
   const getPageTitle = () => {
     if (date) {
@@ -16,7 +16,8 @@ export default function ExploreListPage() {
       return `${dateFormatted} Travel Packages - Upcoming Trips`;
     }
     if (category) {
-      const categoryFormatted = category.charAt(0).toUpperCase() + category.slice(1);
+      const categoryFormatted =
+        category.charAt(0).toUpperCase() + category.slice(1);
       return `${categoryFormatted} Travel Packages - Upcoming Trips`;
     }
     if (search) {
@@ -39,19 +40,26 @@ export default function ExploreListPage() {
   };
 
   const getKeywords = () => {
-    const baseKeywords = ['upcoming trips', 'travel packages', 'adventure tours', 'travel booking', 'holiday packages'];
-    
+    const baseKeywords = [
+      "upcoming trips",
+      "travel packages",
+      "adventure tours",
+      "travel booking",
+      "holiday packages",
+    ];
+
     if (date) baseKeywords.unshift(`${date} trips`, `${date} travel packages`);
-    if (category) baseKeywords.unshift(`${category} tours`, `${category} packages`);
+    if (category)
+      baseKeywords.unshift(`${category} tours`, `${category} packages`);
     if (search) baseKeywords.unshift(search.toLowerCase());
-    
+
     return baseKeywords;
   };
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Explore', url: '/explore' },
-    { name: 'Upcoming Trips', url: '/explore/list' }
+    { name: "Home", url: "/" },
+    { name: "Explore", url: "/explore" },
+    { name: "Upcoming Trips", url: "/explore/list" },
   ];
 
   const structuredData = [generateBreadcrumbSchema(breadcrumbs)];
@@ -65,7 +73,14 @@ export default function ExploreListPage() {
         url="/explore/list"
         structuredData={structuredData}
       />
-      <Suspense fallback={<TheBucketListeerLoader size="medium" text="Discovering amazing destinations..." />}>
+      <Suspense
+        fallback={
+          <TheBucketListeerLoader
+            size="medium"
+            text="Discovering amazing destinations..."
+          />
+        }
+      >
         <TravelPackagesSection isHomePage={false} listLayout={true} />
       </Suspense>
     </>

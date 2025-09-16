@@ -1,7 +1,7 @@
 .testimonialsSection {
   padding: 4rem 0;
   background-color: #fff;
-  
+
   .container {
     max-width: 85vw;
     margin: 0 auto;
@@ -22,16 +22,16 @@
     font-weight: 700;
     margin-bottom: 3rem;
     line-height: 1.2;
-    
+
     .titlePart1 {
       color: #000;
     }
-    
+
     .titlePart2 {
       color: #dc3545;
     }
   }
-  
+
   .testimonialsGrid {
     display: flex;
     flex-wrap: nowrap;
@@ -43,7 +43,8 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
-    &::-webkit-scrollbar { /* WebKit */
+    &::-webkit-scrollbar {
+      /* WebKit */
       display: none;
       height: 0;
     }
@@ -52,7 +53,7 @@
 
     @media (max-width: 768px) {
       &::after {
-        content: '→';
+        content: "→";
         position: sticky;
         right: 6px;
         height: 25px;
@@ -70,9 +71,8 @@
         // animation: subtlePulse 2.4s ease-in-out infinite alternate; // slight shine
       }
     }
-    
   }
-  
+
   .testimonialCard {
     display: flex;
     flex-direction: column;
@@ -81,21 +81,23 @@
     border-radius: 12px;
     border: 1px solid #e5e7eb;
     box-shadow: 0 6px 16px rgba(16, 24, 40, 0.06);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(16, 24, 40, 0.10);
+      box-shadow: 0 10px 22px rgba(16, 24, 40, 0.1);
     }
     scroll-snap-align: start;
     flex: 0 0 320px;
     min-height: 200px;
-    
+
     .testimonialContent {
       display: flex;
       flex-direction: column;
       height: 100%;
-      
+
       .quoteIcon {
         font-size: 24px;
         color: #dc3545;
@@ -103,7 +105,7 @@
         font-family: serif;
         line-height: 1;
       }
-      
+
       .testimonialText {
         font-size: 1rem;
         color: #555;
@@ -113,7 +115,7 @@
         font-style: italic;
         flex-grow: 1;
       }
-      
+
       .userName {
         font-size: 1rem;
         font-weight: 600;
@@ -124,7 +126,7 @@
         letter-spacing: 0.5px;
         font-style: normal;
       }
-      
+
       .userLocation {
         font-size: 0.9rem;
         color: #666;
@@ -135,11 +137,17 @@
       }
     }
   }
-  
+
   // subtle pulse/shine animation for the sticky arrow pill
   @keyframes subtlePulse {
-    0% { box-shadow: 0 2px 8px rgba(16, 24, 40, 0.12); opacity: 0.9; }
-    100% { box-shadow: 0 4px 12px rgba(239, 52, 71, 0.22); opacity: 1; }
+    0% {
+      box-shadow: 0 2px 8px rgba(16, 24, 40, 0.12);
+      opacity: 0.9;
+    }
+    100% {
+      box-shadow: 0 4px 12px rgba(239, 52, 71, 0.22);
+      opacity: 1;
+    }
   }
 }
 @media screen and (max-width: 992px) {

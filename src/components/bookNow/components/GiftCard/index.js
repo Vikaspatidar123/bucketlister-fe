@@ -2,7 +2,11 @@
 import React, { useState } from "react";
 import styles from "./style.module.scss";
 
-const GiftCard = ({ onGiftCardApply, appliedGiftCard = null, compact = false }) => {
+const GiftCard = ({
+  onGiftCardApply,
+  appliedGiftCard = null,
+  compact = false,
+}) => {
   const [giftCardCode, setGiftCardCode] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -18,14 +22,14 @@ const GiftCard = ({ onGiftCardApply, appliedGiftCard = null, compact = false }) 
 
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       // Mock validation - you can replace this with actual API call
       if (giftCardCode.toUpperCase() === "GIFT500") {
         onGiftCardApply({
           code: giftCardCode.toUpperCase(),
           amount: 500,
-          description: "Gift Card Applied"
+          description: "Gift Card Applied",
         });
         setGiftCardCode("");
       } else {
@@ -44,15 +48,19 @@ const GiftCard = ({ onGiftCardApply, appliedGiftCard = null, compact = false }) 
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleApplyGiftCard();
     }
   };
 
   return (
-    <div className={`${styles.giftCardContainer} ${compact ? styles.compact : ''}`}>
+    <div
+      className={`${styles.giftCardContainer} ${compact ? styles.compact : ""}`}
+    >
       <div className={styles.header}>
-        <h3 className={styles.title}>{compact ? "Gift Card" : "Have Gift Card"}</h3>
+        <h3 className={styles.title}>
+          {compact ? "Gift Card" : "Have Gift Card"}
+        </h3>
       </div>
 
       {appliedGiftCard ? (
@@ -65,10 +73,7 @@ const GiftCard = ({ onGiftCardApply, appliedGiftCard = null, compact = false }) 
               -₹{appliedGiftCard.amount.toLocaleString()}
             </div>
           </div>
-          <button 
-            className={styles.removeBtn}
-            onClick={handleRemoveGiftCard}
-          >
+          <button className={styles.removeBtn} onClick={handleRemoveGiftCard}>
             Remove
           </button>
         </div>
@@ -84,7 +89,7 @@ const GiftCard = ({ onGiftCardApply, appliedGiftCard = null, compact = false }) 
               className={styles.giftCardInput}
               disabled={isLoading}
             />
-            <button 
+            <button
               className={styles.applyBtn}
               onClick={handleApplyGiftCard}
               disabled={isLoading || !giftCardCode.trim()}
@@ -92,13 +97,9 @@ const GiftCard = ({ onGiftCardApply, appliedGiftCard = null, compact = false }) 
               {isLoading ? "Applying..." : "Apply"}
             </button>
           </div>
-          
-          {error && (
-            <div className={styles.errorMessage}>
-              {error}
-            </div>
-          )}
-          
+
+          {error && <div className={styles.errorMessage}>{error}</div>}
+
           <div className={styles.helpText}>
             Enter your gift card code to apply discount
           </div>

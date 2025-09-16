@@ -7,7 +7,10 @@
   max-width: 300px;
   border: 1px solid #c2ccd5;
   height: fit-content;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
   @media (max-width: 768px) {
     max-width: 100%;
   }
@@ -75,7 +78,10 @@
   border: 1px solid #e6e9ef;
   border-radius: 10px;
   background: #fff;
-  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 .dateRow:hover {
   border-color: #ef3447;
@@ -103,7 +109,9 @@
   height: 44px;
   width: 100%;
   font-weight: 800;
-  transition: filter 0.15s ease, transform 0.15s ease;
+  transition:
+    filter 0.15s ease,
+    transform 0.15s ease;
   margin-bottom: 12px;
   cursor: pointer;
 }

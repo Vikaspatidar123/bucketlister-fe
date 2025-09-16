@@ -7,7 +7,13 @@ export default function TermsAndConditions() {
       <SEO
         title="Terms and Conditions"
         description="Read THE BUCKETLISTER's terms and conditions for booking travel packages and using our services."
-        keywords={['terms and conditions', 'travel terms', 'booking terms', 'service terms', 'legal']}
+        keywords={[
+          "terms and conditions",
+          "travel terms",
+          "booking terms",
+          "service terms",
+          "legal",
+        ]}
         url="/terms-and-conditions"
         noIndex={true}
       />

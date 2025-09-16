@@ -17,7 +17,7 @@ const TripDetails = ({ destination, trip }) => {
   const similarTrips = useSimilarTours(
     destination?.destination_id,
     trip?.tripId,
-    16
+    16,
   );
 
   if (!destination || !trip) {
@@ -28,9 +28,9 @@ const TripDetails = ({ destination, trip }) => {
   return (
     <section className={styles.tripDetailsSection}>
       <div id="trip-overview">
-        <TripHeader 
-          title={destination.destination_name} 
-          price={trip.price} 
+        <TripHeader
+          title={destination.destination_name}
+          price={trip.price}
           hasBatches={Array.isArray(trip?.batches) && trip.batches.length > 0}
         />
       </div>
@@ -57,7 +57,10 @@ const TripDetails = ({ destination, trip }) => {
         <TravellersTestimonialsSection />
       </div>
       <div id="trip-similar">
-        <SimilarTours trips={similarTrips} baseCategory={destination?.category} />
+        <SimilarTours
+          trips={similarTrips}
+          baseCategory={destination?.category}
+        />
       </div>
     </section>
   );

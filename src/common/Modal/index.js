@@ -1,9 +1,16 @@
 "use client";
-import React, { useEffect, useRef, useCallback, useMemo, useState } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useCallback,
+  useMemo,
+  useState,
+} from "react";
 import ReactDOM from "react-dom";
 import styles from "./style.module.scss";
 
-const isBrowser = typeof window !== "undefined" && typeof document !== "undefined";
+const isBrowser =
+  typeof window !== "undefined" && typeof document !== "undefined";
 
 const ensurePortalContainer = (containerId) => {
   if (!isBrowser) return null;
@@ -20,11 +27,24 @@ const ensurePortalContainer = (containerId) => {
 const getFocusableElements = (root) => {
   if (!root) return [];
   const selectors = [
-    'a[href]','area[href]','input:not([disabled])','select:not([disabled])','textarea:not([disabled])',
-    'button:not([disabled])','iframe','object','embed','[tabindex]:not([tabindex="-1"])','[contenteditable="true"]'
+    "a[href]",
+    "area[href]",
+    "input:not([disabled])",
+    "select:not([disabled])",
+    "textarea:not([disabled])",
+    "button:not([disabled])",
+    "iframe",
+    "object",
+    "embed",
+    '[tabindex]:not([tabindex="-1"])',
+    '[contenteditable="true"]',
   ];
-  return Array.from(root.querySelectorAll(selectors.join(',')))
-    .filter((el) => el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement);
+  return Array.from(root.querySelectorAll(selectors.join(","))).filter(
+    (el) =>
+      el.offsetWidth > 0 ||
+      el.offsetHeight > 0 ||
+      el === document.activeElement,
+  );
 };
 
 const lockBodyScroll = (shouldLock) => {
@@ -65,7 +85,13 @@ const Modal = ({
   const [exiting, setExiting] = useState(false);
   const portalContainerRef = useRef(null);
   const dialogRef = useRef(null);
-  const titleId = useMemo(() => (title ? `modal-title-${Math.random().toString(36).slice(2, 8)}` : undefined), [title]);
+  const titleId = useMemo(
+    () =>
+      title
+        ? `modal-title-${Math.random().toString(36).slice(2, 8)}`
+        : undefined,
+    [title],
+  );
 
   // Mount portal container on client
   useEffect(() => {
@@ -76,18 +102,23 @@ const Modal = ({
   // Lock scroll while open
   useEffect(() => {
     if (!disableScrollLock) lockBodyScroll(isOpen);
-    return () => { if (!disableScrollLock) lockBodyScroll(false); };
+    return () => {
+      if (!disableScrollLock) lockBodyScroll(false);
+    };
   }, [isOpen, disableScrollLock]);
 
   // Request close with animation
-  const handleRequestClose = useCallback((reason) => {
-    if (!onClose) return;
-    setExiting(true);
-    window.setTimeout(() => {
-      setExiting(false);
-      onClose?.(reason);
-    }, 200);
-  }, [onClose]);
+  const handleRequestClose = useCallback(
+    (reason) => {
+      if (!onClose) return;
+      setExiting(true);
+      window.setTimeout(() => {
+        setExiting(false);
+        onClose?.(reason);
+      }, 200);
+    },
+    [onClose],
+  );
 
   // Handle ESC to close
   useEffect(() => {
@@ -125,12 +156,15 @@ const Modal = ({
     }, 0);
   }, [isOpen, initialFocusRef]);
 
-  const handleBackdropClick = useCallback((e) => {
-    if (!closeOnBackdrop) return;
-    if (e.target === e.currentTarget) {
-      handleRequestClose("backdrop");
-    }
-  }, [closeOnBackdrop, handleRequestClose]);
+  const handleBackdropClick = useCallback(
+    (e) => {
+      if (!closeOnBackdrop) return;
+      if (e.target === e.currentTarget) {
+        handleRequestClose("backdrop");
+      }
+    },
+    [closeOnBackdrop, handleRequestClose],
+  );
 
   if (!mounted || !isOpen || !portalContainerRef.current) return null;
 
@@ -144,9 +178,13 @@ const Modal = ({
     styles[size] || "",
     exiting ? styles.dialogExit : styles.dialogEnter,
     className,
-  ].filter(Boolean).join(" ");
+  ]
+    .filter(Boolean)
+    .join(" ");
 
-  const contentClasses = [styles.content, contentClassName].filter(Boolean).join(" ");
+  const contentClasses = [styles.content, contentClassName]
+    .filter(Boolean)
+    .join(" ");
 
   const dialogProps = {
     role: "dialog",
@@ -156,21 +194,26 @@ const Modal = ({
     tabIndex: -1,
   };
 
-  const header = (title || showCloseButton) ? (
-    <div className={styles.header}>
-      {title ? <h3 id={titleId} className={styles.title}>{title}</h3> : null}
-      {showCloseButton ? (
-        <button
-          type="button"
-          className={styles.closeButton}
-          aria-label="Close"
-          onClick={() => handleRequestClose("close-button")}
-        >
-          ×
-        </button>
-      ) : null}
-    </div>
-  ) : null;
+  const header =
+    title || showCloseButton ? (
+      <div className={styles.header}>
+        {title ? (
+          <h3 id={titleId} className={styles.title}>
+            {title}
+          </h3>
+        ) : null}
+        {showCloseButton ? (
+          <button
+            type="button"
+            className={styles.closeButton}
+            aria-label="Close"
+            onClick={() => handleRequestClose("close-button")}
+          >
+            ×
+          </button>
+        ) : null}
+      </div>
+    ) : null;
 
   const footerNode = footer ? (
     <div className={styles.footer}>{footer}</div>
@@ -205,5 +248,3 @@ export const useModal = (initialOpen = false) => {
 };
 
 export default Modal;
-
-

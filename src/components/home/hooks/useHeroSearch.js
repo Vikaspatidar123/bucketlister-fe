@@ -11,7 +11,7 @@ export const useHeroSearch = () => {
 
   const handleInputChange = (name, value) => {
     console.log(name, value);
-    
+
     setSearchData((prev) => ({
       ...prev,
       [name]: value,

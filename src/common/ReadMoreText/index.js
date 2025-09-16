@@ -4,17 +4,17 @@ import DescriptionModal from "../DescriptionModal";
 import { truncateText, needsTruncation } from "@/utils/textFormatter";
 import styles from "./style.module.scss";
 
-const ReadMoreText = ({ 
-  text, 
-  maxLength = 150, 
+const ReadMoreText = ({
+  text,
+  maxLength = 150,
   modalTitle = "Description",
   className = "",
   readMoreClassName = "",
-  ...props 
+  ...props
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
-  if (!text || typeof text !== 'string') {
+
+  if (!text || typeof text !== "string") {
     return null;
   }
 
@@ -37,7 +37,7 @@ const ReadMoreText = ({
         {shouldTruncate && (
           <>
             {" "}
-            <button 
+            <button
               type="button"
               onClick={handleReadMoreClick}
               className={`${styles.readMoreButton} ${readMoreClassName}`}
@@ -47,7 +47,7 @@ const ReadMoreText = ({
           </>
         )}
       </span>
-      
+
       {shouldTruncate && (
         <DescriptionModal
           isOpen={isModalOpen}

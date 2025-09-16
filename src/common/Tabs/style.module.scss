@@ -10,7 +10,8 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
-  &::-webkit-scrollbar { /* WebKit */
+  &::-webkit-scrollbar {
+    /* WebKit */
     display: none;
     height: 0;
   }
@@ -73,7 +74,7 @@
   white-space: nowrap;
   min-width: 0;
   flex: 0 0 auto; /* do not stretch */
-  background: #F4F4F4;
+  background: #f4f4f4;
   width: fit-content;
 
   &:hover:not(.disabled) {
@@ -112,7 +113,7 @@
 .pills {
   border-radius: 8px;
   // border: 1px solid #e9ecef;
-  background: #F4F4F4;
+  background: #f4f4f4;
   flex: 0 0 auto;
 
   &:hover:not(.disabled) {

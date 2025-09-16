@@ -14,7 +14,8 @@ const FloatingActions = () => {
   const handleWhatsApp = () => {
     try {
       const phoneNumber = "917021664759"; // +91 70216 64759 without + and spaces
-      const message = "Hi! I'm interested in your travel packages and would like to know more about trip details, pricing, and availability. Please help me plan my next adventure!";
+      const message =
+        "Hi! I'm interested in your travel packages and would like to know more about trip details, pricing, and availability. Please help me plan my next adventure!";
       const encodedMessage = encodeURIComponent(message);
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
       window.open(whatsappUrl, "_blank");

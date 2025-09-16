@@ -8,7 +8,20 @@
  * @returns {{label: string, value: string}[]}
  */
 export const getDynamicMonthOptions = (start = new Date(), count = 12) => {
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const startYear = start.getFullYear();
   const startMonth = start.getMonth();
   const out = [];
@@ -18,7 +31,7 @@ export const getDynamicMonthOptions = (start = new Date(), count = 12) => {
     const yy = String(d.getFullYear()).slice(-2);
     out.push({
       label: `${abbr}${yy}`,
-      id: `${abbr.toLowerCase()}${yy}`
+      id: `${abbr.toLowerCase()}${yy}`,
     });
   }
   return out;

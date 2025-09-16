@@ -2,15 +2,15 @@
   // background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
   position: relative;
   overflow: hidden;
-  
+
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('/assets/png/footer-image.jpg');
+    background: url("/assets/png/footer-image.jpg");
     background-size: cover;
     background-position: center 70%;
     background-repeat: no-repeat;
@@ -18,18 +18,20 @@
     z-index: -1;
     transform: rotate(180deg);
   }
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 32.32%), linear-gradient(180deg, rgba(2, 101, 143, 0) 22.94%, #02658F 100%);
+    background:
+      linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 32.32%),
+      linear-gradient(180deg, rgba(2, 101, 143, 0) 22.94%, #02658f 100%);
     z-index: 0;
   }
-  
+
   .container {
     position: relative;
     z-index: 1;
@@ -37,7 +39,7 @@
     max-width: 85vw;
     margin: 0 auto;
     min-height: 350px;
-    
+
     @media (max-width: 768px) {
       flex-direction: column;
     }

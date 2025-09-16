@@ -18,4 +18,3 @@ const TripDetailsIndex = () => {
 };
 
 export default TripDetailsIndex;
-

@@ -15,7 +15,7 @@
 // Desktop: Only WhatsApp Icon
 .desktopWhatsApp {
   display: none;
-  
+
   @media (min-width: 769px) {
     display: flex;
     align-items: center;
@@ -29,13 +29,13 @@
     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
     transition: all 0.2s ease;
     position: relative;
-    
+
     &:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
       background: #22c55e;
     }
-    
+
     &:active {
       transform: scale(0.98);
     }
@@ -46,7 +46,11 @@
       position: absolute;
       inset: -4px;
       border-radius: 50%;
-      background: radial-gradient(closest-side, rgba(37, 211, 102, 0.2), transparent 70%);
+      background: radial-gradient(
+        closest-side,
+        rgba(37, 211, 102, 0.2),
+        transparent 70%
+      );
       opacity: 0.7;
       filter: blur(2px);
       animation: whatsappPulse 3s ease-in-out infinite;
@@ -60,15 +64,24 @@
 }
 
 @keyframes whatsappPulse {
-  0% { transform: scale(0.95); opacity: 0.5; }
-  50% { transform: scale(1.05); opacity: 0.8; }
-  100% { transform: scale(0.95); opacity: 0.5; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
 }
 
 // Mobile: Full FAB System
 .mobileFab {
   display: block;
-  
+
   @media (min-width: 769px) {
     display: none;
   }
@@ -167,7 +180,11 @@
   position: absolute;
   inset: -6px;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(239,52,71,0.25), transparent 70%);
+  background: radial-gradient(
+    closest-side,
+    rgba(239, 52, 71, 0.25),
+    transparent 70%
+  );
   opacity: 0.6;
   filter: blur(4px);
   animation: halo 2.4s ease-in-out infinite;
@@ -179,18 +196,31 @@
 }
 
 @keyframes halo {
-  0% { transform: scale(0.95); opacity: 0.5; }
-  50% { transform: scale(1.05); opacity: 0.7; }
-  100% { transform: scale(0.95); opacity: 0.5; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
 }
 
 @keyframes popUp {
-  from { opacity: 0; transform: translateY(8px) scale(0.9); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .whatsappGlyph {
   font-size: 18px;
 }
-
-

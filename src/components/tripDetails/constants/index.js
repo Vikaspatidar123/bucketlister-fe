@@ -12,5 +12,3 @@ export const DATE_LABELS = {
   apr26: "Apr",
   may26: "May",
 };
-
-

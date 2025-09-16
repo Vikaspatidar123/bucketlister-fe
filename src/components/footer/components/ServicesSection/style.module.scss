@@ -1,46 +1,46 @@
 .servicesSection {
   flex: 1;
   padding: 2rem 0px;
-  
+
   .title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #21272A;
+    color: #21272a;
     margin-bottom: 2rem;
     text-align: left;
   }
-  
+
   .servicesGrid {
     display: flex;
     flex-direction: column;
     // grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .serviceItem {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    
+
     .serviceIcon {
       font-size: 1.5rem;
       min-width: 2rem;
       text-align: center;
     }
-    
+
     .serviceContent {
       flex: 1;
-      
+
       .serviceTitle {
         font-size: 1rem;
         font-weight: 600;
-        color: #21272A;
+        color: #21272a;
         margin: 0 0 0.5rem 0;
       }
-      
+
       .serviceDescription {
         font-size: 0.9rem;
-        color: #21272A;
+        color: #21272a;
         margin: 0;
         line-height: 1.4;
       }

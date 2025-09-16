@@ -46,7 +46,8 @@ export const BRAND_INFO = {
 // Dynamic dropdowns derived from Travel Packages data
 import { mapDestinationsByCategory } from "@/utils/travelData";
 
-export const INTERNATIONAL_DESTINATIONS = mapDestinationsByCategory("international");
+export const INTERNATIONAL_DESTINATIONS =
+  mapDestinationsByCategory("international");
 
 export const DOMESTIC_DESTINATIONS = mapDestinationsByCategory("domestic");
 

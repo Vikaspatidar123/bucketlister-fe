@@ -2,27 +2,27 @@
   width: 100%;
   max-width: 640px;
   margin: 0 auto;
-  
+
   form {
     width: 100%;
   }
-  
+
   .formRow {
     display: flex;
     gap: 12px;
     align-items: center;
-    
+
     @media (max-width: 768px) {
       flex-direction: column;
       gap: 10px;
     }
   }
-  
+
   .inputGroup {
     flex: 1;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
-    
+
     .input {
       width: 100%;
       padding: 12px 14px;
@@ -30,13 +30,20 @@
       border-radius: 12px;
       font-size: 15px;
       background: #f9fafb;
-      box-shadow: inset 0 1px 0 rgba(16,24,40,0.04);
+      box-shadow: inset 0 1px 0 rgba(16, 24, 40, 0.04);
       transition: all 0.3s ease;
       // border: 2px solid #000000;
-      
-      &::placeholder { color: #6b7280; font-weight: 400; }
-      
-      &:focus { outline: none; background: #fff; box-shadow: 0 0 0 3px rgba(239, 52, 71, 0.15); }
+
+      &::placeholder {
+        color: #6b7280;
+        font-weight: 400;
+      }
+
+      &:focus {
+        outline: none;
+        background: #fff;
+        box-shadow: 0 0 0 3px rgba(239, 52, 71, 0.15);
+      }
     }
 
     /* Make CustomSelect look like the input without touching its internal classes */
@@ -51,11 +58,13 @@
       border-radius: 12px;
       font-size: 15px;
       background: #f9fafb;
-      box-shadow: inset 0 1px 0 rgba(16,24,40,0.04);
+      box-shadow: inset 0 1px 0 rgba(16, 24, 40, 0.04);
       transition: all 0.3s ease;
       color: #333;
     }
-    .selectLikeInput > div:first-child:hover { background: #fff; }
+    .selectLikeInput > div:first-child:hover {
+      background: #fff;
+    }
     /* Value text (first span) */
     .selectLikeInput > div:first-child > span:first-child {
       color: #666;
@@ -82,7 +91,7 @@
       padding: 8px 14px; /* reduced padding */
     }
   }
-  
+
   .searchButton {
     background: #ef3447;
     color: #fff;
@@ -95,14 +104,20 @@
     transition: all 0.2s ease;
     white-space: nowrap;
     box-shadow: 0 4px 14px rgba(239, 52, 71, 0.25);
-    
-    &:hover:not(:disabled) { background: #e12b3d; }
-    
+
+    &:hover:not(:disabled) {
+      background: #e12b3d;
+    }
+
     &:active:not(:disabled) {
       transform: translateY(0);
     }
-    
-    &:disabled { background: #f3f4f6; color: #9ca3af; box-shadow: none; }
+
+    &:disabled {
+      background: #f3f4f6;
+      color: #9ca3af;
+      box-shadow: none;
+    }
   }
 
   /* Hide date select on mobile */

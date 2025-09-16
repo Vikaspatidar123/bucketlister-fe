@@ -29,11 +29,16 @@ const SimilarTours = ({ trips = [], baseCategory = null }) => {
   if (!Array.isArray(filteredTrips) || filteredTrips.length === 0) return null;
 
   const handleClick = (trip) => {
-    router.push(`/trip?destinationId=${trip.destination_id}&tripId=${trip.tripId}`);
+    router.push(
+      `/trip?destinationId=${trip.destination_id}&tripId=${trip.tripId}`,
+    );
   };
 
   const formatDuration = (d) => d || "10D-9N";
-  const formatPrice = (p) => (typeof p === "number" ? `Starting at Rs. ${p.toLocaleString()}/-` : (p || "Starting at Rs. 23,000/-"));
+  const formatPrice = (p) =>
+    typeof p === "number"
+      ? `Starting at Rs. ${p.toLocaleString()}/-`
+      : p || "Starting at Rs. 23,000/-";
 
   return (
     <section className={styles.wrapper}>
@@ -50,5 +55,3 @@ const SimilarTours = ({ trips = [], baseCategory = null }) => {
 };
 
 export default SimilarTours;
-
-

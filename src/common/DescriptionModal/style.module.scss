@@ -19,7 +19,7 @@
   // Paragraph styling
   p {
     margin-bottom: 16px;
-    
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -41,11 +41,11 @@
   ul {
     margin: 16px 0;
     padding-left: 24px;
-    
+
     li {
       margin-bottom: 8px;
       list-style-type: disc;
-      
+
       &:last-child {
         margin-bottom: 0;
       }
@@ -60,7 +60,7 @@
   // Mobile responsiveness
   @media (max-width: 768px) {
     font-size: 14px;
-    
+
     ul {
       padding-left: 20px;
     }
@@ -80,7 +80,7 @@
 .descriptionContent::-webkit-scrollbar-thumb {
   background: #c1c1c1;
   border-radius: 3px;
-  
+
   &:hover {
     background: #a8a8a8;
   }

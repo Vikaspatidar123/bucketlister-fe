@@ -34,7 +34,7 @@
 
     &:focus {
       outline: none;
-      border-color: #02658F;
+      border-color: #02658f;
       box-shadow: 0 0 0 2px rgba(2, 101, 143, 0.1);
     }
 
@@ -68,8 +68,8 @@
   }
 
   .submitButton {
-    background: #EF3447;
-    border: 2px solid #FFFFFF;
+    background: #ef3447;
+    border: 2px solid #ffffff;
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
@@ -79,7 +79,7 @@
     transition: all 0.2s ease;
     align-self: flex-end;
     min-width: 140px;
-    
+
     &:hover:not(:disabled) {
       background: #c82333;
     }

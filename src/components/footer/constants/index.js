@@ -7,7 +7,7 @@ import {
   linkedinIcon,
   supportIcon,
   twitterIcon,
-  youtubeIcon
+  youtubeIcon,
 } from "@/assets/svg";
 import { mapDestinationsByCategory } from "@/utils/travelData";
 
@@ -46,20 +46,36 @@ export const COMPANY_INFO = {
   phone: ["+91 702664759"],
   email: "sales.thebucketlister@gmail.com",
   socialMedia: [
-    { name: "YouTube", icon: youtubeIcon, url: "https://www.youtube.com/@the_bucketlister" },
-    { name: "Facebook", icon: facebookIcon, url: "https://www.facebook.com/TheBucketlisterTravels" },
-    { name: "Instagram", icon: instagramIconFooter, url: "https://www.instagram.com/thebucketlister_/" },
-    { name: "LinkedIn", icon: linkedinIcon, url: "https://www.linkedin.com/company/the-bucketlister" },
+    {
+      name: "YouTube",
+      icon: youtubeIcon,
+      url: "https://www.youtube.com/@the_bucketlister",
+    },
+    {
+      name: "Facebook",
+      icon: facebookIcon,
+      url: "https://www.facebook.com/TheBucketlisterTravels",
+    },
+    {
+      name: "Instagram",
+      icon: instagramIconFooter,
+      url: "https://www.instagram.com/thebucketlister_/",
+    },
+    {
+      name: "LinkedIn",
+      icon: linkedinIcon,
+      url: "https://www.linkedin.com/company/the-bucketlister",
+    },
   ],
 };
 
 export const FOOTER_LINKS = {
-  international: mapDestinationsByCategory('international')
-    .map(({ label, href }) => ({ name: label, url: href }))
-    ,
-  popularUpcoming: mapDestinationsByCategory('domestic')
-    .map(({ label, href }) => ({ name: label, url: href }))
-    ,
+  international: mapDestinationsByCategory("international").map(
+    ({ label, href }) => ({ name: label, url: href }),
+  ),
+  popularUpcoming: mapDestinationsByCategory("domestic").map(
+    ({ label, href }) => ({ name: label, url: href }),
+  ),
   otherServices: [
     { name: "Corporate Trips", url: "/explore/list" },
     { name: "Itinerary Planning", url: "/explore/list" },

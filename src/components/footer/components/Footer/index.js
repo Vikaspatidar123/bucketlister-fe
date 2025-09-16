@@ -1,9 +1,9 @@
 "use client";
-import React from 'react';
-import TopSection from '../TopSection';
-import MiddleSection from '../MiddleSection';
-import FooterLinks from '../FooterLinks';
-import styles from './style.module.scss';
+import React from "react";
+import TopSection from "../TopSection";
+import MiddleSection from "../MiddleSection";
+import FooterLinks from "../FooterLinks";
+import styles from "./style.module.scss";
 
 const Footers = () => {
   return (

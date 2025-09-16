@@ -21,9 +21,11 @@ export const useDestinations = () => {
         destination_id: destination.destination_id,
         name: destination.destination_name,
         image: destination.thumbnail_image || destination.hero_image,
-        rating: Array.isArray(destination.reviews) && destination.reviews.length > 0
-          ? destination.reviews.reduce((acc, r) => acc + (r.rating || 0), 0) / destination.reviews.length
-          : undefined,
+        rating:
+          Array.isArray(destination.reviews) && destination.reviews.length > 0
+            ? destination.reviews.reduce((acc, r) => acc + (r.rating || 0), 0) /
+              destination.reviews.length
+            : undefined,
       };
 
       const category = destination.category || "international";
@@ -44,14 +46,20 @@ export const useDestinations = () => {
 
   // Get destination by id
   const getDestinationById = (id) => {
-    const pool = [...categorized.international, ...categorized.domestic, ...categorized.weekend];
+    const pool = [
+      ...categorized.international,
+      ...categorized.domestic,
+      ...categorized.weekend,
+    ];
     return pool.find((d) => d.id === id) || null;
   };
 
   // Search
   const searchDestinations = (query) => {
     const pool = categorized[activeTab] || [];
-    return pool.filter((d) => d.name.toLowerCase().includes(query.toLowerCase()));
+    return pool.filter((d) =>
+      d.name.toLowerCase().includes(query.toLowerCase()),
+    );
   };
 
   // Initialize with all

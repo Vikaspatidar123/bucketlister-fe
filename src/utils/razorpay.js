@@ -1,6 +1,6 @@
 /**
  * Razorpay Payment Integration Utility
- * 
+ *
  * IMPORTANT NOTES:
  * 1. For production, you MUST create orders on your backend using Razorpay's Orders API
  * 2. The current implementation skips order creation for testing purposes
@@ -17,8 +17,10 @@ const loadRazorpayScript = () => {
       return;
     }
 
-    const script = document.createElement('script');
-    script.src = process.env.NEXT_PUBLIC_RAZORPAY_CHECKOUT_URL || 'https://checkout.razorpay.com/v1/checkout.js';
+    const script = document.createElement("script");
+    script.src =
+      process.env.NEXT_PUBLIC_RAZORPAY_CHECKOUT_URL ||
+      "https://checkout.razorpay.com/v1/checkout.js";
     script.onload = () => resolve(true);
     script.onerror = () => resolve(false);
     document.body.appendChild(script);
@@ -29,31 +31,31 @@ const loadRazorpayScript = () => {
 export const initiateRazorpayPayment = async ({
   amount,
   orderId = null,
-  currency = 'INR',
+  currency = "INR",
   customerDetails,
   bookingDetails,
   onSuccess,
-  onFailure
+  onFailure,
 }) => {
   try {
     // Validate amount
     if (!amount || amount <= 0) {
       throw new Error(`Invalid amount: ${amount}`);
     }
-    
+
     const amountInPaisa = Math.round(amount * 100);
-    console.log('Razorpay Payment Init:', {
+    console.log("Razorpay Payment Init:", {
       originalAmount: amount,
       amountInPaisa,
       currency,
-      customerDetails: customerDetails?.email
+      customerDetails: customerDetails?.email,
     });
-    
+
     // Load Razorpay script
     const isLoaded = await loadRazorpayScript();
-    
+
     if (!isLoaded) {
-      throw new Error('Failed to load Razorpay');
+      throw new Error("Failed to load Razorpay");
     }
 
     // Payment options for Razorpay
@@ -61,26 +63,26 @@ export const initiateRazorpayPayment = async ({
       key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID, // Use environment variable
       amount: amountInPaisa, // Razorpay expects amount in paisa
       currency: currency,
-      name: 'Bucketlister',
-      description: `Booking Payment - ${bookingDetails.batchName || 'Adventure Trip'}`,
-      image: '/favicon.ico', // Your logo URL
+      name: "Bucketlister",
+      description: `Booking Payment - ${bookingDetails.batchName || "Adventure Trip"}`,
+      image: "/favicon.ico", // Your logo URL
       ...(orderId && { order_id: orderId }), // Include order_id if provided
       prefill: {
-        name: customerDetails.name || '',
+        name: customerDetails.name || "",
         email: customerDetails.email,
         contact: customerDetails.phone,
       },
       notes: {
-        booking_type: 'adventure_trip',
+        booking_type: "adventure_trip",
         batch_id: bookingDetails.batchId,
         occupancy_type: bookingDetails.occupancyType,
         quantity: bookingDetails.quantity,
       },
       theme: {
-        color: '#ef3447',
+        color: "#ef3447",
       },
       handler: function (response) {
-        console.log('Razorpay Success Response:', response);
+        console.log("Razorpay Success Response:", response);
         // Payment successful
         onSuccess({
           razorpay_payment_id: response.razorpay_payment_id,
@@ -90,9 +92,9 @@ export const initiateRazorpayPayment = async ({
       },
       modal: {
         ondismiss: function () {
-          onFailure({ 
-            error: 'payment_cancelled',
-            message: 'Payment was cancelled by user'
+          onFailure({
+            error: "payment_cancelled",
+            message: "Payment was cancelled by user",
           });
         },
       },
@@ -100,45 +102,49 @@ export const initiateRazorpayPayment = async ({
 
     const razorpay = new window.Razorpay(options);
     razorpay.open();
-
   } catch (error) {
-    console.error('Razorpay payment error:', error);
-    console.error('Razorpay error details:', {
+    console.error("Razorpay payment error:", error);
+    console.error("Razorpay error details:", {
       message: error.message,
       stack: error.stack,
       name: error.name,
       razorpayLoaded: !!window.Razorpay,
-      keyId: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID
+      keyId: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
     });
     onFailure({
-      error: 'payment_initialization_failed',
-      message: error.message || 'Failed to initialize payment'
+      error: "payment_initialization_failed",
+      message: error.message || "Failed to initialize payment",
     });
   }
 };
 
 // Mock function to create Razorpay order
 // In production, this should be an API call to your backend
-const createRazorpayOrder = async ({ amount, currency, customerDetails, bookingDetails }) => {
+const createRazorpayOrder = async ({
+  amount,
+  currency,
+  customerDetails,
+  bookingDetails,
+}) => {
   // This is a mock implementation
   // In production, make an API call to your backend to create the order
-  
+
   return new Promise((resolve) => {
     setTimeout(() => {
       // Generate a more realistic order ID that follows Razorpay's pattern
       const timestamp = Date.now();
       const randomSuffix = Math.random().toString(36).substr(2, 8);
       const orderId = `order_${timestamp.toString().substr(-10)}${randomSuffix}`;
-      
+
       resolve({
         id: orderId,
         amount: amount,
         currency: currency,
-        status: 'created'
+        status: "created",
       });
     }, 500);
   });
-  
+
   /* Production implementation would look like:
   const response = await fetch('/api/create-razorpay-order', {
     method: 'POST',
@@ -164,36 +170,36 @@ const createRazorpayOrder = async ({ amount, currency, customerDetails, bookingD
 // Alternative implementation for production with backend order creation
 export const initiateRazorpayPaymentWithOrder = async ({
   amount,
-  currency = 'INR',
+  currency = "INR",
   customerDetails,
   bookingDetails,
   onSuccess,
-  onFailure
+  onFailure,
 }) => {
   try {
     // Load Razorpay script
     const isLoaded = await loadRazorpayScript();
-    
+
     if (!isLoaded) {
-      throw new Error('Failed to load Razorpay');
+      throw new Error("Failed to load Razorpay");
     }
 
     // Create order on your backend
-    const orderResponse = await fetch('/api/create-razorpay-order', {
-      method: 'POST',
+    const orderResponse = await fetch("/api/create-razorpay-order", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         amount: amount * 100, // Convert to paisa
         currency,
         customerDetails,
-        bookingDetails
+        bookingDetails,
       }),
     });
 
     if (!orderResponse.ok) {
-      throw new Error('Failed to create payment order');
+      throw new Error("Failed to create payment order");
     }
 
     const orderData = await orderResponse.json();
@@ -203,22 +209,22 @@ export const initiateRazorpayPaymentWithOrder = async ({
       amount: orderData.amount,
       currency: orderData.currency,
       order_id: orderData.id,
-      name: 'Bucketlister',
-      description: `Booking Payment - ${bookingDetails.batchName || 'Adventure Trip'}`,
-      image: '/favicon.ico',
+      name: "Bucketlister",
+      description: `Booking Payment - ${bookingDetails.batchName || "Adventure Trip"}`,
+      image: "/favicon.ico",
       prefill: {
-        name: customerDetails.name || '',
+        name: customerDetails.name || "",
         email: customerDetails.email,
         contact: customerDetails.phone,
       },
       notes: {
-        booking_type: 'adventure_trip',
+        booking_type: "adventure_trip",
         batch_id: bookingDetails.batchId,
         occupancy_type: bookingDetails.occupancyType,
         quantity: bookingDetails.quantity,
       },
       theme: {
-        color: '#ef3447',
+        color: "#ef3447",
       },
       handler: function (response) {
         // Verify payment on backend before considering it successful
@@ -227,17 +233,17 @@ export const initiateRazorpayPaymentWithOrder = async ({
             onSuccess(response);
           } else {
             onFailure({
-              error: 'payment_verification_failed',
-              message: 'Payment verification failed'
+              error: "payment_verification_failed",
+              message: "Payment verification failed",
             });
           }
         });
       },
       modal: {
         ondismiss: function () {
-          onFailure({ 
-            error: 'payment_cancelled',
-            message: 'Payment was cancelled by user'
+          onFailure({
+            error: "payment_cancelled",
+            message: "Payment was cancelled by user",
           });
         },
       },
@@ -245,12 +251,11 @@ export const initiateRazorpayPaymentWithOrder = async ({
 
     const razorpay = new window.Razorpay(options);
     razorpay.open();
-
   } catch (error) {
-    console.error('Razorpay payment error:', error);
+    console.error("Razorpay payment error:", error);
     onFailure({
-      error: 'payment_initialization_failed',
-      message: error.message || 'Failed to initialize payment'
+      error: "payment_initialization_failed",
+      message: error.message || "Failed to initialize payment",
     });
   }
 };
@@ -258,17 +263,17 @@ export const initiateRazorpayPaymentWithOrder = async ({
 // Verify payment on backend
 const verifyPaymentOnBackend = async (paymentResponse) => {
   try {
-    const response = await fetch('/api/verify-payment', {
-      method: 'POST',
+    const response = await fetch("/api/verify-payment", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(paymentResponse),
     });
 
     return await response.json();
   } catch (error) {
-    console.error('Payment verification error:', error);
+    console.error("Payment verification error:", error);
     return { verified: false };
   }
 };

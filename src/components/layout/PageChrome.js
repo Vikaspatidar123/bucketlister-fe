@@ -33,5 +33,3 @@ const PageChrome = ({ children }) => {
 };
 
 export default PageChrome;
-
-
