@@ -33,7 +33,7 @@ const ContactForm = ({ onSuccess, submitLabel = 'Enquire Now' }) => {
           <div className={styles.successIcon}>✓</div>
           <h3 className={styles.successTitle}>Thank You!</h3>
           <p className={styles.successText}>
-            Your enquiry has been sent successfully. We'll get back to you within 24 hours.
+            Your enquiry has been sent successfully. We&apos;ll get back to you within 24 hours.
           </p>
         </div>
       ) : (
