@@ -76,7 +76,7 @@ const EnquiryPopup = ({
 
     const handleEscape = (e) => {
       if (e.key === "Escape" && isOpen) {
-        onClose();
+        onClose && onClose({ reason: "escape" });
       }
     };
 
@@ -209,6 +209,13 @@ New Travel Enquiry Details:
 
       // Consider successful if either submission works
       if (crmResult || emailResult) {
+        // Persist success to avoid showing popup again on this device
+        try {
+          if (isBrowser && window.localStorage) {
+            window.localStorage.setItem("enquiry_submitted", "true");
+            window.localStorage.removeItem("enquiry_snooze_until");
+          }
+        } catch {}
         // Show success state
         setIsSuccess(true);
         setErrors({});
@@ -226,7 +233,7 @@ New Travel Enquiry Details:
             destination: destinationName || tripTitle || "",
           });
           setIsSuccess(false);
-          onClose();
+          onClose && onClose({ reason: "success" });
         }, 2000);
       } else {
         setErrors({
@@ -252,7 +259,7 @@ New Travel Enquiry Details:
     <div className={`${styles.enquiryOverlay} ${isOpen ? styles.open : ""}`}>
       <div
         className={styles.backdrop}
-        onClick={onClose}
+        onClick={() => onClose && onClose({ reason: "backdrop" })}
         aria-label="Close popup"
       ></div>
       <div className={styles.overlayPanel}>
@@ -260,7 +267,7 @@ New Travel Enquiry Details:
           <h3 className={styles.overlayTitle}>Send Enquiry</h3>
           <button
             className={styles.closeButton}
-            onClick={onClose}
+            onClick={() => onClose && onClose({ reason: "close-button" })}
             aria-label="Close"
             type="button"
           >

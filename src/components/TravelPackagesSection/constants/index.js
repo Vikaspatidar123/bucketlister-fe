@@ -16,6 +16,9 @@ import {
   thailandImage,
   vietnamImage,
   APImaImage,
+  philippinesImage,
+  turkeyImage,
+  uttarakhandImage,
 } from "@/assets/svg";
 
 import {
@@ -429,6 +432,21 @@ import {
   vietnam8,
   vietnam9,
   vietnam10,
+  philippines1,
+  philippines2,
+  philippines3,
+  philippines4,
+  philippines5,
+  turkey1,
+  turkey2,
+  turkey3,
+  turkey4,
+  turkey5,
+  uttarakhand1,
+  uttarakhand2,
+  uttarakhand3,
+  uttarakhand4,
+  uttarakhand5,
 } from "@/assets/webp";
 import { getDynamicMonthOptions } from "@/utils/dateutils";
 
@@ -12209,6 +12227,1069 @@ export const TRAVEL_PACKAGES_DATA = [
         notes: [
           "Choose a resort in an atoll known for its diving, like South Ari Atoll for whale sharks or Baa Atoll for mantas (seasonal).",
           "Remember the 18-24 hour no-fly rule after your last dive.",
+        ],
+      },
+    ],
+  },
+
+  {
+    destination_id: 30,
+    destination_name: "Philippines",
+    category: "international",
+    destination_description:
+      "The Philippines, an archipelago of over 7,600 islands, is a paradise of stunning white-sand beaches, vibrant coral reefs, and breathtaking geological formations. It's a land of warm hospitality, unique culture shaped by Spanish and American influences, and endless aquatic adventures. From the subterranean river of Palawan to the chocolate hills of Bohol, the islands offer a diverse and unforgettable travel experience.\n\nKey highlights include:\n- **Palawan (El Nido & Coron)** - Home to dramatic limestone cliffs, crystal-clear lagoons, and some of the world's best island-hopping.\n- **Boracay** - Famous for its pristine White Beach, a perfect spot for relaxation and water sports.\n- **Cebu** - A hub for diving, whale shark encounters, and canyoneering adventures.\n- **Bohol** - Explore the unique geological formations of the Chocolate Hills and encounter the tiny Tarsiers.\n- **Siargao** - Known as the surfing capital of the Philippines, with its famous Cloud 9 wave.",
+    thumbnail_image: philippinesImage,
+    hero_image: "philippinesImage",
+    hero_image_description:
+      "Discover the 'Pearl of the Orient Seas' with its stunning beaches, friendly people, and countless islands to explore.",
+    reviews: [],
+    trips: [
+      {
+        tripId: 89,
+        title: "Ultimate Island Hopping: Palawan's Best",
+        tripDescription:
+          "A 10-day adventure focused on the crown jewel of the Philippines: Palawan. Experience the best of both **El Nido** and **Coron** with exclusive island tours, lagoon kayaking, and beachfront relaxation. Perfect for beach lovers and snorkel enthusiasts.",
+        duration: "9N-10D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: philippines1,
+        other_images: [
+          { id: 1, image: philippines1, hero_image: philippines1 },
+          { id: 2, image: philippines2, hero_image: philippines2 },
+          { id: 3, image: philippines3, hero_image: philippines3 },
+        ],
+        features: [
+          "beach",
+          "adventure",
+          "island-hopping",
+          "snorkeling",
+          "couple",
+        ],
+        customizable: true,
+        badge: { type: "best-seller", text: "Palawan Highlight" },
+        capacity: 12,
+        meals: "9 Breakfasts, 7 Lunches, 2 Dinners",
+        accommodations:
+          "Comfortable 3/4-star beachfront hotels/resorts in El Nido and Coron.",
+        baseCity: "Customizable",
+        route: ["Puerto Princesa", "El Nido", "Coron"],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {
+            day: 1,
+            summary: "Arrival in Puerto Princesa & Underground River",
+            details:
+              "Arrive at Puerto Princesa (PPS). Transfer and take a guided tour to the UNESCO World Heritage site: the Puerto Princesa Subterranean River National Park.",
+          },
+          {
+            day: 2,
+            summary: "Travel to El Nido & Sunset",
+            details:
+              "Morning van transfer to El Nido. Check into your resort. Evening free to explore El Nido town or enjoy sunset at Las Cabanas beach.",
+          },
+          {
+            day: 3,
+            summary: "El Nido Island Tour A: Lagoons",
+            details:
+              "Full-day El Nido Tour A. Explore the Small and Big Lagoons, Secret Lagoon, Shimizu Island, and Seven Commando Beach. Lunch included.",
+          },
+          {
+            day: 4,
+            summary: "El Nido Island Tour C: Hidden Beaches",
+            details:
+              "Full-day El Nido Tour C. Discover Hidden Beach, Secret Beach, Tapiutan Island, and Matinloc Shrine. Lunch included.",
+          },
+          {
+            day: 5,
+            summary: "Free Day or Optional Activities",
+            details:
+              "A day at leisure for relaxation, kayaking, or an optional Scuba Diving trip.",
+          },
+          {
+            day: 6,
+            summary: "Ferry to Coron",
+            details:
+              "Morning fast-ferry from El Nido to Coron. Transfer to your accommodation. Evening free to relax.",
+          },
+          {
+            day: 7,
+            summary: "Coron Ultimate Tour",
+            details:
+              "Full-day Coron Tour. Visit the iconic Kayangan Lake, Barracuda Lake, Twin Lagoon, and Siete Pecados Marine Park. Lunch included.",
+          },
+          {
+            day: 8,
+            summary: "Coron Reefs & Wrecks Tour",
+            details:
+              "Full-day tour focusing on the incredible WWII shipwrecks, coral gardens, and the relaxing Maquinit Hot Springs in the evening. Lunch included.",
+          },
+          {
+            day: 9,
+            summary: "Departure Prep",
+            details:
+              "Morning for souvenir shopping. Farewell dinner with the group.",
+          },
+          {
+            day: 10,
+            summary: "Departure",
+            details:
+              "After breakfast, transfer to Busuanga Airport (USU) for your departure.",
+          },
+        ],
+        includes: [
+          "9 nights accommodation",
+          "Transfers between locations (van and ferry)",
+          "All private/group island-hopping tours (A, C in El Nido; Ultimate, Wrecks in Coron)",
+          "All entrance and environmental fees",
+          "Meals as specified",
+        ],
+        excludes: [
+          "International and domestic flights (to/from Palawan)",
+          "Travel insurance",
+          "Personal expenses",
+          "Tips for guides and drivers",
+        ],
+        notes: [
+          "The best time to visit is during the dry season (November to May).",
+          "Ferry rides can be up to 4 hours; private flights are an optional upgrade.",
+        ],
+      },
+      {
+        tripId: 90,
+        title: "Cebu, Bohol & Siargao: Adventure Trio",
+        tripDescription:
+          "A 12-day journey for the adventurous soul, combining the diving and waterfalls of **Cebu**, the unique nature of **Bohol** (Chocolate Hills, Tarsiers), and the epic surf breaks and laid-back vibe of **Siargao Island**.",
+        duration: "11N-12D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: philippines2,
+        other_images: [
+          { id: 1, image: philippines2, hero_image: philippines2 },
+          { id: 2, image: philippines3, hero_image: philippines3 },
+          { id: 3, image: philippines4, hero_image: philippines4 },
+        ],
+        features: [
+          "adventure",
+          "surfing",
+          "nature",
+          "waterfall",
+          "diving",
+          "young-adult",
+        ],
+        customizable: true,
+        badge: { type: "adventure", text: "Adrenaline Rush" },
+        capacity: 10,
+        meals: "11 Breakfasts, 4 Lunches",
+        accommodations:
+          "Budget-friendly hostels and comfortable 3-star guesthouses/resorts.",
+        baseCity: "Customizable",
+        route: ["Cebu City", "Moalboal (Cebu)", "Bohol", "Siargao"],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {
+            day: 1,
+            summary: "Arrival in Cebu",
+            details:
+              "Arrive at Mactan-Cebu International Airport (CEB). Transfer to your hotel/hostel in Moalboal.",
+          },
+          {
+            day: 2,
+            summary: "Canyoneering at Kawasan Falls",
+            details:
+              "Full-day adrenaline-filled canyoneering trip down the incredible Kawasan Falls. A must-do adventure in Cebu.",
+          },
+          {
+            day: 3,
+            summary: "Sardine Run & Turtle Spotting",
+            details:
+              "Snorkel or dive with the famous Sardine Run off Panagsama Beach, Moalboal, followed by a visit to a known sea turtle spot.",
+          },
+          {
+            day: 4,
+            summary: "Ferry to Bohol",
+            details:
+              "Transfer to Cebu pier and take a fast ferry to Tagbilaran, Bohol. Transfer to Panglao Island.",
+          },
+          {
+            day: 5,
+            summary: "Bohol Countryside Tour",
+            details:
+              "Full-day tour to see the Chocolate Hills, the tiny Philippine Tarsiers, a Loboc River cruise with lunch, and the historic Baclayon Church.",
+          },
+          {
+            day: 6,
+            summary: "Bohol Beach Day",
+            details:
+              "Day at leisure to relax at Alona Beach or take an optional trip to Balicasag Island for snorkeling/diving.",
+          },
+          {
+            day: 7,
+            summary: "Flight to Siargao Island",
+            details:
+              "Transfer to Tagbilaran Airport for a flight to Siargao (via a short layover). Check into your accommodation near General Luna.",
+          },
+          {
+            day: 8,
+            summary: "Siargao Island Hopping",
+            details:
+              "Visit Naked Island, Daku Island, and Guyam Island. Enjoy a BBQ lunch on Daku Island.",
+          },
+          {
+            day: 9,
+            summary: "Cloud 9 & Magpupungko Rock Pools",
+            details:
+              "Morning visit to the iconic Cloud 9 surf break. Afternoon trip to the stunning tidal rock pools of Magpupungko (check tide schedule).",
+          },
+          {
+            day: 10,
+            summary: "Sugba Lagoon & Tayangban Cave Pool",
+            details:
+              "Explore the calm waters of Sugba Lagoon (paddleboarding) and take a dip in the hidden Tayangban Cave Pool.",
+          },
+          {
+            day: 11,
+            summary: "Free Day in Siargao",
+            details:
+              "Final day for surfing lessons, relaxing, or enjoying the lively General Luna nightlife. Farewell dinner.",
+          },
+          {
+            day: 12,
+            summary: "Departure",
+            details: "Transfer to Sayak Airport (IAO) for your departure.",
+          },
+        ],
+        includes: [
+          "11 nights accommodation",
+          "All internal travel (ferry, airport transfers, land transport)",
+          "Canyoneering tour with gear and guide",
+          "Bohol Countryside Tour",
+          "Siargao Island Hopping and Magpupungko tours",
+          "Meals as specified",
+        ],
+        excludes: [
+          "International flights",
+          "Domestic flight to Siargao",
+          "Surfboard rentals",
+          "Entrance fees for non-included optional activities",
+        ],
+        notes: [
+          "Accommodation is chosen for its proximity to activities, prioritizing comfort and adventure access.",
+          "Canyoneering is physically demanding.",
+        ],
+      },
+      {
+        tripId: 91,
+        title: "Boracay Bliss: A Luxury Beach Escape",
+        tripDescription:
+          "A 7-day luxurious retreat to the world-famous white sands of Boracay. This trip is pure relaxation, focusing on upscale resorts, private beach dining, spa treatments, and sunset cruises away from the main crowds.",
+        duration: "6N-7D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: philippines3,
+        other_images: [
+          { id: 1, image: philippines3, hero_image: philippines3 },
+          { id: 2, image: philippines4, hero_image: philippines4 },
+          { id: 3, image: philippines5, hero_image: philippines5 },
+        ],
+        features: ["luxury", "romance", "beach", "relaxation", "spa", "couple"],
+        customizable: true,
+        badge: { type: "luxury", text: "5-Star Relaxation" },
+        capacity: 6,
+        meals: "6 Breakfasts, 1 Dinner",
+        accommodations:
+          "5-star beachfront resort on White Beach or Diniwid Beach (e.g., Shangri-La Boracay, The Lind).",
+        baseCity: "Customizable",
+        route: ["Caticlan (MPH)", "Boracay"],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {
+            day: 1,
+            summary: "Arrival & Private Transfer",
+            details:
+              "Arrive at Caticlan Airport (MPH). Enjoy a seamless, private land and boat transfer directly to your luxury resort. Check-in and evening at leisure.",
+          },
+          {
+            day: 2,
+            summary: "White Beach Relaxation & Sunset Cruise",
+            details:
+              "Morning relaxing on White Beach. In the afternoon, enjoy a private paraw (local sailboat) sunset cruise.",
+          },
+          {
+            day: 3,
+            summary: "Private Spa & Wellness Day",
+            details:
+              "Indulge in a full day of luxury spa treatments at the resort's private wellness center. Optional private yoga session.",
+          },
+          {
+            day: 4,
+            summary: "Discovery Island Tour",
+            details:
+              "Take a private boat to explore the quieter parts of the island: Puka Beach, Magic Island, and Ilig-Iligan Beach. Snorkeling gear provided.",
+          },
+          {
+            day: 5,
+            summary: "Leisure & Watersports",
+            details:
+              "Day at leisure. Try a watersport like paddleboarding or kite-surfing (seasonal) or simply relax by the infinity pool.",
+          },
+          {
+            day: 6,
+            summary: "Private Dining & Farewell",
+            details:
+              "Day at leisure for last-minute shopping. Romantic, private beach-front farewell dinner with a customized menu.",
+          },
+          {
+            day: 7,
+            summary: "Departure",
+            details:
+              "After a leisurely breakfast, private transfer back to Caticlan Airport (MPH) for your departure.",
+          },
+        ],
+        includes: [
+          "6 nights 5-star resort accommodation",
+          "Round-trip private airport and boat transfers",
+          "Private sunset paraw cruise",
+          "Private Discovery Island boat tour",
+          "One luxury spa package (per person)",
+          "Romantic farewell dinner",
+        ],
+        excludes: [
+          "International and domestic flights",
+          "Most lunches and dinners",
+          "Watersports activities",
+        ],
+        notes: [
+          "Boracay is a highly protected island; all tours and activities are managed to ensure sustainability.",
+          "The best resort spots are on Stations 1 and Diniwid Beach.",
+        ],
+      },
+    ],
+  },
+  {
+    destination_id: 31,
+    destination_name: "Turkey",
+    category: "international",
+    destination_description:
+      "Turkey (Türkiye) is where East meets West, a country rich in history, culture, and stunning landscapes that span two continents. From the magical, moon-like landscapes of Cappadocia to the ancient ruins of Ephesus and the vibrant, bustling markets of Istanbul, Turkey offers a travel experience unlike any other. It is a fusion of ancient empires, modern cities, and unparalleled natural beauty.\n\nKey highlights include:\n- **Istanbul** - The only city that straddles Europe and Asia, home to the Hagia Sophia, Blue Mosque, and the Grand Bazaar.\n- **Cappadocia** - Famous for its fairy chimneys, cave hotels, and iconic hot air balloon rides at sunrise.\n- **Ephesus** - One of the best-preserved ancient Roman cities in the Mediterranean.\n- **Pamukkale** - The 'Cotton Castle' with its stunning white travertine terraces and hot springs.\n- **The Turkish Riviera (Antalya/Bodrum)** - Beautiful turquoise coastlines for sailing and beach relaxation.",
+    thumbnail_image: turkey2,
+    hero_image: "turkeyImage",
+    hero_image_description:
+      "Explore the wonders of Turkey, from the ancient marvels of Istanbul to the dreamlike landscapes of Cappadocia.",
+    reviews: [],
+    trips: [
+      {
+        tripId: 92,
+        title: "Istanbul & Cappadocia: The Turkish Dream",
+        tripDescription:
+          "An 8-day journey covering Turkey's two most iconic destinations. Dive into the history of **Istanbul** with private guided tours of the Sultanahmet district, and then fly to **Cappadocia** for a magical hot air balloon ride and exploration of its unique cave valleys.",
+        duration: "7N-8D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: turkey1,
+        other_images: [
+          { id: 1, image: turkey1, hero_image: turkey1 },
+          { id: 2, image: turkey2, hero_image: turkey2 },
+          { id: 3, image: turkey3, hero_image: turkey3 },
+        ],
+        features: [
+          "culture",
+          "history",
+          "hot-air-balloon",
+          "sightseeing",
+          "romance",
+          "classic",
+        ],
+        customizable: true,
+        badge: { type: "classic", text: "First-Timer Must-See" },
+        capacity: 15,
+        meals: "7 Breakfasts, 3 Lunches, 1 Dinner",
+        accommodations:
+          "4-star boutique hotel in Istanbul (Sultanahmet area) and a charming, traditional cave hotel in Cappadocia.",
+        baseCity: "Customizable",
+        route: ["Istanbul", "Cappadocia"],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {
+            day: 1,
+            summary: "Arrival in Istanbul",
+            details:
+              "Arrive at Istanbul Airport (IST/SAW). Private transfer to your hotel. Evening at leisure to explore the Sultanahmet Square.",
+          },
+          {
+            day: 2,
+            summary: "Old City Wonders: Sultanahmet",
+            details:
+              "Full-day guided tour of the Old City: visit the **Hagia Sophia**, **Blue Mosque**, **Topkapi Palace**, and the ancient **Hippodrome**. Evening dinner near the Galata Bridge.",
+          },
+          {
+            day: 3,
+            summary: "Bazaars & Bosphorus Cruise",
+            details:
+              "Morning visit to the **Grand Bazaar** and the **Spice Bazaar**. Afternoon Bosphorus cruise to see the city from the water, spanning two continents.",
+          },
+          {
+            day: 4,
+            summary: "Flight to Cappadocia & Sunset",
+            details:
+              "Morning flight from Istanbul to Kayseri or Nevşehir. Transfer to your **Cave Hotel** in Cappadocia. Afternoon exploring a local village and a sunset viewpoint.",
+          },
+          {
+            day: 5,
+            summary: "Hot Air Balloon & Red Tour",
+            details:
+              "Very early start for the optional **Hot Air Balloon Ride** at sunrise (must be booked in advance). Day tour (Red Tour) covering the unique **Devrent Valley** and **Pasabag (Monks Valley)**.",
+          },
+          {
+            day: 6,
+            summary: "Underground City & Green Tour",
+            details:
+              "Day tour (Green Tour) to the south of Cappadocia, including a visit to the incredible underground city of **Derinkuyu** and a hike in the **Ihlara Valley**.",
+          },
+          {
+            day: 7,
+            summary: "Return to Istanbul & Leisure",
+            details:
+              "Morning flight back to Istanbul. Transfer to your hotel. Afternoon at leisure for final shopping or an optional visit to the Asian side of Istanbul.",
+          },
+          {
+            day: 8,
+            summary: "Departure",
+            details:
+              "After breakfast, private transfer to the airport for your departure.",
+          },
+        ],
+        includes: [
+          "7 nights accommodation",
+          "All private airport and activity transfers",
+          "Two domestic flights (Istanbul-Cappadocia-Istanbul)",
+          "Guided tours of Istanbul and Cappadocia (Red & Green Tours)",
+          "All entrance fees for sites mentioned",
+          "Meals as specified",
+        ],
+        excludes: [
+          "International flights",
+          "Turkey e-visa fee",
+          "Hot Air Balloon ride (optional, but highly recommended)",
+          "Personal expenses",
+        ],
+        notes: [
+          "The hot air balloon is weather-dependent; book for an early day in case of cancellation.",
+          "Walking shoes are essential for Cappadocia's terrain.",
+        ],
+      },
+      {
+        tripId: 93,
+        title: "Ottoman & Ancient Wonders: The Grand Tour",
+        tripDescription:
+          "A comprehensive 14-day tour that traces the path of ancient empires, covering the essentials: **Istanbul**, **Cappadocia**, the Roman ruins of **Ephesus**, the thermal pools of **Pamukkale**, and a brief relax on the **Aegean coast**.",
+        duration: "13N-14D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: turkey2,
+        other_images: [
+          { id: 1, image: turkey2, hero_image: turkey2 },
+          { id: 2, image: turkey3, hero_image: turkey3 },
+          { id: 3, image: turkey4, hero_image: turkey4 },
+        ],
+        features: [
+          "history",
+          "culture",
+          "archaeology",
+          "sightseeing",
+          "family",
+          "classic",
+        ],
+        customizable: true,
+        badge: { type: "history", text: "Ancient Empires" },
+        capacity: 18,
+        meals: "13 Breakfasts, 6 Lunches, 2 Dinners",
+        accommodations:
+          "Comfortable 4-star hotels throughout; cave hotel in Cappadocia, resort near Kusadasi.",
+        baseCity: "Customizable",
+        route: [
+          "Istanbul",
+          "Ankara",
+          "Cappadocia",
+          "Konya",
+          "Pamukkale",
+          "Ephesus",
+          "Izmir",
+        ],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {
+            day: 1,
+            summary: "Arrival in Istanbul",
+            details: "Arrive in Istanbul. Check in and enjoy a welcome dinner.",
+          },
+          {
+            day: 2,
+            summary: "Istanbul: Hagia Sophia & Palaces",
+            details:
+              "Guided tour of the Hagia Sophia, Blue Mosque, and Topkapi Palace.",
+          },
+          {
+            day: 3,
+            summary: "Istanbul to Ankara to Cappadocia",
+            details:
+              "Morning train/flight to Ankara. Visit the Anitkabir (Mausoleum of Ataturk). Afternoon drive to Cappadocia.",
+          },
+          {
+            day: 4,
+            summary: "Cappadocia: Red Tour & Balloon",
+            details:
+              "Optional Hot Air Balloon. Guided Red Tour: Göreme Open-Air Museum, Pasabag Valley, and pottery workshop.",
+          },
+          {
+            day: 5,
+            summary: "Cappadocia: Underground City & Valley Hike",
+            details:
+              "Guided Green Tour: Derinkuyu Underground City and a light hike in Ihlara Valley.",
+          },
+          {
+            day: 6,
+            summary: "Drive to Konya (Sufi Culture)",
+            details:
+              "Scenic drive to Konya. Visit the Mevlana Museum (Whirling Dervishes) and learn about Sufi philosophy.",
+          },
+          {
+            day: 7,
+            summary: "Pamukkale's Cotton Castle",
+            details:
+              "Drive to Pamukkale. Tour the stunning white travertine terraces and the ancient city of Hierapolis (including Cleopatra's Pool).",
+          },
+          {
+            day: 8,
+            summary: "Ephesus & Aegean Coast",
+            details:
+              "Morning drive to Selcuk/Kusadasi. Guided tour of the incredible ancient city of **Ephesus**, including the Library of Celsus and the Temple of Artemis.",
+          },
+          {
+            day: 9,
+            summary: "Aegean Coast Relaxation",
+            details:
+              "Day at leisure on the beautiful Aegean coast. Optional boat trip or beach time.",
+          },
+          {
+            day: 10,
+            summary: "Pergamum & Troy (Optional)",
+            details:
+              "Optional day trip to the ancient cities of Pergamum and Troy, or simply relax.",
+          },
+          {
+            day: 11,
+            summary: "Izmir & Coastal Charm",
+            details:
+              "Explore the lively port city of Izmir. Enjoy a traditional seafood dinner.",
+          },
+          {
+            day: 12,
+            summary: "Flight back to Istanbul",
+            details:
+              "Morning flight from Izmir to Istanbul. Free afternoon for the Grand Bazaar or a Turkish Hammam experience.",
+          },
+          {
+            day: 13,
+            summary: "Istanbul Leisure & Farewell",
+            details: "Day at leisure. Farewell dinner near the waterfront.",
+          },
+          {
+            day: 14,
+            summary: "Departure",
+            details: "Transfer to the airport for departure.",
+          },
+        ],
+        includes: [
+          "13 nights accommodation",
+          "Domestic flights (Izmir-Istanbul)",
+          "All major intercity transfers by air-conditioned coach/train",
+          "All guided tours in Istanbul, Cappadocia, Pamukkale, and Ephesus",
+          "Meals as specified",
+        ],
+        excludes: [
+          "International flights",
+          "Turkey e-visa",
+          "Hot Air Balloon ride",
+          "Entrance to Cleopatra's Pool",
+        ],
+        notes: [
+          "This is a fast-paced tour covering long distances; internal flights/trains are used to save time.",
+          "Dress respectfully when visiting religious sites.",
+        ],
+      },
+      {
+        tripId: 94,
+        title: "Luxury Turquoise Coast Gulet Cruise",
+        tripDescription:
+          "A 7-day luxury escape focused on the famed Turkish Riviera. Sail on a traditional wooden **Gulet** boat, exploring hidden coves, ancient Lycian ruins, and chic towns like **Fethiye** and **Oludeniz**, with all-inclusive gourmet dining onboard.",
+        duration: "6N-7D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: turkey3,
+        other_images: [
+          { id: 1, image: turkey3, hero_image: turkey3 },
+          { id: 2, image: turkey4, hero_image: turkey4 },
+          { id: 3, image: turkey5, hero_image: turkey5 },
+        ],
+        features: [
+          "luxury",
+          "cruise",
+          "beach",
+          "sailing",
+          "relaxation",
+          "romance",
+        ],
+        customizable: true,
+        badge: { type: "luxury", text: "Private Yacht Experience" },
+        capacity: 10,
+        meals: "6 Breakfasts, 6 Lunches, 6 Dinners",
+        accommodations:
+          "Private cabin on a fully-crewed luxury Gulet yacht (Fethiye to Olympos route or similar).",
+        baseCity: "Customizable",
+        route: [
+          "Dalaman (DLM)",
+          "Fethiye",
+          "Oludeniz",
+          "Kekova",
+          "Kas",
+          "Olympos",
+        ],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {
+            day: 1,
+            summary: "Arrival & Boarding in Fethiye",
+            details:
+              "Arrive at Dalaman Airport (DLM). Private transfer to Fethiye Harbour. Board your luxury Gulet, meet the crew, and enjoy your first gourmet dinner onboard.",
+          },
+          {
+            day: 2,
+            summary: "Oludeniz & Butterfly Valley",
+            details:
+              "Sail to the breathtaking **Oludeniz** (Blue Lagoon). Swim and relax. Anchor near **Butterfly Valley** for a hike or just enjoy the crystal-clear waters.",
+          },
+          {
+            day: 3,
+            summary: "Kalkan & Kas Harbor",
+            details:
+              "Cruise towards the charming, upscale harbour towns of Kalkan and Kas. Spend the afternoon swimming and snorkeling. Anchor in a quiet cove for the night.",
+          },
+          {
+            day: 4,
+            summary: "Sunken City of Kekova",
+            details:
+              "Sail over the partially submerged ruins of the ancient Lycian city of **Kekova**. Anchor at Simena (Kaleköy) to explore its castle.",
+          },
+          {
+            day: 5,
+            summary: "Ancient Sites & Beach Coves",
+            details:
+              "Continue along the coast, stopping at remote bays accessible only by boat. Time for sunbathing, reading, and water activities.",
+          },
+          {
+            day: 6,
+            summary: "Olympos & Farewell Dinner",
+            details:
+              "Sail towards Olympos. Time to explore the ancient ruins of Olympos and its beautiful beach. Enjoy a final, extravagant farewell dinner onboard.",
+          },
+          {
+            day: 7,
+            summary: "Disembarkation",
+            details:
+              "After breakfast, disembark the Gulet and transfer to Antalya Airport (AYT) or back to Dalaman (DLM) for your departure.",
+          },
+        ],
+        includes: [
+          "6 nights luxury private cabin accommodation on a Gulet",
+          "All-inclusive full board: all meals (gourmet Turkish and Mediterranean cuisine)",
+          "Non-alcoholic beverages onboard",
+          "Fuel, port fees, crew services",
+          "Snorkeling and basic fishing equipment",
+        ],
+        excludes: [
+          "International flights",
+          "Alcoholic beverages",
+          "Land transfers from/to main airports (optional add-on)",
+          "Tips for the crew",
+        ],
+        notes: [
+          "This trip is designed for relaxation; the itinerary is flexible based on guest preference and weather.",
+          "The cabins are smaller than a hotel room but offer maximum privacy and comfort on the water.",
+        ],
+      },
+    ],
+  },
+  {
+    destination_id: 32,
+    destination_name: "Uttarakhand",
+    category: "domestic",
+    destination_description:
+      "Uttarakhand, often referred to as 'Devbhumi' (Land of the Gods), is a Himalayan state in North India renowned for its breathtaking natural beauty, ancient Hindu temples, and thrilling adventure sports. The state is divided into two main regions: Garhwal and Kumaon. It offers a perfect blend of spiritual solace in places like Haridwar and Rishikesh, and high-altitude trekking opportunities near destinations like Auli and Munsiyari.\n\nKey highlights include:\n- **Char Dham Yatra** - The holy circuit of four revered shrines: Badrinath, Kedarnath, Gangotri, and Yamunotri.\n- **Rishikesh & Haridwar** - The Yoga Capital of the World, known for Ganga Aarti, rafting, and spiritual practices.\n- **Nainital & Mussoorie** - Popular, picturesque hill stations with colonial charm and scenic lakes.\n- **Valley of Flowers** - A UNESCO World Heritage Site, famous for its endemic alpine flowers.\n- **Trekking** - Home to some of India's best treks, including Kedarkantha, Roopkund (currently restricted), and Har Ki Dun.",
+    thumbnail_image: uttarakhandImage,
+    hero_image: uttarakhandImage,
+    hero_image_description:
+      "Experience the serene beauty and spiritual depth of Uttarakhand, the Land of the Gods, with its majestic Himalayas and holy rivers.",
+    reviews: [],
+    trips: [
+      {
+        tripId: 95,
+        title: "Divine Circuit: The Sacred Char Dham Yatra",
+        tripDescription:
+          "A 12-day spiritual journey covering the four revered Hindu temples: **Yamunotri**, **Gangotri**, **Kedarnath**, and **Badrinath**. This pilgrimage offers a deeply enriching experience through the magnificent Garhwal Himalayas.",
+        duration: "11N-12D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: uttarakhand1,
+        other_images: [
+          { id: 1, image: uttarakhand1, hero_image: uttarakhand1 },
+          { id: 2, image: uttarakhand2, hero_image: uttarakhand2 },
+          { id: 3, image: uttarakhand3, hero_image: uttarakhand3 },
+        ],
+        features: [
+          "pilgrimage",
+          "spiritual",
+          "culture",
+          "himalayas",
+          "senior-friendly",
+        ],
+        customizable: true,
+        badge: { type: "spiritual", text: "Sacred Journey" },
+        capacity: 25,
+        meals: "11 Breakfasts, 11 Dinners",
+        accommodations:
+          "Comfortable 3-star hotels/ashrams near the route (e.g., Barkot, Guptkashi, Joshimath).",
+        baseCity: "Haridwar/Dehradun",
+        route: [
+          "Haridwar",
+          "Barkot",
+          "Yamunotri",
+          "Uttarkashi",
+          "Gangotri",
+          "Guptkashi",
+          "Kedarnath",
+          "Badrinath",
+          "Rishikesh",
+        ],
+        isCircuit: true,
+        batches: [],
+        itinerary: [
+          {
+            day: 1,
+            summary: "Arrival in Haridwar/Rishikesh",
+            details:
+              "Arrive at Haridwar or Dehradun Airport (DED). Transfer to Haridwar. Evening participation in the famous **Ganga Aarti** at Har Ki Pauri.",
+          },
+          {
+            day: 2,
+            summary: "Haridwar to Barkot",
+            details:
+              "Begin the journey. Drive to Barkot. Overnight stay at Barkot.",
+          },
+          {
+            day: 3,
+            summary: "Yamunotri Dham",
+            details:
+              "Drive to Janki Chatti. Begin the **6 km trek** (or pony/palki ride) to **Yamunotri**, the source of the Yamuna River. Return to Barkot.",
+          },
+          {
+            day: 4,
+            summary: "Barkot to Uttarkashi",
+            details:
+              "Scenic drive from Barkot to Uttarkashi. Visit the famous Vishwanath Temple in Uttarkashi.",
+          },
+          {
+            day: 5,
+            summary: "Gangotri Dham",
+            details:
+              "Drive to **Gangotri**. Visit the temple dedicated to Goddess Ganga. The actual source (Gaumukh) requires a separate trek. Overnight stay.",
+          },
+          {
+            day: 6,
+            summary: "Uttarkashi to Guptkashi",
+            details:
+              "Long drive through the Himalayan landscape to Guptkashi, a major hub for the Kedarnath journey.",
+          },
+          {
+            day: 7,
+            summary: "Kedarnath Trek Start",
+            details:
+              "Drive to Gaurikund/Sonprayag. Begin the challenging **18-20 km trek** (or helicopter/pony ride) to **Kedarnath** temple. Overnight near the temple.",
+          },
+          {
+            day: 8,
+            summary: "Kedarnath Darshan & Return",
+            details:
+              "Early morning Darshan at Kedarnath temple. Trek back down to Gaurikund/Sonprayag. Drive back to Guptkashi.",
+          },
+          {
+            day: 9,
+            summary: "Guptkashi to Badrinath area",
+            details:
+              "Drive through the valley towards Joshimath/Badrinath area. Check-in and acclimatization.",
+          },
+          {
+            day: 10,
+            summary: "Badrinath Dham",
+            details:
+              "Visit the majestic **Badrinath** temple, dedicated to Lord Vishnu. Take a dip in the Tapt Kund hot springs. Visit Mana Village (India's last village).",
+          },
+          {
+            day: 11,
+            summary: "Badrinath to Rishikesh",
+            details:
+              "The final long drive back towards the plains, reaching Rishikesh in the evening.",
+          },
+          {
+            day: 12,
+            summary: "Departure",
+            details:
+              "Transfer from Rishikesh to Dehradun Airport (DED) or Haridwar Railway Station for departure.",
+          },
+        ],
+        includes: [
+          "11 nights hotel accommodation",
+          "Transport in a private vehicle (non-AC in hills)",
+          "Daily Breakfast and Dinner",
+          "Assistance for Char Dham registration",
+        ],
+        excludes: [
+          "Airfare/Train fare",
+          "Kedarnath Helicopter/Pony/Palki charges",
+          "Pooja/Temple fees",
+          "Trekker/Porter charges",
+        ],
+        notes: [
+          "The Yatra is open only from April/May to October/November.",
+          "Fitness is required for the treks, especially for Kedarnath.",
+          "Accommodation on the route is basic but clean.",
+        ],
+      },
+      {
+        tripId: 96,
+        title: "Yoga, Rafting & Hill Station Charm: Rishikesh to Nainital",
+        tripDescription:
+          "A relaxed 9-day tour covering the best of Uttarakhand's lower regions. Experience the spiritual vibe of **Rishikesh** (Yoga & Rafting), the colonial beauty of **Mussoorie**, and the scenic lakes of **Nainital**.",
+        duration: "8N-9D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: uttarakhand4,
+        other_images: [
+          { id: 3, image: uttarakhand4, hero_image: uttarakhand4 },
+          { id: 2, image: uttarakhand5, hero_image: uttarakhand5 },
+        ],
+        features: [
+          "relaxation",
+          "adventure",
+          "yoga",
+          "family",
+          "hill-station",
+          "lakes",
+        ],
+        customizable: true,
+        badge: { type: "experience", text: "Hill Station Classic" },
+        capacity: 20,
+        meals: "8 Breakfasts, 4 Dinners",
+        accommodations:
+          "Comfortable 3/4-star hotels in Rishikesh, Mussoorie, and Nainital.",
+        baseCity: "Dehradun/Delhi",
+        route: [
+          "Rishikesh",
+          "Dehradun",
+          "Mussoorie",
+          "Jim Corbett",
+          "Nainital",
+        ],
+        isCircuit: false,
+        batches: [],
+        itinerary: [
+          {
+            day: 1,
+            summary: "Arrival in Rishikesh",
+            details:
+              "Arrive at Dehradun Airport (DED) or Rishikesh. Transfer to your riverside hotel. Evening visit to Lakshman Jhula and Ganga Aarti.",
+          },
+          {
+            day: 2,
+            summary: "Rafting & Yoga Session",
+            details:
+              "Morning: Exciting **White Water Rafting** session on the Ganga River. Afternoon: Beginner **Yoga and Meditation** class at a renowned Ashram.",
+          },
+          {
+            day: 3,
+            summary: "Rishikesh to Mussoorie",
+            details:
+              "Drive from Rishikesh to the 'Queen of the Hills,' **Mussoorie**. Check in. Evening stroll on the bustling Mall Road.",
+          },
+          {
+            day: 4,
+            summary: "Mussoorie Sightseeing",
+            details:
+              "Visit Kempty Falls and enjoy a scenic cable car ride to Gun Hill for panoramic Himalayan views. Optional visit to Lal Tibba.",
+          },
+          {
+            day: 5,
+            summary: "Mussoorie to Jim Corbett Area",
+            details:
+              "Long scenic drive from Mussoorie down to the Jim Corbett National Park buffer zone. Check into your resort.",
+          },
+          {
+            day: 6,
+            summary: "Jungle Safari & Drive to Nainital",
+            details:
+              "Morning **Jeep Safari** in Jim Corbett (booking required in advance). Drive to **Nainital** in the afternoon.",
+          },
+          {
+            day: 7,
+            summary: "Nainital Lake Tour",
+            details:
+              "Enjoy a boat ride on **Naini Lake**. Visit Naina Devi Temple and explore the surrounding 'Sattal' (Seven Lakes) area.",
+          },
+          {
+            day: 8,
+            summary: "Nainital Leisure & Shopping",
+            details:
+              "Free day to shop at the Tibetan market, enjoy a ropeway ride, or simply relax and take in the view. Farewell dinner.",
+          },
+          {
+            day: 9,
+            summary: "Departure",
+            details:
+              "After breakfast, transfer to Kathgodam Railway Station or Pantnagar Airport (PGH) for departure.",
+          },
+        ],
+        includes: [
+          "8 nights accommodation",
+          "All intercity and local transport in a private vehicle",
+          "Daily Breakfast",
+          "Rafting and Yoga session charges",
+          "Jim Corbett Jeep Safari (zone TBD)",
+        ],
+        excludes: [
+          "Airfare/Train fare",
+          "Entrance fees for sites (except safari)",
+          "Lunches and most dinners",
+          "Personal expenses",
+        ],
+        notes: [
+          "Corbett Safari bookings are highly limited and must be made 45 days in advance.",
+          "The rafting season is best from September to June.",
+          "Carry light woolens even in summer.",
+        ],
+      },
+      {
+        tripId: 97,
+        title: "Himalayan High: Valley of Flowers & Hemkund Sahib Trek",
+        tripDescription:
+          "A challenging but rewarding 7-day trek to the UNESCO World Heritage Site, the **Valley of Flowers**, and the revered Sikh pilgrimage site, **Hemkund Sahib**. Experience the unique high-altitude flora and stunning glacier views.",
+        duration: "6N-7D",
+        price: "",
+        originalPrice: "",
+        discountAmount: "",
+        image: uttarakhand5,
+        other_images: [
+          { id: 1, image: uttarakhand5, hero_image: uttarakhand5 },
+          { id: 2, image: uttarakhand2, hero_image: uttarakhand2 },
+          { id: 3, image: uttarakhand3, hero_image: uttarakhand3 },
+        ],
+        features: [
+          "adventure",
+          "trekking",
+          "nature",
+          "pilgrimage",
+          "photography",
+          "offbeat",
+        ],
+        customizable: false,
+        badge: { type: "adventure", text: "Challenging Trek" },
+        capacity: 15,
+        meals: "6 Breakfasts, 6 Lunches, 6 Dinners",
+        accommodations:
+          "Comfortable hotels in Joshimath/Govindghat, and shared guesthouses/tents in Ghangaria (the base camp).",
+        baseCity: "Rishikesh",
+        route: [
+          "Rishikesh",
+          "Joshimath",
+          "Govindghat",
+          "Ghangaria",
+          "Valley of Flowers",
+          "Hemkund Sahib",
+        ],
+        isCircuit: true,
+        batches: [],
+        itinerary: [
+          {
+            day: 1,
+            summary: "Rishikesh to Joshimath",
+            details:
+              "Long drive from Rishikesh to Joshimath/Govindghat. Overnight stay and rest for the trek.",
+          },
+          {
+            day: 2,
+            summary: "Trek to Ghangaria (Base Camp)",
+            details:
+              "Short drive to Pulna. Begin the **10 km trek** to Ghangaria, the base village. The trail is well-maintained and gradual.",
+          },
+          {
+            day: 3,
+            summary: "Valley of Flowers",
+            details:
+              "Trek **5 km** (one way) to the **Valley of Flowers**. Spend the day exploring the unique alpine flora. Return to Ghangaria by evening.",
+          },
+          {
+            day: 4,
+            summary: "Hemkund Sahib Trek",
+            details:
+              "Challenging **6 km steep ascent** (one way) to the high-altitude lake and Gurudwara, **Hemkund Sahib** (approx. 4,329m). Return to Ghangaria.",
+          },
+          {
+            day: 5,
+            summary: "Ghangaria to Joshimath",
+            details:
+              "Trek back down **10 km** to Govindghat/Pulna. Drive to Joshimath. Time for rest and relaxation.",
+          },
+          {
+            day: 6,
+            summary: "Joshimath to Rishikesh",
+            details:
+              "Long drive back from Joshimath to Rishikesh. Farewell dinner and memories sharing.",
+          },
+          {
+            day: 7,
+            summary: "Departure",
+            details:
+              "Transfer from Rishikesh to Dehradun Airport (DED) or further travel.",
+          },
+        ],
+        includes: [
+          "6 nights accommodation (hotel/guesthouse/shared rooms)",
+          "All transport from Rishikesh and back",
+          "All meals during the trek period (Day 2 Dinner to Day 6 Lunch)",
+          "Trekking permits and guide/porter services",
+        ],
+        excludes: [
+          "Personal trekking gear",
+          "Pony/Palki charges",
+          "Any medical/rescue expenses",
+          "Transport to/from Rishikesh",
+        ],
+        notes: [
+          "Best time to visit is mid-July to mid-August (full bloom).",
+          "This is a high-altitude trek; acclimatization is crucial.",
+          "The Valley of Flowers is open only for day visits (no overnight camping).",
         ],
       },
     ],

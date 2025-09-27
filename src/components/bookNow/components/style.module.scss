@@ -1,8 +1,9 @@
 .bookNowSection {
   min-height: 100vh;
-  max-height: 100vh;
-  padding: 8px 0;
-  background: #f9fafb;
+  padding: 16px 0 24px;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(239, 52, 71, 0.045), transparent 40%),
+    linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%);
   overflow: hidden;
 }
 
@@ -16,12 +17,12 @@
 }
 
 .tripInfoHeader {
-  background: white;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
   padding: 20px 24px;
-  border-radius: 12px;
+  border-radius: 14px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #bec5cb;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+  border: 1px solid #e5e7eb;
   flex-shrink: 0;
 }
 
@@ -48,10 +49,10 @@
   font-weight: 600;
   color: #ef3447;
   font-size: 16px;
-  background: rgba(239, 52, 71, 0.1);
+  background: rgba(239, 52, 71, 0.08);
   padding: 6px 12px;
-  border-radius: 20px;
-  border: 1px solid rgba(239, 52, 71, 0.2);
+  border-radius: 999px;
+  border: 1px solid rgba(239, 52, 71, 0.18);
 }
 
 .duration,
@@ -199,23 +200,23 @@
 }
 
 .proceedToPaymentBtn {
-  background: #01658f;
+  background: linear-gradient(135deg, #ef3447 0%, #d82c3f 100%);
   color: white;
   border: none;
   padding: 14px 18px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 700;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 800;
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
-  box-shadow: 0 4px 12px rgba(1, 101, 143, 0.3);
+  box-shadow: 0 6px 16px rgba(239, 52, 71, 0.35);
   letter-spacing: 0.02em;
 
   &:hover:not(:disabled) {
-    background: #004a6b;
+    background: linear-gradient(135deg, #e32f42 0%, #bf2636 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(1, 101, 143, 0.4);
+    box-shadow: 0 10px 24px rgba(239, 52, 71, 0.45);
   }
 
   &:disabled {

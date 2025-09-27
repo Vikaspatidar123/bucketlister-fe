@@ -4,7 +4,7 @@ const bigGroupImage = getAssetUrl("/assets/webp/big-group.webp");
 const smallGroupImage = getAssetUrl("/assets/webp/small-group.webp");
 const soloImage = getAssetUrl("/assets/webp/solo.webp");
 const expertExperienceImage = getAssetUrl(
-  "/assets/webp/expertise-experience.webp",
+  "/assets/webp/expertise-experience.webp"
 );
 const likeMindsImage = getAssetUrl("/assets/webp/like-minded-travellers.webp");
 const pricingImage = getAssetUrl("/assets/webp/pricing.webp");
@@ -17,11 +17,11 @@ const franceBanner = getAssetUrl("/assets/webp/france-optimized.webp");
 const georgiaBanner = getAssetUrl("/assets/webp/georgia-optimized.webp");
 const malaysiaBanner = getAssetUrl("/assets/webp/malaysia-optimized.webp");
 const northenlightsBanner = getAssetUrl(
-  "/assets/webp/northen_lights-optimized.webp",
+  "/assets/webp/northen_lights-optimized.webp"
 );
 const singaporeBanner = getAssetUrl("/assets/webp/singapore-optimized.webp");
 const switzerlandBanner = getAssetUrl(
-  "/assets/webp/switzerland-optimized.webp",
+  "/assets/webp/switzerland-optimized.webp"
 );
 const japanBanner = getAssetUrl("/assets/webp/japan-optimized.webp");
 const hampiBanner = getAssetUrl("/assets/webp/Hampi-optimized.webp");
@@ -32,7 +32,7 @@ const rajasthanBanner = getAssetUrl("/assets/webp/rajasthan.webp");
 const banner2 = getAssetUrl("/assets/webp/banner2.webp");
 const banner3 = getAssetUrl("/assets/webp/banner3.webp");
 const internationalBanner = getAssetUrl(
-  "/assets/webp/international-banner.webp",
+  "/assets/webp/international-banner.webp"
 );
 const domesticBanner = getAssetUrl("/assets/webp/domestic-banner.webp");
 
@@ -165,16 +165,16 @@ const meghalaya6 = getAssetUrl("/assets/webp/Meghalaya/meghalaya6.webp");
 const meghalaya7 = getAssetUrl("/assets/webp/Meghalaya/meghalaya7.webp");
 
 const offbeatHimachal1 = getAssetUrl(
-  "/assets/webp/Offbeat-Himachal/ofbeat-himachal1.webp",
+  "/assets/webp/Offbeat-Himachal/ofbeat-himachal1.webp"
 );
 const offbeatHimachal2 = getAssetUrl(
-  "/assets/webp/Offbeat-Himachal/ofbeat-himachal2.webp",
+  "/assets/webp/Offbeat-Himachal/ofbeat-himachal2.webp"
 );
 const offbeatHimachal3 = getAssetUrl(
-  "/assets/webp/Offbeat-Himachal/ofbeat-himachal3.webp",
+  "/assets/webp/Offbeat-Himachal/ofbeat-himachal3.webp"
 );
 const offbeatHimachal4 = getAssetUrl(
-  "/assets/webp/Offbeat-Himachal/ofbeat-himachal4.webp",
+  "/assets/webp/Offbeat-Himachal/ofbeat-himachal4.webp"
 );
 
 const rajasthan1 = getAssetUrl("/assets/webp/Rajasthan/rajasthan1.webp");
@@ -210,58 +210,58 @@ const spiti4 = getAssetUrl("/assets/webp/Spiti-chandratal/spiti4.webp");
 const spiti5 = getAssetUrl("/assets/webp/Spiti-chandratal/spiti5.webp");
 
 const winterSpiti1 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti1.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti1.webp"
 );
 const winterSpiti2 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti2.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti2.webp"
 );
 const winterSpiti3 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti3.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti3.webp"
 );
 const winterSpiti4 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti4.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti4.webp"
 );
 const winterSpiti5 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti5.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti5.webp"
 );
 const winterSpiti6 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti6.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti6.webp"
 );
 const winterSpiti7 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti7.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti7.webp"
 );
 const winterSpiti8 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti8.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti8.webp"
 );
 const winterSpiti9 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti9.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti9.webp"
 );
 const winterSpiti10 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti10.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti10.webp"
 );
 const winterSpiti11 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti11.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti11.webp"
 );
 const winterSpiti12 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti12.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti12.webp"
 );
 const winterSpiti13 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti13.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti13.webp"
 );
 const winterSpiti14 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti14.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti14.webp"
 );
 const winterSpiti15 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti15.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti15.webp"
 );
 const winterSpiti16 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti16.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti16.webp"
 );
 const winterSpiti17 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti17.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti17.webp"
 );
 const winterSpiti18 = getAssetUrl(
-  "/assets/webp/Winter-Spiti/winter-spiti18.webp",
+  "/assets/webp/Winter-Spiti/winter-spiti18.webp"
 );
 
 const coorg1 = getAssetUrl("/assets/webp/Coorg/coorg1.webp");
@@ -443,31 +443,31 @@ const maldives8 = getAssetUrl("/assets/webp/Maldives/maldives8.webp");
 const maldives9 = getAssetUrl("/assets/webp/Maldives/maldives9.webp");
 
 const northernLights1 = getAssetUrl(
-  "/assets/webp/Northern-Lights/northern-lights1.webp",
+  "/assets/webp/Northern-Lights/northern-lights1.webp"
 );
 const northernLights2 = getAssetUrl(
-  "/assets/webp/Northern-Lights/northern-lights2.webp",
+  "/assets/webp/Northern-Lights/northern-lights2.webp"
 );
 const northernLights3 = getAssetUrl(
-  "/assets/webp/Northern-Lights/northern-lights3.webp",
+  "/assets/webp/Northern-Lights/northern-lights3.webp"
 );
 const northernLights4 = getAssetUrl(
-  "/assets/webp/Northern-Lights/northern-lights4.webp",
+  "/assets/webp/Northern-Lights/northern-lights4.webp"
 );
 const northernLights5 = getAssetUrl(
-  "/assets/webp/Northern-Lights/northern-lights5.webp",
+  "/assets/webp/Northern-Lights/northern-lights5.webp"
 );
 const northernLights6 = getAssetUrl(
-  "/assets/webp/Northern-Lights/northern-lights6.webp",
+  "/assets/webp/Northern-Lights/northern-lights6.webp"
 );
 const northernLights7 = getAssetUrl(
-  "/assets/webp/Northern-Lights/northern-lights7.webp",
+  "/assets/webp/Northern-Lights/northern-lights7.webp"
 );
 const northernLights8 = getAssetUrl(
-  "/assets/webp/Northern-Lights/northern-lights8.webp",
+  "/assets/webp/Northern-Lights/northern-lights8.webp"
 );
 const northernLights9 = getAssetUrl(
-  "/assets/webp/Northern-Lights/northern-lights9.webp",
+  "/assets/webp/Northern-Lights/northern-lights9.webp"
 );
 
 const singapore1 = getAssetUrl("/assets/webp/Singapore/singapore1.webp");
@@ -501,16 +501,16 @@ const switzerland7 = getAssetUrl("/assets/webp/Switzerland/switzerland7.webp");
 const switzerland8 = getAssetUrl("/assets/webp/Switzerland/switzerland8.webp");
 const switzerland9 = getAssetUrl("/assets/webp/Switzerland/switzerland9.webp");
 const switzerland10 = getAssetUrl(
-  "/assets/webp/Switzerland/switzerland10.webp",
+  "/assets/webp/Switzerland/switzerland10.webp"
 );
 const switzerland11 = getAssetUrl(
-  "/assets/webp/Switzerland/switzerland11.webp",
+  "/assets/webp/Switzerland/switzerland11.webp"
 );
 const switzerland12 = getAssetUrl(
-  "/assets/webp/Switzerland/switzerland12.webp",
+  "/assets/webp/Switzerland/switzerland12.webp"
 );
 const switzerland13 = getAssetUrl(
-  "/assets/webp/Switzerland/switzerland13.webp",
+  "/assets/webp/Switzerland/switzerland13.webp"
 );
 
 const thailand1 = getAssetUrl("/assets/webp/Thailand/thailand1.webp");
@@ -538,6 +538,24 @@ const vietnam7 = getAssetUrl("/assets/webp/Vietnam/vietnam7.webp");
 const vietnam8 = getAssetUrl("/assets/webp/Vietnam/vietnam8.webp");
 const vietnam9 = getAssetUrl("/assets/webp/Vietnam/vietnam9.webp");
 const vietnam10 = getAssetUrl("/assets/webp/Vietnam/vietnam10.webp");
+
+const philippines1 = getAssetUrl("/assets/webp/Philippines/philippines1.jpg");
+const philippines2 = getAssetUrl("/assets/webp/Philippines/philippines2.jpg");
+const philippines3 = getAssetUrl("/assets/webp/Philippines/philippines3.jpg");
+const philippines4 = getAssetUrl("/assets/webp/Philippines/philippines4.jpg");
+const philippines5 = getAssetUrl("/assets/webp/Philippines/philippines5.jpg");
+
+const turkey1 = getAssetUrl("/assets/webp/Turkey/turkey1.jpg");
+const turkey2 = getAssetUrl("/assets/webp/Turkey/turkey2.jpg");
+const turkey3 = getAssetUrl("/assets/webp/Turkey/turkey3.jpg");
+const turkey4 = getAssetUrl("/assets/webp/Turkey/turkey4.jpg");
+const turkey5 = getAssetUrl("/assets/webp/Turkey/turkey5.jpg");
+
+const uttarakhand1 = getAssetUrl("/assets/webp/Uttarakhand/uttarakhand1.jpg");
+const uttarakhand2 = getAssetUrl("/assets/webp/Uttarakhand/uttarakhand2.jpg");
+const uttarakhand3 = getAssetUrl("/assets/webp/Uttarakhand/uttarakhand3.jpg");
+const uttarakhand4 = getAssetUrl("/assets/webp/Uttarakhand/uttarakhand4.jpg");
+const uttarakhand5 = getAssetUrl("/assets/webp/Uttarakhand/uttarakhand5.jpg");
 
 export {
   bigGroupImage,
@@ -967,4 +985,19 @@ export {
   vietnam8,
   vietnam9,
   vietnam10,
+  philippines1,
+  philippines2,
+  philippines3,
+  philippines4,
+  philippines5,
+  turkey1,
+  turkey2,
+  turkey3,
+  turkey4,
+  turkey5,
+  uttarakhand1,
+  uttarakhand2,
+  uttarakhand3,
+  uttarakhand4,
+  uttarakhand5,
 };

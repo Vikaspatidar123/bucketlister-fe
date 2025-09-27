@@ -32,7 +32,7 @@ const sikkimImage = getAssetUrl("/assets/svg/sikkim.svg");
 const singaporeImage = getAssetUrl("/assets/svg/Singapore.svg");
 const spitiImage = getAssetUrl("/assets/svg/Spiti.svg");
 const thailandImage = getAssetUrl("/assets/svg/Thailand.svg");
-const uttarakhandImage = getAssetUrl("/assets/svg/Uttarakhand.svg");
+const uttarakhandImage = getAssetUrl("assets/svg/Uttarakhand.svg");
 const vietnamImage = getAssetUrl("/assets/svg/Vietnam.svg");
 const zanskarImage = getAssetUrl("/assets/svg/Zanskar-ladakh.svg");
 const shareIcon = getAssetUrl("/assets/svg/share-icon.svg");
@@ -45,6 +45,7 @@ const mobileMenuIcon = getAssetUrl("/assets/svg/mobile_menu_icon.svg");
 const filterIcon = getAssetUrl("/assets/svg/filter.svg");
 const whatsappIcon = getAssetUrl("/assets/svg/whatsapp-icon.svg");
 const playIcon = getAssetUrl("/assets/svg/play-icon.svg");
+const turkeyImage = getAssetUrl("/assets/svg/Turkey.svg");
 
 export {
   downArrow,
@@ -92,4 +93,5 @@ export {
   filterIcon,
   whatsappIcon,
   playIcon,
+  turkeyImage,
 };

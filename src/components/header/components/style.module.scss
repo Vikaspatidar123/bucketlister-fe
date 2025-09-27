@@ -116,8 +116,9 @@
 
 .dropdownGrid {
   display: grid;
-  grid-template-columns: repeat(1, max-content); // single column layout
-  gap: 0px 0; // vertical spacing only
+  grid-template-columns: repeat(2, max-content); // two columns for dense lists
+  column-gap: 24px;
+  row-gap: 0px; // vertical spacing only
 }
 
 .dropdownItem {

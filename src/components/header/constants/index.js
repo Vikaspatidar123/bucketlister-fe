@@ -27,6 +27,11 @@ export const NAVIGATION_ITEMS = [
     isHighlighted: true,
   },
   {
+    label: "Gift Cards",
+    hasDropdown: false,
+    href: "/gift-cards",
+  },
+  {
     label: "More",
     hasDropdown: true,
     href: "/more",
