@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import ReadMoreText from "@/common/ReadMoreText";
 import HeroSection from "./HeroSection";
 import styles from "./style.module.scss";
+import SimilarTours from "@/components/tripDetails/components/SimilarTours";
 
 const ExplorePage = () => {
   const searchParams = useSearchParams();
@@ -62,6 +63,9 @@ const ExplorePage = () => {
           <div className={styles.breaker}></div>
           <TravelPackagesSection
             destinationName={destinationData.destination_name}
+          />
+          <SimilarTours
+            baseCategory={TRAVEL_PACKAGES_DATA.find(d => d.destination_name === destinationData.destination_name)?.category || null}
           />
           <TravellersTestimonialsSection
             reviews={destinationData.reviews}

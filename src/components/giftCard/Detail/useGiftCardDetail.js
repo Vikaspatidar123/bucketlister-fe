@@ -75,13 +75,20 @@ export const useGiftCardDetail = () => {
     }
     try {
       setIsPaying(true);
-      const submitted = await submitToWeb3Forms();
-      if (!submitted) {
-        setErrors((prev) => ({ ...prev, submit: "Failed to submit details. Please try again." }));
-        setIsPaying(false);
-        return;
-      }
-      await initiateRazorpayPayment({
+      // Fire both API calls simultaneously: web3forms submission and payment
+      const submitPromise = submitToWeb3Forms()
+        .then((ok) => {
+          if (!ok) {
+            setErrors((prev) => ({ ...prev, submit: "Failed to submit details. Please try again." }));
+          }
+          return ok;
+        })
+        .catch(() => {
+          setErrors((prev) => ({ ...prev, submit: "Failed to submit details. Please try again." }));
+          return false;
+        });
+
+      const paymentPromise = initiateRazorpayPayment({
         amount: Math.round(amount),
         orderId: null,
         customerDetails: {
@@ -104,6 +111,8 @@ export const useGiftCardDetail = () => {
         onSuccess: () => router.push("/thank-you?type=giftcard"),
         onFailure: (err) => alert(err?.message || "Payment failed"),
       });
+
+      await Promise.allSettled([submitPromise, paymentPromise]);
     } finally {
       setIsPaying(false);
     }

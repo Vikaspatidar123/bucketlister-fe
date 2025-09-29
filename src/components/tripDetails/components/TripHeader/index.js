@@ -58,7 +58,7 @@ const TripHeader = ({ title, price, hasBatches = true }) => {
             >
               <h1
                 style={{
-                  fontSize: "22px",
+                  fontSize: 'var(--fs-22)',
                   fontWeight: "800",
                   lineHeight: "1.2",
                   fontFamily: "Montserrat Alternates",
@@ -73,7 +73,7 @@ const TripHeader = ({ title, price, hasBatches = true }) => {
                     style={{
                       fontFamily: "Montserrat Alternates",
                       fontWeight: "400",
-                      fontSize: "12px",
+                      fontSize: 'var(--fs-12)',
                       lineHeight: "72%",
                       color: "#000000",
                       marginBottom: "10px",
@@ -85,7 +85,7 @@ const TripHeader = ({ title, price, hasBatches = true }) => {
                     style={{
                       fontFamily: "Montserrat Alternates",
                       fontWeight: "700",
-                      fontSize: "22px",
+                      fontSize: 'var(--fs-22)',
                       lineHeight: "72%",
                     }}
                   >

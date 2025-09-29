@@ -16,6 +16,7 @@ import TravellersTestimonialsSection from "./TravellersTestimonialsSection";
 import MomentsInMotionSection from "./MomentsInMotionSection";
 import FeaturesBar from "./FeaturesBar";
 import AdvertiseBanner from "./advertiseBanner";
+import FAQSection from "./FAQSection";
 
 const Home = () => {
   return (
@@ -37,7 +38,7 @@ const Home = () => {
       <div className={styles.desktopOnly}>
         <MomentsInMotionSection />
       </div>
-      {/* Add more sections here as you create them */}
+      <FAQSection />
     </div>
   );
 };

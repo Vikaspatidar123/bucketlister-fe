@@ -31,7 +31,7 @@
 }
 
 .pageTitle {
-  font-size: 18px;
+  font-size: var(--fs-18);
   font-weight: 800;
   color: #111827;
 }
@@ -66,7 +66,7 @@
 }
 
 .blockTitle {
-  font-size: 13px;
+  font-size: var(--fs-13);
   font-weight: 700;
   color: #374151;
   margin-bottom: 8px;
@@ -80,7 +80,7 @@
   padding: 10px 12px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: var(--fs-14);
   outline: none;
 }
 .textarea {
@@ -88,7 +88,7 @@
   padding: 10px 12px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: var(--fs-14);
   resize: vertical;
 }
 .input:focus,
@@ -101,7 +101,7 @@
 }
 .errorText {
   color: #ef4444;
-  font-size: 12px;
+  font-size: var(--fs-12);
   margin-top: 4px;
 }
 
@@ -116,7 +116,7 @@
   border-radius: 999px;
   padding: 6px 10px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: var(--fs-12);
 }
 
 .previewCol {
@@ -139,12 +139,12 @@
   padding: 12px;
 }
 .previewTitle {
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: 700;
   color: #111827;
 }
 .previewDesc {
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: #6b7280;
   margin-top: 4px;
 }
@@ -155,7 +155,7 @@
   margin-top: 12px;
 }
 .amountDue {
-  font-size: 18px;
+  font-size: var(--fs-18);
   font-weight: 800;
   color: #111827;
 }

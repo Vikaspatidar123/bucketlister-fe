@@ -723,7 +723,7 @@ const TravelPackagesSection = ({
             </div>
 
             {/* Load More Button - Only show when not showing a specific trip or destination */}
-            {!selectedTripId && !destinationName && hasMoreItems && (
+            {!selectedTripId  && hasMoreItems && (
               <div className={styles.loadMoreWrapper}>
                 <button
                   className={styles.loadMoreButton}

@@ -105,7 +105,7 @@ const GiftCardDetail = () => {
 
       {errors.submit && (
         <div style={{maxWidth:1100,margin:"8px auto 0",padding:"0 12px"}}>
-          <div style={{color:'#ef4444',fontSize:12}}>{errors.submit}</div>
+          <div style={{color:'#ef4444',fontSize:'var(--fs-12)'}}>{errors.submit}</div>
         </div>
       )}
     </>

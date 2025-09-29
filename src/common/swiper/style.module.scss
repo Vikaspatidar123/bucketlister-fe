@@ -47,7 +47,7 @@
 
 .cardTitle {
   margin: 0 0 6px 0;
-  font-size: 22px;
+  font-size: var(--fs-22);
   font-weight: 700;
 }
 
@@ -63,7 +63,7 @@
     max-width: 75vw;
   }
   .cardTitle {
-    font-size: 20px;
+    font-size: var(--fs-20);
   }
   .cardSubtitle {
     font-size: 13px;

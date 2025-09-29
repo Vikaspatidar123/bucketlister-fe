@@ -60,7 +60,7 @@
 .navLink {
   text-decoration: none;
   color: #000;
-  font-size: 16px;
+  font-size: var(--fs-16);
   font-weight: 500;
   padding: 8px 0;
   transition: color 0.2s ease;
@@ -79,7 +79,7 @@
   background: none;
   border: none;
   color: #000;
-  font-size: 12px;
+  font-size: var(--fs-12);
   cursor: pointer;
   padding: 0;
   margin-left: 4px;
@@ -124,7 +124,7 @@
 .dropdownItem {
   color: #111;
   text-decoration: none;
-  font-size: 14px; // smaller font for denser layout
+  font-size: var(--fs-14); // smaller font for denser layout
   font-weight: 500;
   padding: 4px 0; // reduce vertical padding
 }
@@ -149,7 +149,7 @@
   row-gap: 6px;
 }
 .domesticTitle {
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: 600;
   color: #ef3447;
   margin: 0 0 4px 0;
@@ -169,7 +169,7 @@
 
 .weekendTitle {
   grid-row: 1;
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: 600;
   color: #ef3447;
   margin: 0 0 8px 0;
@@ -223,7 +223,7 @@
 
 .phoneNumber {
   color: #ef3447;
-  font-size: 16px;
+  font-size: var(--fs-16);
   font-weight: 600;
 }
 
@@ -342,7 +342,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: var(--fs-20);
     font-weight: 600;
   }
   .mobileSheetContent {
@@ -371,7 +371,7 @@
 .mobileSubLinkMore {
   color: #333;
   text-decoration: none;
-  font-size: 16px;
+  font-size: var(--fs-16);
   font-weight: 600;
   display: block;
   padding: 10px 0;
@@ -387,14 +387,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 16px;
+  font-size: var(--fs-16);
   font-weight: 600;
 }
 .mobileNavLabel {
   color: #111;
 }
 .mobileChevron {
-  font-size: 14px;
+  font-size: var(--fs-14);
   transition: transform 0.2s;
 }
 .mobileChevron.open {
@@ -455,15 +455,15 @@
   }
 
   .navLink {
-    font-size: 14px;
+    font-size: var(--fs-14);
   }
 
   .brandText {
-    font-size: 16px;
+    font-size: var(--fs-16);
   }
 
   .phoneNumber {
-    font-size: 14px;
+    font-size: var(--fs-14);
   }
 }
 

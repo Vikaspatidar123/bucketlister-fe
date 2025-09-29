@@ -60,7 +60,7 @@
 }
 
 .title {
-  font-size: 22px;
+  font-size: var(--fs-22);
   font-weight: 800;
   color: #111827;
   letter-spacing: -0.02em;
@@ -68,7 +68,7 @@
 }
 
 .subtitle {
-  font-size: 13px;
+  font-size: var(--fs-13);
   color: #6b7280;
 }
 
@@ -118,7 +118,7 @@
 }
 
 .cardCaption {
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: #374151;
   font-weight: 600;
   text-align: center;
@@ -141,7 +141,7 @@
 }
 
 .panelHeader {
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: 800;
   color: #111827;
   margin-bottom: 8px;
@@ -154,7 +154,7 @@
   margin: 0;
   padding-left: 18px;
   color: #374151;
-  font-size: 13px;
+  font-size: var(--fs-13);
   line-height: 1.6;
 }
 

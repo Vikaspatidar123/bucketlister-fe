@@ -178,7 +178,7 @@ const SearchForm = ({ onSubmitted = null }) => {
                    right: 0, 
                    background: '#f0f0f0', 
                    padding: '4px 8px', 
-                   fontSize: '12px', 
+                   fontSize: 'var(--fs-12)', 
                    color: '#666',
                    borderRadius: '0 0 8px 8px',
                    textAlign: 'center'

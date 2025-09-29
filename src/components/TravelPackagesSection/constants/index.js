@@ -507,7 +507,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 1,
-        title: "Explore Adventurous Route of Meghalaya",
+        title: "Meghalaya Adventure Route",
         tripDescription:
           "An epic adventure through Meghalaya's living root bridges, crystal-clear rivers, and mystical caves with camping under the stars.",
         duration: "6N-7D",
@@ -668,6 +668,89 @@ export const TRAVEL_PACKAGES_DATA = [
           "Trip cancellation: 10% fee charged, remaining amount as credit note for future use",
           "Basic food provided throughout the trip, including lunch at basic restaurants",
           "Flight to be booked before 14:00 for Day 1 arrival",
+        ],
+      },
+      {
+        tripId: 98,
+        title: "Caves, Falls, and Rain",
+        tripDescription:
+          "A short, focused 4-day tour dedicated to experiencing the unique rain-swept beauty, deep caves, and majestic waterfalls of Cherrapunjee (Sohra) and the Mawsynram region, ideal for nature lovers and monsoon enthusiasts.",
+        duration: "3N-4D",
+        price: 12999,
+        originalPrice: 14999,
+        discountAmount: 2000,
+        image: meghalaya7,
+        other_images: [
+          { id: 1, image: meghalaya7, hero_image: meghalaya7 },
+          {
+            id: 2,
+            image: meghalaya6,
+            hero_image: meghalaya6,
+          },
+          { id: 3, image: meghalaya5, hero_image: meghalaya5 },
+        ],
+        features: ["nature", "waterfalls", "caving", "monsoon", "short-break"],
+        customizable: true,
+        badge: { type: "specialist", text: "Focus Tour" },
+        capacity: 15,
+        meals: "3 Breakfasts and 3 Dinners",
+        accommodations:
+          "3 nights in Cozy Cottages & Homestays on Double/Triple sharing in Cherrapunjee/Shillong.",
+        baseCity: "Guwahati",
+        route: [
+          "Guwahati",
+          "Shillong",
+          "Cherrapunjee",
+          "Mawsynram",
+          "Guwahati",
+        ],
+        isCircuit: true,
+        // As requested, the batches array is empty
+        batches: [],
+        itinerary: [
+          {
+            day: 1,
+            summary: "Arrival at Guwahati & Drive to Cherrapunjee/Sohra",
+            details:
+              "Arrive at Guwahati Airport (GAU). Begin the scenic drive toward **Cherrapunjee (Sohra)**, stopping at **Umiam Lake** for a photo break en route. Check-in and relax.",
+          },
+          {
+            day: 2,
+            summary: "Waterfalls & Cave Exploration Day",
+            details:
+              "Explore Cherrapunjee's famous sights: visit the mighty **Nohkalikai Falls** (India's tallest plunge waterfall), the viewpoint of the **Seven Sisters Falls**, and navigate through the stunning passages of **Mawsmai Caves**.",
+          },
+          {
+            day: 3,
+            summary: "Mawsynram & Mawdok Valley Drive",
+            details:
+              "Morning drive to **Mawsynram**, recognized as one of the wettest places on Earth. Explore the unique **Mawjymbuin Cave**, known for its natural Shivalinga formation. Return via the panoramic views of the **Mawdok Valley**.",
+          },
+          {
+            day: 4,
+            summary: "Departure from Shillong/Guwahati",
+            details:
+              "After breakfast, check-out and transfer back to Guwahati Airport (GAU) for your departure, concluding the 'Caves, Falls, and Rain' tour.",
+          },
+        ],
+        includes: [
+          "3 nights accommodation (Cottages/Homestays)",
+          "Pure Veg Meals - 3 Breakfasts and 3 Dinners",
+          "All intercity and local transportation by dedicated vehicle",
+          "All main entry fees to places mentioned in itinerary",
+          "Guwahati Airport pickup and drop-off",
+        ],
+        excludes: [
+          "5% GST",
+          "Flight tickets",
+          "Lunch meals",
+          "Personal expenses not mentioned in inclusions",
+          "Camera and vehicle charges where company vehicle unavailable",
+        ],
+        notes: [
+          "The trip is highly recommended during the monsoon (June-September) for full waterfall flow, but expect heavy rain.",
+          "Wear comfortable footwear for walking and caving.",
+          "Best time for pleasant weather is October to May.",
         ],
       },
     ],
@@ -927,7 +1010,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 3,
-        title: "Spiti with Chandratal Lake",
+        title: "Spiti Chandratal Lake",
         tripDescription:
           "An epic 11-day Spiti adventure including the mystical Chandratal Lake, India's last village Chitkul, ancient monasteries, highest post office, and dramatic cold desert landscapes with comprehensive circuit route.",
         duration: "10N-11D",
@@ -1097,6 +1180,121 @@ export const TRAVEL_PACKAGES_DATA = [
           "Chandratal Lake stay in tents subject to climate conditions",
         ],
       },
+      {
+        "tripId": 99,
+        "title": "High Peaks Bike Circuit",
+        "tripDescription": "An ultimate 7-day self-drive or guided bike circuit designed for adrenaline seekers. Conquer the world's most challenging roads, including the Manali-Kaza highway, Kunzum Pass, and the thrilling high-altitude terrain of the Cold Desert.",
+        "duration": "6N-7D",
+        "price": 28999,
+        "originalPrice": 32999,
+        "discountAmount": 4000,
+        "image": winterSpiti12,
+        "other_images": [
+          {
+            "id": 1,
+            "image": spiti2,
+            "hero_image": spiti2,
+          },
+          {
+            "id": 2,
+            "image": winterSpiti6,
+            "hero_image": winterSpiti6,
+          },
+          {
+            "id": 3,
+            "image": winterSpiti18,
+            "hero_image": winterSpiti18,
+          },
+          {
+            "id": 4,
+            "image": spiti1,
+            "hero_image": spiti1,
+          }
+        ],
+        "features": [
+          "biking",
+          "roadtrip",
+          "adventure",
+          "high-passes",
+          "motorcycle",
+          "kaza",
+          "cold-desert"
+        ],
+        "customizable": true,
+        "badge": {
+          "type": "thrill",
+          "text": "Bike Special"
+        },
+        "capacity": 18,
+        "meals": "6 Breakfasts and 6 Dinners",
+        "accommodations": "6 nights in Guesthouses, Hostels, and Camps on Double/Triple sharing (depending on the package).",
+        "baseCity": "Manali",
+        "route": [
+          "Manali",
+          "Keylong",
+          "Kaza",
+          "Chandratal",
+          "Manali"
+        ],
+        "isCircuit": true,
+        "batches": [],
+        "itinerary": [
+          {
+            "day": 1,
+            "summary": "Arrival in Manali & Bike Acclimatization",
+            "details": "Arrive in Manali, bike assignment and safety briefing. Acclimatization rides and checks. Evening at Mall Road."
+          },
+          {
+            "day": 2,
+            "summary": "Manali to Kaza: The Epic Ride",
+            "details": "Start riding through the **Atal Tunnel** and on to the most challenging route. Head towards **Kaza** (Spiti HQ), crossing high-altitude passes. Reach Kaza by evening."
+          },
+          {
+            "day": 3,
+            "summary": "Kaza Local Sightseeing Circuit",
+            "details": "Ride to the famous high-altitude villages: **Hikkim** (world's highest post office), **Komic** (highest motorable village), and **Langza** (Buddha Statue). Evening explore Kaza Market."
+          },
+          {
+            "day": 4,
+            "summary": "Key Monastery & Pin Valley Entry",
+            "details": "Morning ride to the iconic **Key Monastery**. Cross the **Chicham Bridge**. Head toward **Pin Valley** and check into a homestay near Mud Village."
+          },
+          {
+            "day": 5,
+            "summary": "Pin Valley to Chandratal Lake",
+            "details": "Ride out of Pin Valley, crossing **Kunzum Pass**. Reach the **Chandratal Lake** campsite. Evening walk to the stunning blue lake. (Weather dependent stay)"
+          },
+          {
+            "day": 6,
+            "summary": "Chandratal to Manali (Return)",
+            "details": "After breakfast, begin the final scenic ride back to Manali, passing through the high mountains and the Atal Tunnel. Check-in and farewell dinner."
+          },
+          {
+            "day": 7,
+            "summary": "Departure from Manali",
+            "details": "After breakfast, transfer to the airport or bus station for departure, concluding the high peaks circuit."
+          }
+        ],
+        "includes": [
+          "6 nights accommodation on sharing basis (Guesthouses/Camps)",
+          "All meals - 6 Breakfasts & 6 Dinners",
+          "Support vehicle for luggage and emergencies",
+          "Mechanic and Expert Trip Leader assistance",
+          "Inner Line Permits and necessary toll fees"
+        ],
+        "excludes": [
+          "Motorcycle rental charges (can be added separately)",
+          "Fuel charges (usually borne by the rider)",
+          "Any maintenance/spares required for the personal bike",
+          "Lunch and snacks on the road",
+          "Personal expenses or tips"
+        ],
+        "notes": [
+          "Best suited for experienced riders due to challenging terrain.",
+          "The trip is operational only from June to mid-October (when the high passes are open).",
+          "Carry adequate warm clothing and protective gear."
+        ]
+      }
     ],
   },
   {
@@ -1113,7 +1311,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 4,
-        title: "Explore Offbeat Himachal - Bir Barot Circuit",
+        title: "Offbeat Himachal Bir Barot",
         tripDescription:
           "A 10-day offbeat journey through Himachal's hidden gems including paragliding at Bir Billing, serene Barot valley, mystical Jibhi, and spiritual Amritsar with train travel from Mumbai.",
         duration: "9N-10D",
@@ -1271,7 +1469,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 5,
-        title: "Explore Offbeat Himachal - Barot Bir Circuit (Premium)",
+        title: "Offbeat Himachal Barot Bir",
         tripDescription:
           "A premium 10-day offbeat Himachal experience featuring Barot valley first, then Bir Billing paragliding, mystical Jibhi, and Golden Temple Amritsar with enhanced capacity and comfort.",
         duration: "9N-10D",
@@ -1457,7 +1655,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 6,
-        title: "NY Trip to Himachal - Manali Kasol Special",
+        title: "Himachal Manali Kasol Special",
         tripDescription:
           "A special New Year 10-day Himachal adventure covering Amritsar's spirituality, Bir's paragliding, Manali's snow peaks, and Kasol's hippie culture with DJ night celebration.",
         duration: "9N-10D",
@@ -1643,7 +1841,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 7,
-        title: "Explore Best of Himachal",
+        title: "Best of Himachal",
         tripDescription:
           "An epic 10-day backpacking adventure through Himachal's most iconic destinations including Kasol, Manali, Bir Billing, and Amritsar with train journey from Mumbai.",
         duration: "9N-10D",
@@ -1840,6 +2038,123 @@ export const TRAVEL_PACKAGES_DATA = [
           "Local dhaba/cafe exploration expected at Rs 100-150 per meal",
         ],
       },
+      {
+        "tripId": 100,
+        "title": "Tirthan Valley & GHNP Trek",
+        "tripDescription": "A rejuvenating 7-day trip focusing on the pristine Tirthan Valley and a moderate multi-day trek inside the **Great Himalayan National Park (GHNP)**, a UNESCO World Heritage Site. Experience local culture, river trails, and untouched natural beauty. Ideal for nature lovers and moderate trekkers.",
+        "duration": "6N-7D",
+        "price": 25500,
+        "originalPrice": 28000,
+        "discountAmount": 2500,
+        "image": himachal22, 
+        "other_images": [
+          {
+            "id": 1,
+            "image": himachal22,
+            "hero_image": himachal22,
+          },
+          {
+            "id": 2,
+            "image": himachal23,
+            "hero_image": himachal23,
+          },
+          {
+            "id": 3,
+            "image": himachal24,
+            "hero_image": himachal24,
+          },
+          {
+            "id": 4,
+            "image": himachal25,
+            "hero_image": himachal25,
+          }
+        ],
+        "features": [
+          "trekking",
+          "nature",
+          "ghnp",
+          "offbeat",
+          "tirthan-valley",
+          "river-trail",
+          "unesco"
+        ],
+        "customizable": true,
+        "badge": {
+          "type": "eco",
+          "text": "GHNP Special"
+        },
+        "capacity": 15,
+        "meals": "6 Breakfasts, 6 Dinners, and 2 Packed Lunches (during GHNP Trek)",
+        "accommodations": "6 nights in Homestays, Guesthouses, and Trekking Camps/Tents on sharing basis.",
+        "baseCity": "Chandigarh",
+        "route": [
+          "Chandigarh",
+          "Tirthan Valley (Gushaini)",
+          "GHNP Entry (Sainj Valley)",
+          "GHNP Trekking",
+          "Jibhi",
+          "Chandigarh"
+        ],
+        "isCircuit": true,
+        "batches": [],
+        "itinerary": [
+          {
+            "day": 1,
+            "summary": "Chandigarh to Tirthan Valley (Gushaini)",
+            "details": "Morning pickup from Chandigarh. Long scenic drive to **Gushaini** in Tirthan Valley. Check-in to a riverside homestay/guesthouse. Dinner and orientation for the GHNP trek."
+          },
+          {
+            "day": 2,
+            "summary": "Tirthan Valley Exploration & Preparation",
+            "details": "Morning river walk and local exploration around Gushaini/Bandar. Relax by the Tirthan river. Preparation for the trek: packing, briefing, and acquiring permits."
+          },
+          {
+            "day": 3,
+            "summary": "GHNP Trek Day 1: Gushaini to Rolla/Shakti (Trek Starts)",
+            "details": "Early breakfast, short drive to the GHNP entry point. Begin the trek with a local guide. Trek to **Rolla** or **Shakti** campsite inside the buffer zone. Overnight in tents/hut. (Packed Lunch included)."
+          },
+          {
+            "day": 4,
+            "summary": "GHNP Trek Day 2: Trekking deeper into GHNP",
+            "details": "Trek further into the national park (route depends on season/permit). Explore the rich biodiversity and untouched forests. Return to a designated campsite (Shakti/Kharali). (Packed Lunch included)."
+          },
+          {
+            "day": 5,
+            "summary": "GHNP Trek Day 3: Trek out & Drive to Jibhi",
+            "details": "Trek out of the national park. Meet the vehicle and drive to the charming village of **Jibhi**. Check-in to a traditional wooden guesthouse. Evening explore the Jibhi market and waterfall."
+          },
+          {
+            "day": 6,
+            "summary": "Jalori Pass Excursion (Shoja)",
+            "details": "Day trip to **Jalori Pass**. Short trek to **Serolsar Lake** or the **360° View Point**. Enjoy the panoramic views of the Tirthan and Sainj valleys. Return to Jibhi for a farewell dinner."
+          },
+          {
+            "day": 7,
+            "summary": "Departure from Jibhi to Chandigarh",
+            "details": "After breakfast, check-out and begin the long drive back to Chandigarh. Drop off at the railway station/bus stand by late evening, concluding the trip."
+          }
+        ],
+        "includes": [
+          "6 Nights accommodation in Homestays/Guesthouses/Tents on sharing basis",
+          "All transport from Chandigarh to Chandigarh by dedicated vehicle",
+          "All meals - 6 Breakfasts, 6 Dinners, 2 Packed Lunches on trek days",
+          "GHNP Trekking Permits and Fees (core area entry is highly restricted and subject to permit)",
+          "Expert Local Trek Guide and Porter/Mules for common luggage during the GHNP Trek (up to 10kg per person)",
+          "First Aid Kit and Medical Assistance"
+        ],
+        "excludes": [
+          "Train/Air Fare to/from Chandigarh",
+          "Lunch on non-trekking days",
+          "Personal trekking gear (e.g., backpacks, jackets, trekking shoes)",
+          "Any personal expenses or tips"
+        ],
+        "notes": [
+          "This trip requires good physical fitness due to the moderate GHNP trekking days.",
+          "Best operational season is May to June and September to November.",
+          "The GHNP trek route and duration are strictly subject to forest department rules and permits.",
+          "Accommodation during the trek is basic (tents/local shepherd huts)."
+        ]
+      }
     ],
   },
   {
@@ -1856,7 +2171,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 8,
-        title: "Gokarna Beach Trek & Waterfalls",
+        title: "Gokarna Beach Trek Waterfalls",
         tripDescription:
           "A perfect 5-day weekend escape covering Gokarna's pristine beaches, Murudeshwar's giant Shiva statue, Sharavati River boating, and refreshing Vibhuti Falls with train travel from Mumbai.",
         duration: "4N-5D",
@@ -2087,7 +2402,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 10,
-        title: "Offbeat Gokarna: Yana Caves & Mirjan Fort",
+        title: "Gokarna Yana Caves Mirjan",
         tripDescription:
           "A 3-day exploratory weekend that goes beyond the beaches of Gokarna. Discover the unique black limestone rock formations of Yana, explore the historic Mirjan Fort, and witness a mesmerizing sunset from a hidden cliff.",
         duration: "2N-3D",
@@ -2164,7 +2479,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 11,
-        title: "Gokarna Beach Trek & Camping Experience",
+        title: "Gokarna Trek Camping Experience",
         tripDescription:
           "The quintessential 2-day Gokarna experience for backpackers and adventure lovers. Trek across the five main beaches, from Kudle to Paradise, camp under the stars on a secluded beach, and soak in the vibrant, bohemian vibe of the town.",
         duration: "1N-2D (plus travel time)",
@@ -2263,7 +2578,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 12,
-        title: "Backpacking Hampi Heritage",
+        title: "Hampi Heritage Backpacking",
         tripDescription:
           "A 5-day heritage adventure exploring UNESCO World Heritage Hampi with temple tours, heritage cycle rides, Hippie Island coracle experiences, cliff jumping, and sunrise at Malyavanta Hill with train travel from Mumbai.",
         duration: "4N-5D",
@@ -2428,7 +2743,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 13,
-        title: "Hampi Royal Retreat: A Luxury Heritage Weekend",
+        title: "Hampi Luxury Heritage Weekend",
         tripDescription:
           "A 3-day luxurious journey into the heart of the Vijayanagara Empire. Stay at a heritage palace hotel, explore the ruins with a private historian guide, enjoy a coracle ride at sunset, and experience the grandeur of Hampi in ultimate comfort.",
         duration: "2N-3D",
@@ -2537,7 +2852,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 14,
-        title: "Offbeat Hampi: Bouldering, Cycling & Anegundi Village",
+        title: "Hampi Bouldering Cycling Anegundi",
         tripDescription:
           "A 3-day active and offbeat weekend in Hampi. Try your hand at bouldering on the famous rocks, cycle through the ruins and paddy fields, stay on the 'hippie island' side, and explore the ancient village of Anegundi, believed to be the mythical Kishkinda.",
         duration: "2N-3D",
@@ -2645,7 +2960,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 15,
-        title: "Hampi Experience: Ruins, Sunset & Coracles",
+        title: "Hampi Ruins Sunset Coracles",
         tripDescription:
           "The classic 2-day Hampi backpacking trip. Explore the major temples and monuments, climb Matanga Hill for an unforgettable sunset, and enjoy the unique experience of a coracle ride on the Tungabhadra river.",
         duration: "1N-2D (plus travel time)",
@@ -2747,7 +3062,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 16,
-        title: "Coorg Coffee & Hills Adventure",
+        title: "Coorg Coffee Hills Adventure",
         tripDescription:
           "A delightful 5-day Coorg experience featuring Mandalpatti Peak sunrise safari, Dubarae elephant camp, coffee plantation tours, Abbey Falls trek, and scenic viewpoints with train travel from Mumbai.",
         duration: "4N-5D",
@@ -2889,7 +3204,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 17,
-        title: "Coorg Luxury Escape: Plantations & Pampering",
+        title: "Coorg Luxury Plantations Pampering",
         tripDescription:
           "A 3-day indulgent weekend retreat in Coorg. Stay in a luxurious private pool villa at a top-rated resort, enjoy private plantation tours, rejuvenate with spa therapies, and savor gourmet dining experiences.",
         duration: "2N-3D",
@@ -2976,7 +3291,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 18,
-        title: "Offbeat Coorg: Waterfalls, Treks & Homestays",
+        title: "Coorg Waterfalls Treks Homestays",
         tripDescription:
           "A 3-day adventurous weekend exploring the lesser-known side of Coorg. Trek to hidden waterfalls, conquer the Tadiandamol peak, stay in an authentic Kodava homestay, and experience the wild, untamed beauty of the Western Ghats.",
         duration: "2N-3D",
@@ -3067,7 +3382,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 19,
-        title: "Classic Coorg Experience: Coffee, Culture & Elephants",
+        title: "Coorg Coffee Culture Elephants",
         tripDescription:
           "A perfect 3-day weekend introduction to the best of Coorg. Ride a jeep to Mandalpatti viewpoint, interact with elephants at Dubare, explore a coffee estate, and enjoy the classic sights of the 'Scotland of India'.",
         duration: "2N-3D",
@@ -3175,7 +3490,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 20,
-        title: "Indochine Elegance: A Luxury Journey from North to South",
+        title: "Vietnam Luxury North South",
         tripDescription:
           "A 12-day luxurious exploration of Vietnam's highlights. Stay in colonial-style 5-star hotels, cruise Halong Bay on a private junk, enjoy exclusive culinary tours, and travel seamlessly with private transfers and flights.",
         duration: "11N-12D",
@@ -3325,7 +3640,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 21,
-        title: "Vietnam's Northern Soul: The Ha Giang Loop & Sapa Trek",
+        title: "Vietnam Northern Ha Giang Sapa",
         tripDescription:
           "An epic 13-day offbeat adventure through Northern Vietnam. Conquer the legendary Ha Giang Loop by motorbike (with an easy-rider), trek through Sapa's iconic rice terraces, and stay with local families to experience the authentic culture of the remote highlands.",
         duration: "12N-13D",
@@ -3482,7 +3797,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 22,
-        title: "Vietnam Experience: Highlights from North to South",
+        title: "Vietnam Highlights North South",
         tripDescription:
           "A classic 10-day Vietnamese journey perfect for first-timers. Experience the best of the country, from an overnight cruise in Halong Bay and the charming streets of Hoi An to the vibrant energy of Saigon, all while savoring incredible food along the way.",
         duration: "9N-10D",
@@ -3624,7 +3939,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 23,
-        title: "Siam's Ultimate Indulgence: A Luxury Thai Escape",
+        title: "Thailand Ultimate Luxury Escape",
         tripDescription:
           "A 10-day journey showcasing the best of Thailand in absolute luxury. Stay in private pool villas and iconic 5-star hotels, dine at Michelin-starred restaurants, explore by private yacht, and rejuvenate with exclusive spa treatments.",
         duration: "9N-10D",
@@ -3754,7 +4069,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 24,
-        title: "Offbeat Thailand: Isan Culture & Jungle Treks",
+        title: "Thailand Isan Culture Treks",
         tripDescription:
           "A 12-day journey beyond the beaches to discover the authentic heart of Thailand. Explore the Khmer ruins and unique culture of the Isan region, trek through the jungles near Chiang Dao, and experience the real, untouched 'Land of Smiles'.",
         duration: "11N-12D",
@@ -3909,7 +4224,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 25,
-        title: "Thailand Island Hopper: Krabi, Phi Phi & Phuket",
+        title: "Thailand Krabi Phuket Islands",
         tripDescription:
           "The ultimate 9-day Thai island-hopping adventure. Discover the stunning landscapes of the Andaman Sea, from the limestone cliffs of Krabi and the famous shores of Phi Phi to the vibrant energy of Phuket. A perfect mix of adventure, relaxation, and nightlife.",
         duration: "8N-9D",
@@ -4050,7 +4365,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 26,
-        title: "Khmer Empire in Luxury: Temples, River & Coast",
+        title: "Cambodia Luxury Temples Coast",
         tripDescription:
           "An 8-day journey through Cambodia's cultural and natural treasures in ultimate comfort. Stay in the country's most luxurious hotels, explore the Angkor temples with a private archaeologist guide, and unwind at a serene coastal retreat.",
         duration: "7N-8D",
@@ -4165,7 +4480,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 27,
-        title: "Cambodia Off the Beaten Path: Battambang & Beyond",
+        title: "Offbeat Cambodia Battambang Beyond",
         tripDescription:
           "A 10-day journey that goes beyond Angkor to reveal Cambodia's authentic countryside and lesser-known gems. Travel by local boat, ride a bamboo train, explore remote temples, stay in a community homestay, and discover the resilient spirit of rural Cambodia.",
         duration: "9N-10D",
@@ -4297,7 +4612,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 28,
-        title: "Cambodia Experience: Temples, History & Beaches",
+        title: "Cambodia Temples History Beaches",
         tripDescription:
           "A well-rounded 9-day trip that combines the awe-inspiring Angkor temples and poignant history of Phnom Penh with relaxation on the beautiful island of Koh Rong. A perfect introduction to the wonders of Cambodia.",
         duration: "8N-9D",
@@ -4431,7 +4746,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 29,
-        title: "Singapore in Ultimate Style: A Luxurious City Sojourn",
+        title: "Singapore Luxury City Sojourn",
         tripDescription:
           "A 5-day immersion into the luxurious side of Singapore. Stay at the iconic Marina Bay Sands, enjoy private tours, indulge in Michelin-starred dining, and experience the city's finest offerings, from bespoke cocktails to exclusive shopping.",
         duration: "4N-5D",
@@ -4528,7 +4843,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 30,
-        title: "Hidden Singapore: The Green & Local Trail",
+        title: "Singapore Green Local Trail",
         tripDescription:
           "A 5-day offbeat journey that reveals a different side of Singapore, beyond the skyscrapers and shopping malls. Discover lush nature reserves, explore quirky neighborhoods, cycle through rustic islands, and eat like a local at hidden foodie spots.",
         duration: "4N-5D",
@@ -4626,7 +4941,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 31,
-        title: "Singapore for Foodies: A Culinary Adventure",
+        title: "Singapore Foodie Culinary Adventure",
         tripDescription:
           "A 4-day deep dive into Singapore's legendary food scene. This experience-focused trip will take you from humble hawker stalls awarded Michelin stars to chic cocktail bars, with hands-on cooking classes and curated food tours along the way.",
         duration: "3N-4D",
@@ -4725,7 +5040,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 32,
-        title: "Luxury Malaysia: Rainforests, Islands & Cityscapes",
+        title: "Malaysia Luxury Rainforest Islands",
         tripDescription:
           "A 10-day journey that combines Malaysia's most luxurious experiences. Stay in 5-star city hotels, an exclusive island resort in Langkawi, and a unique nature retreat in Borneo, enjoying private tours and seamless travel throughout.",
         duration: "9N-10D",
@@ -4866,7 +5181,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 33,
-        title: "Offbeat Borneo: Tribes, Caves & Headhunter Trails",
+        title: "Borneo Tribes Caves Trails",
         tripDescription:
           "A 12-day rugged adventure into the heart of Sarawak, Borneo. Explore the massive caves of Mulu National Park, trek a former headhunter's trail, and stay in a traditional longhouse with the Iban tribe, experiencing a side of Malaysia few tourists ever see.",
         duration: "11N-12D",
@@ -5018,7 +5333,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 34,
-        title: "Malaysia Food & Culture Experience: KL, Penang & Malacca",
+        title: "Malaysia KL Penang Malacca",
         tripDescription:
           "A 7-day culinary and cultural deep dive into Peninsular Malaysia. Eat your way through the street food paradise of Penang, explore the historic charm of Malacca, and experience the modern vibrancy of Kuala Lumpur.",
         duration: "6N-7D",
@@ -5148,7 +5463,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 35,
-        title: "The Golden Route in Ultimate Luxury: A Journey of Elegance",
+        title: "Japan Golden Route Luxury",
         tripDescription:
           "An exquisite 10-day journey through Japan's celebrated 'Golden Route'. Indulge in 5-star accommodations, travel in First Class on the Shinkansen, and experience the culture through private guided tours, exclusive dinners, and stays in a luxurious ryokan with a private onsen.",
         duration: "9N-10D",
@@ -5282,7 +5597,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 36,
-        title: "Japan's Alpine Soul: Offbeat Nakasendo & Takayama Trail",
+        title: "Japan Nakasendo Takayama Offbeat",
         tripDescription:
           "An 11-day adventurous journey into the heart of the Japan Alps, far from the tourist crowds. Hike a portion of the ancient Nakasendo samurai trail, explore the traditional wooden town of Takayama, and discover the unique culture and crafts of this stunning, less-traveled region.",
         duration: "10N-11D",
@@ -5430,7 +5745,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 37,
-        title: "Japan's Neon Pulse: Tokyo to Osaka Pop Culture Trip",
+        title: "Japan Tokyo Osaka Culture",
         tripDescription:
           "An electrifying 9-day journey through Japan's modern cultural landscape. Dive headfirst into Tokyo's anime world, Kyoto's manga scene, and Osaka's incredible street food and nightlife. Perfect for the young and young-at-heart, this trip is a high-energy blend of iconic sights and unforgettable experiences.",
         duration: "8N-9D",
@@ -5564,7 +5879,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 38,
-        title: "Arctic Elegance: A Lapland Glass Igloo & Icebreaker Retreat",
+        title: "Lapland Glass Igloo Icebreaker",
         tripDescription:
           "An exclusive 7-day luxury journey through Finnish Lapland, staying in premium glass igloos and boutique lodges. This itinerary features a private Northern Lights photography tour, an arctic icebreaker cruise, and gourmet Lappish dining.",
         duration: "6N-7D",
@@ -5674,7 +5989,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 39,
-        title: "Lapland's Remote Soul: A Journey to Inari-Saariselkä",
+        title: "Lapland Inari Saariselka Journey",
         tripDescription:
           "An 8-day offbeat adventure that leaves the crowds of Rovaniemi behind. Journey deep into Northern Lapland to explore authentic Sami culture, trek in Urho Kekkonen National Park, and chase the Aurora in one of the world's best viewing locations.",
         duration: "7N-8D",
@@ -5790,7 +6105,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 40,
-        title: "Lapland Winter Wonderland Adventure",
+        title: "Lapland Winter Wonderland",
         tripDescription:
           "A 6-day experience-focused trip based in Rovaniemi, packed with Lapland's most iconic activities. Perfect for first-timers, families, and adventure seekers looking for a blend of thrills, magic, and culture.",
         duration: "5N-6D",
@@ -5910,7 +6225,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 41,
-        title: "The Grand European Tour: Paris, Alps & Italian Lakes",
+        title: "Europe Paris Alps Lakes",
         tripDescription:
           "An opulent 12-day discovery of Europe's most elegant destinations. Travel by first-class rail, stay in legendary 5-star hotels, and enjoy private, in-depth tours of Parisian art, Swiss mountain peaks, and the romantic Italian Lakes.",
         duration: "11N-12D",
@@ -6060,7 +6375,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 42,
-        title: "Bavaria & Austria's Offbeat Alpine Route",
+        title: "Bavaria Austria Offbeat Route",
         tripDescription:
           "A 10-day self-drive or rail journey that bypasses the major capitals for the heart of the Alps. Explore fairytale castles, hike to pristine lakes, wander through charming villages like Hallstatt, and soak in the culture of Bavaria and the Austrian Tyrol.",
         duration: "9N-10D",
@@ -6202,7 +6517,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 43,
-        title: "European Magic: Amsterdam, Berlin & Prague",
+        title: "Europe Amsterdam Berlin Prague",
         tripDescription:
           "A 10-day, high-energy journey through three of Europe's coolest and most vibrant capitals. This trip is designed for social, young-at-heart travelers, blending iconic history with cutting-edge art, unforgettable nightlife, and authentic local experiences.",
         duration: "9N-10D",
@@ -6354,7 +6669,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 44,
-        title: "Châteaux, Wine & Gastronomy: A Luxury Tour of France",
+        title: "France Luxury Wine Gastronomy",
         tripDescription:
           "An indulgent 10-day journey through France's most elegant regions. Stay in luxurious converted châteaux in the Loire Valley and a 5-star hotel in Bordeaux, enjoy private tours of grand estates, and savor exclusive tastings at prestigious wineries.",
         duration: "9N-10D",
@@ -6479,7 +6794,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 45,
-        title: "Offbeat France: Secrets of Brittany & Normandy",
+        title: "France Brittany Normandy Secrets",
         tripDescription:
           "A 12-day self-drive road trip through the rugged, historic, and delicious regions of Normandy and Brittany. Discover dramatic coastlines, ancient Celtic legends, the historic D-Day beaches, and indulge in the region's famous seafood, cider, and crêpes.",
         duration: "11N-12D",
@@ -6629,7 +6944,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 46,
-        title: "South of France Summer Experience",
+        title: "South France Summer Experience",
         tripDescription:
           "A 9-day sun-soaked adventure through Provence and the French Riviera. Discover glamorous beaches in Nice, experience the lavender fields of Provence, kayak in the Verdon Gorge, and soak up the vibrant summer atmosphere of the South of France.",
         duration: "8N-9D",
@@ -6778,7 +7093,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 47,
-        title: "Swiss Alps in Ultimate Luxury: The Grand Train Tour",
+        title: "Switzerland Luxury Grand Train",
         tripDescription:
           "An 8-day journey of a lifetime across Switzerland aboard its most legendary panoramic trains in Excellence or Prestige Class. Stay in 5-star palace hotels, enjoy gourmet dining, and witness the country's most spectacular scenery in unparalleled comfort and style.",
         duration: "7N-8D",
@@ -6904,7 +7219,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 48,
-        title: "Hiker's Paradise: Offbeat Trekking in the Valais Region",
+        title: "Switzerland Valais Offbeat Trekking",
         tripDescription:
           "A 9-day challenging and rewarding trekking adventure in Switzerland's Valais region, home to the most 4,000m peaks. Hike stunning trails, stay in traditional mountain huts, and witness the raw beauty of the Aletsch Glacier, far from the tourist crowds.",
         duration: "8N-9D",
@@ -7029,7 +7344,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 49,
-        title: "Swiss Adrenaline Week in Interlaken",
+        title: "Switzerland Interlaken Adrenaline Week",
         tripDescription:
           "A 7-day action-packed trip for thrill-seekers and nature lovers based in Interlaken, the adventure capital of Europe. Hike stunning trails, experience a range of adrenaline sports, and immerse yourself in the heart of the Swiss Alps.",
         duration: "6N-7D",
@@ -7156,7 +7471,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 50,
-        title: "Georgia in Style: Wine, Mountains & Helicopter Views",
+        title: "Georgia Wine Mountains Views",
         tripDescription:
           "A 9-day luxury tour of Georgia's highlights, combining stays in Tbilisi's finest design hotels and boutique wineries, with private tours, exclusive culinary experiences, and a breathtaking helicopter flight to Kazbegi.",
         duration: "8N-9D",
@@ -7283,7 +7598,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 51,
-        title: "Untamed Tusheti: A 4x4 & Trekking Expedition",
+        title: "Tusheti 4x4 Trekking Expedition",
         tripDescription:
           "A 9-day hardcore adventure into the remote and spectacular Tusheti National Park, accessible only a few months a year. Traverse one of the world's most dangerous roads by 4x4, trek between ancient tower villages, and stay in rustic guesthouses in this isolated corner of the Caucasus.",
         duration: "8N-9D",
@@ -7410,7 +7725,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 52,
-        title: "A Taste of Georgia: Food, Wine & Culture",
+        title: "Georgia Food Wine Culture",
         tripDescription:
           "A 7-day experiential journey designed for food and wine lovers. Discover the secrets of Georgian cuisine, taste unique qvevri wines, and explore the historical sites and stunning mountain scenery that have shaped this incredible culture.",
         duration: "6N-7D",
@@ -7540,7 +7855,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 53,
-        title: "Almaty's Alpine Jewels: A Luxury Mountain Retreat",
+        title: "Almaty Luxury Mountain Retreat",
         tripDescription:
           "A 6-day exclusive journey exploring the natural wonders around Almaty. Stay in the region's top luxury hotel, travel by private premium 4x4, and experience the stunning canyons and lakes with private guides and gourmet picnics, including a helicopter tour.",
         duration: "5N-6D",
@@ -7690,7 +8005,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 54,
-        title: "The Golden Ring: Kolsai, Kaindy & Charyn Canyon Expedition",
+        title: "Kazakhstan Kolsai Kaindy Charyn",
         tripDescription:
           "A 4-day offbeat 4x4 expedition into the heart of the Almaty region's most spectacular and remote landscapes. Stay in a rustic guesthouse, hike to the sunken forest of Kaindy lake, see the Kolsai lakes, and explore Charyn Canyon.",
         duration: "3N-4D",
@@ -7803,7 +8118,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 55,
-        title: "Almaty's Wonders & Nomadic Culture",
+        title: "Almaty Wonders Nomadic Culture",
         tripDescription:
           "A 5-day experiential journey blending Almaty's must-see natural sights with an immersion into Kazakh nomadic culture. Visit breathtaking lakes and mountains, and experience the traditions, food, and hospitality of the steppe at an ethno-village.",
         duration: "4N-5D",
@@ -7929,7 +8244,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 56,
-        title: "Himalayan Serenity: A Luxury Ladakh Retreat",
+        title: "Ladakh Luxury Serenity Retreat",
         tripDescription:
           "An 8-day journey through Ladakh in unparalleled comfort. Stay in the region's most luxurious hotels and glamping sites, travel by premium SUV, and experience the stunning landscapes through private, curated tours, including a gourmet picnic by Pangong Lake.",
         duration: "7N-8D",
@@ -8069,7 +8384,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 57,
-        title: "Offbeat Ladakh: The Zanskar Valley Expedition",
+        title: "Ladakh Zanskar Offbeat Expedition",
         tripDescription:
           "A rugged 14-day 4x4 expedition into the remote and mythical Zanskar Valley. Traverse high passes, visit ancient monasteries frozen in time, witness the stunning Drang-Drung Glacier, and experience a side of Ladakh few travelers ever see.",
         duration: "13N-14D",
@@ -8243,7 +8558,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 58,
-        title: "Ladakh for the Soul: Monasteries, Mindfulness & Culture",
+        title: "Ladakh Monasteries Mindfulness Culture",
         tripDescription:
           "A 9-day experiential journey that goes beyond the landscapes to connect with Ladakh's spiritual heart. Participate in a monastery morning prayer, take a class on Buddhist philosophy, stay in a local homestay, and experience the culture in a meaningful way.",
         duration: "8N-9D",
@@ -8398,7 +8713,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 59,
-        title: "Kashmir's Royal Heritage: A Luxury Sojourn",
+        title: "Kashmir Royal Heritage Sojourn",
         tripDescription:
           "A 7-day indulgent journey through Kashmir's paradise. Stay in opulent palace hotels and luxurious houseboats, enjoy private shikara rides, guided tours of Mughal gardens, and experience the best of Kashmiri culture and cuisine in ultimate style.",
         duration: "6N-7D",
@@ -8513,7 +8828,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 60,
-        title: "Off the Grid in Kashmir: The Great Lakes Trek",
+        title: "Kashmir Great Lakes Trek",
         tripDescription:
           "An 8-day challenging and immensely rewarding trek through the pristine alpine meadows and high-altitude lakes of Kashmir. This is one of India's most beautiful treks, taking you far from civilization into a world of turquoise lakes, snow-capped peaks, and nomadic shepherds.",
         duration: "7N-8D",
@@ -8643,7 +8958,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 61,
-        title: "Kashmir Experience: Valleys, Lakes & Local Life",
+        title: "Kashmir Valleys Lakes Life",
         tripDescription:
           "A 7-day immersive journey that combines Kashmir's iconic sights with authentic local experiences. Stay on a houseboat, visit a saffron farm, explore the lesser-known Aru and Betaab valleys, and connect with the culture of this beautiful land.",
         duration: "6N-7D",
@@ -8771,7 +9086,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 62,
-        title: "Kerala in Luxury: Backwaters, Tea Estates & Private Villas",
+        title: "Kerala Luxury Backwaters Villas",
         tripDescription:
           "A 9-day opulent journey through Kerala's finest experiences. Stay in luxurious private pool villas and premier resorts, cruise the backwaters on a private luxury houseboat (Kettuvallam), and indulge in personalized cooking classes and Ayurvedic spa treatments.",
         duration: "8N-9D",
@@ -8896,7 +9211,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 63,
-        title: "Offbeat Kerala: Wayanad's Jungles & Coastal Vistas",
+        title: "Kerala Wayanad Jungles Vistas",
         tripDescription:
           "A 9-day adventure that explores the wild heart of North Kerala. Trek to Chembra Peak, explore the ancient Edakkal Caves in Wayanad, stay in eco-lodges, and discover the hidden beaches and Theyyam rituals of the Malabar Coast.",
         duration: "8N-9D",
@@ -9020,7 +9335,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 64,
-        title: "Classic Kerala Experience: God's Own Country Trail",
+        title: "Kerala Classic Heritage Trail",
         tripDescription:
           "The quintessential 7-day journey through Kerala's most iconic landscapes. From the historic port of Kochi, through the rolling tea gardens of Munnar and the spice plantations of Thekkady, to a magical night on an Alleppey houseboat.",
         duration: "6N-7D",
@@ -9148,7 +9463,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 65,
-        title: "Arunachal in Comfort: A Tawang & Dirang Luxury Tour",
+        title: "Arunachal Tawang Dirang Luxury",
         tripDescription:
           "A 9-day journey through Western Arunachal in premium comfort. Travel in a top-of-the-line SUV, stay in the best available luxury hotels and resorts, and enjoy a curated experience of the region's monasteries and natural beauty with an expert local guide.",
         duration: "8N-9D",
@@ -9298,7 +9613,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 66,
-        title: "The Forbidden Valley: Offbeat Mechuka Expedition",
+        title: "Arunachal Mechuka Offbeat Expedition",
         tripDescription:
           "A 12-day 4x4 expedition to the stunningly beautiful and remote Mechuka Valley. Known as the 'Forbidden Valley', this offbeat destination near the Indo-China border offers breathtaking landscapes, unique tribal culture, and a true sense of discovery.",
         duration: "11N-12D",
@@ -9457,7 +9772,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 67,
-        title: "Arunachal Experience: The Ziro Music Festival Special",
+        title: "Arunachal Ziro Festival Experience",
         tripDescription:
           "A 7-day cultural extravaganza centered around the Ziro Festival of Music. Experience one of India's most unique outdoor music festivals, explore the Apatani tribal villages, and soak in the vibrant, creative energy of Ziro Valley.",
         duration: "6N-7D",
@@ -9595,7 +9910,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 68,
-        title: "Sikkim's Regal Heights: A Luxury Kanchenjunga Vista Tour",
+        title: "Sikkim Luxury Kanchenjunga Vista",
         tripDescription:
           "An 8-day luxurious journey through Sikkim's most scenic landscapes. Stay in heritage hotels and luxury resorts, enjoy private tours, and experience the grandeur of the Himalayas in comfort, including a spectacular helicopter flight for aerial views of the mountains.",
         duration: "7N-8D",
@@ -9721,7 +10036,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 69,
-        title: "North Sikkim's Forbidden Frontier: A 4x4 Adventure",
+        title: "North Sikkim 4x4 Adventure",
         tripDescription:
           "A 7-day rugged 4x4 adventure into the restricted and breathtakingly beautiful region of North Sikkim. Journey to the high-altitude Gurudongmar Lake, wander through the Valley of Flowers at Yumthang, and experience a raw, untamed side of the Himalayas.",
         duration: "6N-7D",
@@ -9846,7 +10161,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 70,
-        title: "Sikkim Silk Route Experience: An Ancient Trail",
+        title: "Sikkim Silk Route Trail",
         tripDescription:
           "A 7-day offbeat journey tracing a part of the ancient Silk Route in East Sikkim. Stay in remote homestays, navigate the hairpin bends of Zuluk, and witness a spectacular sunrise over the Kanchenjunga range from Thambi Viewpoint.",
         duration: "6N-7D",
@@ -9985,7 +10300,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 71,
-        title: "Royal Rajasthan: A Palace & Forts Luxury Journey",
+        title: "Rajasthan Palace Forts Luxury",
         tripDescription:
           "A 10-day regal tour of Rajasthan's finest destinations. Stay in magnificent heritage palace hotels, enjoy private guided tours, dine in exclusive locations, and travel in a private luxury car, experiencing the life of Maharajas.",
         duration: "9N-10D",
@@ -10112,7 +10427,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 72,
-        title: "Offbeat Rajasthan: Shekhawati's Havelis & Desert Life",
+        title: "Rajasthan Shekhawati Havelis Desert",
         tripDescription:
           "A 10-day road trip that delves into the lesser-seen parts of Rajasthan. Explore the painted havelis of the Shekhawati region, live with a local family in a desert village, and discover the charming, non-touristy towns of Bundi and Bikaner.",
         duration: "9N-10D",
@@ -10236,7 +10551,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 73,
-        title: "Rajasthan Experience: The Desert Triangle",
+        title: "Rajasthan Desert Triangle",
         tripDescription:
           "An 8-day classic journey through the heart of Rajasthan's desert circuit. Explore the vibrant cities of Jodhpur, Jaisalmer, and Bikaner, ride a camel into the sunset on the Sam Sand Dunes, and immerse yourself in the history and culture of Marwar.",
         duration: "7N-8D",
@@ -10364,7 +10679,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 74,
-        title: "Andaman Luxury Escape: Private Villas, Yachts & Seaplanes",
+        title: "Andaman Luxury Villas Yachts",
         tripDescription:
           "A 7-day ultra-luxurious journey through the Andaman Islands. Stay in private pool villas at exclusive resorts, charter a private yacht for island hopping, enjoy gourmet beach dinners, and experience the islands' beauty from a seaplane.",
         duration: "6N-7D",
@@ -10485,7 +10800,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 75,
-        title: "Andaman's Diving Deep: An Offbeat Scuba Adventure",
+        title: "Andaman Offbeat Scuba Adventure",
         tripDescription:
           "A 9-day trip focused on exploring the incredible underwater world of the Andamans. Get your PADI Open Water certification, or if already certified, explore deeper dive sites, stay in a diver-focused resort, and discover the less-visited marine ecosystems.",
         duration: "8N-9D",
@@ -10614,7 +10929,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 76,
-        title: "Andaman Experience: Islands, Beaches & History",
+        title: "Andaman Islands Beaches History",
         tripDescription:
           "A classic 6-day Andaman itinerary perfect for first-timers, families, and couples. It covers the historical sights of Port Blair, the stunning beauty of Havelock Island's Radhanagar Beach, and the pristine charm of Neil Island.",
         duration: "5N-6D",
@@ -10740,7 +11055,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 77,
-        title: "Balinese Bliss: An Ultimate Luxury Villa & Yacht Escape",
+        title: "Bali Luxury Villa Yacht",
         tripDescription:
           "A 9-day journey into Bali's most luxurious offerings. Stay in exclusive private pool villas in Ubud and Uluwatu, charter a private yacht to the Nusa Islands, indulge in world-class fine dining, and rejuvenate with private yoga and spa treatments.",
         duration: "8N-9D",
@@ -10872,7 +11187,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 78,
-        title: "Offbeat Bali: Volcanoes, Waterfalls & The Wild North",
+        title: "Bali Volcanoes Waterfalls North",
         tripDescription:
           "A 10-day adventure that escapes the southern crowds to uncover Bali's raw, natural beauty. Trek Mount Batur for sunrise, chase hidden waterfalls in Munduk, dive in the clear waters of Amed, and experience the authentic Bali.",
         duration: "9N-10D",
@@ -11004,7 +11319,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 79,
-        title: "The Bali Experience: Eat, Surf, Pray",
+        title: "Bali Eat Surf Pray",
         tripDescription:
           "A classic 8-day Bali journey for the first-timer or spiritual seeker. Find your balance with yoga in Ubud, learn to surf the waves of Canggu, and experience the island's unique culture at its most famous temples and rice terraces.",
         duration: "7N-8D",
@@ -11139,7 +11454,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 80,
-        title: "Dubai's Ultimate Luxury: A Sky-High & Sand-Dune Sojourn",
+        title: "Dubai Ultimate Luxury Sojourn",
         tripDescription:
           "A 6-day immersion into the pinnacle of Dubai's luxury. Stay in iconic 7-star and 5-star hotels, take a private helicopter tour, enjoy an exclusive desert safari, and dine at the city's most prestigious restaurants.",
         duration: "5N-6D",
@@ -11248,7 +11563,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 81,
-        title: "Offbeat Dubai: History, Art & Mountain Adventures",
+        title: "Dubai History Art Adventures",
         tripDescription:
           "A 6-day journey that uncovers the hidden gems of Dubai and its surroundings, beyond the glitz and glamour. Explore the historic heart of the city, discover the mountain exclave of Hatta, and find the soul of the emirate.",
         duration: "5N-6D",
@@ -11355,7 +11670,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 82,
-        title: "Classic Dubai Experience: The Best of the City & Desert",
+        title: "Dubai City Desert Highlights",
         tripDescription:
           "A 5-day action-packed itinerary that covers all of Dubai's must-see attractions. From the top of the Burj Khalifa and the thrill of a desert safari to the massive malls and vibrant souks, this is the perfect introduction to the city of wonders.",
         duration: "4N-5D",
@@ -11466,7 +11781,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 83,
-        title: "Sri Lanka in Style: Tea Trails, Safaris & Colonial Charm",
+        title: "Sri Lanka Tea Trails Safaris",
         tripDescription:
           "A 10-day luxury journey through Sri Lanka's highlights. Stay in iconic colonial-era hotels and boutique tea plantation bungalows, enjoy private safaris, and explore UNESCO sites with a personal chauffeur-guide.",
         duration: "9N-10D",
@@ -11606,7 +11921,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 84,
-        title: "Offbeat Sri Lanka: Knuckles Range Trek & East Coast Waves",
+        title: "Sri Lanka Knuckles Trek East",
         tripDescription:
           "A 14-day adventure for active travelers that explores Sri Lanka's wild side. Trek through the remote Knuckles Mountain Range, discover the vibrant culture of Jaffna in the north, and surf the famous waves of Arugam Bay on the east coast.",
         duration: "13N-14D",
@@ -11769,7 +12084,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 85,
-        title: "Classic Sri Lanka Experience: The Cultural & Coastal Loop",
+        title: "Sri Lanka Cultural Coastal Loop",
         tripDescription:
           "The perfect 8-day introduction to the wonders of Sri Lanka. Climb the iconic Sigiriya Rock, take the famous Kandy to Ella train, spot elephants on a safari, and relax on the beautiful beaches of the south coast.",
         duration: "7N-8D",
@@ -11911,7 +12226,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 86,
-        title: "Maldivian Dream: An Ultra-Luxury Overwater Villa Escape",
+        title: "Maldives Overwater Luxury Escape",
         tripDescription:
           "The ultimate 6-day Maldivian fantasy. Arrive by private seaplane to your exclusive overwater villa with a private pool. Indulge in underwater dining, private sandbank picnics, and unparalleled service from a personal butler.",
         duration: "5N-6D",
@@ -12014,7 +12329,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 87,
-        title: "Offbeat Maldives: Local Island Hopping Adventure",
+        title: "Maldives Local Island Hopping",
         tripDescription:
           "A 7-day journey that reveals the 'real' Maldives, beyond the luxury resorts. Hop between local islands like Maafushi and Dhigurah, stay in community guesthouses, interact with Maldivian culture, and enjoy the same stunning natural beauty on a budget.",
         duration: "6N-7D",
@@ -12122,7 +12437,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 88,
-        title: "Maldives Dive & Relax Experience",
+        title: "Maldives Dive Relax Experience",
         tripDescription:
           "A 7-day trip for ocean lovers, balancing world-class scuba diving with blissful relaxation. Stay at a premium resort with a fantastic house reef and dive center, explore vibrant dive sites, and enjoy plenty of time to unwind in paradise.",
         duration: "6N-7D",
@@ -12246,7 +12561,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 89,
-        title: "Ultimate Island Hopping: Palawan's Best",
+        title: "Palawan Island Hopping Best",
         tripDescription:
           "A 10-day adventure focused on the crown jewel of the Philippines: Palawan. Experience the best of both **El Nido** and **Coron** with exclusive island tours, lagoon kayaking, and beachfront relaxation. Perfect for beach lovers and snorkel enthusiasts.",
         duration: "9N-10D",
@@ -12358,7 +12673,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 90,
-        title: "Cebu, Bohol & Siargao: Adventure Trio",
+        title: "Cebu Bohol Siargao Adventure",
         tripDescription:
           "A 12-day journey for the adventurous soul, combining the diving and waterfalls of **Cebu**, the unique nature of **Bohol** (Chocolate Hills, Tarsiers), and the epic surf breaks and laid-back vibe of **Siargao Island**.",
         duration: "11N-12D",
@@ -12483,7 +12798,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 91,
-        title: "Boracay Bliss: A Luxury Beach Escape",
+        title: "Boracay Luxury Beach Escape",
         tripDescription:
           "A 7-day luxurious retreat to the world-famous white sands of Boracay. This trip is pure relaxation, focusing on upscale resorts, private beach dining, spa treatments, and sunset cruises away from the main crowds.",
         duration: "6N-7D",
@@ -12585,7 +12900,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 92,
-        title: "Istanbul & Cappadocia: The Turkish Dream",
+        title: "Istanbul Cappadocia Turkish Dream",
         tripDescription:
           "An 8-day journey covering Turkey's two most iconic destinations. Dive into the history of **Istanbul** with private guided tours of the Sultanahmet district, and then fly to **Cappadocia** for a magical hot air balloon ride and exploration of its unique cave valleys.",
         duration: "7N-8D",
@@ -12687,7 +13002,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 93,
-        title: "Ottoman & Ancient Wonders: The Grand Tour",
+        title: "Turkey Ottoman Ancient Wonders",
         tripDescription:
           "A comprehensive 14-day tour that traces the path of ancient empires, covering the essentials: **Istanbul**, **Cappadocia**, the Roman ruins of **Ephesus**, the thermal pools of **Pamukkale**, and a brief relax on the **Aegean coast**.",
         duration: "13N-14D",
@@ -12829,7 +13144,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 94,
-        title: "Luxury Turquoise Coast Gulet Cruise",
+        title: "Turkey Turquoise Gulet Cruise",
         tripDescription:
           "A 7-day luxury escape focused on the famed Turkish Riviera. Sail on a traditional wooden **Gulet** boat, exploring hidden coves, ancient Lycian ruins, and chic towns like **Fethiye** and **Oludeniz**, with all-inclusive gourmet dining onboard.",
         duration: "6N-7D",
@@ -12945,7 +13260,7 @@ export const TRAVEL_PACKAGES_DATA = [
     trips: [
       {
         tripId: 95,
-        title: "Divine Circuit: The Sacred Char Dham Yatra",
+        title: "Char Dham Sacred Circuit",
         tripDescription:
           "A 12-day spiritual journey covering the four revered Hindu temples: **Yamunotri**, **Gangotri**, **Kedarnath**, and **Badrinath**. This pilgrimage offers a deeply enriching experience through the magnificent Garhwal Himalayas.",
         duration: "11N-12D",
@@ -13079,7 +13394,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 96,
-        title: "Yoga, Rafting & Hill Station Charm: Rishikesh to Nainital",
+        title: "Rishikesh Nainital Yoga Rafting",
         tripDescription:
           "A relaxed 9-day tour covering the best of Uttarakhand's lower regions. Experience the spiritual vibe of **Rishikesh** (Yoga & Rafting), the colonial beauty of **Mussoorie**, and the scenic lakes of **Nainital**.",
         duration: "8N-9D",
@@ -13192,7 +13507,7 @@ export const TRAVEL_PACKAGES_DATA = [
       },
       {
         tripId: 97,
-        title: "Himalayan High: Valley of Flowers & Hemkund Sahib Trek",
+        title: "Valley Flowers Hemkund Trek",
         tripDescription:
           "A challenging but rewarding 7-day trek to the UNESCO World Heritage Site, the **Valley of Flowers**, and the revered Sikh pilgrimage site, **Hemkund Sahib**. Experience the unique high-altitude flora and stunning glacier views.",
         duration: "6N-7D",

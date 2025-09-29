@@ -125,7 +125,7 @@
   }
 
   .cardTitle {
-    font-size: 16px;
+    font-size: var(--fs-16);
     font-weight: 700;
     color: #1f2937;
     line-height: 1.35;
@@ -139,18 +139,18 @@
     gap: 10px;
 
     .currentPrice {
-      font-size: 15px;
+      font-size: var(--fs-15);
       font-weight: 600;
       color: #111827;
     }
     .oldPrice {
-      font-size: 15px;
+      font-size: var(--fs-15);
       color: #111827;
       text-decoration: line-through;
       font-weight: 600;
     }
     .discount {
-      font-size: 15px;
+      font-size: var(--fs-15);
       color: #e11d48;
       font-weight: 600;
     }
@@ -161,7 +161,7 @@
     background: transparent;
     color: #6b7280;
     font-weight: 600;
-    font-size: 14px;
+    font-size: var(--fs-14);
     padding: 14px 0px 16px 0px;
     border-top: 1px solid #e5e7eb;
     border-bottom-left-radius: 16px;

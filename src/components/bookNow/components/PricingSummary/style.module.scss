@@ -27,15 +27,15 @@
 }
 
 .compact .title {
-  font-size: 20px;
+  font-size: var(--fs-20);
 }
 
 .compact .totalAmount {
-  font-size: 18px;
+  font-size: var(--fs-18);
 }
 
 .title {
-  font-size: 24px;
+  font-size: var(--fs-24);
   font-weight: 700;
   color: #1f2937;
   margin: 0;
@@ -50,7 +50,7 @@
 }
 
 .tripName {
-  font-size: 12px;
+  font-size: var(--fs-12);
   font-weight: 500;
   color: #6b7280;
 }

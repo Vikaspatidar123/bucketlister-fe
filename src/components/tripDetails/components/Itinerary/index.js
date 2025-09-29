@@ -327,7 +327,7 @@ const Itinerary = ({ destination, trip }) => {
           <p style={{ marginBottom: 8 }}>
             Provide your contact details to receive this itinerary file.
           </p>
-          <p style={{ color: "#6b7280", fontSize: 14 }}>
+          <p style={{ color: "#6b7280", fontSize: 'var(--fs-14)' }}>
             File will download automatically after successful submission.
           </p>
         </div>
