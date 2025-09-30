@@ -8,22 +8,19 @@ import {
   linkedinIcon,
   twitterIcon,
 } from "@/assets/svg";
-import { profile1, shrey } from "@/assets/png";
+import { profile1, shrey, banner1 } from "@/assets/png";
 import { dhaval, kerul, rakshit } from "@/assets/webp";
 
 const AboutUs = () => {
   return (
     <div className={styles.aboutUsPage}>
       <section className={styles.heroSection}>
-        <div className={styles.backgroundImage}>
-          <div className={styles.overlay} />
-        </div>
-        <div className={styles.content}>
-          <div className={styles.container}>
-            <h1 className={styles.mainHeading}>
-              <span className={styles.line1}>About Us</span>
-            </h1>
-          </div>
+        <div className={styles.heroImageWrap}>
+          <img
+            src={banner1}
+            alt="About hero banner"
+            className={styles.heroImage}
+          />
         </div>
       </section>
 
@@ -32,7 +29,7 @@ const AboutUs = () => {
           <div className={styles.descriptionContent}>
             <h2 className={styles.sectionTitle}>
               <span className={styles.titlePart1}>Your Gateway to </span>
-              <span className={styles.titlePart2}>
+              <span className={styles.titlePart1}>
                 Extraordinary Adventures
               </span>
             </h2>
@@ -54,71 +51,73 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section className={styles.founderSection}>
-        <div className={styles.container}>
-          <h2 className={styles.sectionTitle}>
-            <span className={styles.titlePart1}>Meet Our </span>
-            <span className={styles.titlePart2}>Founder</span>
-          </h2>
-          <div className={styles.founderCard}>
-            <div className={styles.founderImage}>
-              <Image src={profile1} alt="Founder" width={100} height={100} />
-            </div>
-            <div className={styles.founderContent}>
-              <h3 className={styles.founderName}>Harsh Vira</h3>
-              <p className={styles.founderTitle}>Founder & CEO</p>
-              <div className={styles.socialIcons}>
-                <a href="#" className={styles.socialIcon}>
-                  <Image
-                    src={instagramIcon}
-                    alt="Instagram"
-                    width={20}
-                    height={20}
-                  />
-                </a>
-                <a href="#" className={styles.socialIcon}>
-                  <Image
-                    src={linkedinIcon}
-                    alt="LinkedIn"
-                    width={20}
-                    height={20}
-                  />
-                </a>
-                <a href="#" className={styles.socialIcon}>
-                  <Image
-                    src={twitterIcon}
-                    alt="Twitter"
-                    width={20}
-                    height={20}
-                  />
-                </a>
-                <a href="#" className={styles.socialIcon}>
-                  <Image
-                    src={facebookIcon}
-                    alt="Facebook"
-                    width={20}
-                    height={20}
-                  />
-                </a>
+      <div className={styles.maskedBox}>
+        <section className={styles.founderSection}>
+          <div className={styles.container}>
+            <h2 className={styles.sectionTitle}>
+              <span className={styles.titlePart1}>Meet Our </span>
+              <span className={styles.titlePart1}>Founder</span>
+            </h2>
+            <div className={styles.founderCard}>
+              <div className={styles.founderImage}>
+                <Image src={profile1} alt="Founder" width={100} height={100} />
               </div>
-              <p className={styles.founderDescription}>
-                With over 15 years of experience in the travel industry, Harsh
-                founded The Bucketlister with a vision to make extraordinary
-                travel accessible to everyone. His passion for authentic
-                experiences and commitment to personalized service has helped
-                thousands of travelers discover the world in ways they never
-                imagined.
-              </p>
+              <div className={styles.founderContent}>
+                <h3 className={styles.founderName}>Harsh Vira</h3>
+                <p className={styles.founderTitle}>Founder & CEO</p>
+                <div className={styles.socialIcons}>
+                  <a href="#" className={styles.socialIcon}>
+                    <Image
+                      src={instagramIcon}
+                      alt="Instagram"
+                      width={20}
+                      height={20}
+                    />
+                  </a>
+                  <a href="#" className={styles.socialIcon}>
+                    <Image
+                      src={linkedinIcon}
+                      alt="LinkedIn"
+                      width={20}
+                      height={20}
+                    />
+                  </a>
+                  <a href="#" className={styles.socialIcon}>
+                    <Image
+                      src={twitterIcon}
+                      alt="Twitter"
+                      width={20}
+                      height={20}
+                    />
+                  </a>
+                  <a href="#" className={styles.socialIcon}>
+                    <Image
+                      src={facebookIcon}
+                      alt="Facebook"
+                      width={20}
+                      height={20}
+                    />
+                  </a>
+                </div>
+                <p className={styles.founderDescription}>
+                  With over 15 years of experience in the travel industry, Harsh
+                  founded The Bucketlister with a vision to make extraordinary
+                  travel accessible to everyone. His passion for authentic
+                  experiences and commitment to personalized service has helped
+                  thousands of travelers discover the world in ways they never
+                  imagined.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <section className={styles.teamSection}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.titlePart1}>Our </span>
-            <span className={styles.titlePart2}>Team</span>
+            <span className={styles.titlePart1}>Team</span>
           </h2>
           <div className={styles.teamGrid}>
             <div className={styles.teamMember}>
@@ -163,30 +162,32 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section className={styles.missionVisionSection}>
-        <div className={styles.container}>
-          <div className={styles.missionVisionGrid}>
-            <div className={styles.missionCard}>
-              <h3 className={styles.cardTitle}>Our Mission</h3>
-              <p className={styles.cardDescription}>
-                To create transformative travel experiences that inspire,
-                educate, and connect people from all walks of life. We are
-                committed to sustainable tourism practices and supporting local
-                communities wherever we operate.
-              </p>
-            </div>
-            <div className={styles.visionCard}>
-              <h3 className={styles.cardTitle}>Our Vision</h3>
-              <p className={styles.cardDescription}>
-                To be the world&apos;s leading travel company, known for our
-                innovative itineraries, exceptional service, and commitment to
-                making every journey a life-changing adventure that creates
-                lasting memories and meaningful connections.
-              </p>
+      <div className={styles.maskedBox}>
+        <section className={styles.missionVisionSection}>
+          <div className={styles.container}>
+            <div className={styles.missionVisionGrid}>
+              <div className={styles.missionCard}>
+                <h3 className={styles.cardTitle}>Our Mission</h3>
+                <p className={styles.cardDescription}>
+                  To create transformative travel experiences that inspire,
+                  educate, and connect people from all walks of life. We are
+                  committed to sustainable tourism practices and supporting
+                  local communities wherever we operate.
+                </p>
+              </div>
+              <div className={styles.visionCard}>
+                <h3 className={styles.cardTitle}>Our Vision</h3>
+                <p className={styles.cardDescription}>
+                  To be the world&apos;s leading travel company, known for our
+                  innovative itineraries, exceptional service, and commitment to
+                  making every journey a life-changing adventure that creates
+                  lasting memories and meaningful connections.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };

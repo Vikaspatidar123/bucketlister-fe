@@ -4,89 +4,22 @@
 
 .heroSection {
   position: relative;
-  min-height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: visible;
+  overflow: hidden;
+  padding-top: 8px;
 
-  .backgroundImage {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-      linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("/assets/png/group-people.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 1;
+  .heroImageWrap {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
   }
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-      linear-gradient(
-        89.63deg,
-        rgba(0, 0, 0, 0) 0.31%,
-        rgba(0, 0, 0, 0.5) 99.69%
-      ),
-      linear-gradient(
-        180deg,
-        rgba(2, 101, 143, 0) 50%,
-        rgba(2, 101, 143, 0.3) 75%,
-        #02658f 100%
-      );
-    z-index: 2;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 40px;
-      background: linear-gradient(to bottom, transparent, #02658f);
-      z-index: 3;
-    }
-  }
-
-  .content {
-    position: relative;
-    z-index: 3;
+  .heroImage {
     width: 100%;
-    text-align: center;
-    padding: 2rem;
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .mainHeading {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 700;
-      color: white;
-      margin: 0;
-      line-height: 1.2;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-
-      .line1 {
-        display: block;
-        margin-bottom: 0.5rem;
-      }
-
-      .line2 {
-        display: block;
-        font-weight: 800;
-      }
-    }
+    height: 100%;
+    max-height: 70vh;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
   }
 }
 
@@ -101,13 +34,13 @@
   background-color: #fff;
 
   .descriptionContent {
-    text-align: center;
-    max-width: 900px;
+    // text-align: center;
+    max-width: 95%;
     margin: 0 auto;
   }
 
   .sectionTitle {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 2rem;
     line-height: 1.2;
@@ -122,7 +55,7 @@
   }
 
   .description {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     color: #495057;
     line-height: 1.8;
     margin-bottom: 1.5rem;
@@ -134,8 +67,11 @@
 }
 
 .founderSection {
-  padding: 4rem 0;
-  background-color: #f8f9fa;
+  padding: 2rem 0;
+  background-color: #c3e0ff;
+
+
+
 
   .sectionTitle {
     text-align: center;
@@ -160,33 +96,33 @@
     align-items: center;
     max-width: 1000px;
     margin: 0 auto;
-    background: #fff;
+    // background: #fff;
     border-radius: 20px;
     padding: 3rem;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.144) inset;
+    // box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.144) inset;
 
     .founderImage {
       img {
         width: 100%;
         height: 300px;
         object-fit: cover;
-        border-radius: 15px;
-        border: 4px solid #02658f;
+        border-radius: 8px;
+        border: 1px solid #02658f;
       }
     }
 
     .founderContent {
       .founderName {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #02658f;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: black;
         margin-bottom: 0.5rem;
       }
 
       .founderTitle {
-        font-size: 1.2rem;
-        color: #dc3545;
-        font-weight: 600;
+        font-size: 1rem;
+        color: black;
+        font-weight: 500;
         margin-bottom: 1.5rem;
       }
 
@@ -196,16 +132,14 @@
         margin-bottom: 2rem;
 
         .socialIcon {
-          width: 40px;
-          height: 40px;
+          width: 30px;
+          height: 30px;
           display: flex;
           align-items: center;
           justify-content: center;
           background: #02658f;
           border-radius: 50%;
-          transition:
-            transform 0.3s ease,
-            background-color 0.3s ease;
+          transition: transform 0.3s ease, background-color 0.3s ease;
 
           img {
             width: 20px;
@@ -221,7 +155,7 @@
       }
 
       .founderDescription {
-        font-size: 1rem;
+        font-size: 0.9rem;
         color: #495057;
         line-height: 1.7;
       }
@@ -253,35 +187,34 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    max-width: 1000px;
+    max-width: 100%;
     margin: 0 auto;
   }
 
   .teamMember {
-    text-align: center;
-    background: #f8f9fa;
-    border-radius: 15px;
+    // text-align: center;
+    // background: #f8f9fa;
+    border-radius: 8px;
     padding: 1rem 0.2rem;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-    border: 1.8px solid #02658f;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.144) inset;
+    // transition: transform 0.3s ease, box-shadow 0.3s ease;
+    // border: 1.8px solid #02658f;
+    // box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.144) inset;
 
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+      // box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
     .memberImage {
-      margin-bottom: 1.5rem;
+      margin-bottom: .3rem;
 
       img {
         width: 270px;
         height: 270px;
         object-fit: cover;
-        border-radius: 15px;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.289);
+        border-radius: 8px;
+        background-color: #969696;
+        // box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.289);
         // border: 4px solid #02658F;
       }
     }
@@ -289,13 +222,13 @@
     .memberName {
       font-size: 1.25rem;
       font-weight: 600;
-      color: #02658f;
+      color: black;
       margin-bottom: 0.5rem;
     }
 
     .memberDesignation {
       font-size: 1rem;
-      color: #dc3545;
+      color: black;
       font-weight: 500;
     }
   }
@@ -315,14 +248,14 @@
 
   .missionCard,
   .visionCard {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(248, 248, 248, 0.95);
     border-radius: 20px;
     padding: 3rem 2rem;
     text-align: center;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(17, 11, 11, 0.793);
+    // border: 1px solid rgba(17, 11, 11, 0.793);
     transition: transform 0.3s ease;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.467) inset;
+    // box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.467) inset;
 
     &:hover {
       transform: translateY(-5px);
@@ -331,7 +264,7 @@
     .cardTitle {
       font-size: 1.75rem;
       font-weight: 700;
-      color: #02658f;
+      // color: #02658f;
       margin-bottom: 1.5rem;
     }
 
@@ -344,7 +277,7 @@
 
   .visionCard {
     .cardTitle {
-      color: #dc3545;
+      // color: #dc3545;
     }
   }
 }
@@ -371,7 +304,7 @@
 
 @media (max-width: 768px) {
   .heroSection {
-    min-height: 40vh;
+    // min-height: 40vh;
 
     .content {
       padding: 1rem;
@@ -419,11 +352,12 @@
   }
 
   .teamSection .teamMember {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem .5rem;
 
     .memberImage img {
-      width: 100px;
-      height: 100px;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1/1;
     }
 
     .memberName {
@@ -492,6 +426,70 @@
   }
 
   .teamSection .teamGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 0rem;
   }
 }
+
+.maskedBox {
+  -webkit-mask-image: radial-gradient(
+      15.24px at 50% 21.5px,
+      rgb(0, 0, 0) 99%,
+      rgba(0, 0, 0, 0) 101%
+    ),
+    radial-gradient(
+      15.24px at 50% -11.5px,
+      rgba(0, 0, 0, 0) 99%,
+      rgb(0, 0, 0) 101%
+    ),
+    radial-gradient(
+      15.24px at 50% calc(100% - 21.5px),
+      rgb(0, 0, 0) 99%,
+      rgba(0, 0, 0, 0) 101%
+    ),
+    radial-gradient(
+      15.24px at 50% calc(100% + 11.5px),
+      rgba(0, 0, 0, 0) 99%,
+      rgb(0, 0, 0) 101%
+    );
+
+  -webkit-mask-position: calc(50% - 20px) 0px, 50% 10px,
+    calc(50% - 20px) 100%, 50% calc(100% - 10px);
+
+  -webkit-mask-size: 40px 51%, 40px calc(51% - 10px), 40px 51%,
+    40px calc(51% - 10px);
+
+  -webkit-mask-repeat: repeat-x;
+
+  // fallback for non-webkit browsers
+  mask-image: radial-gradient(
+      15.24px at 50% 21.5px,
+      rgb(0, 0, 0) 99%,
+      rgba(0, 0, 0, 0) 101%
+    ),
+    radial-gradient(
+      15.24px at 50% -11.5px,
+      rgba(0, 0, 0, 0) 99%,
+      rgb(0, 0, 0) 101%
+    ),
+    radial-gradient(
+      15.24px at 50% calc(100% - 21.5px),
+      rgb(0, 0, 0) 99%,
+      rgba(0, 0, 0, 0) 101%
+    ),
+    radial-gradient(
+      15.24px at 50% calc(100% + 11.5px),
+      rgba(0, 0, 0, 0) 99%,
+      rgb(0, 0, 0) 101%
+    );
+
+  mask-position: calc(50% - 20px) 0px, 50% 10px, calc(50% - 20px) 100%,
+    50% calc(100% - 10px);
+
+  mask-size: 40px 51%, 40px calc(51% - 10px), 40px 51%,
+    40px calc(51% - 10px);
+
+  mask-repeat: repeat-x;
+}
+
+
