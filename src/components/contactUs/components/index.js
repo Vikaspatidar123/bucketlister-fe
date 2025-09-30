@@ -2,6 +2,8 @@ import React from "react";
 import ContactForm from "./contact-us/ContactForm";
 import { COMPANY_INFO } from "@/components/footer/constants";
 import styles from "./style.module.scss";
+import Image from "next/image";
+import { banner1 } from "@/assets/png";
 
 const ContactUs = () => {
   const handleMapClick = () => {
@@ -13,14 +15,16 @@ const ContactUs = () => {
   return (
     <div className={styles.contactUsPage}>
       <section className={styles.heroSection}>
-        <div className={styles.backgroundImage}></div>
-        <div className={styles.content}>
-          <div className={styles.container}>
-            <h1 className={styles.mainHeading}>
-              <span className={styles.line1}>Contact</span>
-              <span className={styles.line2}>US</span>
-            </h1>
-          </div>
+        <div className={styles.mapHero}>
+          <iframe
+            title="Office Location"
+            src={`https://www.google.com/maps?q=${encodeURIComponent(
+              COMPANY_INFO.address,
+            )}&output=embed`}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className={styles.mapIframe}
+          />
         </div>
       </section>
 
@@ -69,6 +73,27 @@ const ContactUs = () => {
                     </a>
                   </p>
                 </div>
+
+                <div className={styles.contactItem}>
+                  <h3 className={styles.itemTitle}>Find us online</h3>
+                  <div className={styles.socialRow}>
+                    {Array.isArray(COMPANY_INFO.socialMedia) &&
+                      COMPANY_INFO.socialMedia.map((s) => (
+                        <a
+                          key={s.name}
+                          href={s.url}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className={styles.socialIcon}
+                          aria-label={s.name}
+                          title={s.name}
+                        >
+                          <Image src={s.icon} alt={s.name} width={20} height={20} />
+                        </a>
+                      ))}
+                  </div>
+                </div>
+
               </div>
             </div>
 

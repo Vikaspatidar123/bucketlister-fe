@@ -14,13 +14,14 @@
   }
 
   .label {
-    color: black;
+    color: #0f2b38;
     font-weight: 700;
     font-size: 14px;
     line-height: 100%;
     letter-spacing: 0.5px;
     padding-left: 10px;
   }
+
 
   .input,
   .textarea {
@@ -34,8 +35,8 @@
 
     &:focus {
       outline: none;
-      border-color: #02658f;
-      box-shadow: 0 0 0 2px rgba(2, 101, 143, 0.1);
+      border-color: #ef3447;
+      box-shadow: 0 0 0 2px rgba(239, 52, 71, 0.1);
     }
 
     &::placeholder {
@@ -68,20 +69,21 @@
   }
 
   .submitButton {
-    background: #ef3447;
-    border: 2px solid #ffffff;
+    background: linear-gradient(135deg, #ef3447 0%, #ff5567 100%);
+    border: none;
     color: white;
     padding: 0.75rem 1.5rem;
-    border-radius: 8px;
+    border-radius: 24px;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     align-self: flex-end;
     min-width: 140px;
 
     &:hover:not(:disabled) {
-      background: #c82333;
+      box-shadow: 0 8px 20px rgba(239, 52, 71, 0.25);
+      transform: translateY(-1px);
     }
 
     &:active:not(:disabled) {

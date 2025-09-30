@@ -5,68 +5,29 @@
 
 .heroSection {
   position: relative;
-  min-height: 40vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: visible;
+  overflow: hidden;
 
-  .backgroundImage {
+  .mapHero {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("/assets/png/banner1.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     z-index: 1;
-  }
-
-  .content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    padding: 0 24px;
-
-    @media (max-width: 768px) {
-      padding: 0 16px;
-    }
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .mainHeading {
-    font-size: clamp(2rem, 4vw, 2.5rem);
-    font-weight: 700;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin: 0;
-    line-height: 1.2;
-
-    .line1,
-    .line2 {
-      display: block;
-      line-height: 1.1;
-    }
-
-    .line2 {
-      font-weight: 800;
-    }
   }
 }
 
+
 .contactSection {
-  padding: 40px 0;
+  padding: 4rem 0;
   background: white;
 
   @media (max-width: 768px) {
-    padding: 30px 0;
+    padding: 2rem 0;
   }
 
   .container {
@@ -81,7 +42,7 @@
 
   .contactContent {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.2fr;
     gap: 40px;
     align-items: start;
 
@@ -98,6 +59,7 @@
       font-size: 1.8rem;
       font-weight: 700;
       margin-bottom: 16px;
+      line-height: 1.2;
 
       @media (max-width: 768px) {
         font-size: 1.5rem;
@@ -108,7 +70,7 @@
       }
 
       .titlePart2 {
-        color: #171717;
+        color: #ef3447;
         font-weight: 800;
       }
     }
@@ -121,12 +83,28 @@
     }
 
     .contactDetails {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
     }
 
     .contactItem {
+      background: #ffffff;
+      border: 1px solid rgba(239, 52, 71, 0.15);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 10px rgba(239, 52, 71, 0.06);
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
       .itemTitle {
         font-size: 0.9rem;
         font-weight: 700;
@@ -159,42 +137,98 @@
       }
 
       .mapButton {
-        background: #ef3447;
+        background: linear-gradient(135deg, #ef3447 0%, #ff5567 100%);
         color: white;
-        border: 2px solid #000000;
-        padding: 8px 16px;
-        border-radius: 8px;
-        font-weight: 600;
-        font-size: 0.8rem;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 24px;
+        font-weight: 700;
+        font-size: 0.85rem;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
         margin-top: 8px;
 
         &:hover {
-          background: #c82333;
           transform: translateY(-1px);
+          box-shadow: 0 8px 20px rgba(239, 52, 71, 0.25);
         }
       }
     }
   }
 
   .contactFormContainer {
-    background: white;
+    background: #ffffff;
     padding: 24px;
-    border-radius: 8px;
-    border: 2px solid #000000;
+    border-radius: 16px;
+    border: 1px solid rgba(239, 52, 71, 0.15);
+    box-shadow: 0 10px 30px rgba(239, 52, 71, 0.08);
 
     @media (max-width: 768px) {
       padding: 20px;
     }
 
     .formTitle {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: black;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #171717;
       margin-bottom: 16px;
       text-align: center;
       letter-spacing: 0.5px;
     }
   }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.socialRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.socialIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ef3447;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  img {
+    filter: brightness(0) invert(1);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 52, 71, 0.25);
+  }
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
